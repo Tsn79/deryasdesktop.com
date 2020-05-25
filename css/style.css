@@ -1,0 +1,35 @@
+:root {
+  --color-desktop-bg: #468BAD;
+  --color-grey: #DCDCDC; }
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  background-color: var(--color-desktop-bg);
+  height: 100%;
+  overflow: hidden;
+  user-select: none; }
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }
+
+.header {
+  border: solid;
+  background-color: var(--color-grey);
+  display: flex;
+  width: 100%; }
+  .header__logo-image {
+    width: 3.7rem;
+    height: 3.7rem;
+    border: .1rem solid black;
+    border-radius: 50%; }
+  .header__logo-name {
+    text-transform: uppercase; }
