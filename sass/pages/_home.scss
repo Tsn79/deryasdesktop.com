@@ -1,27 +1,37 @@
 .header {
-    border: solid;
+    border: solid 0.1rem black;
     background-color: var(--color-grey);
 
     display: flex;
+    justify-content: space-between;
+
     width: 100%;
+    height: 3.5rem;
 
     &__logo {
-        
+        background: linear-gradient(to right, var(--color-pink-dark), var(--color-pink-light));
+        width: 22rem;
+        border: 0.1rem solid var(--color-grey-light);
 
-        &__box {
-            
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
 
+        &-box {
+         display: flex;       
+         align-items: center;       
         }
 
         &-image {
-            width: 3.7rem;
-            height: 3.7rem;
-            border: .1rem solid black;
-            border-radius: 50%;
+            width: 2.3rem;
+            height: 2.3rem;
             }
 
         &-name {
             text-transform: uppercase;
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-left: -1.3rem;
         }    
 
 
