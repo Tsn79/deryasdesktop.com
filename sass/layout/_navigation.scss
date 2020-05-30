@@ -1,6 +1,29 @@
 .navigation {
-
+    margin-right: auto;
     &__list {
+        list-style: none;
+
+        display: flex;
         
+
+        &-item {
+            &:not(:last-child) {
+                margin-right: 0.6rem;
+            }
+        }
     }
+
+
+    &__dropdown-btn {
+        height: 3.3rem;
+        width: 15rem;
+        font-family: inherit;
+        font-size: 1.8rem;
+        letter-spacing: inherit;
+        background-color: #23DACE;
+        border: black 0.1rem solid;
+        box-shadow: .2rem .2rem 0rem rgba(#495057, .8);
+    }
+
+
 }

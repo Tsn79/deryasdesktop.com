@@ -6,8 +6,10 @@
     &__logo {
         background: linear-gradient(to right, var(--color-pink-dark), var(--color-pink-light));
         width: 25rem;
+        height: 100%;
         border: var(--tab-border);
-        box-shadow: .2rem .2rem 0rem rgba(#000, .8);
+        box-shadow: .2rem .2rem 0rem rgba(#495057, .8);
+        margin-right: 0.6rem;
 
         display: flex;
         align-items: center;
