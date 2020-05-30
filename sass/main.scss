@@ -6,7 +6,10 @@
 @import "base/base";
 @import "base/typography";
 
-
 //layout
+@import "layout/header";
+@import "layout/navigation";
+
+//pages
 @import "pages/home";
 
