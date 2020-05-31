@@ -18,11 +18,15 @@
         height: 3.3rem;
         width: 15rem;
         font-family: inherit;
-        font-size: 1.8rem;
+        font-size: 1.7rem;
         letter-spacing: inherit;
         background-color: #23DACE;
         border: black 0.1rem solid;
         box-shadow: .2rem .2rem 0rem rgba(#495057, .8);
+
+        &:focus {
+            outline: none;
+        }
     }
 
 

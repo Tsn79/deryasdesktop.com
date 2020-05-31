@@ -1,0 +1,19 @@
+@keyframes logo-slide {
+    0% {
+      
+    }
+
+    100% {
+        transform: translateX(21rem);
+    }
+}
+
+@keyframes slide {
+    0% {
+
+    }
+
+    100% {
+        transform: translateX(-3rem);
+    }
+}

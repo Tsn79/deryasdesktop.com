@@ -4,20 +4,46 @@
 
 
     &__logo {
-        background: linear-gradient(to right, var(--color-pink-dark), var(--color-pink-light));
+        background: var(--color-pink-dark);
         width: 25rem;
         height: 100%;
         border: var(--tab-border);
         box-shadow: .2rem .2rem 0rem rgba(#495057, .8);
         margin-right: 0.6rem;
+        position: relative;
+        z-index: 0;
+        overflow: hidden;
 
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+
+        &:hover &-box {
+            animation: logo-slide 1.4s linear;    
+        }
+
+        &:hover::before {
+            opacity: 1;
+            animation: slide 1.4s linear;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 2.3rem;
+            width: 100%;
+            background: var(--color-pink-dark);
+            transform: translateX(-20.7rem);
+            border-radius: 10rem;
+            opacity: 0;
+            z-index: 1;   
+        }
 
         &-box {
          display: flex;       
-         align-items: center;       
+         align-items: center;   
+         transform: translateX(1.8rem);
+         z-index: 2;
+         
         }
 
         &-image {
@@ -29,7 +55,7 @@
             text-transform: uppercase;
             font-size: 2rem;
             color: var(--color-white);
-            margin-left: -1.3rem;
+            margin-left: 3rem;
         }    
 
 
