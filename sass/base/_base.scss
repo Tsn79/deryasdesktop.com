@@ -4,7 +4,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;    
+    cursor: url("/images/cursor.png"), auto;
 }
+
+
+*:link {
+    cursor: url("/images/cursor_pointer.png"), auto;
+}
+
 
 
 html {
@@ -12,13 +19,17 @@ html {
 }
 
 body {
-    background-color: var(--color-desktop-bg);
     height: 100vh;
     width: 100vw;
     overflow: hidden;
     user-select: none;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.1rem;
-    cursor: url("/images/cursor.png"), auto;
+}
+
+.body-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color-desktop-bg);
 }
 

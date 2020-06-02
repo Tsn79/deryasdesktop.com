@@ -5,14 +5,25 @@
     --color-blue-dark: #233BDA;
 
     --color-white: #ffffff;
+
     --color-grey: #DCDCDC;
     --color-grey-light: #e5e5e5;
+    --color-grey-dropdown: #C0C0C0;
     --color-grey-charcoal: #495057;
 
     --color-pink-dark: #CD39CD;
     --color-pink-light: #D760D7;
 
-    --tab-border: 0.1rem solid var(--color-grey-light);
+   
+    --border-standart: black 0.1rem solid;
+
     --tab-box-shadow: .2rem .2rem 0rem rgba(#495057, .8);
+
+    --height-header: 3.4rem;
+
+    --font-size-big: 2rem;
+    --font-size-medium: 1.7rem;
+    --font-size-small: 1.2rem;
+
 }
 
