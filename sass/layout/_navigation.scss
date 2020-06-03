@@ -7,7 +7,7 @@
         
 
         &-item {
-            margin-left: 0.4rem;
+            margin-left: 0.3rem;
         }
     }
 
@@ -20,6 +20,8 @@
         letter-spacing: inherit;
         background-color: var(--color-desktop-tab);
         border: var(--border-standart);
+        //box-shadow: .1rem .1rem 0 rgba(black, .8);
+        box-shadow: inset .1rem .1rem var(--color-grey-charcoal);
         
 
         &:focus {
@@ -38,7 +40,7 @@
         background-color: var(--color-grey-dropdown);
 
         & > * {
-            padding: 0.8rem;
+            padding: var(--padding-small);
 
             &:hover {
                 background-color: #000;

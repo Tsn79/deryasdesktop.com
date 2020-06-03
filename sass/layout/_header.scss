@@ -1,11 +1,103 @@
 .header {
     position: fixed;
+    background-color: var(--color-grey);
     left: 0;
     right: 0;
     display: flex;
     height: var(--height-header);
+    border-bottom: var(--color-grey-charcoal) 1.5px solid;
 
     & > * {
         height: 100%;
     }
+
+    &_left {
+        
+    }
+
+    &__logo {
+        background: var(--color-pink-light);
+        flex: 0 0 25rem;
+      
+        border: solid var(--color-grey) 1px;
+        
+        position: relative;
+        z-index: 0;
+        overflow: hidden;
+        transition: .2s all;
+
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            background: var(--color-blue-dark);  
+            box-shadow: .1rem .1rem 1rem rgba(black, .8);
+        }
+
+        &:hover &-box {
+            animation: logo-slide 2s linear; 
+        }
+
+        &:hover &-box::before {
+            opacity: 1;
+        }
+
+
+        &-box {
+         display: flex;       
+         align-items: center;   
+         transform: translateX(1.8rem);
+         z-index: 2;
+         position: relative;
+
+         &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            height: 120%;
+            width: 20.7rem;
+            background: var(--color-blue-dark);
+            opacity: 0;
+            transform: translateX(-20.7rem);
+            z-index: 0;            
+         }
+         
+        }
+
+        &-image {
+            width: 2.3rem;
+            height: 2.3rem;
+            }
+
+        &-name {
+            text-transform: uppercase;
+            font-size: var(--font-size-big);
+            color: var(--color-white);
+            margin-left: 2.4rem;
+            letter-spacing: 0.5px;
+        }    
+
+
+    }
 }
+
+        .email {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            font-size: 1.6rem;
+            
+        }
+
+        .time {
+            flex-shrink: 0; 
+            display: flex;
+            align-items: center;
+            margin: 0 4rem;
+            font-size: var(--font-size-medium);
+            border: var(--border-standart);
+            background-color: var(--color-desktop-tab);
+            height: var(--height-header);
+            padding: var(--padding-small);
+            box-shadow: inset .1rem .1rem var(--color-grey-charcoal);
+        }

@@ -15,15 +15,17 @@
     --color-pink-light: #D760D7;
 
    
-    --border-standart: black 0.1rem solid;
+    --border-standart: var(--color-grey-charcoal) 1.1px solid;
 
-    --tab-box-shadow: .2rem .2rem 0rem rgba(#495057, .8);
+    --box-shadow-black: inset .1rem .1rem var(--color-grey-charcoal); 
 
     --height-header: 3.4rem;
 
-    --font-size-big: 2rem;
+    --font-size-big: 1.9rem;
     --font-size-medium: 1.7rem;
-    --font-size-small: 1.2rem;
+    --font-size-small: 1.3rem;
+
+    --padding-small: 0.8rem;
 
 }
 
