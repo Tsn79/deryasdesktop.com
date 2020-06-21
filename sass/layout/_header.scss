@@ -5,11 +5,7 @@
     right: 0;
     display: flex;
     height: var(--height-header);
-    border-bottom: var(--color-grey-charcoal) 1.5px solid;
-
-    & > * {
-        height: 100%;
-    }
+    border-bottom: var(--border-bottom-header);
 
     &__logo {
         background: var(--color-pink-light);
@@ -91,9 +87,10 @@
             align-items: center;
             margin: 0 4rem;
             font-size: var(--font-size-medium);
-            border: var(--border-standart);
             background-color: var(--color-desktop-tab);
             height: var(--height-header);
             padding: var(--padding-small);
-            box-shadow: inset .1rem .1rem var(--color-grey-charcoal);
+            box-shadow: inset .2rem .2rem .1rem var(--color-grey-charcoal),
+                    inset -.1rem 0 0 0 var(--color-grey-charcoal);
+            height: calc(#{'var(--height-header) - var(--border-bottom-size)'});
         }

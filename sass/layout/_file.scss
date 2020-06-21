@@ -1,0 +1,19 @@
+.file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 5rem;
+    
+           
+        &-icon {
+            background-size: cover;
+            width: 8rem;
+            height: 8rem;
+        }
+
+        &-label {
+           
+        }
+
+}

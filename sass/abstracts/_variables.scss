@@ -5,6 +5,7 @@
     --color-blue-dark: #233BDA;
 
     --color-white: #ffffff;
+    --color-black: #000;
 
     --color-grey: #DCDCDC;
     --color-grey-light: #e5e5e5;
@@ -14,10 +15,8 @@
     --color-pink-dark: #CD39CD;
     --color-pink-light: #D760D7;
 
-   
-    --border-standart: var(--color-grey-charcoal) 1.1px solid;
-
-    --box-shadow: inset .1rem .1rem var(--color-grey-charcoal); 
+    --border-bottom-header: var(--color-black) var(--border-bottom-size) solid;
+    --border-bottom-size: 1.3px;
 
     --height-header: 3.4rem;
 

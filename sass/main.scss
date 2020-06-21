@@ -7,10 +7,14 @@
 @import "base/base";
 @import "base/typography";
 
+//components
+@import "components/button";
+
 //layout
 @import "layout/header";
 @import "layout/navigation";
 @import "layout/desktop";
+@import "layout/file";
 
 //pages
 @import "pages/home";
