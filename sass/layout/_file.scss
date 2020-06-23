@@ -1,19 +1,18 @@
 .file {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    margin-bottom: 5rem;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
     
-           
-        &-icon {
-            background-size: cover;
-            width: 8rem;
-            height: 8rem;
-        }
+    &-icon {
+        width: 9rem;
+        height: 9rem;
+        background-size: cover;
+        margin-bottom: .8rem;
+    }
 
-        &-label {
-           
-        }
-
+    &-label {
+        font-size: 1.4rem;
+        margin: 0 auto;
+    }
 }
