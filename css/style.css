@@ -17,7 +17,8 @@
   --font-size-big: 1.9rem;
   --font-size-medium: 1.7rem;
   --font-size-small: 1.3rem;
-  --padding-small: 0.8rem; }
+  --padding-small: 0.8rem;
+  --cursor-point: url("/images/cursor_pointer.png"), auto; }
 
 @keyframes logo-slide {
   0% {
@@ -212,13 +213,22 @@ body {
 .file {
   display: flex;
   flex-direction: column;
-  justify-items: center;
-  align-items: center; }
+  align-items: center;
+  cursor: var(--cursor-point);
+  transition: .2s transform; }
+  .file:link {
+    font-size: inherit;
+    color: inherit;
+    text-decoration: none; }
+  .file:hover {
+    transform: scale(1.1); }
   .file-icon {
     width: 9rem;
     height: 9rem;
     background-size: cover;
-    margin-bottom: .8rem; }
+    margin-bottom: .8rem;
+    cursor: inherit; }
   .file-label {
     font-size: 1.4rem;
-    margin: 0 auto; }
+    margin: 0 auto;
+    cursor: inherit; }
