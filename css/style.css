@@ -17,6 +17,7 @@
   --font-size-big: 1.9rem;
   --font-size-medium: 1.7rem;
   --font-size-small: 1.3rem;
+  --font-family: 'Roboto', sans-serif;
   --padding-small: 0.8rem;
   --cursor-point: url("/images/cursor_pointer.png"), auto; }
 
@@ -223,7 +224,7 @@ body {
   .navigation__dropdown-btn {
     height: calc(var(--height-header) - var(--border-bottom-size));
     width: 15rem;
-    font-family: inherit;
+    font-family: var(--font-family);
     font-size: var(--font-size-medium);
     letter-spacing: inherit;
     background-color: var(--color-desktop-tab);

@@ -20,7 +20,7 @@
     &__dropdown-btn {
         height: calc(#{'var(--height-header) - var(--border-bottom-size)'});
         width: 15rem;
-        font-family: inherit;
+        font-family: var(--font-family);
         font-size: var(--font-size-medium);
         letter-spacing: inherit;
         background-color: var(--color-desktop-tab);    
