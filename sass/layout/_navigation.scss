@@ -27,8 +27,7 @@
         box-shadow: inset .2rem .2rem .1rem var(--color-grey-charcoal),
                     inset -.1rem 0 0 0 var(--color-grey-charcoal);
         //border-right: .1rem black solid;
-        position: relative;
-        z-index: 1;
+        //position: relative;
 
         &,
         &:link,
@@ -60,7 +59,7 @@
         left:0;
         width: 17rem;
         display: none;
-        z-index: 10;
+        //z-index: 99;
 
         &:hover {
             display: block;
@@ -77,7 +76,6 @@
             }
 
         }
-
         
     }
 

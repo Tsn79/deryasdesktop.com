@@ -5,6 +5,3 @@ document.querySelector('body').addEventListener('click', function () {
     clickSound.load();
   })
 
-
-//send mail
-const mail = document.querySelector(".file__mail");
