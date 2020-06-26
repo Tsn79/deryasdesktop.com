@@ -1,6 +1,6 @@
 //abstracts
 @import "abstracts/variables";
-
+@import "abstracts/mixins";
 
 //base
 @import "base/animations";
@@ -10,14 +10,11 @@
 //components
 @import "components/button";
 @import "components/font-size";
+@import "components/popup-pane";
 
 //layout
 @import "layout/header";
 @import "layout/navigation";
 @import "layout/desktop";
 @import "layout/file";
-
-//pages
-@import "pages/home";
-@import "pages/about-me";
-
+@import "layout/about-me";
