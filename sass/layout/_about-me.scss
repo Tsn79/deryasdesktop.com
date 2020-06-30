@@ -3,6 +3,7 @@
     height: 44.6rem;
     @include block-center;
     overflow: hidden;
+    
 
     &__pane {
         position: absolute;
@@ -12,6 +13,17 @@
         background-repeat: no-repeat;
         background-size: 25rem;
         background-position: 2rem 2rem;
+        overflow: hidden;
+    }
+
+    &__content {
+        position: absolute;
+        font-size: var(--font-size-medium);
+        width: 30rem;
+        height: 90%;
+        overflow-y: scroll;
+        right: 2rem;
+        padding: 3rem 0;
     }
 }
 
