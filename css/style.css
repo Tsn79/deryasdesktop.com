@@ -305,4 +305,13 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+  overflow: hidden; }
+  .about-me__pane {
+    position: absolute;
+    width: 100%;
+    height: 90.5%;
+    background-image: url(/images/about-me--icon.svg);
+    background-repeat: no-repeat;
+    background-size: 25rem;
+    background-position: 2rem 2rem; }
