@@ -73,15 +73,6 @@ body {
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }
 
-.font--small {
-  font-size: 1.3rem; }
-
-.font--medium {
-  font-size: 1.7rem; }
-
-.font--large {
-  font-size: 1.9rem; }
-
 .main-pane {
   width: 100%;
   height: 100%;
@@ -101,11 +92,12 @@ body {
     height: 4rem;
     border-bottom: solid black;
     background-color: var(--color-desktop-tab); }
-  .inner-pane p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
+    .inner-pane__header-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: var(--font-size-medium); }
 
 .btn {
   position: absolute;
@@ -314,4 +306,13 @@ body {
     background-image: url(/images/about-me--icon.svg);
     background-repeat: no-repeat;
     background-size: 25rem;
-    background-position: 2rem 2rem; }
+    background-position: 2rem 2rem;
+    overflow: hidden; }
+  .about-me__content {
+    position: absolute;
+    font-size: var(--font-size-medium);
+    width: 30rem;
+    height: 90%;
+    overflow-y: scroll;
+    right: 2rem;
+    padding: 3rem 0; }
