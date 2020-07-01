@@ -19,11 +19,11 @@
     &__content {
         position: absolute;
         font-size: var(--font-size-medium);
-        width: 30rem;
+        width: 33rem;
         height: 90%;
         overflow-y: scroll;
         right: 2rem;
-        padding: 3rem 0;
+        padding: 3rem 1rem 0 0;
     }
 }
 
