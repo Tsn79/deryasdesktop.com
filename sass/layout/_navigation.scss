@@ -18,7 +18,8 @@
 
 
     &__dropdown-btn {
-        height: calc(#{'var(--height-header) - var(--border-bottom-size)'});
+        //height: calc(#{'var(--height-header) - var(--border-bottom-size)'});
+        height: 3.2rem;
         width: 15rem;
         font-family: var(--font-family);
         font-size: var(--font-size-medium);
