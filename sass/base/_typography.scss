@@ -1,3 +1,12 @@
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.body-container {
+    font-family: 'Roboto', sans-serif;
 }
+
+.introduction {
+    font-size: var(--font-size-big);
+    font-weight: 500;
+    //color: #FBEE0A;
+    font-weight: 500;
+    //text-shadow: 2px 3px 2px #CD39CD;
+}
+
