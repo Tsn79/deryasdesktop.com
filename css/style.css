@@ -14,6 +14,7 @@
   --border-bottom-header: var(--color-black) var(--border-bottom-size) solid;
   --border-bottom-size: 2.5px;
   --height-header: 3.4rem;
+  --font-size-xl: 2.1rem;
   --font-size-big: 1.9rem;
   --font-size-medium: 1.7rem;
   --font-size-small: 1.3rem;
@@ -67,11 +68,18 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: var(--color-desktop-bg);
-  font-family: 'Roboto', sans-serif;
   position: relative; }
 
-body {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }
+.body-container {
+  font-family: 'Roboto', sans-serif; }
+
+.introduction {
+  font-size: var(--font-size-big);
+  font-weight: 500;
+  font-weight: 500; }
+
+.margin-bottom--small {
+  margin-bottom: .5rem !important; }
 
 .main-pane {
   width: 100%;
@@ -141,9 +149,8 @@ body {
   border-bottom: var(--border-bottom-header);
   z-index: 2; }
   .header__logo {
-    background-color: var(--color-logo-bg);
+    background-color: #FBEE0A;
     flex: 0 0 25rem;
-    box-shadow: inset 0.2rem 0.2rem 0.1rem var(--color-grey-charcoal), inset -0.1rem 0 0 0 var(--color-grey-charcoal);
     position: relative;
     z-index: 0;
     overflow: hidden;
@@ -201,7 +208,7 @@ body {
   height: var(--height-header);
   padding: var(--padding-small);
   box-shadow: inset 0.2rem 0.2rem 0.1rem var(--color-grey-charcoal), inset -0.1rem 0 0 0 var(--color-grey-charcoal);
-  height: calc(var(--height-header) - var(--border-bottom-size)); }
+  height: 3.2rem; }
 
 .navigation {
   height: 100%; }
@@ -214,7 +221,7 @@ body {
   .navigation__dropdown-btn:hover + .navigation__dropdown-hidden {
     display: block; }
   .navigation__dropdown-btn {
-    height: calc(var(--height-header) - var(--border-bottom-size));
+    height: 3.2rem;
     width: 15rem;
     font-family: var(--font-family);
     font-size: var(--font-size-medium);
@@ -311,8 +318,8 @@ body {
   .about-me__content {
     position: absolute;
     font-size: var(--font-size-medium);
-    width: 30rem;
+    width: 33rem;
     height: 90%;
     overflow-y: scroll;
     right: 2rem;
-    padding: 3rem 0; }
+    padding: 3rem 1rem 0 0; }
