@@ -9,11 +9,12 @@
     z-index: 2;
 
     &__logo {
-        background-color: var(--color-logo-bg);
+        background-color: #FBEE0A;
         flex: 0 0 25rem;
     
-        box-shadow: inset .2rem .2rem .1rem var(--color-grey-charcoal),
-                    inset -.1rem 0 0 0 var(--color-grey-charcoal);
+        //box-shadow: 
+                    //inset .2rem .2rem .1rem var(--color-grey-charcoal),
+                    //inset -.1rem 0 0 0 var(--color-grey-charcoal);
         
         position: relative;
         z-index: 0;
@@ -95,5 +96,5 @@
             padding: var(--padding-small);
             box-shadow: inset .2rem .2rem .1rem var(--color-grey-charcoal),
                     inset -.1rem 0 0 0 var(--color-grey-charcoal);
-            height: calc(#{'var(--height-header) - var(--border-bottom-size)'});
+            height: 3.2rem;
         }
