@@ -110,7 +110,11 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 2.8rem;
-  height: 2.8rem; }
+  height: 2.8rem;
+  transition: all .3s; }
+  .btn:hover .btn__checkmark:before {
+    color: red;
+    font-size: 3.7rem; }
   .btn__checkbox {
     width: 0;
     height: 0;
@@ -298,13 +302,19 @@ body {
     cursor: inherit; }
 
 .about-me {
+  position: relative;
   width: 70rem;
   height: 44.6rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow: hidden; }
+  overflow: hidden;
+  transition: all .3s; }
+  .about-me:not(:target) {
+    transform: translate(-50%, -200%); }
+  .about-me:target {
+    transform: translate(-50%, -50%); }
   .about-me__pane {
     position: absolute;
     width: 100%;

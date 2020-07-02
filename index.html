@@ -24,7 +24,7 @@
             <li class="navigation__list-item">
                 <button class="navigation__dropdown-btn">About Me</button>
             </li>
-                
+
             <!--item 2-->
             <li class="navigation__list-item">
                 <button class="navigation__dropdown-btn">Follow</button>
@@ -66,10 +66,10 @@
                         <div class="file-icon" style="background-image: url(/images/icons/icon-mail.svg);"></div>
                         <div class="file-label">MAIL_ME</div>
                     </a>
-                    <div class="file file__about" style="grid-area: 3 / 2 / 4 / 3;">
+                    <a class="file file__about" style="grid-area: 3 / 2 / 4 / 3;" href="#about-me" target="_self">
                         <div class="file-icon"  style="background-image: url(/images/icons/icon-logo.svg);"></div>
                         <div class="file-label">About-Me.pdf</div>
-                    </div>
+                    </a>
                     <div class="file file__meme" style="grid-area: 4 / 2 / 5 / 3;">
                         <div class="file-icon" style="background-image: url(/images/icons/icon-meme.svg);"></div>
                         <div class="file-label">MEME_</div>
@@ -93,15 +93,15 @@
    <audio class="click-sound">
        <source src="images/click.wav" type="audio/mpeg">
    </audio>
-   <section class="about-me">
+   <section class="about-me" id="about-me">
         <div class="main-pane">
             <div class="inner-pane">
                 <div class="inner-pane__header">
                     <p class="inner-pane__header-text">About-Me.pdf</p>
-                    <label class="btn">
+                    <a class="btn" href="#">
                         <input type="checkbox" class="btn__checkbox">
                         <span class="btn__checkmark"></span>
-                    </label>
+                    </a>
                 </div>
                 <div class="about-me__pane">
                     <p class="about-me__content">
