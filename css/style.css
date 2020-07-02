@@ -71,7 +71,8 @@ body {
   position: relative; }
 
 .body-container {
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  font-size: var(--font-size-medium); }
 
 .introduction {
   font-size: var(--font-size-big);
@@ -101,8 +102,7 @@ body {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: var(--font-size-medium); }
+      transform: translate(-50%, -50%); }
 
 .btn {
   position: absolute;
@@ -201,7 +201,6 @@ body {
   display: flex;
   align-items: center;
   margin: 0 4rem;
-  font-size: var(--font-size-medium);
   background-color: var(--color-desktop-tab);
   height: var(--height-header);
   padding: var(--padding-small);
@@ -222,7 +221,7 @@ body {
   height: 3.2rem;
   width: 15rem;
   font-family: var(--font-family);
-  font-size: var(--font-size-medium);
+  font-size: inherit;
   letter-spacing: inherit;
   background-color: var(--color-desktop-tab);
   box-shadow: inset 0.2rem 0.2rem 0.1rem var(--color-grey-charcoal), inset -0.1rem 0 0 0 var(--color-grey-charcoal); }
@@ -317,7 +316,6 @@ body {
     overflow: hidden; }
   .about-me__content {
     position: absolute;
-    font-size: var(--font-size-medium);
     width: 33rem;
     height: 90%;
     overflow-y: scroll;
