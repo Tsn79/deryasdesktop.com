@@ -6,6 +6,7 @@
     <title>An Ordinary Portfolio Page of Derya</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 </head>
 <body>
    <div class="body-container">
@@ -21,8 +22,8 @@
     
             <!--NAVIGATION-->    
             <!--item 1-->
-            <li class="navigation__list-item">
-                <button class="navigation__dropdown-btn">About Me</button>
+            <li class="navigation__list-item">               
+                <a href="#about-me"><button class="navigation__dropdown-btn">About Me</button></a>
             </li>
 
             <!--item 2-->
@@ -93,7 +94,7 @@
    <audio class="click-sound">
        <source src="images/click.wav" type="audio/mpeg">
    </audio>
-   <section class="about-me" id="about-me">
+   <section class="about-me pane__transition" id="about-me">
         <div class="main-pane">
             <div class="inner-pane">
                 <div class="inner-pane__header">
