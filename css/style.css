@@ -1,7 +1,7 @@
 :root {
   --color-desktop-bg: #468BAD;
   --color-desktop-tab: #23DACE;
-  --color-logo-bg: #FFFD82;
+  --color-yellow: #FBEE0A;
   --color-blue-dark: #233BDA;
   --color-white: #ffffff;
   --color-black: #000;
@@ -113,8 +113,11 @@ body {
   height: 2.8rem;
   transition: all .3s; }
   .btn:hover .btn__checkmark:before {
-    color: red;
-    font-size: 3.7rem; }
+    color: black;
+    font-size: 3.7rem;
+    cursor: var(--cursor-point); }
+  .btn:hover .btn__checkmark {
+    background-color: var(--color-yellow); }
   .btn__checkbox {
     width: 0;
     height: 0;
@@ -151,7 +154,7 @@ body {
   border-bottom: var(--border-bottom-header);
   z-index: 2; }
   .header__logo {
-    background-color: #FBEE0A;
+    background-color: var(--color-yellow);
     flex: 0 0 25rem;
     position: relative;
     z-index: 0;
@@ -284,7 +287,7 @@ body {
   align-items: center;
   cursor: var(--cursor-point);
   transition: .2s transform; }
-  .file:link {
+  .file:link, .file:visited {
     font-size: inherit;
     color: inherit;
     text-decoration: none; }
