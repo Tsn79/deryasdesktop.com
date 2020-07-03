@@ -4,8 +4,9 @@
         align-items: center;
         cursor: var(--cursor-point); 
         transition: .2s transform;
-
-        &:link {
+   
+        &:link,
+        &:visited {
             font-size: inherit;
             color: inherit;
             text-decoration: none;
@@ -14,6 +15,11 @@
     &:hover {
         transform: scale(1.1);
     }    
+
+    &:active {
+        transform: scale(1.0);
+        outline: none;
+     }  
         
     
     &-icon {
