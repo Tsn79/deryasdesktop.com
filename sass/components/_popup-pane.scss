@@ -38,8 +38,13 @@
  transition: all .3s;
 
  &:hover &__checkmark:before {
-     color: red;
+     color: black;
      font-size: 3.7rem;
+     cursor: var(--cursor-point);
+ }
+
+ &:hover &__checkmark {
+     background-color: var(--color-yellow);
  }
 
    &__checkbox {
