@@ -4,12 +4,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;    
-    cursor: url("/images/cursor.png"), auto;
 }
 
-
-*:link {
-    cursor: url("/images/cursor_pointer.png"), auto;
+a {
+ cursor: url("/images/cursor_pointer.png"), auto;
 }
 
 
@@ -22,7 +20,8 @@ body {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    user-select: none;  
+    user-select: none;
+    cursor: url("/images/cursor.png"), auto;
 }
 
 .body-container {
@@ -30,5 +29,6 @@ body {
     width: 100vw;
     background-color: var(--color-desktop-bg);
     position: relative;
+    
 }
 
