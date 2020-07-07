@@ -23,9 +23,11 @@
         
     
     &-icon {
+        display: block;
         width: 9rem;
         height: 9rem;
-        background-size: cover;
+        background-repeat: no-repeat;
+        background-size: contain;
         margin-bottom: .8rem;
         cursor: inherit;     
     }
