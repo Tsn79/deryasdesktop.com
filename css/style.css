@@ -233,7 +233,8 @@ body {
   top: 3rem;
   left: 0;
   width: 17rem;
-  display: none; }
+  display: none;
+  z-index: 99; }
   .navigation__dropdown-hidden:hover {
     display: block; }
   .navigation__dropdown-hidden > *:hover {
@@ -271,28 +272,58 @@ body {
   flex-direction: column;
   align-items: center;
   cursor: var(--cursor-point);
-  transition: .2s transform; }
+  transition: .3s all; }
+  .file:hover .file-icon:before {
+    opacity: 1; }
+  .file:hover .file-icon:after {
+    opacity: 1; }
+  .file:hover .file-label {
+    color: var(--color-yellow); }
   .file:link, .file:visited {
     font-size: inherit;
     color: inherit;
     text-decoration: none; }
-  .file:hover {
-    transform: scale(1.1); }
-  .file:active {
-    transform: scale(1);
-    outline: none; }
+  .file:active .file-icon {
+    filter: drop-shadow(16px 16px 20px red) invert(75%); }
   .file-icon {
+    position: relative;
     display: block;
     width: 9rem;
     height: 9rem;
     background-repeat: no-repeat;
     background-size: contain;
     margin-bottom: .8rem;
-    cursor: inherit; }
+    cursor: inherit;
+    transition: .1s all; }
+    .file-icon::after {
+      content: "";
+      position: absolute;
+      width: 3rem;
+      height: 5rem;
+      left: -3rem;
+      background-image: url(/images/spark--left.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-size: 3rem;
+      transition: .3s all;
+      opacity: 0; }
+    .file-icon::before {
+      content: "";
+      position: absolute;
+      width: 3rem;
+      height: 5rem;
+      right: -3rem;
+      background-image: url(/images/spark--right.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-size: 3rem;
+      transition: .3s all;
+      opacity: 0; }
   .file-label {
     font-size: 1.4rem;
     margin: 0 auto;
-    cursor: inherit; }
+    cursor: inherit;
+    transition: .3s all; }
 
 .about-me {
   position: relative;
