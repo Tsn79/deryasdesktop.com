@@ -27,6 +27,7 @@
         background-color: var(--color-desktop-tab);    
         box-shadow: inset .2rem .2rem .1rem var(--color-grey-charcoal),
                     inset -.1rem 0 0 0 var(--color-grey-charcoal);
+        transition: .3s all;
         //border-right: .1rem black solid;
         //position: relative;
 
@@ -40,6 +41,7 @@
 
         &:hover {
         cursor: url("/images/cursor_pointer.png"), auto;
+        background-color: var(--color-yellow);
         }
 
 
