@@ -83,11 +83,11 @@ body {
   transition: transform 0.2s cubic-bezier(0, 0.98, 0.02, 1.29); }
 
 .main-pane {
+  position: absolute;
   width: 100%;
   height: 100%;
   background-image: url(/images/pane.svg);
-  background-size: 100%;
-  background-repeat: no-repeat; }
+  background-size: contain; }
 
 .inner-pane {
   position: relative;
@@ -328,14 +328,14 @@ body {
     transition: .3s all; }
 
 .about-me {
-  position: relative;
   width: 70rem;
   height: 44.6rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow: hidden; }
+  overflow: hidden;
+  z-index: 1; }
   .about-me:not(:target) {
     transform: translate(-50%, -200%); }
   .about-me:target {
@@ -356,3 +356,12 @@ body {
     overflow-y: scroll;
     right: 2rem;
     padding: 3rem 1rem 0 0; }
+
+.meme-generator {
+  width: 85rem;
+  height: 54.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden; }
