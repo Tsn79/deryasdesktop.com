@@ -373,6 +373,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between; }
+  .main-frame__meme-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    height: 35rem; }
   .main-frame__header {
     width: 100%;
     height: 6rem;
@@ -388,6 +394,8 @@ body {
         top: 0;
         font-size: 5rem;
         opacity: 0; }
+  .main-frame__meme-container {
+    position: relative; }
   .main-frame__gallery {
     overflow-x: scroll;
     min-width: 100%;
@@ -411,3 +419,22 @@ body {
   margin: .5rem;
   background-size: cover;
   background-repeat: no-repeat; }
+
+.canvas-text--top {
+  top: 1rem;
+  font-size: 1.8rem; }
+
+.canvas-text--bottom {
+  bottom: 1rem;
+  font-size: 1.6rem; }
+
+.input-text {
+  position: absolute;
+  background-color: transparent;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  border: none; }
+
+.active {
+  border: yellow 3px solid; }
