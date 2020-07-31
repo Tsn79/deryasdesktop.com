@@ -121,22 +121,22 @@
              </div>
              <div class="main-frame">
                  <div class="main-frame__header">
-                     <a class="meme-btn main-frame__header-uploadbtn">Upload Image
+                     <a class="meme-btn main-frame__header-uploadbtn" id="meme-uploadBtn">Upload Image
                          <input id="memeUpload" type="file" name="file" accept=".png, .jpg, .jpeg">
                      </a>
-                     <a class="meme-btn main-frame__header-downloadbtn">Download</a>
+                     <a class="meme-btn main-frame__header-downloadbtn" id="meme-downloadBtn">Download</a>
                  </div>            
              <div class="main-frame__viewport">
                  <div class="main-frame__meme-wrapper">
-                    <div class="main-frame__meme-container">
-                        <canvas class="canvas"></canvas>
+                    <div class="main-frame__meme-container" id="meme-container">
+                        <canvas class="canvas" id="meme-canvas"></canvas>
                         <div class="canvas-text">
                             <input type="text" class="input-text canvas-text--top" autocomplete="off" value="You can not simply make">
                             <input type="text" class="input-text canvas-text--bottom" autocomplete="off" value="your own meme">
                         </div>
                     </div>
                  </div>
-                <div class="main-frame__gallery">
+                <div class="main-frame__gallery" id="meme-gallery">
                     <div class="thumb" id="spongebob" style="background-image: url('/images/meme/Mocking-Spongebob.jpg');"></div>
                     <div class="thumb" id="think-about" style="background-image: url('/images/meme/Roll-Safe-Think-About-It.jpg');"></div>
                     <div class="thumb" id="one-does-not-simply" style="background-image: url('/images/meme/One-Does-Not-Simply.jpg');"></div>
