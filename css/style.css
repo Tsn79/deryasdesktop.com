@@ -395,7 +395,19 @@ body {
         font-size: 5rem;
         opacity: 0; }
   .main-frame__meme-container {
-    position: relative; }
+    position: relative;
+    z-index: 1; }
+    .main-frame__meme-container:before {
+      content: "";
+      position: absolute;
+      background-image: url("/images/repeat grid.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      left: -4rem;
+      top: 1rem;
+      z-index: -1; }
   .main-frame__gallery {
     overflow-x: scroll;
     min-width: 100%;
@@ -437,4 +449,4 @@ body {
   border: none; }
 
 .active {
-  border: yellow 3px solid; }
+  border: yellow solid; }
