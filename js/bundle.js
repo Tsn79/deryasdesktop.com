@@ -12,10 +12,15 @@ const memeExe = {
   container: document.querySelector("#meme-container"),
   uploadBtn: document.querySelector("#meme-uploadBtn"),
   downloadBtn: document.querySelector("#meme-downloadBtn"),
-  galleryItems: document.querySelectorAll(".thumb")
+  galleryItems: document.querySelectorAll(".thumb"),
+  get memeArr() {
+    return Array.from(this.galleryItems);
+  },
+  get ctx() {
+    return this.canvas.getContext("2d");
+  }
 }
 
-var ctx = memeExe.canvas.getContext("2d");
 
 //render selected gallery image onto canvas
 function renderMemeToCanvas(event) {
@@ -32,8 +37,8 @@ function renderMemeToCanvas(event) {
 
 //Change clicked meme frame style
 function addActive(meme) {
-  var memes = Array.from(memeExe.galleryItems);
-  var clicked = memes.find(meme => meme.classList.contains("active"));
+  //var clicked = memeExe.memeArr.find(meme => meme.classList.contains("active"));
+  var clicked = document.querySelector(".active");
   if(clicked) {
     clicked.classList.remove("active");
   }
@@ -51,7 +56,7 @@ function drawMeme() {
   memeExe.container.width = meme.width;
   memeExe.container.height = meme.height;
 
-  ctx.drawImage(this, 0, 0, meme.width, meme.height);
+  memeExe.ctx.drawImage(this, 0, 0, meme.width, meme.height);
 }
 
 function setMemeSize(memeWidth, memeHeight, targetWidth, targetHeight) {
@@ -67,11 +72,24 @@ function setMemeSize(memeWidth, memeHeight, targetWidth, targetHeight) {
     result.height = targetHeight;
     result.width = targetWidth * ratio;
   }
-
   return result;
+}
 
+//user meme upload
+function uploadMeme(event) {
+  var memeFile = event.target.files[0];
+  var image = new Image();
+  image.onload = drawMeme;
+  image.src = URL.createObjectURL(memeFile);
+  var newEle= document.createElement("div");
+  newEle.style.backgroundImage = `url('${image.src}')`;
+  newEle.className = "thumb";
+  memeExe.gallery.prepend(newEle);
+  memeExe.gallery.removeChild(memeExe.gallery.lastElementChild);
+  addActive(newEle);
 }
 
 memeExe.gallery.addEventListener("click", renderMemeToCanvas);
+memeExe.uploadBtn.addEventListener("change", uploadMeme);
 
 
