@@ -12,7 +12,7 @@ const memeExe = {
   container: document.querySelector("#meme-container"),
   uploadBtn: document.querySelector("#meme-uploadBtn"),
   downloadBtn: document.querySelector("#meme-downloadBtn"),
-  galleryItems: document.querySelector(".thumb")
+  galleryItems: document.querySelectorAll(".thumb")
 }
 
 var ctx = memeExe.canvas.getContext("2d");
@@ -32,9 +32,11 @@ function renderMemeToCanvas(event) {
 
 //Change clicked meme frame style
 function addActive(meme) {
-  var memes = Array.from(galleryItems);
+  var memes = Array.from(memeExe.galleryItems);
   var clicked = memes.find(meme => meme.classList.contains("active"));
-  clicked.classList.remove("active");
+  if(clicked) {
+    clicked.classList.remove("active");
+  }
   meme.classList.add("active");
 }
 
