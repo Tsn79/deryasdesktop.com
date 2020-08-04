@@ -90,6 +90,6 @@ function uploadMeme(event) {
 }
 
 memeExe.gallery.addEventListener("click", renderMemeToCanvas);
-memeExe.uploadBtn.addEventListener("change", uploadMeme);
+memeExe.uploadBtn.addEventListener("change", uploadMeme, false);
 
 
