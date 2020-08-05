@@ -21,18 +21,24 @@ const memeExe = {
   }
 }
 
+//render first image on canvas 
+window.onload = function () {
+  var image = new Image();
+  image.onload = drawMeme;
+  image.src = extractSrcFromUrl(memeExe.memeArr[0]);
+  addActive(memeExe.memeArr[0]);
+}
+
 
 //render selected gallery image onto canvas
 function renderMemeToCanvas(event) {
   var image = new Image();
   image.onload = drawMeme;
-  image.src = event.target.style.backgroundImage
-    .slice(4, -1)
-    .replace(/"/g, "");
+  image.src = extractSrcFromUrl(event.target);
  
   if(event.target.className === "thumb") {
     addActive(event.target);
-  }   
+  }  
 }
 
 //Change clicked meme frame style
@@ -59,6 +65,7 @@ function drawMeme() {
   memeExe.ctx.drawImage(this, 0, 0, meme.width, meme.height);
 }
 
+
 function setMemeSize(memeWidth, memeHeight, targetWidth, targetHeight) {
   var result = { width:0, height:0 };
   var ratio = memeWidth / memeHeight;
@@ -75,21 +82,47 @@ function setMemeSize(memeWidth, memeHeight, targetWidth, targetHeight) {
   return result;
 }
 
-//user meme upload
-function uploadMeme(event) {
+//user meme upload 
+function validateAndUploadMeme(event) {
   var memeFile = event.target.files[0];
-  var image = new Image();
+  var validfileTypes = ["image/png", "image/jpg","image/jpeg"];
+  if(memeFile && validfileTypes.includes(memeFile.type)) {
+  var image = new Image(),
+  URL = window.URL || window.webkitURL; 
   image.onload = drawMeme;
   image.src = URL.createObjectURL(memeFile);
-  var newEle= document.createElement("div");
-  newEle.style.backgroundImage = `url('${image.src}')`;
+  appendMemeUploadToGallery(image);
+  }
+}
+
+function downloadMeme(event) {
+  /*event.target.setAttribute('download', 'CanvasAsImage.png');
+    memeExe.canvas.toBlob(function(blob) {
+    var url = URL.createObjectURL(blob);
+    event.target.setAttribute('href', url);
+    event.target.click();
+ }); */
+}
+
+
+function appendMemeUploadToGallery(image) {
+  var newEle = '';
+  var src = image.src;
+  newEle = document.createElement("div");
+  newEle.style.backgroundImage = `url('${src}')`;
   newEle.className = "thumb";
   memeExe.gallery.prepend(newEle);
   memeExe.gallery.removeChild(memeExe.gallery.lastElementChild);
   addActive(newEle);
 }
 
+
+function extractSrcFromUrl(galleryItem) {
+  return galleryItem.style.backgroundImage.slice(4, -1).replace(/"/g, "");
+}
+
 memeExe.gallery.addEventListener("click", renderMemeToCanvas);
-memeExe.uploadBtn.addEventListener("change", uploadMeme, false);
+memeExe.uploadBtn.addEventListener("change", validateAndUploadMeme, false);
+memeExe.downloadBtn.addEventListener("click", downloadMeme);
 
 
