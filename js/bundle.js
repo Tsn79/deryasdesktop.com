@@ -95,14 +95,13 @@ function validateAndUploadMeme(event) {
   }
 }
 
-function downloadMeme(event) {
-  /*event.target.setAttribute('download', 'CanvasAsImage.png');
-    memeExe.canvas.toBlob(function(blob) {
-    var url = URL.createObjectURL(blob);
-    event.target.setAttribute('href', url);
-    event.target.click();
- }); */
+
+function downloadMeme() {
+  var imageUrl = memeExe.canvas.toDataURL("image/png")
+                .replace("image/png", "image/octet-stream"); 
+  memeExe.downloadBtn.setAttribute("href", imageUrl);
 }
+
 
 
 function appendMemeUploadToGallery(image) {
