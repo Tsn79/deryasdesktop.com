@@ -303,7 +303,7 @@ body {
       width: 3rem;
       height: 5rem;
       left: -3rem;
-      background-image: url(/images/spark--left.svg);
+      background-image: url(images/spark--left.svg);
       background-repeat: no-repeat;
       background-size: contain;
       background-size: 3rem;
