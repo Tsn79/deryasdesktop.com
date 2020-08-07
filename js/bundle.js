@@ -13,6 +13,8 @@ const memeExe = {
   uploadBtn: document.querySelector("#meme-uploadBtn"),
   downloadBtn: document.querySelector("#meme-downloadBtn"),
   galleryItems: document.querySelectorAll(".thumb"),
+  textTop: document.querySelector(".canvas-text--top"),
+  textBtn: document.querySelector(".canvas-text--bottom"),
   get memeArr() {
     return Array.from(this.galleryItems);
   },
@@ -27,6 +29,13 @@ window.onload = function () {
   image.onload = drawMeme;
   image.src = extractSrcFromUrl(memeExe.memeArr[0]);
   addActive(memeExe.memeArr[0]);
+
+  //TEST
+  /*var rectInput = memeExe.textTop.getBoundingClientRect();
+  var rectCanvas = memeExe.canvas.getBoundingClientRect();
+  var topOffset = rectInput.top - rectCanvas.top; 
+  console.log(topOffset); */
+  
 }
 
 
@@ -63,6 +72,7 @@ function drawMeme() {
   memeExe.container.height = meme.height;
 
   memeExe.ctx.drawImage(this, 0, 0, meme.width, meme.height);
+  renderMemeTextToCanvas(memeExe.textTop.value, 18, "top");
 }
 
 
@@ -100,6 +110,25 @@ function downloadMeme() {
   var imageUrl = memeExe.canvas.toDataURL("image/png")
                 .replace("image/png", "image/octet-stream"); 
   memeExe.downloadBtn.setAttribute("href", imageUrl);
+}
+
+//https://javascript.info/coordinates
+function renderMemeTextToCanvas(text, fSize, base) {
+  //TEST
+  var rectInput = memeExe.textTop.getBoundingClientRect();
+  var rectCanvas = memeExe.canvas.getBoundingClientRect();
+  var topOffset = rectInput.bottom - rectCanvas.top; 
+  console.log(topOffset);
+
+  var copy = text.toUpperCase();
+  var yPos;
+  switch(base) {
+    case "top":
+      memeExe.ctx.font = 'bold 1.5rem serif';
+    memeExe.ctx.fillStyle = "blue";
+    memeExe.ctx.fillText(copy, 0, topOffset);
+    
+}
 }
 
 

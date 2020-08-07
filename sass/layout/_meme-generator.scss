@@ -96,9 +96,7 @@
 }
 
 .canvas {
-
     &-text {
-
         &--top {
             top: 1rem;
             font-size: 1.8rem;
@@ -118,6 +116,7 @@
         width: 100%;
         text-align: center;
         border: none;
+        color: red;
 }
 
 .active {
