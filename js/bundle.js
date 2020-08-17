@@ -14,7 +14,7 @@ const memeExe = {
   downloadBtn: document.querySelector("#meme-downloadBtn"),
   galleryItems: document.querySelectorAll(".thumb"),
   textTop: document.querySelector(".canvas-text--top"),
-  textBtn: document.querySelector(".canvas-text--bottom"),
+  textBtm: document.querySelector(".canvas-text--bottom"),
   get memeArr() {
     return Array.from(this.galleryItems);
   },
@@ -29,13 +29,6 @@ window.onload = function () {
   image.onload = drawMeme;
   image.src = extractSrcFromUrl(memeExe.memeArr[0]);
   addActive(memeExe.memeArr[0]);
-
-  //TEST
-  /*var rectInput = memeExe.textTop.getBoundingClientRect();
-  var rectCanvas = memeExe.canvas.getBoundingClientRect();
-  var topOffset = rectInput.top - rectCanvas.top; 
-  console.log(topOffset); */
-  
 }
 
 
@@ -72,7 +65,7 @@ function drawMeme() {
   memeExe.container.height = meme.height;
 
   memeExe.ctx.drawImage(this, 0, 0, meme.width, meme.height);
-  renderMemeTextToCanvas(memeExe.textTop.value, 18, "top");
+  drawText();
 }
 
 
@@ -112,23 +105,22 @@ function downloadMeme() {
   memeExe.downloadBtn.setAttribute("href", imageUrl);
 }
 
+//when input is active, reflect changes on canvas
 //https://javascript.info/coordinates
-function renderMemeTextToCanvas(text, fSize, base) {
-  //TEST
-  var rectInput = memeExe.textTop.getBoundingClientRect();
-  var rectCanvas = memeExe.canvas.getBoundingClientRect();
-  var topOffset = rectInput.bottom - rectCanvas.top; 
-  console.log(topOffset);
+//https://stackoverflow.com/questions/3543687/how-do-i-clear-text-from-the-canvas-element
+function drawText(e){ 
+  memeExe.ctx.textBaseline = 'top';
+  memeExe.ctx.textAlign = 'center';
+  memeExe.ctx.font = '18px Roboto';
+  memeExe.ctx.fillStyle = "rgba(255, 255, 255, 0)";
+  memeExe.ctx.fillText(memeExe.textTop.value.toUpperCase(), memeExe.textTop.clientWidth/2, memeExe.textTop.offsetTop);
 
-  var copy = text.toUpperCase();
-  var yPos;
-  switch(base) {
-    case "top":
-      memeExe.ctx.font = 'bold 1.5rem serif';
-    memeExe.ctx.fillStyle = "blue";
-    memeExe.ctx.fillText(copy, 0, topOffset);
-    
-}
+  memeExe.ctx.textBaseline = 'top';
+  memeExe.ctx.textAlign = 'center';
+  memeExe.ctx.font = '18px Roboto';
+
+  memeExe.ctx.fillStyle = '#000';  
+  memeExe.ctx.fillText(memeExe.textTop.value.toUpperCase(), memeExe.textTop.clientWidth/2, memeExe.textTop.offsetTop);
 }
 
 
@@ -152,5 +144,6 @@ function extractSrcFromUrl(galleryItem) {
 memeExe.gallery.addEventListener("click", renderMemeToCanvas);
 memeExe.uploadBtn.addEventListener("change", validateAndUploadMeme, false);
 memeExe.downloadBtn.addEventListener("click", downloadMeme);
+memeExe.textTop.addEventListener("input", drawText);
 
 
