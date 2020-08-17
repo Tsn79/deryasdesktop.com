@@ -442,6 +442,7 @@ body {
 
 .input-text {
   position: absolute;
+  font-family: var(--font-family);
   background-color: transparent;
   text-transform: uppercase;
   width: 100%;
