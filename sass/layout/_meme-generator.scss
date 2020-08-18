@@ -99,25 +99,33 @@
     &-text {
         &--top {
             top: 1rem;
-            font-size: 1.8rem;          
+            font-size: 2rem;          
         }
 
         &--bottom {
             bottom: 1rem;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
         }
     }
 }
 
 .input-text {
         position: absolute;
-        font-family: var(--font-family);
+        font-family: Helvetica, sans-serif;
+        font-weight: bold;
         background-color: transparent;
         text-transform: uppercase;
         width: 100%;
         text-align: center;
         border: none;
-        color: red;
+        color: #fff;
+        text-shadow: 2px 2px 1px #000, 2px 2px 1px #000, 2px 2px 1px #000;
+        border: solid yellow 2px;
+        padding: .5rem;
+
+        &:focus {
+            outline: none;
+        }
 }
 
 .active {
