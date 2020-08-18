@@ -15,20 +15,13 @@ const memeExe = {
   galleryItems: document.querySelectorAll(".thumb"),
   textTop: document.querySelector(".canvas-text--top"),
   textBtm: document.querySelector(".canvas-text--bottom"),
+  memeText: document.querySelectorAll(".input-text"),
   get memeArr() {
     return Array.from(this.galleryItems);
   },
   get ctx() {
     return this.canvas.getContext("2d");
   }
-}
-
-//render first image on canvas 
-window.onload = function () {
-  var image = new Image();
-  image.onload = drawMeme;
-  image.src = extractSrcFromUrl(memeExe.memeArr[0]);
-  addActive(memeExe.memeArr[0]);
 }
 
 
@@ -65,7 +58,55 @@ function drawMeme() {
   memeExe.container.height = meme.height;
 
   memeExe.ctx.drawImage(this, 0, 0, meme.width, meme.height);
-  drawText();
+  drawText(memeExe.textTop.value, "top", 20);
+  drawText(memeExe.textBtm.value, "bottom", 18);
+}
+
+
+//when input is active, reflect changes on canvas
+//instead of text update, focus on whole canvas update
+//https://javascript.info/coordinates
+//https://stackoverflow.com/questions/3543687/how-do-i-clear-text-from-the-canvas-element
+function drawText(text, pos, font){
+  var copy = text.toUpperCase(),
+  yPos = "",
+  xPos = "";
+
+  switch (pos) {
+    case 'top': 
+      yPos = (memeExe.textTop.clientWidth/2)+1;
+      xPos = memeExe.textTop.offsetTop+10;
+      font
+      break;
+    
+    case 'bottom':
+      yPos = (memeExe.textBtm.clientWidth/2)+1;
+      xPos = memeExe.textBtm.offsetTop+10;
+      break;
+  }
+  
+  memeExe.ctx.textBaseline = 'top';
+  memeExe.ctx.textAlign = 'center';
+  memeExe.ctx.font = 'bold '+font+'px Helvetica';
+  memeExe.ctx.shadowColor="#000";
+  memeExe.ctx.shadowOffsetX=2;
+  memeExe.ctx.shadowOffsetY=2;
+  memeExe.ctx.shadowBlur=0;
+  memeExe.ctx.fillStyle = '#fff';
+  memeExe.ctx.fillText(copy, yPos, xPos);
+   
+  
+}
+
+
+function updateMeme() {
+  //copied from window.onload function
+  setTimeout(function(){
+    var image = new Image();
+    image.onload = drawMeme;
+    image.src = extractSrcFromUrl(memeExe.memeArr[0]);
+  addActive(memeExe.memeArr[0]);
+  }, 1);
 }
 
 
@@ -84,6 +125,7 @@ function setMemeSize(memeWidth, memeHeight, targetWidth, targetHeight) {
   }
   return result;
 }
+
 
 //user meme upload 
 function validateAndUploadMeme(event) {
@@ -105,25 +147,6 @@ function downloadMeme() {
   memeExe.downloadBtn.setAttribute("href", imageUrl);
 }
 
-//when input is active, reflect changes on canvas
-//https://javascript.info/coordinates
-//https://stackoverflow.com/questions/3543687/how-do-i-clear-text-from-the-canvas-element
-function drawText(e){ 
-  memeExe.ctx.textBaseline = 'top';
-  memeExe.ctx.textAlign = 'center';
-  memeExe.ctx.font = '18px Roboto';
-  memeExe.ctx.fillStyle = "rgba(255, 255, 255, 0)";
-  memeExe.ctx.fillText(memeExe.textTop.value.toUpperCase(), memeExe.textTop.clientWidth/2, memeExe.textTop.offsetTop);
-
-  memeExe.ctx.textBaseline = 'top';
-  memeExe.ctx.textAlign = 'center';
-  memeExe.ctx.font = '18px Roboto';
-
-  memeExe.ctx.fillStyle = '#000';  
-  memeExe.ctx.fillText(memeExe.textTop.value.toUpperCase(), memeExe.textTop.clientWidth/2, memeExe.textTop.offsetTop);
-}
-
-
 
 function appendMemeUploadToGallery(image) {
   var newEle = '';
@@ -144,6 +167,12 @@ function extractSrcFromUrl(galleryItem) {
 memeExe.gallery.addEventListener("click", renderMemeToCanvas);
 memeExe.uploadBtn.addEventListener("change", validateAndUploadMeme, false);
 memeExe.downloadBtn.addEventListener("click", downloadMeme);
-memeExe.textTop.addEventListener("input", drawText);
+Array.from(memeExe.memeText).forEach(text => {
+  text.addEventListener("keydown", updateMeme);
+  text.addEventListener("keyup", updateMeme);
+  text.addEventListener("focus", updateMeme);
+}); 
 
 
+//render first image on canvas 
+window.onload = updateMeme;
