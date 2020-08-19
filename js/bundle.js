@@ -16,38 +16,63 @@ const memeExe = {
   textTop: document.querySelector(".canvas-text--top"),
   textBtm: document.querySelector(".canvas-text--bottom"),
   memeText: document.querySelectorAll(".input-text"),
-  get memeArr() {
-    return Array.from(this.galleryItems);
-  },
   get ctx() {
     return this.canvas.getContext("2d");
   }
 }
 
+//helper functions
+memeExe.helperFunc = {};
+
 
 //render selected gallery image onto canvas
-function renderMemeToCanvas(event) {
+memeExe.renderMemeToCanvas = function(event) {
   var image = new Image();
-  image.onload = drawMeme;
+  image.onload = memeExe.drawMeme;
   image.src = extractSrcFromUrl(event.target);
  
   if(event.target.className === "thumb") {
-    addActive(event.target);
+    memeExe.toggleActive(event.target);
   }  
 }
 
-//Change clicked meme frame style
-function addActive(meme) {
-  //var clicked = memeExe.memeArr.find(meme => meme.classList.contains("active"));
-  var clicked = document.querySelector(".active");
-  if(clicked) {
-    clicked.classList.remove("active");
+//https://jaketrent.com/post/addremove-classes-raw-javascript/
+//Compatible with IE
+memeExe.helperFunc.hasClass = function(ele, className) {
+  if(ele.classList) {
+    return ele.classList.contains(className)
+  } else {
+    return !!ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+  } 
+}
+
+memeExe.helperFunc.removeClass = function(ele, className) {
+  if(ele.classList) {
+    ele.classList.remove(className);
   }
-  meme.classList.add("active");
+  else if(memeExe.helperFunc.hasClass(ele, className)) {
+    var reg = new RegExp('(\\s|^)' + className + '(\\s|$)')
+    ele.className=ele.className.replace(reg, ' ')
+  }
+}
+
+memeExe.helperFunc.addClass = function(ele, className) {
+  if (ele.classList)
+    ele.classList.add(className)
+  else if (!hasClass(ele, className)) ele.className += " " + className
 }
 
 
-function drawMeme() {
+memeExe.toggleActive = function(element) {
+  var activeCls = document.body.querySelector(".active");
+  if(activeCls) {
+    memeExe.helperFunc.removeClass(activeCls, "active");
+  }
+  memeExe.helperFunc.addClass(element, "active");
+}
+
+
+memeExe.drawMeme = function() {
   var meme = setMemeSize(this.width, this.height, 300, 300);
 
   //set canvas container same as meme dimensions
@@ -59,14 +84,10 @@ function drawMeme() {
 
   memeExe.ctx.drawImage(this, 0, 0, meme.width, meme.height);
   drawText(memeExe.textTop.value, "top", 20);
-  drawText(memeExe.textBtm.value, "bottom", 18);
+  drawText(memeExe.textBtm.value, "bottom", 18); 
 }
 
 
-//when input is active, reflect changes on canvas
-//instead of text update, focus on whole canvas update
-//https://javascript.info/coordinates
-//https://stackoverflow.com/questions/3543687/how-do-i-clear-text-from-the-canvas-element
 function drawText(text, pos, font){
   var copy = text.toUpperCase(),
   yPos = "",
@@ -76,7 +97,6 @@ function drawText(text, pos, font){
     case 'top': 
       yPos = (memeExe.textTop.clientWidth/2)+1;
       xPos = memeExe.textTop.offsetTop+10;
-      font
       break;
     
     case 'bottom':
@@ -93,19 +113,18 @@ function drawText(text, pos, font){
   memeExe.ctx.shadowOffsetY=2;
   memeExe.ctx.shadowBlur=0;
   memeExe.ctx.fillStyle = '#fff';
-  memeExe.ctx.fillText(copy, yPos, xPos);
-   
-  
+  memeExe.ctx.fillText(copy, yPos, xPos);  
 }
 
 
-function updateMeme() {
-  //copied from window.onload function
+//NEWLY UPLOAD IMAGE IS NOT LISTED IN MEMEEXE.MEMEARR
+memeExe.updateMeme = function() {
   setTimeout(function(){
     var image = new Image();
-    image.onload = drawMeme;
-    image.src = extractSrcFromUrl(memeExe.memeArr[0]);
-  addActive(memeExe.memeArr[0]);
+    image.onload = memeExe.drawMeme;
+    //var activeCls = findElementClassByName("active", memeExe.gallery);
+    var activeCls = document.querySelector(".active");
+    image.src = extractSrcFromUrl(activeCls);    
   }, 1);
 }
 
@@ -126,7 +145,7 @@ function setMemeSize(memeWidth, memeHeight, targetWidth, targetHeight) {
   return result;
 }
 
-
+//during upload, drawmemetext should be inactive
 //user meme upload 
 function validateAndUploadMeme(event) {
   var memeFile = event.target.files[0];
@@ -134,7 +153,7 @@ function validateAndUploadMeme(event) {
   if(memeFile && validfileTypes.includes(memeFile.type)) {
   var image = new Image(),
   URL = window.URL || window.webkitURL; 
-  image.onload = drawMeme;
+  image.onload = memeExe.drawMeme;
   image.src = URL.createObjectURL(memeFile);
   appendMemeUploadToGallery(image);
   }
@@ -147,7 +166,7 @@ function downloadMeme() {
   memeExe.downloadBtn.setAttribute("href", imageUrl);
 }
 
-
+//LAST ELEMENT CHILD IS NOT REMOVED FROM GALLERY
 function appendMemeUploadToGallery(image) {
   var newEle = '';
   var src = image.src;
@@ -156,23 +175,30 @@ function appendMemeUploadToGallery(image) {
   newEle.className = "thumb";
   memeExe.gallery.prepend(newEle);
   memeExe.gallery.removeChild(memeExe.gallery.lastElementChild);
-  addActive(newEle);
+  memeExe.toggleActive(newEle);
 }
 
 
 function extractSrcFromUrl(galleryItem) {
-  return galleryItem.style.backgroundImage.slice(4, -1).replace(/"/g, "");
+  if(galleryItem) {
+    return galleryItem.style.backgroundImage.slice(4, -1).replace(/"/g, "");
+  }
 }
 
-memeExe.gallery.addEventListener("click", renderMemeToCanvas);
-memeExe.uploadBtn.addEventListener("change", validateAndUploadMeme, false);
+memeExe.gallery.addEventListener("click", memeExe.renderMemeToCanvas);
+memeExe.uploadBtn.addEventListener("change", validateAndUploadMeme);
 memeExe.downloadBtn.addEventListener("click", downloadMeme);
 Array.from(memeExe.memeText).forEach(text => {
-  text.addEventListener("keydown", updateMeme);
-  text.addEventListener("keyup", updateMeme);
-  text.addEventListener("focus", updateMeme);
+  text.addEventListener("keydown", memeExe.updateMeme);
+  text.addEventListener("keyup", memeExe.updateMeme);
+  text.addEventListener("focus", memeExe.updateMeme);
 }); 
 
 
 //render first image on canvas 
-window.onload = updateMeme;
+window.onload = function() {
+  var image = new Image();
+    image.onload = memeExe.drawMeme;
+    image.src = extractSrcFromUrl(memeExe.gallery.firstElementChild)
+  memeExe.toggleActive(memeExe.gallery.firstElementChild);
+};
