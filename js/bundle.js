@@ -12,7 +12,7 @@ const memeExe = {
   container: document.querySelector("#meme-container"),
   uploadBtn: document.querySelector("#meme-uploadBtn"),
   downloadBtn: document.querySelector("#meme-downloadBtn"),
-  galleryItems: document.querySelectorAll(".thumb"),
+  imageEles: document.querySelectorAll(".thumb"),
   textTop: document.querySelector(".canvas-text--top"),
   textBtm: document.querySelector(".canvas-text--bottom"),
   memeText: document.querySelectorAll(".input-text"),
@@ -24,17 +24,6 @@ const memeExe = {
 //helper functions
 memeExe.helperFunc = {};
 
-
-//render selected gallery image onto canvas
-memeExe.renderMemeToCanvas = function(event) {
-  var image = new Image();
-  image.onload = memeExe.drawMeme;
-  image.src = extractSrcFromUrl(event.target);
- 
-  if(event.target.className === "thumb") {
-    memeExe.toggleActive(event.target);
-  }  
-}
 
 //https://jaketrent.com/post/addremove-classes-raw-javascript/
 //Compatible with IE
@@ -63,6 +52,25 @@ memeExe.helperFunc.addClass = function(ele, className) {
 }
 
 
+memeExe.helperFunc.extractSrcFromUrl = function(imageEle) {
+  if(imageEle) {
+    return imageEle.style.backgroundImage.slice(4, -1).replace(/"/g, "");
+  }
+}
+
+
+//render selected gallery image onto canvas
+memeExe.renderMemeToCanvas = function(event) {
+  var image = new Image();
+  image.onload = memeExe.drawMeme;
+  image.src = memeExe.helperFunc.extractSrcFromUrl(event.target);
+ 
+  if(event.target.className === "thumb") {
+    memeExe.toggleActive(event.target);
+  }  
+}
+
+
 memeExe.toggleActive = function(element) {
   var activeCls = document.body.querySelector(".active");
   if(activeCls) {
@@ -73,7 +81,7 @@ memeExe.toggleActive = function(element) {
 
 
 memeExe.drawMeme = function() {
-  var meme = setMemeSize(this.width, this.height, 300, 300);
+  var meme = memeExe.setMemeSize(this.width, this.height, 300, 300);
 
   //set canvas container same as meme dimensions
   memeExe.canvas.width = meme.width;
@@ -83,12 +91,13 @@ memeExe.drawMeme = function() {
   memeExe.container.height = meme.height;
 
   memeExe.ctx.drawImage(this, 0, 0, meme.width, meme.height);
-  drawText(memeExe.textTop.value, "top", 20);
-  drawText(memeExe.textBtm.value, "bottom", 18); 
+  
+  memeExe.drawText(memeExe.textTop.value, "top", window.getComputedStyle(memeExe.textTop).fontSize);
+  memeExe.drawText(memeExe.textBtm.value, "bottom", window.getComputedStyle(memeExe.textBtm).fontSize);
 }
 
 
-function drawText(text, pos, font){
+memeExe.drawText = function(text, pos, font){
   var copy = text.toUpperCase(),
   yPos = "",
   xPos = "";
@@ -107,7 +116,7 @@ function drawText(text, pos, font){
   
   memeExe.ctx.textBaseline = 'top';
   memeExe.ctx.textAlign = 'center';
-  memeExe.ctx.font = 'bold '+font+'px Helvetica';
+  memeExe.ctx.font = 'bold '+font+' Helvetica';
   memeExe.ctx.shadowColor="#000";
   memeExe.ctx.shadowOffsetX=2;
   memeExe.ctx.shadowOffsetY=2;
@@ -117,19 +126,19 @@ function drawText(text, pos, font){
 }
 
 
-//NEWLY UPLOAD IMAGE IS NOT LISTED IN MEMEEXE.MEMEARR
+
 memeExe.updateMeme = function() {
   setTimeout(function(){
     var image = new Image();
     image.onload = memeExe.drawMeme;
     //var activeCls = findElementClassByName("active", memeExe.gallery);
     var activeCls = document.querySelector(".active");
-    image.src = extractSrcFromUrl(activeCls);    
+    image.src = memeExe.helperFunc.extractSrcFromUrl(activeCls);    
   }, 1);
 }
 
 
-function setMemeSize(memeWidth, memeHeight, targetWidth, targetHeight) {
+memeExe.setMemeSize = function(memeWidth, memeHeight, targetWidth, targetHeight) {
   var result = { width:0, height:0 };
   var ratio = memeWidth / memeHeight;
 
@@ -145,60 +154,54 @@ function setMemeSize(memeWidth, memeHeight, targetWidth, targetHeight) {
   return result;
 }
 
-//during upload, drawmemetext should be inactive
+
 //user meme upload 
-function validateAndUploadMeme(event) {
+memeExe.validateAndUploadMeme = function(event) {
   var memeFile = event.target.files[0];
   var validfileTypes = ["image/png", "image/jpg","image/jpeg"];
   if(memeFile && validfileTypes.includes(memeFile.type)) {
-  var image = new Image(),
-  URL = window.URL || window.webkitURL; 
-  image.onload = memeExe.drawMeme;
-  image.src = URL.createObjectURL(memeFile);
-  appendMemeUploadToGallery(image);
+    var image = new Image(),
+    URL = window.URL || window.webkitURL; 
+    image.onload = memeExe.drawMeme;
+    image.src = URL.createObjectURL(memeFile);
+    memeExe.appendMemeUploadToGallery(image);
   }
 }
 
 
-function downloadMeme() {
+memeExe.downloadMeme = function() {
   var imageUrl = memeExe.canvas.toDataURL("image/png")
                 .replace("image/png", "image/octet-stream"); 
   memeExe.downloadBtn.setAttribute("href", imageUrl);
 }
 
-//LAST ELEMENT CHILD IS NOT REMOVED FROM GALLERY
-function appendMemeUploadToGallery(image) {
+
+memeExe.appendMemeUploadToGallery = function(uploadImage) {
+  var src = uploadImage.src;
   var newEle = '';
-  var src = image.src;
   newEle = document.createElement("div");
   newEle.style.backgroundImage = `url('${src}')`;
   newEle.className = "thumb";
-  memeExe.gallery.prepend(newEle);
+  memeExe.gallery.insertBefore(newEle, memeExe.gallery.childNodes[0]);
   memeExe.gallery.removeChild(memeExe.gallery.lastElementChild);
   memeExe.toggleActive(newEle);
 }
 
-
-function extractSrcFromUrl(galleryItem) {
-  if(galleryItem) {
-    return galleryItem.style.backgroundImage.slice(4, -1).replace(/"/g, "");
-  }
-}
-
-memeExe.gallery.addEventListener("click", memeExe.renderMemeToCanvas);
-memeExe.uploadBtn.addEventListener("change", validateAndUploadMeme);
-memeExe.downloadBtn.addEventListener("click", downloadMeme);
-Array.from(memeExe.memeText).forEach(text => {
-  text.addEventListener("keydown", memeExe.updateMeme);
-  text.addEventListener("keyup", memeExe.updateMeme);
-  text.addEventListener("focus", memeExe.updateMeme);
-}); 
-
-
+memeExe.listeners = function() {
+  memeExe.gallery.addEventListener("click", memeExe.renderMemeToCanvas);
+  memeExe.uploadBtn.addEventListener("change", memeExe.validateAndUploadMeme);
+  memeExe.downloadBtn.addEventListener("click", memeExe.downloadMeme);
+  Array.from(memeExe.memeText).forEach(text => {
+    text.addEventListener("keydown", memeExe.updateMeme);
+    text.addEventListener("keyup", memeExe.updateMeme);
+    text.addEventListener("focus", memeExe.updateMeme);
+});
+}();
+ 
 //render first image on canvas 
 window.onload = function() {
   var image = new Image();
     image.onload = memeExe.drawMeme;
-    image.src = extractSrcFromUrl(memeExe.gallery.firstElementChild)
+    image.src = memeExe.helperFunc.extractSrcFromUrl(memeExe.gallery.firstElementChild)
   memeExe.toggleActive(memeExe.gallery.firstElementChild);
 };
