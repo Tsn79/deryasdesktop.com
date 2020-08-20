@@ -191,6 +191,7 @@ memeExe.listeners = function() {
   memeExe.gallery.addEventListener("click", memeExe.renderMemeToCanvas);
   memeExe.uploadBtn.addEventListener("change", memeExe.validateAndUploadMeme);
   memeExe.downloadBtn.addEventListener("click", memeExe.downloadMeme);
+  memeExe.textTop.addEventListener("keydown", shrinkToFill);
   Array.from(memeExe.memeText).forEach(text => {
     text.addEventListener("keydown", memeExe.updateMeme);
     text.addEventListener("keyup", memeExe.updateMeme);
@@ -198,6 +199,23 @@ memeExe.listeners = function() {
 });
 }();
  
+function shrinkToFill(e) {
+  var inputLength = this.value.length,
+  getFontSize = window.getComputedStyle(this).fontSize;
+  getFontSize = parseInt(getFontSize);
+
+  //make logic
+  /*if(inputLength >=23) {
+    console.log(inputLength+" increasing")
+    this.style.fontSize = (getFontSize-1)+"px"; 
+  } else {
+    console.log(inputLength+" decreasing")
+    this.style.fontSize = (getFontSize+1)+"px"; 
+  }
+  */
+  
+}
+
 //render first image on canvas 
 window.onload = function() {
   var image = new Image();
