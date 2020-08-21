@@ -188,7 +188,8 @@ memeExe.appendMemeUploadToGallery = function(uploadImage) {
 
 memeExe.shrinkToFill = function() {
   var inputLength = this.value.length,
-  maxSize = 39,
+  width = this.clientWidth,
+  maxSize = width == 300? 43:35,
   initialSize = maxSize - inputLength,
   initialSize=initialSize<=11?11:initialSize;
   this.style.fontSize = initialSize + "px";
@@ -198,11 +199,11 @@ memeExe.listeners = function() {
   memeExe.gallery.addEventListener("click", memeExe.renderMemeToCanvas);
   memeExe.uploadBtn.addEventListener("change", memeExe.validateAndUploadMeme);
   memeExe.downloadBtn.addEventListener("click", memeExe.downloadMeme);
-  memeExe.textTop.addEventListener("keydown", memeExe.shrinkToFill);
   Array.from(memeExe.memeText).forEach(text => {
     text.addEventListener("keydown", memeExe.updateMeme);
+    text.addEventListener("keydown", memeExe.shrinkToFill);
     text.addEventListener("keyup", memeExe.updateMeme);
-    text.addEventListener("focus", memeExe.updateMeme);
+    text.addEventListener("focus", memeExe.updateMeme);  
 });
 }();
  
