@@ -104,13 +104,13 @@ memeExe.drawText = function(text, pos, font){
 
   switch (pos) {
     case 'top': 
-      yPos = (memeExe.textTop.clientWidth/2)+1;
-      xPos = memeExe.textTop.offsetTop+10;
+      xPos = (memeExe.textTop.clientWidth/2)+1;
+      yPos = memeExe.textTop.offsetTop+10;
       break;
     
     case 'bottom':
-      yPos = (memeExe.textBtm.clientWidth/2)+1;
-      xPos = memeExe.textBtm.offsetTop+10;
+      xPos = (memeExe.textBtm.clientWidth/2)+1;
+      yPos = memeExe.textBtm.offsetTop+10;
       break;
   }
   
@@ -122,7 +122,7 @@ memeExe.drawText = function(text, pos, font){
   memeExe.ctx.shadowOffsetY=2;
   memeExe.ctx.shadowBlur=0;
   memeExe.ctx.fillStyle = '#fff';
-  memeExe.ctx.fillText(copy, yPos, xPos);  
+  memeExe.ctx.fillText(copy, xPos, yPos);  
 }
 
 
@@ -131,9 +131,8 @@ memeExe.updateMeme = function() {
   setTimeout(function(){
     var image = new Image();
     image.onload = memeExe.drawMeme;
-    //var activeCls = findElementClassByName("active", memeExe.gallery);
     var activeCls = document.querySelector(".active");
-    image.src = memeExe.helperFunc.extractSrcFromUrl(activeCls);    
+    image.src = memeExe.helperFunc.extractSrcFromUrl(activeCls);
   }, 1);
 }
 
@@ -187,11 +186,19 @@ memeExe.appendMemeUploadToGallery = function(uploadImage) {
   memeExe.toggleActive(newEle);
 }
 
+memeExe.shrinkToFill = function() {
+  var inputLength = this.value.length,
+  maxSize = 39,
+  initialSize = maxSize - inputLength,
+  initialSize=initialSize<=11?11:initialSize;
+  this.style.fontSize = initialSize + "px";
+}
+
 memeExe.listeners = function() {
   memeExe.gallery.addEventListener("click", memeExe.renderMemeToCanvas);
   memeExe.uploadBtn.addEventListener("change", memeExe.validateAndUploadMeme);
   memeExe.downloadBtn.addEventListener("click", memeExe.downloadMeme);
-  memeExe.textTop.addEventListener("keydown", shrinkToFill);
+  memeExe.textTop.addEventListener("keydown", memeExe.shrinkToFill);
   Array.from(memeExe.memeText).forEach(text => {
     text.addEventListener("keydown", memeExe.updateMeme);
     text.addEventListener("keyup", memeExe.updateMeme);
@@ -199,22 +206,7 @@ memeExe.listeners = function() {
 });
 }();
  
-function shrinkToFill(e) {
-  var inputLength = this.value.length,
-  getFontSize = window.getComputedStyle(this).fontSize;
-  getFontSize = parseInt(getFontSize);
 
-  //make logic
-  /*if(inputLength >=23) {
-    console.log(inputLength+" increasing")
-    this.style.fontSize = (getFontSize-1)+"px"; 
-  } else {
-    console.log(inputLength+" decreasing")
-    this.style.fontSize = (getFontSize+1)+"px"; 
-  }
-  */
-  
-}
 
 //render first image on canvas 
 window.onload = function() {
