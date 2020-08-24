@@ -47,6 +47,16 @@
                 opacity: 0;
             }
         }
+
+        &-downloadbtn {
+
+            &:link,
+            &:visited,
+            &:active {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
     }
 
     &__meme-container {

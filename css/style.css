@@ -394,6 +394,9 @@ body {
         top: 0;
         font-size: 5rem;
         opacity: 0; }
+    .main-frame__header-downloadbtn:link, .main-frame__header-downloadbtn:visited, .main-frame__header-downloadbtn:active {
+      text-decoration: none;
+      color: inherit; }
   .main-frame__meme-container {
     position: relative;
     z-index: 1; }
