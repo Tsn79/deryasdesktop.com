@@ -59,7 +59,7 @@
         </ul>
     </header>
 
-        <!-- DESKTOP SECTION-->
+        <!-- DESKTOP BUTTONS-->
 <section class="desktop">
               <div class="desktop__left">                  
                   <div class="files">
@@ -71,10 +71,10 @@
                         <div class="file-icon"  style="background-image: url(images/icons/icon-logo.svg);"></div>
                         <div class="file-label">About-Me.pdf</div>
                     </a>
-                    <div class="file file__meme" style="grid-area: 4 / 2 / 5 / 3;">
+                    <a class="file file__meme" style="grid-area: 4 / 2 / 5 / 3;" href="#meme-generator" target="_self">
                         <div class="file-icon" style="background-image: url(images/icons/icon-meme.svg);"></div>
-                        <div class="file-label">MEME_</div>
-                    </div>
+                        <div class="file-label">Meme_Generator</div>
+                    </a>
                     <div class="file file__settings" style="grid-area: 5 / 2 / 6 / 3;">
                         <div class="file-icon" style="background-image: url(images/icons/icon-settings.svg);"></div>
                         <div class="file-label">SETTINGS</div>  
@@ -91,9 +91,9 @@
                 </div>         
               <div class="desktop__right"></div>
     </section>
-   <audio class="click-sound">
-       <source src="images/click.wav" type="audio/mpeg">
-   </audio>
+
+
+  <!--PANES-->
    <section class="about-me pane__transition" id="about-me">
         <div class="main-pane">
             <div class="inner-pane">
@@ -112,7 +112,7 @@
             </div>
         </div>
    </section>
-   <section class="meme-generator">   
+   <section class="meme-generator pane__transition" id="meme-generator">   
      <div class="main-pane">
          <div class="inner-pane">
             <div class="inner-pane__header">             
@@ -155,6 +155,10 @@
      </div>
    </section>
 
+  <!--ClICK EFFECT-->
+   <audio class="click-sound">
+    <source src="images/click.wav" type="audio/mpeg">
+</audio>
    </div>
    <script src="js/date.js"></script>
    <script src="js/bundle.js" async></script>
