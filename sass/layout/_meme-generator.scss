@@ -4,10 +4,18 @@
     width: 93.4rem;
     height: 59.5rem;
     position: absolute;
-    transform: translate(-50%, -50%);
+    //transform: translate(-50%, -50%);
     top: 51.7%;
     left: 50%;
     overflow: hidden;
+
+    &:not(:target) {
+        transform: translate(-50%, -200%);
+    }
+
+    &:target {
+        transform: translate(-50%, -50%);
+    }
 }
 
 .main-frame {

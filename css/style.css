@@ -361,10 +361,13 @@ body {
   width: 93.4rem;
   height: 59.5rem;
   position: absolute;
-  transform: translate(-50%, -50%);
   top: 51.7%;
   left: 50%;
   overflow: hidden; }
+  .meme-generator:not(:target) {
+    transform: translate(-50%, -200%); }
+  .meme-generator:target {
+    transform: translate(-50%, -50%); }
 
 .main-frame {
   height: 82.3%; }
