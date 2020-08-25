@@ -4,18 +4,20 @@
     width: 93.4rem;
     height: 59.5rem;
     position: absolute;
-    //transform: translate(-50%, -50%);
+    //z-index: 102;
     top: 51.7%;
     left: 50%;
+    transform: translate(-50%, -200%);
+    //transform: translate(-50%, -50%);
     overflow: hidden;
 
-    &:not(:target) {
-        transform: translate(-50%, -200%);
-    }
+    // &:not(:target) {
+    //     transform: translate(-50%, -200%);
+    // }
 
-    &:target {
-        transform: translate(-50%, -50%);
-    }
+    // &:target {
+    //     transform: translate(-50%, -50%);
+    // }
 }
 
 .main-frame {
@@ -148,3 +150,4 @@
 .active {
     border: yellow solid;
 }
+
