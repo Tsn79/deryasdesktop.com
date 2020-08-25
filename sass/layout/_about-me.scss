@@ -4,15 +4,16 @@
     height: 44.6rem;
     @include block-center;
     overflow: hidden;
-    z-index: 1;
+    //z-index: 105;
+    transform: translate(-50%, -200%);
 
-    &:not(:target) {
-        transform: translate(-50%, -200%);
-    }
+    // &:not(:target) {
+    //     transform: translate(-50%, -200%);
+    // }
 
-    &:target {
-        transform: translate(-50%, -50%);
-    }
+    // &:target {
+    //     transform: translate(-50%, -50%);
+    // }
 
     &__pane {
         position: absolute;
