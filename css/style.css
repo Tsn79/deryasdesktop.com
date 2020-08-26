@@ -333,13 +333,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  overflow: hidden;
-  z-index: 1; }
-  .about-me:not(:target) {
-    transform: translate(-50%, -200%); }
-  .about-me:target {
-    transform: translate(-50%, -50%); }
+  transform: translate(-50%, -200%);
+  overflow: hidden; }
   .about-me__pane {
     position: absolute;
     width: 100%;
@@ -363,11 +358,8 @@ body {
   position: absolute;
   top: 51.7%;
   left: 50%;
+  transform: translate(-50%, -200%);
   overflow: hidden; }
-  .meme-generator:not(:target) {
-    transform: translate(-50%, -200%); }
-  .meme-generator:target {
-    transform: translate(-50%, -50%); }
 
 .main-frame {
   height: 82.3%; }
@@ -463,3 +455,9 @@ body {
 
 .active {
   border: yellow solid; }
+
+.pane {
+  z-index: 2; }
+
+.clicked {
+  transform: translate(-50%, -50%); }
