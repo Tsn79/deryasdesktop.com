@@ -1,9 +1,3 @@
-//click sound
-const clickSound = document.querySelector('.click-sound');
-document.querySelector('body').addEventListener('click', function () {
-    clickSound.autoplay = true;
-    clickSound.load();
-  });
 
 //meme generator
 const memeExe = {
@@ -218,48 +212,3 @@ memeExe.listeners = function() {
   memeExe.toggleActive(memeExe.gallery.firstElementChild);
 };
 })();
-
-
-
-//PAGE LINKS
-
-(function(){
-  var files = document.querySelectorAll(".file");
-files.forEach(file => {
-  file.addEventListener("click", handleClick);
-});
-})();
-
-
-//Get a string method to extract name after #
-//Find out that id in document.querySelector
-//Add clicked class to found element
-//Give all items equal z-index 
-//When clicked, change z-index to the highest
-
-function handleClick(event) {
-  var ele = getElement(event.currentTarget.href);
-  ele.classList.add("clicked");  
-}
-
-  
-function getElement(link) {
-  var regex = /#/;
-  var hashInx = link.search(regex);
-  var idName = link.slice(hashInx+1);
-
-  if(idName) {
-    var ele = document.querySelector(`#${idName}`);
-  }
-  return ele;
-}
-
-//ARRANGE Z-INDEX HERE!!!
-window.addEventListener('hashchange', locationHashChanged);
-
-function locationHashChanged(event) {
-  var newUrlId = getElement(event.newURL);
-  var oldUrlId = getElement(event.oldURL);
-  newUrlId.style.zIndex = "99";
-  oldUrlId.style.zIndex = "2";
-}
