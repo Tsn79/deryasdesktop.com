@@ -20,7 +20,7 @@
   --font-size-small: 1.3rem;
   --font-family: 'Roboto', sans-serif;
   --padding-small: 0.8rem;
-  --cursor-point: url("/images/cursor_pointer.png"), auto; }
+  --cursor-point: url("../images/cursor_pointer.png"), auto; }
 
 @keyframes logo-slide {
   0% {
@@ -52,7 +52,7 @@
   box-sizing: border-box; }
 
 a {
-  cursor: url("/images/cursor_pointer.png"), auto; }
+  cursor: url("../images/cursor_pointer.png"), auto; }
 
 html {
   font-size: 62.5%; }
@@ -62,7 +62,9 @@ body {
   width: 100vw;
   overflow: hidden;
   user-select: none;
-  cursor: url("/images/cursor.png"), auto; }
+  cursor: url("../images/cursor.png"), auto;
+  background-image: url("../images/Group6.png");
+  background-size: cover; }
 
 .body-container {
   height: 100vh;
@@ -80,14 +82,15 @@ body {
   font-weight: 500; }
 
 .pane__transition {
-  transition: transform 0.2s cubic-bezier(0, 0.98, 0.02, 1.29); }
+  transition: transform 0.3s cubic-bezier(0, 0.98, 0.02, 1.29); }
 
 .main-pane {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url(/images/pane.svg);
-  background-size: contain; }
+  background-image: url(../images/pane.svg);
+  background-size: contain;
+  background-repeat: no-repeat; }
 
 .inner-pane {
   position: relative;
@@ -263,7 +266,7 @@ body {
     grid-template-columns: minmax(2rem, 5rem) min-content 8rem min-content minmax(2rem, 1fr);
     grid-template-rows: minmax(3rem, 5rem) repeat(5, 1fr); }
   .desktop__right {
-    background-image: url(/images/desktop-illustration.svg);
+    background-image: url(../images/desktop-illustration.svg);
     background-repeat: no-repeat;
     background-position: 50% calc(50% + var(--height-header) - 8%);
     background-origin: border-box;
@@ -330,16 +333,13 @@ body {
 .about-me {
   width: 70rem;
   height: 44.6rem;
-  position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -200%);
-  overflow: hidden; }
-  .about-me__pane {
+  left: 50%; }
+  .about-me__main-frame {
     position: absolute;
     width: 100%;
     height: 90.5%;
-    background-image: url(/images/about-me--icon.svg);
+    background-image: url(../images/about-me--icon.svg);
     background-repeat: no-repeat;
     background-size: 25rem;
     background-position: 2rem 2rem;
@@ -355,63 +355,59 @@ body {
 .meme-generator {
   width: 93.4rem;
   height: 59.5rem;
-  position: absolute;
   top: 51.7%;
-  left: 50%;
-  transform: translate(-50%, -200%);
-  overflow: hidden; }
-
-.main-frame {
-  height: 82.3%; }
-  .main-frame__viewport {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; }
-  .main-frame__meme-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    height: 35rem; }
-  .main-frame__header {
-    width: 100%;
-    height: 6rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; }
-    .main-frame__header-uploadbtn {
-      position: relative;
-      overflow: hidden; }
-      .main-frame__header-uploadbtn input[type="file"] {
-        position: absolute;
-        left: 0;
-        top: 0;
-        font-size: 5rem;
-        opacity: 0; }
-    .main-frame__header-downloadbtn:link, .main-frame__header-downloadbtn:visited, .main-frame__header-downloadbtn:active {
-      text-decoration: none;
-      color: inherit; }
-  .main-frame__meme-container {
-    position: relative;
-    z-index: 1; }
-    .main-frame__meme-container:before {
-      content: "";
-      position: absolute;
-      background-image: url("/images/repeat grid.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      width: 100%;
+  left: 50%; }
+  .meme-generator__main-frame {
+    height: 82.3%; }
+    .meme-generator__main-frame-viewport {
       height: 100%;
-      left: -4rem;
-      top: 1rem;
-      z-index: -1; }
-  .main-frame__gallery {
-    overflow-x: scroll;
-    min-width: 100%;
-    min-height: 160px;
-    padding: .8rem 0;
-    display: flex; }
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+    .meme-generator__main-frame-meme-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      height: 35rem; }
+    .meme-generator__main-frame-header {
+      width: 100%;
+      height: 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; }
+      .meme-generator__main-frame-header--uploadbtn {
+        position: relative;
+        overflow: hidden; }
+        .meme-generator__main-frame-header--uploadbtn input[type="file"] {
+          position: absolute;
+          left: 0;
+          top: 0;
+          font-size: 5rem;
+          opacity: 0; }
+      .meme-generator__main-frame-header--downloadbtn:link, .meme-generator__main-frame-header--downloadbtn:visited, .meme-generator__main-frame-header--downloadbtn:active {
+        text-decoration: none;
+        color: inherit; }
+    .meme-generator__main-frame-meme-container {
+      position: relative;
+      z-index: 1; }
+      .meme-generator__main-frame-meme-container:before {
+        content: "";
+        position: absolute;
+        background-image: url("../images/repeat grid.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        left: -4rem;
+        top: 1rem;
+        z-index: -1; }
+    .meme-generator__main-frame-gallery {
+      overflow-x: scroll;
+      min-width: 100%;
+      min-height: 160px;
+      padding: .8rem 0;
+      display: flex; }
 
 .meme-btn {
   text-align: center;
@@ -457,7 +453,150 @@ body {
   border: yellow solid; }
 
 .pane {
-  z-index: 2; }
+  z-index: 2;
+  transform: translate(-50%, -400%);
+  position: absolute;
+  overflow: hidden; }
 
 .clicked {
   transform: translate(-50%, -50%); }
+
+.settings {
+  width: 37.5rem;
+  height: 49.2rem;
+  top: 51.7%;
+  left: 35%;
+  transform: translate(-50%, -50%) !important; }
+  .settings__main-pane {
+    background-image: url(../images/border-pane-settings.svg);
+    background-size: unset; }
+  .settings__inner-pane {
+    width: 95.2%;
+    height: 96.8%;
+    display: flex;
+    flex-direction: column; }
+  .settings__main-frame {
+    flex: 1; }
+  .settings__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column; }
+    .settings__container > * {
+      flex: 1;
+      text-align: center;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+  .settings__background-colors {
+    display: flex;
+    justify-content: center; }
+    .settings__background-colors > * {
+      width: 3.6rem;
+      height: 3.6rem;
+      border-radius: 50%;
+      border: black solid 2px;
+      cursor: var(--cursor-point); }
+      .settings__background-colors > *:hover {
+        transform: scale(1.1); }
+    .settings__background-colors > *:not(:last-child) {
+      margin-right: 10px; }
+    .settings__background-colors--pink {
+      background-color: #ff99c9; }
+    .settings__background-colors--lightblue {
+      background-color: #bfd7ea; }
+    .settings__background-colors--green {
+      background-color: #96e072; }
+    .settings__background-colors--mint {
+      background-color: #44bba4; }
+    .settings__background-colors--blue {
+      background-color: var(--color-desktop-bg); }
+  .settings__fullscreen {
+    /*the box around the slider*/ }
+    .settings__fullscreen-switch {
+      position: relative;
+      display: inline-block;
+      width: 6rem;
+      height: 3.5rem;
+      /* Hide default HTML checkbox */
+      /*The slider*/ }
+      .settings__fullscreen-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0; }
+        .settings__fullscreen-switch input:checked + .slider {
+          background-color: var(--color-yellow); }
+        .settings__fullscreen-switch input:focus + .slider {
+          box-shadow: 0 0 1px #2196f3; }
+        .settings__fullscreen-switch input:checked + .slider:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px); }
+      .settings__fullscreen-switch span {
+        position: absolute;
+        cursor: var(--cursor-point);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-grey);
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        border-radius: 3.4rem;
+        border: solid 2px black; }
+        .settings__fullscreen-switch span:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 2px;
+          bottom: 2px;
+          background-color: black;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
+          border-radius: 50%; }
+  .settings__resize {
+    /* Width of the outside container */ }
+    .settings__resize-slidecontainer {
+      width: 12rem;
+      margin: 0 auto; }
+      .settings__resize-slidecontainer input {
+        -webkit-appearance: none;
+        /* Override default CSS styles */
+        appearance: none;
+        width: 100%;
+        /* Full-width */
+        height: 3.5rem;
+        /* Specified height */
+        border-radius: 3.4rem;
+        background: var(--color-grey);
+        /* Grey background */
+        border: solid 2px black;
+        outline: none;
+        /* Remove outline */
+        -webkit-transition: 0.2s;
+        /* 0.2 seconds transition on hover */
+        transition: opacity 0.2s; }
+        .settings__resize-slidecontainer input::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          background: black;
+          cursor: var(--cursor-point); }
+        .settings__resize-slidecontainer input::-moz-range-thumb {
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          background: black;
+          cursor: pointer; }
+  .settings__effects-select select {
+    height: 3.5rem;
+    background-color: var(--color-grey);
+    border: 2px solid black;
+    font-family: inherit;
+    font-size: inherit;
+    text-transform: capitalize; }
+    .settings__effects-select select:focus {
+      outline: none; }
