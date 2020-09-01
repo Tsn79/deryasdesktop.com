@@ -7,7 +7,7 @@
 }
 
 a {
- cursor: url("/images/cursor_pointer.png"), auto;
+ cursor: url("../images/cursor_pointer.png"), auto;
 }
 
 
@@ -21,14 +21,15 @@ body {
     width: 100vw;
     overflow: hidden;
     user-select: none;
-    cursor: url("/images/cursor.png"), auto;
+    cursor: url("../images/cursor.png"), auto;
+    background-image: url("../images/Group6.png");
+    background-size: cover;
 }
 
 .body-container {
     height: 100vh;
     width: 100vw;
     background-color: var(--color-desktop-bg);
-    position: relative;
-    
+    position: relative;    
 }
 
