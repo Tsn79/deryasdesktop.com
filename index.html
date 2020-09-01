@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 </head>
 <body>
-   <div class="body-container">
+   <div class="body-container" id="body-container">
     <header>
         <ul class="header">
             <!--LOGO & NAME-->
@@ -103,7 +103,7 @@
                    <p class="inner-pane__header-text">About-Me.pdf</p>
                     <a href="#about-me" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
                 </div>
-                <div class="about-me__pane">
+                <div class="about-me__main-frame">
                     <p class="about-me__content">
                         <span class="introduction">Hi! I'm Derya. I'm a Front-End Developer.</span>
                         <br>
@@ -123,16 +123,16 @@
                 <p class="inner-pane__header-text">Meme-Generator.exe</p>
                  <a href="#meme-generator" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
              </div>
-             <div class="main-frame">
-                 <div class="main-frame__header">
-                     <a class="meme-btn main-frame__header-uploadbtn" id="meme-uploadBtn">Upload Meme
+             <div class="meme-generator__main-frame">
+                 <div class="meme-generator__main-frame-header">
+                     <a class="meme-btn meme-generator__main-frame-header--uploadbtn" id="meme-uploadBtn">Upload Meme
                          <input id="memeUpload" type="file" name="file" accept=".png, .jpg, .jpeg">
                      </a>
-                     <a class="meme-btn main-frame__header-downloadbtn" id="meme-downloadBtn" download="memebyderya.png">Download</a>
+                     <a class="meme-btn meme-generator__main-frame-header--downloadbtn" id="meme-downloadBtn" download="memebyderya.png">Download</a>
                  </div>            
-             <div class="main-frame__viewport">
-                 <div class="main-frame__meme-wrapper">
-                    <div class="main-frame__meme-container" id="meme-container">
+             <div class="meme-generator__main-frame-viewport">
+                 <div class="meme-generator__main-frame-meme-wrapper">
+                    <div class="meme-generator__main-frame-meme-container" id="meme-container">
                         <canvas class="canvas" id="meme-canvas"></canvas>
                         <div class="canvas-text">
                             <input type="text" class="input-text canvas-text--top" autocomplete="off" value="One does not simply">
@@ -140,7 +140,7 @@
                   </div>       
                     </div>
                  </div>
-                <div class="main-frame__gallery" id="meme-gallery">
+                <div class="meme-generator__main-frame-gallery" id="meme-gallery">
                     <div class="thumb" id="spongebob" style="background-image: url(images/meme/Mocking-Spongebob.jpg);"></div>
                     <div class="thumb" id="think-about" style="background-image: url('images/meme/Roll-Safe-Think-About-It.jpg');"></div>
                     <div class="thumb" id="one-does-not-simply" style="background-image: url('images/meme/One-Does-Not-Simply.jpg');"></div>
@@ -159,6 +159,64 @@
      </div>
    </section>
 
+   <!--SETTINGS-->
+   <section class="pane settings pane__transition" id="settings">
+    <div class="main-pane settings__main-pane">
+        <div class="inner-pane settings__inner-pane">
+            <div class="inner-pane__header">
+                <p class="inner-pane__header-text">Settings.app</p>
+                <a href="#settings" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
+                </div>
+                <div class="settings__main-frame">
+                    <div class="settings__container">
+                    <div class="settings__background">
+                        <p>Change Background</p>
+                        <div class="settings__background-colors">
+                        <div class="settings__background-colors--pink" id="bg-pink" data-color="#ff99c9">&nbsp;</div>
+                        <div class="settings__background-colors--lightblue" id="bg-blue" data-color="#bfd7ea">&nbsp;</div>
+                        <div class="settings__background-colors--green" id="bg-green" data-color="#96e072">&nbsp;</div>
+                        <div class="settings__background-colors--mint" id="bg-mint" data-color="#44bba4">&nbsp;</div>
+                        <div class="settings__background-colors--blue" id="bg-original" data-color="#468BAD">&nbsp;</div>
+                        </div>                        
+                    </div>
+                    <div class="settings__fullscreen">
+                        <p>Fullscreen</p>
+                        <!--https://www.w3schools.com/howto/howto_css_switch.asp-->
+                        <div class="settings__fullscreen-container">
+                           <label class="settings__fullscreen-switch">
+                            <input type="checkbox" id="fullscreen">
+                            <span class="slider"></span>
+                        </label> 
+                        </div>
+                    </div>
+                    <div class="settings__resize">
+                        <p>Resize</p>
+                            <div class="settings__resize-slidecontainer">
+                            <input type="range" min="0" max="5" value="0" class="slider" id="resizeRange">
+                        </div>
+                        </div>                    
+                    <div class="settings__effects">
+                        <p>Effects</p>
+                        <!--https://www.w3schools.com/howto/howto_custom_select.asp-->
+                        <div class="settings__effects-select">
+                            <select>
+                                <option value="normal" selected>normal</option>
+                                <!--filter:none-->
+                                <option value="weird">weird</option>
+                                <!--filter: drop-shadow(16px 16px 20px red) invert(75%);-->
+                                <option value="boring">boring</option>
+                                <!--filter: grayscale(100%);-->
+                                <option value="losing-my-eyesight">blurry</option>
+                                <!--filter: blur(1px);-->
+                            </select>
+                        </div>
+                    </div>
+                    </div>                   
+                </div>
+        </div>
+    </div>
+    </section>
+
   <!--ClICK EFFECT-->
    <audio class="click-sound">
     <source src="images/click.wav" type="audio/mpeg">
@@ -167,5 +225,6 @@
    <script src="js/date.js"></script>
    <script src="js/bundle.js" async></script>
    <script src="js/app.js"></script>
+   <script src="js/settings.js"></script>
 </body>
 </html>
