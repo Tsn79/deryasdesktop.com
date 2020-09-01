@@ -1,24 +1,21 @@
 .meme-generator {
     width: 93.4rem;
     height: 59.5rem;
-    position: absolute;
     top: 51.7%;
     left: 50%;
-    transform: translate(-50%, -200%);
-    overflow: hidden;
-}
 
-.main-frame {
+
+&__main-frame {
     height: 82.3%;
 
-    &__viewport {
+    &-viewport {
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
-    &__meme-wrapper {
+    &-meme-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -26,14 +23,14 @@
         height: 35rem;
     }
 
-    &__header {
+    &-header {
         width: 100%;
         height: 6rem;
         display: flex;
         align-items: center;
         justify-content: flex-start;
 
-        &-uploadbtn {
+        &--uploadbtn {
             position: relative;
             overflow: hidden;
 
@@ -46,7 +43,7 @@
             }
         }
 
-        &-downloadbtn {
+        &--downloadbtn {
 
             &:link,
             &:visited,
@@ -57,14 +54,14 @@
         }
     }
 
-    &__meme-container {
+    &-meme-container {
         position: relative;
         z-index: 1;
 
         &:before {
             content: "";
             position: absolute;
-            background-image: url("/images/repeat\ grid.svg");
+            background-image: url("../images/repeat\ grid.svg");
             background-size: contain;
             background-repeat: no-repeat;
             width: 100%;
@@ -75,13 +72,14 @@
         }
     }
 
-    &__gallery {
+    &-gallery {
         overflow-x: scroll;
         min-width: 100%;
         min-height: 160px;
         padding: .8rem 0;
         display: flex;
     }
+}
 }
 
 .meme-btn {
