@@ -8,7 +8,8 @@ document.querySelector('body').addEventListener('click', function () {
 
 //DESKTOP BUTTONS
  var desktop = {
-     element: {}
+     element: {},
+     files: {}
  };
 
  desktop.element.closeButton = document.querySelectorAll(".close-btn");
