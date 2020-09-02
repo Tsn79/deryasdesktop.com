@@ -159,6 +159,7 @@
         outline: none; /* Remove outline */
         -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
         transition: opacity 0.2s;
+        cursor: inherit;
 
         &::-webkit-slider-thumb {
           -webkit-appearance: none;
@@ -182,9 +183,7 @@
   }
 
   &__effects {
-
     &-select {
-    
         & select {
             height: 3.5rem;
             background-color: var(--color-grey);
@@ -192,13 +191,12 @@
             font-family: inherit;
             font-size: inherit;
             text-transform: capitalize;
+            cursor: var(--cursor-point);
 
             &:focus {
                 outline: none;
             }
-        }
-
-    
+        }    
   }
 }
 }
