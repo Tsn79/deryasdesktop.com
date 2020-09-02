@@ -20,6 +20,29 @@ settings.fullscreen = document.querySelector("#fullscreen");
 settings.variables.isToggled = true;
 
 settings.resizeInputRange = document.querySelector("#resizeRange");
+settings.effectsInput = document.querySelector("#effects");
+
+
+
+settings.functions.setScreenEffects = function() {
+    switch(this.value) {
+        case "normal":
+        settings.body.style.filter = "none";
+        break;
+
+        case "weird":
+        settings.body.style.filter = "drop-shadow(16px 16px 20px red) invert(75%)";
+        break;
+        
+        case "boring":
+        settings.body.style.filter = "grayscale(100%)";
+        break;
+
+        case "blurry":
+        settings.body.style.filter = "blur(1px)"; 
+        break;
+    }
+}
 
 
 settings.functions.toggleFullScreen = function() {
@@ -93,6 +116,7 @@ settings.listeners = (function (){
  }  
     settings.fullscreen.addEventListener("change", settings.functions.toggleFullScreen);
     settings.resizeInputRange.addEventListener("change", settings.functions.resizeScreen); 
+    settings.effectsInput.addEventListener("input", settings.functions.setScreenEffects);
 })();
 
 
