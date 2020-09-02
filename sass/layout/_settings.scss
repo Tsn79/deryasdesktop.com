@@ -50,6 +50,7 @@
         border-radius: 50%;
         border: black solid 2px;
         cursor: var(--cursor-point);
+        transition: transform .2s;
           
           &:hover {
             transform: scale(1.1);
