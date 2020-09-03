@@ -1,0 +1,49 @@
+.drummer {
+    width: 45rem;
+    height: 60rem;
+    top: 52.7%;
+    left: 40%;
+
+    //temporary
+    transform: translate(-50%, -50%) !important;
+
+        //override pane settings
+        &__main-pane {
+            background-image: url(../images/border-pane-settings.svg);
+            background-size: 95.2rem 134.6rem;
+        }
+
+        &__inner-pane {
+            width: 95%;
+            height: 95%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__main-frame {
+            padding: 3rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            & > *:not(:last-child) {
+                margin-bottom: 3rem;
+            }
+        }
+
+        &__canvas-box {
+            background-color: yellow;
+            flex: 2;
+
+        }
+
+        &__keys {
+            background-color: aqua;
+            flex: 3;
+        }
+
+        &__buttons {
+            background-color: floralwhite;
+            flex: 1;
+        }
+}
