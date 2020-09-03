@@ -602,3 +602,34 @@ body {
     cursor: var(--cursor-point); }
     .settings__effects-select select:focus {
       outline: none; }
+
+.drummer {
+  width: 45rem;
+  height: 60rem;
+  top: 52.7%;
+  left: 40%;
+  transform: translate(-50%, -50%) !important; }
+  .drummer__main-pane {
+    background-image: url(../images/border-pane-settings.svg);
+    background-size: 95.2rem 134.6rem; }
+  .drummer__inner-pane {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column; }
+  .drummer__main-frame {
+    padding: 3rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column; }
+    .drummer__main-frame > *:not(:last-child) {
+      margin-bottom: 3rem; }
+  .drummer__canvas-box {
+    background-color: yellow;
+    flex: 2; }
+  .drummer__keys {
+    background-color: aqua;
+    flex: 3; }
+  .drummer__buttons {
+    background-color: floralwhite;
+    flex: 1; }
