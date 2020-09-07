@@ -1,11 +1,18 @@
+#drummer {
+  &:focus {
+    outline: none;
+  }
+}
+
 .drummer {
   width: 45rem;
   height: 60rem;
   top: 52.7%;
   left: 40%;
+  
 
   //temporary
-  transform: translate(-50%, -50%) !important;
+  //transform: translate(-50%, -50%) !important;
 
   //override pane settings
   &__main-pane {
@@ -65,11 +72,12 @@
       }
 
       &:nth-child(3),
-      &:nth-child(7) {
+      &:nth-child(9) {
         background-color: #fef6ab;
       }
 
-      &:nth-child(4) {
+      &:nth-child(4),
+      &:nth-child(7) {
         background-color: #f8b2bd;
       }
 
