@@ -1,305 +1,575 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>An Ordinary Portfolio Page of Derya</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-</head>
-<body>
-   <div class="body-container" id="body-container">
-    <header>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+  </head>
+  <body>
+    <div class="body-container" id="body-container">
+      <header>
         <ul class="header">
-            <!--LOGO & NAME-->
-            <li class="header__logo">
-                <div class="header__logo-box">
-                    <img src="images/Logo@2x.png" alt="logo" class="header__logo-image">
-                </div>
-                <span class="header__logo-name">derya antonelli</span>
-            </li>
-    
-            <!--NAVIGATION-->    
-            <!--item 1-->
-            <li class="navigation__list-item">               
-                <a href="#about-me"><button class="navigation__dropdown-btn">About Me</button></a>
-            </li>
+          <!--LOGO & NAME-->
+          <li class="header__logo">
+            <div class="header__logo-box">
+              <img
+                src="images/Logo@2x.png"
+                alt="logo"
+                class="header__logo-image"
+              />
+            </div>
+            <span class="header__logo-name">derya antonelli</span>
+          </li>
 
-            <!--item 2-->
-            <li class="navigation__list-item">
-                <button class="navigation__dropdown-btn">Follow</button>
-                <ul class="navigation__dropdown-hidden">
-                    <li><a href="https://twitter.com/antonelli_a" target="_blank"
-                            class="navigation__dropdown-link">Twitter</a></li>
-                    <li><a href="https://github.com/D-Antonelli" target="_blank"
-                            class="navigation__dropdown-link">GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/derya-a-antonelli/" target="_blank"
-                            class="navigation__dropdown-link">LinkedIn</a></li>
-                    <li><a href="https://codepen.io/d-antonelli" target="_blank"
-                            class="navigation__dropdown-link">Codepen</a></li>
-                </ul>
-            </li>
-    
-            <!--item 3-->
-            <li class="navigation__list-item">
-                <button class=" navigation__dropdown-btn">Explorer</button>
-                <ul class="navigation__dropdown-hidden">
-                    <li><a href="#meme-generator" class="navigation__dropdown-link">Meme Generator</a></li>
-                    <li><a href="#" class="navigation__dropdown-link">Windows2</a></li>
-                    <li><a href="#" class="navigation__dropdown-link">Drummer</a></li>
-                    <li><a href="#" class="navigation__dropdown-link">Settings</a></li>
-                </ul>
-            </li>
-            <!--E-MAIL-->
-            <li class="email">derya.antonelli@gmail.com</li>
-    
-            <!--TIME-->
-            <li class="time">Thu 10:09</li>
+          <!--NAVIGATION-->
+          <!--item 1-->
+          <li class="navigation__list-item">
+            <a href="#about-me"
+              ><button class="navigation__dropdown-btn">About Me</button></a
+            >
+          </li>
+
+          <!--item 2-->
+          <li class="navigation__list-item">
+            <button class="navigation__dropdown-btn">Follow</button>
+            <ul class="navigation__dropdown-hidden">
+              <li>
+                <a
+                  href="https://twitter.com/antonelli_a"
+                  target="_blank"
+                  class="navigation__dropdown-link"
+                  >Twitter</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/D-Antonelli"
+                  target="_blank"
+                  class="navigation__dropdown-link"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/derya-a-antonelli/"
+                  target="_blank"
+                  class="navigation__dropdown-link"
+                  >LinkedIn</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://codepen.io/d-antonelli"
+                  target="_blank"
+                  class="navigation__dropdown-link"
+                  >Codepen</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!--item 3-->
+          <li class="navigation__list-item">
+            <button class="navigation__dropdown-btn">Explorer</button>
+            <ul class="navigation__dropdown-hidden">
+              <li>
+                <a href="#meme-generator" class="navigation__dropdown-link"
+                  >Meme Generator</a
+                >
+              </li>
+              <li>
+                <a href="#" class="navigation__dropdown-link">Windows2</a>
+              </li>
+              <li><a href="#" class="navigation__dropdown-link">Drummer</a></li>
+              <li>
+                <a href="#" class="navigation__dropdown-link">Settings</a>
+              </li>
+            </ul>
+          </li>
+          <!--E-MAIL-->
+          <li class="email">derya.antonelli@gmail.com</li>
+
+          <!--TIME-->
+          <li class="time">Thu 10:09</li>
         </ul>
-    </header>
+      </header>
 
-        <!-- DESKTOP BUTTONS-->
-<section class="desktop">
-              <div class="desktop__left">                  
-                  <div class="files">
-                    <a class="file file__mail" style="grid-area: 2 / 2 / 3 / 3;" href="mailto:derya.antonelli@gmail.com">
-                        <div class="file-icon" style="background-image: url(images/icons/icon-mail.svg);"></div>
-                        <div class="file-label">MAIL_ME</div>
-                    </a>
-                    <a class="file file__about" style="grid-area: 3 / 2 / 4 / 3;" href="#about-me" target="_self">
-                        <div class="file-icon"  style="background-image: url(images/icons/icon-logo.svg);"></div>
-                        <div class="file-label">About-Me.pdf</div>
-                    </a>
-                    <a class="file file__meme" style="grid-area: 4 / 2 / 5 / 3;" href="#meme-generator" target="_self">
-                        <div class="file-icon" style="background-image: url(images/icons/icon-meme.svg);"></div>
-                        <div class="file-label">Meme_Generator</div>
-                    </a>
-                    <a class="file file__settings" style="grid-area: 5 / 2 / 6 / 3;" href="#settings" target="_self">
-                        <div class="file-icon" style="background-image: url(images/icons/icon-settings.svg);"></div>
-                        <div class="file-label">SETTINGS</div>
-                    </a>
-                    <a class="file file__drummer" style="grid-area: 2 / 4 / 3 / 5;">
-                        <div class="file-icon" style="background-image: url(images/icons/icon-drummer.svg);"></div>
-                        <div class="file-label">Drummer.exe</div>
-                    </a>
-                    <a class="file file__window" style="grid-area: 3 / 4 / 4 / 5;">
-                        <div class="file-icon" style="background-image: url(images/icons/icon-window.svg);"></div>
-                        <div class="file-label">WinDows2.txt</div>
-                    </a>
-                  </div>
-                </div>         
-              <div class="desktop__right"></div>
-    </section>
+      <!-- DESKTOP BUTTONS-->
+      <section class="desktop">
+        <div class="desktop__left">
+          <div class="files">
+            <a
+              class="file file__mail"
+              style="grid-area: 2 / 2 / 3 / 3"
+              href="mailto:derya.antonelli@gmail.com"
+            >
+              <div
+                class="file-icon"
+                style="background-image: url(images/icons/icon-mail.svg)"
+              ></div>
+              <div class="file-label">MAIL_ME</div>
+            </a>
+            <a
+              class="file file__about"
+              style="grid-area: 3 / 2 / 4 / 3"
+              href="#about-me"
+              target="_self"
+            >
+              <div
+                class="file-icon"
+                style="background-image: url(images/icons/icon-logo.svg)"
+              ></div>
+              <div class="file-label">About-Me.pdf</div>
+            </a>
+            <a
+              class="file file__meme"
+              style="grid-area: 4 / 2 / 5 / 3"
+              href="#meme-generator"
+              target="_self"
+            >
+              <div
+                class="file-icon"
+                style="background-image: url(images/icons/icon-meme.svg)"
+              ></div>
+              <div class="file-label">Meme_Generator</div>
+            </a>
+            <a
+              class="file file__settings"
+              style="grid-area: 5 / 2 / 6 / 3"
+              href="#settings"
+              target="_self"
+            >
+              <div
+                class="file-icon"
+                style="background-image: url(images/icons/icon-settings.svg)"
+              ></div>
+              <div class="file-label">SETTINGS</div>
+            </a>
+            <a
+              class="file file__drummer"
+              style="grid-area: 2 / 4 / 3 / 5"
+              href="#drummer"
+              target="_self"
+            >
+              <div
+                class="file-icon"
+                style="background-image: url(images/icons/icon-drummer.svg)"
+              ></div>
+              <div class="file-label">Drummer.exe</div>
+            </a>
+            <a class="file file__window" style="grid-area: 3 / 4 / 4 / 5">
+              <div
+                class="file-icon"
+                style="background-image: url(images/icons/icon-window.svg)"
+              ></div>
+              <div class="file-label">WinDows2.txt</div>
+            </a>
+          </div>
+        </div>
+        <div class="desktop__right"></div>
+      </section>
 
+      <!--PANES-->
 
-  <!--PANES-->
-
-  <!--ABOUT ME-->
-   <section class="pane about-me pane__transition" id="about-me">
+      <!--ABOUT ME-->
+      <section class="pane about-me pane__transition" id="about-me">
         <div class="main-pane">
-            <div class="inner-pane">
-                <div class="inner-pane__header">                  
-                   <p class="inner-pane__header-text">About-Me.pdf</p>
-                    <a href="#about-me" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
-                </div>
-                <div class="about-me__main-frame">
-                    <p class="about-me__content">
-                        <span class="introduction">Hi! I'm Derya. I'm a Front-End Developer.</span>
-                        <br>
-                        <br>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    </p>  
-                </div>
-            </div>
-        </div>
-   </section>
-
-   <!--MEME GENERATOR-->
-   <section class="pane meme-generator pane__transition" id="meme-generator">   
-     <div class="main-pane">
-         <div class="inner-pane">
-            <div class="inner-pane__header">             
-                <p class="inner-pane__header-text">Meme-Generator.exe</p>
-                 <a href="#meme-generator" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
-             </div>
-             <div class="meme-generator__main-frame">
-                 <div class="meme-generator__main-frame-header">
-                     <a class="meme-btn meme-generator__main-frame-header--uploadbtn" id="meme-uploadBtn">Upload Meme
-                         <input id="memeUpload" type="file" name="file" accept=".png, .jpg, .jpeg">
-                     </a>
-                     <a class="meme-btn meme-generator__main-frame-header--downloadbtn" id="meme-downloadBtn" download="memebyderya.png">Download</a>
-                 </div>            
-             <div class="meme-generator__main-frame-viewport">
-                 <div class="meme-generator__main-frame-meme-wrapper">
-                    <div class="meme-generator__main-frame-meme-container" id="meme-container">
-                        <canvas class="canvas" id="meme-canvas"></canvas>
-                        <div class="canvas-text">
-                            <input type="text" class="input-text canvas-text--top" autocomplete="off" value="One does not simply">
-                            <input type="text" class="input-text canvas-text--bottom" autocomplete="off" value="Make a new meme">
-                  </div>       
-                    </div>
-                 </div>
-                <div class="meme-generator__main-frame-gallery" id="meme-gallery">
-                    <div class="thumb" id="spongebob" style="background-image: url(images/meme/Mocking-Spongebob.jpg);"></div>
-                    <div class="thumb" id="think-about" style="background-image: url('images/meme/Roll-Safe-Think-About-It.jpg');"></div>
-                    <div class="thumb" id="one-does-not-simply" style="background-image: url('images/meme/One-Does-Not-Simply.jpg');"></div>
-                    <div class="thumb" id="ancient-aliens" style="background-image: url('images/meme/Ancient-Aliens.jpg');"></div>
-                    <div class="thumb" id="unsettled-tom" style="background-image: url('images/meme/Unsettled-Tom.jpg');"></div>
-                    <div class="thumb" id="di-caprio" style="background-image: url('images/meme/Leonardo-Dicaprio-Cheers.jpg');"></div>
-                    <div class="thumb" id="futurama" style="background-image: url('images/meme/Futurama-Fry.jpg');"></div>
-                    <div class="thumb" id="no" style="background-image: url('images/meme/Y-U-No.jpg');"></div>
-                    <div class="thumb" id="brian" style="background-image: url('images/meme/Bad-Luck-Brian.jpg');"></div>
-                    <div class="thumb" id="scared-cat" style="background-image: url('images/meme/Scared-Cat.jpg');"></div>
-                    <div class="thumb" id="success-kid" style="background-image: url('images/meme/Success-Kid.jpg');"></div>
-                </div> 
-             </div>
-            </div>
-         </div>
-     </div>
-   </section>
-
-   <!--SETTINGS-->
-   <section class="pane settings pane__transition" id="settings">
-    <div class="main-pane settings__main-pane">
-        <div class="inner-pane settings__inner-pane">
+          <div class="inner-pane">
             <div class="inner-pane__header">
-                <p class="inner-pane__header-text">Settings.app</p>
-                <a href="#settings" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
-                </div>
-                <div class="settings__main-frame">
-                    <div class="settings__container">
-                    <div class="settings__background">
-                        <p>Change Background</p>
-                        <div class="settings__background-colors">
-                        <div class="settings__background-colors--pink" id="bg-pink" data-color="#ff99c9">&nbsp;</div>
-                        <div class="settings__background-colors--lightblue" id="bg-blue" data-color="#bfd7ea">&nbsp;</div>
-                        <div class="settings__background-colors--green" id="bg-green" data-color="#96e072">&nbsp;</div>
-                        <div class="settings__background-colors--mint" id="bg-mint" data-color="#44bba4">&nbsp;</div>
-                        <div class="settings__background-colors--blue" id="bg-original" data-color="#468BAD">&nbsp;</div>
-                        </div>                        
-                    </div>
-                    <div class="settings__fullscreen">
-                        <p>Fullscreen</p>
-                        <!--https://www.w3schools.com/howto/howto_css_switch.asp-->
-                        <div class="settings__fullscreen-container">
-                           <label class="settings__fullscreen-switch">
-                            <input type="checkbox" id="fullscreen">
-                            <span class="slider"></span>
-                        </label> 
-                        </div>
-                    </div>
-                    <div class="settings__resize">
-                        <p>Resize</p>
-                            <div class="settings__resize-slidecontainer">
-                            <input type="range" min="0" max="5" value="0" class="slider" id="resizeRange">
-                        </div>
-                        </div>                    
-                    <div class="settings__effects">
-                        <p>Effects</p>
-                        <!--https://www.w3schools.com/howto/howto_custom_select.asp-->
-                        <div class="settings__effects-select">
-                            <select id="effects">
-                                <option value="normal" selected>normal</option>
-                                <!--filter:none-->
-                                <option value="weird">weird</option>
-                                <!--filter: drop-shadow(16px 16px 20px red) invert(75%);-->
-                                <option value="boring">boring</option>
-                                <!--filter: grayscale(100%);-->
-                                <option value="blurry">blurry</option>
-                                <!--filter: blur(1px);-->
-                            </select>
-                        </div>
-                    </div>
-                    </div>                   
-                </div>
-        </div>
-    </div>
-    </section>
-
-    <!--DRUMMER-->
-    <section class="pane drummer pane__transition" id="drummer">
-        <div class="main-pane drummer__main-pane">
-            <div class="inner-pane drummer__inner-pane">
-                <div class="inner-pane__header">
-                    <p class="inner-pane__header-text">Drummer.me</p>
-                    <a href="#drummer" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
-                    </div>
-                    <div class="drummer__main-frame">
-                        <div class="drummer__canvas-box">
-                            <canvas class="visualizer"></canvas>
-                        </div>
-                        <div class="drummer__keys">
-                            <!--30 Days of Javascript by Wes Bos-->
-                            <div data-key="65" class="key">
-                                <kbd>A</kbd>
-                                <span class="sound">clap</span>
-                            </div>
-                            <div data-key="83" class="key">
-                                <kbd>S</kbd>
-                                <span class="sound">hihat</span>
-                              </div>
-                              <div data-key="68" class="key">
-                                <kbd>D</kbd>
-                                <span class="sound">kick</span>
-                              </div>
-                              <div data-key="70" class="key">
-                                <kbd>F</kbd>
-                                <span class="sound">openhat</span>
-                              </div>
-                              <div data-key="71" class="key">
-                                <kbd>G</kbd>
-                                <span class="sound">boom</span>
-                              </div>
-                              <div data-key="72" class="key">
-                                <kbd>H</kbd>
-                                <span class="sound">ride</span>
-                              </div>
-                              <div data-key="74" class="key">
-                                <kbd>J</kbd>
-                                <span class="sound">snare</span>
-                              </div>
-                              <div data-key="75" class="key">
-                                <kbd>K</kbd>
-                                <span class="sound">tom</span>
-                              </div>
-                              <div data-key="76" class="key">
-                                <kbd>L</kbd>
-                                <span class="sound">tink</span>
-                              </div>
-                        </div>
-                        <div class="drummer__buttons">
-                            <button class="record"><img src="../images/button-icons/record.svg" onerror="this.onerror=null; this.src='record.png'"></button>
-                            <button class="pause"><img src="../images/button-icons/pause.svg" onerror="this.onerror=null; this.src='pause.png'"></button>
-                            <button class="play"><img src="../images/button-icons/play.svg" onerror="this.onerror=null; this.src='play.png'"></button>
-                            <button class="stop"><img src="../images/button-icons/stop.svg" onerror="this.onerror=null; this.src='stop.png'"></button>
-                        </div>
-                    </div>
+              <p class="inner-pane__header-text">About-Me.pdf</p>
+              <a
+                href="#about-me"
+                class="close-btn"
+                aria-label="Close Account Info Modal Box"
+                role="button"
+                >&times;</a
+              >
             </div>
+            <div class="about-me__main-frame">
+              <p class="about-me__content">
+                <span class="introduction"
+                  >Hi! I'm Derya. I'm a Front-End Developer.</span
+                >
+                <br />
+                <br />
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-  <!--ClICK EFFECT-->
-   <audio class="click-sound">
-    <source src="images/click.wav" type="audio/mpeg">
-</audio>
-   </div>
+      <!--MEME GENERATOR-->
+      <section class="pane meme-generator pane__transition" id="meme-generator">
+        <div class="main-pane">
+          <div class="inner-pane">
+            <div class="inner-pane__header">
+              <p class="inner-pane__header-text">Meme-Generator.exe</p>
+              <a
+                href="#meme-generator"
+                class="close-btn"
+                aria-label="Close Account Info Modal Box"
+                role="button"
+                >&times;</a
+              >
+            </div>
+            <div class="meme-generator__main-frame">
+              <div class="meme-generator__main-frame-header">
+                <a
+                  class="meme-btn meme-generator__main-frame-header--uploadbtn"
+                  id="meme-uploadBtn"
+                  >Upload Meme
+                  <input
+                    id="memeUpload"
+                    type="file"
+                    name="file"
+                    accept=".png, .jpg, .jpeg"
+                  />
+                </a>
+                <a
+                  class="meme-btn meme-generator__main-frame-header--downloadbtn"
+                  id="meme-downloadBtn"
+                  download="memebyderya.png"
+                  >Download</a
+                >
+              </div>
+              <div class="meme-generator__main-frame-viewport">
+                <div class="meme-generator__main-frame-meme-wrapper">
+                  <div
+                    class="meme-generator__main-frame-meme-container"
+                    id="meme-container"
+                  >
+                    <canvas class="canvas" id="meme-canvas"></canvas>
+                    <div class="canvas-text">
+                      <input
+                        type="text"
+                        class="input-text canvas-text--top"
+                        autocomplete="off"
+                        value="One does not simply"
+                      />
+                      <input
+                        type="text"
+                        class="input-text canvas-text--bottom"
+                        autocomplete="off"
+                        value="Make a new meme"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="meme-generator__main-frame-gallery"
+                  id="meme-gallery"
+                >
+                  <div
+                    class="thumb"
+                    id="spongebob"
+                    style="
+                      background-image: url(images/meme/Mocking-Spongebob.jpg);
+                    "
+                  ></div>
+                  <div
+                    class="thumb"
+                    id="think-about"
+                    style="
+                      background-image: url('images/meme/Roll-Safe-Think-About-It.jpg');
+                    "
+                  ></div>
+                  <div
+                    class="thumb"
+                    id="one-does-not-simply"
+                    style="
+                      background-image: url('images/meme/One-Does-Not-Simply.jpg');
+                    "
+                  ></div>
+                  <div
+                    class="thumb"
+                    id="ancient-aliens"
+                    style="
+                      background-image: url('images/meme/Ancient-Aliens.jpg');
+                    "
+                  ></div>
+                  <div
+                    class="thumb"
+                    id="unsettled-tom"
+                    style="
+                      background-image: url('images/meme/Unsettled-Tom.jpg');
+                    "
+                  ></div>
+                  <div
+                    class="thumb"
+                    id="di-caprio"
+                    style="
+                      background-image: url('images/meme/Leonardo-Dicaprio-Cheers.jpg');
+                    "
+                  ></div>
+                  <div
+                    class="thumb"
+                    id="futurama"
+                    style="
+                      background-image: url('images/meme/Futurama-Fry.jpg');
+                    "
+                  ></div>
+                  <div
+                    class="thumb"
+                    id="no"
+                    style="background-image: url('images/meme/Y-U-No.jpg')"
+                  ></div>
+                  <div
+                    class="thumb"
+                    id="brian"
+                    style="
+                      background-image: url('images/meme/Bad-Luck-Brian.jpg');
+                    "
+                  ></div>
+                  <div
+                    class="thumb"
+                    id="scared-cat"
+                    style="background-image: url('images/meme/Scared-Cat.jpg')"
+                  ></div>
+                  <div
+                    class="thumb"
+                    id="success-kid"
+                    style="background-image: url('images/meme/Success-Kid.jpg')"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-   <!--DRUM SOUNDS-->    
-   <audio data-key="65" src="sounds/clap.wav"></audio>
-   <audio data-key="83" src="sounds/hihat.wav"></audio>
-   <audio data-key="68" src="sounds/kick.wav"></audio>
-   <audio data-key="70" src="sounds/openhat.wav"></audio>
-   <audio data-key="71" src="sounds/boom.wav"></audio>
-   <audio data-key="72" src="sounds/ride.wav"></audio>
-   <audio data-key="74" src="sounds/snare.wav"></audio>
-   <audio data-key="75" src="sounds/tom.wav"></audio>
-   <audio data-key="76" src="sounds/tink.wav"></audio>
+      <!--SETTINGS-->
+      <section class="pane settings pane__transition" id="settings">
+        <div class="main-pane settings__main-pane">
+          <div class="inner-pane settings__inner-pane">
+            <div class="inner-pane__header">
+              <p class="inner-pane__header-text">Settings.app</p>
+              <a
+                href="#settings"
+                class="close-btn"
+                aria-label="Close Account Info Modal Box"
+                role="button"
+                >&times;</a
+              >
+            </div>
+            <div class="settings__main-frame">
+              <div class="settings__container">
+                <div class="settings__background">
+                  <p>Change Background</p>
+                  <div class="settings__background-colors">
+                    <div
+                      class="settings__background-colors--pink"
+                      id="bg-pink"
+                      data-color="#ff99c9"
+                    >
+                      &nbsp;
+                    </div>
+                    <div
+                      class="settings__background-colors--lightblue"
+                      id="bg-blue"
+                      data-color="#bfd7ea"
+                    >
+                      &nbsp;
+                    </div>
+                    <div
+                      class="settings__background-colors--green"
+                      id="bg-green"
+                      data-color="#96e072"
+                    >
+                      &nbsp;
+                    </div>
+                    <div
+                      class="settings__background-colors--mint"
+                      id="bg-mint"
+                      data-color="#44bba4"
+                    >
+                      &nbsp;
+                    </div>
+                    <div
+                      class="settings__background-colors--blue"
+                      id="bg-original"
+                      data-color="#468BAD"
+                    >
+                      &nbsp;
+                    </div>
+                  </div>
+                </div>
+                <div class="settings__fullscreen">
+                  <p>Fullscreen</p>
+                  <!--https://www.w3schools.com/howto/howto_css_switch.asp-->
+                  <div class="settings__fullscreen-container">
+                    <label class="settings__fullscreen-switch">
+                      <input type="checkbox" id="fullscreen" />
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="settings__resize">
+                  <p>Resize</p>
+                  <div class="settings__resize-slidecontainer">
+                    <input
+                      type="range"
+                      min="0"
+                      max="5"
+                      value="0"
+                      class="slider"
+                      id="resizeRange"
+                    />
+                  </div>
+                </div>
+                <div class="settings__effects">
+                  <p>Effects</p>
+                  <!--https://www.w3schools.com/howto/howto_custom_select.asp-->
+                  <div class="settings__effects-select">
+                    <select id="effects">
+                      <option value="normal" selected>normal</option>
+                      <!--filter:none-->
+                      <option value="weird">weird</option>
+                      <!--filter: drop-shadow(16px 16px 20px red) invert(75%);-->
+                      <option value="boring">boring</option>
+                      <!--filter: grayscale(100%);-->
+                      <option value="blurry">blurry</option>
+                      <!--filter: blur(1px);-->
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-   <script src="js/date.js"></script>
-   <script src="js/bundle.js" async></script>
-   <script src="js/app.js"></script>
-   <script src="js/settings.js"></script>
-</body>
+      <!--DRUMMER-->
+      <section class="pane drummer pane__transition" id="drummer" tabindex="-1">
+        <div class="main-pane drummer__main-pane">
+          <div class="inner-pane drummer__inner-pane">
+            <div class="inner-pane__header">
+              <p class="inner-pane__header-text">Drummer.me</p>
+              <a
+                href="#drummer"
+                class="close-btn"
+                aria-label="Close Account Info Modal Box"
+                role="button"
+                >&times;</a
+              >
+            </div>
+            <div class="drummer__main-frame">
+              <div class="drummer__canvas-box">
+                <canvas class="visualizer"></canvas>
+              </div>
+              <div class="drummer__keys" id="keys">
+                <!--30 Days of Javascript by Wes Bos-->
+                <div data-key="65" class="key">
+                  <kbd>A</kbd>
+                  <span class="sound">clap</span>
+                </div>
+                <div data-key="83" class="key">
+                  <kbd>S</kbd>
+                  <span class="sound">hihat</span>
+                </div>
+                <div data-key="68" class="key">
+                  <kbd>D</kbd>
+                  <span class="sound">kick</span>
+                </div>
+                <div data-key="70" class="key">
+                  <kbd>F</kbd>
+                  <span class="sound">openhat</span>
+                </div>
+                <div data-key="71" class="key">
+                  <kbd>G</kbd>
+                  <span class="sound">boom</span>
+                </div>
+                <div data-key="72" class="key">
+                  <kbd>H</kbd>
+                  <span class="sound">ride</span>
+                </div>
+                <div data-key="74" class="key">
+                  <kbd>J</kbd>
+                  <span class="sound">snare</span>
+                </div>
+                <div data-key="75" class="key">
+                  <kbd>K</kbd>
+                  <span class="sound">tom</span>
+                </div>
+                <div data-key="76" class="key">
+                  <kbd>L</kbd>
+                  <span class="sound">tink</span>
+                </div>
+              </div>
+              <div class="drummer__buttons">
+                <button class="record">
+                  <img
+                    src="../images/button-icons/record.svg"
+                    onerror="this.onerror=null; this.src='record.png'"
+                  />
+                </button>
+                <button class="pause">
+                  <img
+                    src="../images/button-icons/pause.svg"
+                    onerror="this.onerror=null; this.src='pause.png'"
+                  />
+                </button>
+                <button class="play">
+                  <img
+                    src="../images/button-icons/play.svg"
+                    onerror="this.onerror=null; this.src='play.png'"
+                  />
+                </button>
+                <button class="stop">
+                  <img
+                    src="../images/button-icons/stop.svg"
+                    onerror="this.onerror=null; this.src='stop.png'"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--ClICK EFFECT-->
+      <audio class="click-sound">
+        <source src="images/click.wav" type="audio/mpeg" />
+      </audio>
+    </div>
+
+    <!--DRUM SOUNDS-->
+    <audio data-key="65" src="sounds/clap.wav"></audio>
+    <audio data-key="83" src="sounds/hihat.wav"></audio>
+    <audio data-key="68" src="sounds/kick.wav"></audio>
+    <audio data-key="70" src="sounds/openhat.wav"></audio>
+    <audio data-key="71" src="sounds/boom.wav"></audio>
+    <audio data-key="72" src="sounds/ride.wav"></audio>
+    <audio data-key="74" src="sounds/snare.wav"></audio>
+    <audio data-key="75" src="sounds/tom.wav"></audio>
+    <audio data-key="76" src="sounds/tink.wav"></audio>
+
+    <script src="js/date.js"></script>
+    <script src="js/bundle.js" async></script>
+    <script src="js/app.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/drummer.js"></script>
+  </body>
 </html>
