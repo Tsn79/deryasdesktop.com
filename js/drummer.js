@@ -1,14 +1,6 @@
 const drummer = {};
 drummer.drummerPane = document.querySelector("#drummer");
 
-//Write an algorithm to play drum only when the pane is open and on top stack
-window.onpopstate = function() {
-    console.log(document.location.href)
-   if(document.location.href.includes("drummer")) {
-       drummer.drummerPane.focus();
-   }
-  }
-
 drummer.drummerPane.addEventListener("keydown", function(e){
     var audioMatch = document.querySelector(`audio[data-key='${e.keyCode}']`);
     if(audioMatch) {
@@ -27,4 +19,11 @@ drummer.drummerPane.addEventListener("keyup", function(e) {
 })
  
 
-
+//focus drummer when it is open
+window.onhashchange = function() {
+    if(location.hash === '#drummer') {
+        drummer.drummerPane.focus();
+    } else {
+        drummer.drummerPane.blur();
+    }
+} 
