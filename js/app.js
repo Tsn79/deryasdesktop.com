@@ -20,7 +20,7 @@ desktop.openWindow = function (event) {
   var window = desktop.getDomElementFromUrl(event.currentTarget.href);
   window.classList.add("clicked");
  
-  var navigate = function(ele, arr) {
+  var navigate = function(ele, arr) { 
     //find if open window is clicked before
     if(arr.indexOf(ele) === -1) {
       arr.push(ele);
@@ -37,6 +37,7 @@ desktop.openWindow = function (event) {
       }
     } 
   }
+  
   navigate(window, desktop.activeWindows);
 };
 
@@ -78,10 +79,12 @@ desktop.eventListeners = (function () {
 })();
 
 
-//TEST
-//Write an algorithm to play drum only when the pane is open and on top stack
-/*window.addEventListener('hashchange', function() {
-  changeLocation(location);
-  //location.hash = desktop.activeWindows[desktop.activeWindows.length-1].id;
-})*/
+//Reset hash according to window id
+window.onpopstate = function() {
+  var changeHash = function(activeWindows, location) {
+    var lastWindow = activeWindows? activeWindows[activeWindows.length-1] : null;
+    location.hash = lastWindow? lastWindow.id : "";
+  }
+  changeHash(desktop.activeWindows, location);
+};
 
