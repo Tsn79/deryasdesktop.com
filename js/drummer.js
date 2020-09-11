@@ -41,7 +41,7 @@ drummer.module = (function () {
 
 //***************************AUDIO RECORD***************************************//
 
-function init() {
+drummer.init = function () {
   //create an audio context
   drummer.module.audioCtx = new (window.AudioContext ||
     window.webkitAudioContext ||
@@ -85,21 +85,46 @@ function init() {
     //create new audio here
     drummer.record.src = URL.createObjectURL(blob);
   };
-}
+};
 
+drummer.printOnCanvas = function (ctx, msg="") {
+  //capitalize first letter
+  msg = msg
+    ? msg.replace(/(^\w{1})|(\s{1}\w{1})/g, (match) => match.toUpperCase())
+    : null;
+  ctx.font = '45px "VT323"';
+  ctx.fillStyle = "rgb(239, 202, 8)";
+  ctx.textAlign = "center";
+  ctx.shadowColor = "red";
+  ctx.shadowOffsetX = 5;
+  ctx.shadowOffsetY = 5;
+  ctx.fillText(msg, 150, 90);
+
+  return {
+    clear: function(canvas, isTrue) {
+      if(isTrue) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+  }
+};
+
+//event listeners
 drummer.buttons.record.addEventListener("click", function () {
   if (!drummer.module.audioCtx) {
-    init();
+    drummer.init();
   }
 
   if (!drummer.module.clicked) {
     drummer.module.chunks = [];
     drummer.module.mediaRecorder.start();
+    drummer.printOnCanvas(drummer.ctx, "recording..");
     drummer.buttons.record.style.background = "yellow";
     console.log("start recording");
     drummer.module.clicked = true;
   } else {
     drummer.buttons.record.style.background = "";
+    drummer.printOnCanvas(drummer.ctx).clear(drummer.canvas, true);
     drummer.module.mediaRecorder.requestData();
     drummer.module.mediaRecorder.stop();
     drummer.module.clicked = false;
@@ -117,9 +142,6 @@ drummer.buttons.pause.addEventListener("click", function () {
 drummer.buttons.stop.addEventListener("click", function () {
   drummer.record.load();
 });
-
-
-
 
 drummer.drummerPane.addEventListener("keyup", function (e) {
   //now remove the class
