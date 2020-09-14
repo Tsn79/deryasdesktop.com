@@ -14,20 +14,25 @@ drummer.ctx = drummer.canvas.getContext("2d");
 
 drummer.sounds = document.querySelectorAll(".drum-sound");
 drummer.record = document.querySelector(".recorded-audio");
-drummer.recordingTimeMS = 5000;
 
 drummer.module = (function () {
   var audioCtx,
     dest,
     mediaRecorder,
     clicked = false,
-    chunks = [];
+    chunks = [],
+    analyser,
+    source,
+    drawVisual;
   return {
     audioCtx: audioCtx,
     dest: dest,
     mediaRecorder: mediaRecorder,
     clicked: clicked,
     chunks: chunks,
+    analyser: analyser,
+    source: source,
+    drawVisual: drawVisual,
   };
 })();
 
@@ -35,7 +40,13 @@ drummer.module = (function () {
 //[X]Include multiple sound files
 //[X]Give functionality cancel button
 //[X]When record is pressed, rewrite on existing audio node
-//[ ]Connect with canvas
+//[X]Connect with canvas
+//[X]While song is playing, display sound waves on canvas
+
+//[X]When record is pressed, change the canvas into recording.
+//[X]When record is pressed again, change the canvas into visualize.
+
+//Reset canvas width and height to container
 
 //https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API
 
@@ -48,7 +59,6 @@ drummer.init = function () {
     window.mozAudioContext)();
 
   drummer.module.dest = drummer.module.audioCtx.createMediaStreamDestination();
-
   drummer.module.mediaRecorder = new MediaRecorder(drummer.module.dest.stream);
 
   var createAudioTrack = function (audioCtx, audioEls) {
@@ -87,7 +97,8 @@ drummer.init = function () {
   };
 };
 
-drummer.printOnCanvas = function (ctx, msg="") {
+drummer.printOnCanvas = function (msg = "") {
+  var ctx = drummer.ctx;
   //capitalize first letter
   msg = msg
     ? msg.replace(/(^\w{1})|(\s{1}\w{1})/g, (match) => match.toUpperCase())
@@ -99,14 +110,58 @@ drummer.printOnCanvas = function (ctx, msg="") {
   ctx.shadowOffsetX = 5;
   ctx.shadowOffsetY = 5;
   ctx.fillText(msg, 150, 90);
+};
 
-  return {
-    clear: function(canvas, isTrue) {
-      if(isTrue) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      }
-    }
+drummer.visualize = function (audioElement) {
+  if (drummer.module.source === undefined) {
+    drummer.module.source = drummer.module.audioCtx.createMediaElementSource(
+      audioElement
+    );
   }
+
+  const analyser = drummer.module.audioCtx.createAnalyser();
+  analyser.fftSize = 2048;
+  var bufferLength = analyser.frequencyBinCount;
+  var dataArray = new Uint8Array(bufferLength);
+
+  drummer.module.source.connect(analyser);
+  analyser.connect(drummer.module.audioCtx.destination);
+
+  function draw() {
+    const WIDTH = drummer.canvas.width;
+    const HEIGHT = drummer.canvas.height;
+
+    drummer.module.drawVisual = requestAnimationFrame(draw);
+    analyser.getByteTimeDomainData(dataArray);
+
+    drummer.ctx.fillStyle = "rgb(200, 200, 200)";
+    drummer.ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+    drummer.ctx.lineWidth = 2;
+    drummer.ctx.strokeStyle = "rgb(0, 0, 0)";
+
+    drummer.ctx.beginPath();
+
+    let sliceWidth = (WIDTH * 1.0) / bufferLength;
+    let x = 0;
+
+    for (let i = 0; i < bufferLength; i++) {
+      let v = dataArray[i] / 128.0;
+      let y = (v * HEIGHT) / 2;
+
+      if (i === 0) {
+        drummer.ctx.moveTo(x, y);
+      } else {
+        drummer.ctx.lineTo(x, y);
+      }
+
+      x += sliceWidth;
+    }
+
+    drummer.ctx.lineTo(drummer.canvas.width, drummer.canvas.height / 2);
+    drummer.ctx.stroke();
+  }
+  draw();
 };
 
 //event listeners
@@ -118,17 +173,25 @@ drummer.buttons.record.addEventListener("click", function () {
   if (!drummer.module.clicked) {
     drummer.module.chunks = [];
     drummer.module.mediaRecorder.start();
-    drummer.printOnCanvas(drummer.ctx, "recording..");
+    window.cancelAnimationFrame(drummer.module.drawVisual);
+    clearCanvas();
+    drummer.printOnCanvas("recording..");
     drummer.buttons.record.style.background = "yellow";
     console.log("start recording");
     drummer.module.clicked = true;
   } else {
     drummer.buttons.record.style.background = "";
-    drummer.printOnCanvas(drummer.ctx).clear(drummer.canvas, true);
+    clearCanvas();
+    drummer.visualize(drummer.record);
     drummer.module.mediaRecorder.requestData();
     drummer.module.mediaRecorder.stop();
     drummer.module.clicked = false;
   }
+
+  function clearCanvas() {
+    drummer.ctx.clearRect(0, 0, drummer.canvas.width, drummer.canvas.height);
+  }
+
 });
 
 drummer.buttons.play.addEventListener("click", function () {
