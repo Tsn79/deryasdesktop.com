@@ -9,6 +9,7 @@ drummer.buttons.pause = document.querySelector(".pause");
 drummer.buttons.play = document.querySelector(".play");
 drummer.buttons.stop = document.querySelector(".stop");
 
+drummer.canvasContainer = document.querySelector(".drummer__canvas-box");
 drummer.canvas = document.querySelector(".visualizer");
 drummer.ctx = drummer.canvas.getContext("2d");
 
@@ -97,6 +98,16 @@ drummer.init = function () {
   };
 };
 
+drummer.initCanvas = (function () {
+  //visually fill the positioned parent
+  drummer.canvas.style.width = "100%";
+  drummer.canvas.style.height = "100%";
+
+  //set the internal size to match
+  drummer.canvas.width = drummer.canvas.offsetWidth;
+  drummer.canvas.height = drummer.canvas.offsetHeight;
+})();
+
 drummer.printOnCanvas = function (msg = "") {
   var ctx = drummer.ctx;
   //capitalize first letter
@@ -105,11 +116,10 @@ drummer.printOnCanvas = function (msg = "") {
     : null;
   ctx.font = '45px "VT323"';
   ctx.fillStyle = "rgb(239, 202, 8)";
-  ctx.textAlign = "center";
   ctx.shadowColor = "red";
   ctx.shadowOffsetX = 5;
   ctx.shadowOffsetY = 5;
-  ctx.fillText(msg, 150, 90);
+  ctx.fillText(msg, 80, 60);
 };
 
 drummer.visualize = function (audioElement) {
@@ -191,7 +201,6 @@ drummer.buttons.record.addEventListener("click", function () {
   function clearCanvas() {
     drummer.ctx.clearRect(0, 0, drummer.canvas.width, drummer.canvas.height);
   }
-
 });
 
 drummer.buttons.play.addEventListener("click", function () {
