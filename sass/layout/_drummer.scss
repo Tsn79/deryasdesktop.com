@@ -38,6 +38,10 @@
   &__canvas-box {
     background-color: black;
     flex: 0 0 auto;
+    width: 35rem;
+    height: 10rem;
+    align-self: center;
+    position: relative;
   }
 
   &__keys {
