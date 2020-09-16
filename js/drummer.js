@@ -47,7 +47,14 @@ drummer.module = (function () {
 //[X]When record is pressed, change the canvas into recording.
 //[X]When record is pressed again, change the canvas into visualize.
 
-//Reset canvas width and height to container
+//[X]Reset canvas width and height to container
+//[X]Restyle sound analyser
+//[ ]Make a progress bar for canvas
+
+
+//BUGS
+//[ ]Canvas font download slowly 
+//[ ]When window is closed, record keeps playing
 
 //https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API
 
@@ -144,11 +151,11 @@ drummer.visualize = function (audioElement) {
     drummer.module.drawVisual = requestAnimationFrame(draw);
     analyser.getByteTimeDomainData(dataArray);
 
-    drummer.ctx.fillStyle = "rgb(200, 200, 200)";
+    drummer.ctx.fillStyle = "rgb(0, 0, 0)";
     drummer.ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
     drummer.ctx.lineWidth = 2;
-    drummer.ctx.strokeStyle = "rgb(0, 0, 0)";
+    drummer.ctx.strokeStyle = "rgb(35, 218, 206)";
 
     drummer.ctx.beginPath();
 
