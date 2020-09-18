@@ -205,7 +205,12 @@ drummer.visualize = function () {
         drummer.playback.songLength; //-0.06
       drummer.ctx.moveTo(0, 0);
       drummer.ctx.fillStyle = "rgb(254, 246, 171)";
-      drummer.ctx.fillRect(barPos, 0, barWidth, barHeight);
+      //when playback will finish, bar will go back to start
+      if(drummer.playback.currTime == drummer.playback.songLength) {
+        drummer.ctx.fillRect(0, 0, barWidth, barHeight);
+      } else {
+        drummer.ctx.fillRect(barPos, 0, barWidth, barHeight);
+      }
     })();
   }
   draw();
