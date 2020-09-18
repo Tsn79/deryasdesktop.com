@@ -16,20 +16,20 @@ drummer.ctx = drummer.canvas.getContext("2d");
 drummer.sounds = document.querySelectorAll(".drum-sound");
 drummer.record = document.querySelector(".recorded-audio");
 
-drummer.module = (function () {
-  var audioCtx,
+drummer.audio = (function () {
+  var context,
     dest,
     mediaRecorder,
-    clicked = false,
+    recordToggled = true,
     chunks = [],
     analyser,
     source,
     drawVisual;
   return {
-    audioCtx: audioCtx,
+    context: context,
     dest: dest,
     mediaRecorder: mediaRecorder,
-    clicked: clicked,
+    recordToggled: recordToggled,
     chunks: chunks,
     analyser: analyser,
     source: source,
@@ -37,42 +37,32 @@ drummer.module = (function () {
   };
 })();
 
-//[X]Sound does not play while recording
-//[X]Include multiple sound files
-//[X]Give functionality cancel button
-//[X]When record is pressed, rewrite on existing audio node
-//[X]Connect with canvas
-//[X]While song is playing, display sound waves on canvas
-
-//[X]When record is pressed, change the canvas into recording.
-//[X]When record is pressed again, change the canvas into visualize.
-
-//[X]Reset canvas width and height to container
-//[X]Restyle sound analyser
-//[ ]Make a progress bar for canvas
-
-
-//BUGS
-//[ ]Canvas font download slowly 
-//[ ]When window is closed, record keeps playing
-
-//https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API
+drummer.playback = (function () {
+  var songLength,
+    currTime = 0,
+    getDuration;
+  return {
+    songLength: songLength,
+    currTime: currTime,
+    getDuration: getDuration,
+  };
+})();
 
 //***************************AUDIO RECORD***************************************//
 
-drummer.init = function () {
+drummer.createSound = function () {
   //create an audio context
-  drummer.module.audioCtx = new (window.AudioContext ||
+  drummer.audio.context = new (window.AudioContext ||
     window.webkitAudioContext ||
     window.mozAudioContext)();
 
-  drummer.module.dest = drummer.module.audioCtx.createMediaStreamDestination();
-  drummer.module.mediaRecorder = new MediaRecorder(drummer.module.dest.stream);
+  drummer.audio.dest = drummer.audio.context.createMediaStreamDestination();
+  drummer.audio.mediaRecorder = new MediaRecorder(drummer.audio.dest.stream);
 
-  var createAudioTrack = function (audioCtx, audioEls) {
+  var createAudioTrack = function (context, audioEls) {
     var tracks = [];
     audioEls.forEach((ele) => {
-      var track = audioCtx.createMediaElementSource(ele);
+      var track = context.createMediaElementSource(ele);
       tracks.push(track);
     });
     return {
@@ -85,20 +75,20 @@ drummer.init = function () {
     };
   };
 
-  createAudioTrack(drummer.module.audioCtx, Array.from(drummer.sounds)).connect(
-    drummer.module.dest,
-    drummer.module.audioCtx.destination
+  createAudioTrack(drummer.audio.context, Array.from(drummer.sounds)).connect(
+    drummer.audio.dest,
+    drummer.audio.context.destination
   );
 
-  drummer.module.mediaRecorder.ondataavailable = function (evt) {
+  drummer.audio.mediaRecorder.ondataavailable = function (evt) {
     // push each chunk (blobs) in an array
-    drummer.module.chunks.push(evt.data);
+    drummer.audio.chunks.push(evt.data);
   };
 
-  drummer.module.mediaRecorder.onstop = function (evt) {
+  drummer.audio.mediaRecorder.onstop = function (evt) {
     // Make blob out of our blobs, and open it.
-    let blob = new Blob(drummer.module.chunks, {
-      type: "audio/ogg; codecs=opus",
+    var blob = new Blob(drummer.audio.chunks, {
+      type: "audio/wav; codecs=wav",
     });
     //create new audio here
     drummer.record.src = URL.createObjectURL(blob);
@@ -115,12 +105,14 @@ drummer.initCanvas = (function () {
   drummer.canvas.height = drummer.canvas.offsetHeight;
 })();
 
-drummer.printOnCanvas = function (msg = "") {
+drummer.printRecordMsg = function (msg = "") {
   var ctx = drummer.ctx;
+  //clear canvas
+  ctx.clearRect(0, 0, drummer.canvas.width, drummer.canvas.height);
   //capitalize first letter
   msg = msg
     ? msg.replace(/(^\w{1})|(\s{1}\w{1})/g, (match) => match.toUpperCase())
-    : null;
+    : null;  
   ctx.font = '45px "VT323"';
   ctx.fillStyle = "rgb(239, 202, 8)";
   ctx.shadowColor = "red";
@@ -129,27 +121,51 @@ drummer.printOnCanvas = function (msg = "") {
   ctx.fillText(msg, 80, 60);
 };
 
-drummer.visualize = function (audioElement) {
-  if (drummer.module.source === undefined) {
-    drummer.module.source = drummer.module.audioCtx.createMediaElementSource(
-      audioElement
+//https://www.thetopsites.net/article/52375280
+//make sure duration does not return infinity with html audio tag
+drummer.playback.getDuration = function (url, next) {
+  var _player = new Audio(url);
+  _player.addEventListener(
+    "durationchange",
+    function (e) {
+      if (this.duration != Infinity) {
+        var duration = this.duration;
+        _player.remove();
+        next(duration);
+      }
+    },
+    false
+  );
+  _player.load();
+  _player.currentTime = 24 * 60 * 60; //fake big time
+  _player.volume = 0;
+  _player.play();
+  //waiting...
+};
+
+drummer.visualize = function () {
+  if (drummer.audio.source === undefined) {
+    drummer.audio.source = drummer.audio.context.createMediaElementSource(
+      drummer.record
     );
   }
 
-  const analyser = drummer.module.audioCtx.createAnalyser();
+  const analyser = drummer.audio.context.createAnalyser();
   analyser.fftSize = 2048;
   var bufferLength = analyser.frequencyBinCount;
   var dataArray = new Uint8Array(bufferLength);
-
-  drummer.module.source.connect(analyser);
-  analyser.connect(drummer.module.audioCtx.destination);
+  drummer.audio.source.connect(analyser);
+  analyser.connect(drummer.audio.context.destination);
 
   function draw() {
     const WIDTH = drummer.canvas.width;
     const HEIGHT = drummer.canvas.height;
 
-    drummer.module.drawVisual = requestAnimationFrame(draw);
+    drummer.audio.drawVisual = requestAnimationFrame(draw);
     analyser.getByteTimeDomainData(dataArray);
+
+    drummer.ctx.shadowOffsetX = 0;
+    drummer.ctx.shadowOffsetY = 0;
 
     drummer.ctx.fillStyle = "rgb(0, 0, 0)";
     drummer.ctx.fillRect(0, 0, WIDTH, HEIGHT);
@@ -159,12 +175,12 @@ drummer.visualize = function (audioElement) {
 
     drummer.ctx.beginPath();
 
-    let sliceWidth = (WIDTH * 1.0) / bufferLength;
-    let x = 0;
+    var sliceWidth = (WIDTH * 1.0) / bufferLength;
+    var x = 0;
 
-    for (let i = 0; i < bufferLength; i++) {
-      let v = dataArray[i] / 128.0;
-      let y = (v * HEIGHT) / 2;
+    for (var i = 0; i < bufferLength; i++) {
+      var v = dataArray[i] / 128.0;
+      var y = (v * HEIGHT) / 2;
 
       if (i === 0) {
         drummer.ctx.moveTo(x, y);
@@ -177,41 +193,58 @@ drummer.visualize = function (audioElement) {
 
     drummer.ctx.lineTo(drummer.canvas.width, drummer.canvas.height / 2);
     drummer.ctx.stroke();
+
+    (function createProgressBar() {
+      var barPos = 0;
+      var barWidth = 6;
+      var barHeight = HEIGHT;
+      barPos =
+        (drummer.playback.currTime * (WIDTH - barWidth)) /
+        drummer.playback.songLength; //-0.06
+      drummer.ctx.moveTo(0, 0);
+      drummer.ctx.fillStyle = "rgb(254, 246, 171)";
+      drummer.ctx.fillRect(barPos, 0, barWidth, barHeight);
+    })();
   }
   draw();
 };
 
 //event listeners
+drummer.record.addEventListener("timeupdate", function () {
+  //console.log("current time is " + this.currentTime);
+  drummer.playback.currTime = this.currentTime;
+});
+
 drummer.buttons.record.addEventListener("click", function () {
-  if (!drummer.module.audioCtx) {
-    drummer.init();
+  if (!drummer.audio.context) {
+    drummer.createSound();
   }
 
-  if (!drummer.module.clicked) {
-    drummer.module.chunks = [];
-    drummer.module.mediaRecorder.start();
-    window.cancelAnimationFrame(drummer.module.drawVisual);
-    clearCanvas();
-    drummer.printOnCanvas("recording..");
+  if (drummer.audio.recordToggled) {
+    drummer.audio.chunks = [];
+    drummer.audio.mediaRecorder.start();
+    window.cancelAnimationFrame(drummer.audio.drawVisual);
+    drummer.printRecordMsg("recording..");
     drummer.buttons.record.style.background = "yellow";
     console.log("start recording");
-    drummer.module.clicked = true;
+    drummer.audio.recordToggled = !drummer.audio.recordToggled;
   } else {
     drummer.buttons.record.style.background = "";
-    clearCanvas();
-    drummer.visualize(drummer.record);
-    drummer.module.mediaRecorder.requestData();
-    drummer.module.mediaRecorder.stop();
-    drummer.module.clicked = false;
-  }
-
-  function clearCanvas() {
-    drummer.ctx.clearRect(0, 0, drummer.canvas.width, drummer.canvas.height);
+    drummer.visualize();
+    drummer.audio.mediaRecorder.requestData();
+    drummer.audio.mediaRecorder.stop();
+    drummer.audio.recordToggled = !drummer.audio.recordToggled;
   }
 });
 
 drummer.buttons.play.addEventListener("click", function () {
   drummer.record.play();
+  //getData();
+  drummer.playback.getDuration(drummer.record.src, function (duration) {
+    console.log("new duration is ");
+    console.log(duration);
+    drummer.playback.songLength = duration;
+  });
 });
 
 drummer.buttons.pause.addEventListener("click", function () {
@@ -231,15 +264,6 @@ drummer.drummerPane.addEventListener("keyup", function (e) {
   }
 });
 
-//focus drummer when it is open
-window.onhashchange = function () {
-  if (location.hash === "#drummer") {
-    drummer.drummerPane.focus();
-  } else {
-    drummer.drummerPane.blur();
-  }
-};
-
 drummer.drummerPane.addEventListener("keydown", function (e) {
   var audioMatch = document.querySelector(`audio[data-key='${e.keyCode}']`);
   if (audioMatch) {
@@ -251,3 +275,12 @@ drummer.drummerPane.addEventListener("keydown", function (e) {
     audioMatch.load();
   }
 });
+
+//focus drummer window when it is open
+window.onhashchange = function () {
+  if (location.hash === "#drummer") {
+    drummer.drummerPane.focus();
+  } else {
+    drummer.drummerPane.blur();
+  }
+};
