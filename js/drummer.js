@@ -112,13 +112,15 @@ drummer.printRecordMsg = function (msg = "") {
   //capitalize first letter
   msg = msg
     ? msg.replace(/(^\w{1})|(\s{1}\w{1})/g, (match) => match.toUpperCase())
-    : null;  
-  ctx.font = '45px "VT323"';
+    : null;
+  ctx.font = '45px "VT323", Lato';
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
   ctx.fillStyle = "rgb(239, 202, 8)";
   ctx.shadowColor = "red";
-  ctx.shadowOffsetX = 5;
-  ctx.shadowOffsetY = 5;
-  ctx.fillText(msg, 80, 60);
+  ctx.shadowOffsetX = 3;
+  ctx.shadowOffsetY = 3;
+  ctx.fillText(msg, drummer.canvas.width/2, drummer.canvas.height/2);
 };
 
 //https://www.thetopsites.net/article/52375280
