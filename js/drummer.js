@@ -113,14 +113,23 @@ drummer.printRecordMsg = function (msg = "") {
   msg = msg
     ? msg.replace(/(^\w{1})|(\s{1}\w{1})/g, (match) => match.toUpperCase())
     : null;
-  ctx.font = '45px "VT323", Lato';
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillStyle = "rgb(239, 202, 8)";
-  ctx.shadowColor = "red";
-  ctx.shadowOffsetX = 3;
-  ctx.shadowOffsetY = 3;
-  ctx.fillText(msg, drummer.canvas.width/2, drummer.canvas.height/2);
+
+  //force font load with Javascript API
+  //not working in old browsers and opera https://caniuse.com/font-loading
+  const FONT_NAME = "VT323";
+
+  function renderText() {
+    ctx.font = `45px "${FONT_NAME}"`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = "rgb(239, 202, 8)";
+    ctx.shadowColor = "red";
+    ctx.shadowOffsetX = 3;
+    ctx.shadowOffsetY = 3;
+    ctx.fillText(msg, drummer.canvas.width / 2, drummer.canvas.height / 2);
+  }
+
+  document.fonts.load('10pt "VT323"').then(renderText);
 };
 
 //https://www.thetopsites.net/article/52375280
@@ -206,7 +215,7 @@ drummer.visualize = function () {
       drummer.ctx.moveTo(0, 0);
       drummer.ctx.fillStyle = "rgb(254, 246, 171)";
       //when playback will finish, bar will go back to start
-      if(drummer.playback.currTime == drummer.playback.songLength) {
+      if (drummer.playback.currTime == drummer.playback.songLength) {
         drummer.ctx.fillRect(0, 0, barWidth, barHeight);
       } else {
         drummer.ctx.fillRect(barPos, 0, barWidth, barHeight);
