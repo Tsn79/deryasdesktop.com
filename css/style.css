@@ -627,12 +627,44 @@ body {
     flex-direction: column;
     justify-content: space-between; }
   .drummer__canvas-box {
-    background-color: black;
     flex: 0 0 auto;
     width: 35rem;
     height: 10rem;
     align-self: center;
-    position: relative; }
+    position: relative;
+    overflow: hidden; }
+    .drummer__canvas-box > * {
+      position: absolute;
+      width: 100%;
+      height: 100%; }
+    .drummer__canvas-box .playback-screen {
+      top: 0;
+      left: 0; }
+      .drummer__canvas-box .playback-screen > * {
+        position: absolute;
+        top: 0; }
+      .drummer__canvas-box .playback-screen .progress-bar {
+        height: 100%;
+        width: .6rem;
+        background-color: #fef6ab;
+        z-index: 2; }
+      .drummer__canvas-box .playback-screen canvas {
+        left: 0;
+        z-index: 1; }
+    .drummer__canvas-box .hello,
+    .drummer__canvas-box .recording,
+    .drummer__canvas-box .recorded {
+      background-color: pink;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .drummer__canvas-box .hello span,
+      .drummer__canvas-box .recording span,
+      .drummer__canvas-box .recorded span {
+        font-family: 'VT323', monospace;
+        font-size: 4.5rem;
+        text-transform: capitalize;
+        text-shadow: 1.8px 1.8px red; }
   .drummer__keys {
     flex: 0 0 25rem;
     padding: 0 1rem 0 1rem;
