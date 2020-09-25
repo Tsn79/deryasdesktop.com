@@ -7,11 +7,14 @@ drummer.drummerPane = document.querySelector("#drummer");
 drummer.buttons.record = document.querySelector(".record");
 drummer.buttons.pause = document.querySelector(".pause");
 drummer.buttons.play = document.querySelector(".play");
-drummer.buttons.stop = document.querySelector(".stop");
+drummer.buttons.reload = document.querySelector(".stop");
 
-drummer.canvasContainer = document.querySelector(".drummer__canvas-box");
+drummer.screen = document.querySelector(".playback-screen");
 drummer.canvas = document.querySelector(".visualizer");
 drummer.ctx = drummer.canvas.getContext("2d");
+drummer.recordingBg = document.querySelector(".recording");
+drummer.recordedBg = document.querySelector(".recorded");
+drummer.progressBar = document.querySelector(".progress-bar");
 
 drummer.sounds = document.querySelectorAll(".drum-sound");
 drummer.record = document.querySelector(".recorded-audio");
@@ -39,12 +42,10 @@ drummer.audio = (function () {
 
 drummer.playback = (function () {
   var songLength,
-    currTime = 0,
     getDuration;
   return {
     songLength: songLength,
-    currTime: currTime,
-    getDuration: getDuration,
+    getDuration: getDuration
   };
 })();
 
@@ -105,33 +106,6 @@ drummer.initCanvas = (function () {
   drummer.canvas.height = drummer.canvas.offsetHeight;
 })();
 
-drummer.printRecordMsg = function (msg = "") {
-  var ctx = drummer.ctx;
-  //clear canvas
-  ctx.clearRect(0, 0, drummer.canvas.width, drummer.canvas.height);
-  //capitalize first letter
-  msg = msg
-    ? msg.replace(/(^\w{1})|(\s{1}\w{1})/g, (match) => match.toUpperCase())
-    : null;
-
-  //force font load with Javascript API
-  //not working in old browsers and opera https://caniuse.com/font-loading
-  const FONT_NAME = "VT323";
-
-  function renderText() {
-    ctx.font = `45px "${FONT_NAME}"`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillStyle = "rgb(239, 202, 8)";
-    ctx.shadowColor = "red";
-    ctx.shadowOffsetX = 3;
-    ctx.shadowOffsetY = 3;
-    ctx.fillText(msg, drummer.canvas.width / 2, drummer.canvas.height / 2);
-  }
-
-  document.fonts.load('10pt "VT323"').then(renderText);
-};
-
 //https://www.thetopsites.net/article/52375280
 //make sure duration does not return infinity with html audio tag
 drummer.playback.getDuration = function (url, next) {
@@ -172,15 +146,17 @@ drummer.visualize = function () {
     const WIDTH = drummer.canvas.width;
     const HEIGHT = drummer.canvas.height;
 
+    var requestAnimationFrame =
+      window.requestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.msRequestAnimationFrame;
+
     drummer.audio.drawVisual = requestAnimationFrame(draw);
     analyser.getByteTimeDomainData(dataArray);
 
-    drummer.ctx.shadowOffsetX = 0;
-    drummer.ctx.shadowOffsetY = 0;
-
     drummer.ctx.fillStyle = "rgb(0, 0, 0)";
     drummer.ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
     drummer.ctx.lineWidth = 2;
     drummer.ctx.strokeStyle = "rgb(35, 218, 206)";
 
@@ -201,34 +177,42 @@ drummer.visualize = function () {
 
       x += sliceWidth;
     }
-
     drummer.ctx.lineTo(drummer.canvas.width, drummer.canvas.height / 2);
     drummer.ctx.stroke();
-
-    (function createProgressBar() {
-      var barPos = 0;
-      var barWidth = 6;
-      var barHeight = HEIGHT;
-      barPos =
-        (drummer.playback.currTime * (WIDTH - barWidth)) /
-        drummer.playback.songLength; //-0.06
-      drummer.ctx.moveTo(0, 0);
-      drummer.ctx.fillStyle = "rgb(254, 246, 171)";
-      //when playback will finish, bar will go back to start
-      if (drummer.playback.currTime == drummer.playback.songLength) {
-        drummer.ctx.fillRect(0, 0, barWidth, barHeight);
-      } else {
-        drummer.ctx.fillRect(barPos, 0, barWidth, barHeight);
-      }
-    })();
   }
   draw();
 };
 
+drummer.toggleZIndex = function (element) {
+  var max = 1;
+  var next = element.nextElementSibling,
+    previous = element.previousElementSibling;
+
+  while (next || previous) {
+    if (next) {
+      max = Math.max(parseInt(next.style.zIndex), max);
+      next = next.nextElementSibling;
+    }
+    if (previous) {
+      max = Math.max(parseInt(previous.style.zIndex), max);
+      previous = previous.previousElementSibling;
+    }
+  }
+  element.style.zIndex = `${max + 1}`;
+};
+
 //event listeners
 drummer.record.addEventListener("timeupdate", function () {
-  //console.log("current time is " + this.currentTime);
-  drummer.playback.currTime = this.currentTime;
+  var that = this;
+  function moveProgressBar() {
+    var barPos = (that.currentTime * 98.5) / drummer.playback.songLength;
+    drummer.progressBar.style.left = `${barPos}%`;
+  }
+  moveProgressBar();
+});
+
+drummer.record.addEventListener("ended", function () {
+  cancelAnimationFrame(drummer.audio.drawVisual);
 });
 
 drummer.buttons.record.addEventListener("click", function () {
@@ -240,13 +224,13 @@ drummer.buttons.record.addEventListener("click", function () {
     drummer.audio.chunks = [];
     drummer.audio.mediaRecorder.start();
     window.cancelAnimationFrame(drummer.audio.drawVisual);
-    drummer.printRecordMsg("recording..");
+    drummer.toggleZIndex(drummer.recordingBg);
     drummer.buttons.record.style.background = "yellow";
     console.log("start recording");
     drummer.audio.recordToggled = !drummer.audio.recordToggled;
   } else {
     drummer.buttons.record.style.background = "";
-    drummer.visualize();
+    drummer.toggleZIndex(drummer.recordedBg);
     drummer.audio.mediaRecorder.requestData();
     drummer.audio.mediaRecorder.stop();
     drummer.audio.recordToggled = !drummer.audio.recordToggled;
@@ -255,10 +239,10 @@ drummer.buttons.record.addEventListener("click", function () {
 
 drummer.buttons.play.addEventListener("click", function () {
   drummer.record.play();
-  //getData();
+  drummer.toggleZIndex(drummer.screen);
+  drummer.visualize();
+
   drummer.playback.getDuration(drummer.record.src, function (duration) {
-    console.log("new duration is ");
-    console.log(duration);
     drummer.playback.songLength = duration;
   });
 });
@@ -267,8 +251,8 @@ drummer.buttons.pause.addEventListener("click", function () {
   drummer.record.pause();
 });
 
-drummer.buttons.stop.addEventListener("click", function () {
-  drummer.record.load();
+drummer.buttons.reload.addEventListener("click", function () {
+  drummer.record.currentTime = 0;
 });
 
 drummer.drummerPane.addEventListener("keyup", function (e) {
