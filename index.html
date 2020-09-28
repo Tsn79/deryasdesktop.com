@@ -483,7 +483,19 @@
             </div>
             <div class="drummer__main-frame">
               <div class="drummer__canvas-box">
-                <canvas class="visualizer"></canvas>
+                <div class="hello" style="z-index: 101">
+                  <span>hello, drummer!</span>
+                </div>
+                <div class="recording" style="z-index: 100">
+                  <span>recording..</span>
+                </div>
+                <div class="recorded" style="z-index: 100">
+                  <span>record completed!</span>
+                </div>
+                <div class="playback-screen" style="z-index: 100;">
+                  <canvas class="visualizer"></canvas>
+                <div class="progress-bar" style="left: 0%"></div>
+                </div>
               </div>
               <div class="drummer__keys" id="keys">
                 <!--30 Days of Javascript by Wes Bos-->
@@ -531,19 +543,19 @@
                     onerror="this.onerror=null; this.src='record.png'"
                   />
                 </button>
-                <button class="pause">
+                <button class="pause disable" disabled>
                   <img
                     src="../images/button-icons/pause.svg"
                     onerror="this.onerror=null; this.src='pause.png'"
                   />
                 </button>
-                <button class="play">
+                <button class="play disable" disabled>
                   <img
                     src="../images/button-icons/play.svg"
                     onerror="this.onerror=null; this.src='play.png'"
                   />
                 </button>
-                <button class="stop">
+                <button class="stop disable" disabled>
                   <img
                     src="../images/button-icons/stop.svg"
                     onerror="this.onerror=null; this.src='stop.png'"
