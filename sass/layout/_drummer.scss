@@ -9,8 +9,6 @@
   height: 60rem;
   top: 52.7%;
   left: 40%;
-  
-
   //temporary
   //transform: translate(-50%, -50%) !important;
 
@@ -60,7 +58,7 @@
 
       & .progress-bar {
         height: 100%;
-        width: .6rem;
+        width: 0.6rem;
         background-color: rgb(254, 246, 171);
         z-index: 2;
       }
@@ -74,20 +72,19 @@
     & .hello,
     & .recording,
     & .recorded {
-      background-color: pink;
+      background-color: #000;
       display: flex;
       justify-content: center;
       align-items: center;
 
       & span {
-        font-family: 'VT323', monospace;
+        font-family: "VT323", monospace;
         font-size: 4.5rem;
+        color: var(--color-yellow);
         text-transform: capitalize;
-        text-shadow: 1.8px 1.8px red;
+        text-shadow: 3px 3px red;
       }
     }
-
-
   }
 
   &__keys {
@@ -155,6 +152,10 @@
 
     display: flex;
     justify-content: center;
+
+    & button.disable {
+      filter: brightness(0.5);
+    }
 
     & button {
       border: solid 2px black;
