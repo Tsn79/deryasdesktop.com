@@ -53,7 +53,6 @@ desktop.getDomElementFromUrl = function (urlLink) {
   return ele;
 };
 
-//then, remove clicked class
 desktop.closeWindow = function () {
   var clickedWindow = desktop.getDomElementFromUrl(this.href);
   clickedWindow.classList.remove("clicked");
@@ -66,6 +65,7 @@ desktop.closeWindow = function () {
   removeWindow(clickedWindow, desktop.activeWindows);
 };
 
+//Add event listeners to manage open/close windows
 desktop.eventListeners = (function () {
   desktop.files.forEach((file) =>
     file.addEventListener("click", desktop.openWindow)
