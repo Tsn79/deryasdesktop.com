@@ -645,7 +645,7 @@ body {
         top: 0; }
       .drummer__canvas-box .playback-screen .progress-bar {
         height: 100%;
-        width: .6rem;
+        width: 0.6rem;
         background-color: #fef6ab;
         z-index: 2; }
       .drummer__canvas-box .playback-screen canvas {
@@ -654,17 +654,18 @@ body {
     .drummer__canvas-box .hello,
     .drummer__canvas-box .recording,
     .drummer__canvas-box .recorded {
-      background-color: pink;
+      background-color: #000;
       display: flex;
       justify-content: center;
       align-items: center; }
       .drummer__canvas-box .hello span,
       .drummer__canvas-box .recording span,
       .drummer__canvas-box .recorded span {
-        font-family: 'VT323', monospace;
+        font-family: "VT323", monospace;
         font-size: 4.5rem;
+        color: var(--color-yellow);
         text-transform: capitalize;
-        text-shadow: 1.8px 1.8px red; }
+        text-shadow: 3px 3px red; }
   .drummer__keys {
     flex: 0 0 25rem;
     padding: 0 1rem 0 1rem;
@@ -703,6 +704,8 @@ body {
     flex: 0 0 3rem;
     display: flex;
     justify-content: center; }
+    .drummer__buttons button.disable {
+      filter: brightness(0.5); }
     .drummer__buttons button {
       border: solid 2px black;
       width: 3rem;
