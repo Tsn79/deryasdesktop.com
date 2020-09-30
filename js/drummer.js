@@ -12,6 +12,7 @@ drummer.buttons.reload = document.querySelector(".stop");
 drummer.screen = document.querySelector(".playback-screen");
 drummer.canvas = document.querySelector(".visualizer");
 drummer.ctx = drummer.canvas.getContext("2d");
+drummer.welcome = document.querySelector(".hello");
 drummer.recordingBg = document.querySelector(".recording");
 drummer.recordedBg = document.querySelector(".recorded");
 drummer.progressBar = document.querySelector(".progress-bar");
@@ -19,11 +20,13 @@ drummer.progressBar = document.querySelector(".progress-bar");
 drummer.sounds = document.querySelectorAll(".drum-sound");
 drummer.record = document.querySelector(".recorded-audio");
 
+drummer.isActive;
+
 drummer.audio = (function () {
   var context,
     dest,
     mediaRecorder,
-    recordToggled = true,
+    isRecording = false,
     chunks = [],
     analyser,
     source,
@@ -32,7 +35,7 @@ drummer.audio = (function () {
     context: context,
     dest: dest,
     mediaRecorder: mediaRecorder,
-    recordToggled: recordToggled,
+    isRecording: isRecording,
     chunks: chunks,
     analyser: analyser,
     source: source,
@@ -42,10 +45,16 @@ drummer.audio = (function () {
 
 drummer.playback = (function () {
   var songLength,
-    getDuration;
+    getDuration,
+    endOfTimeLimit = false,
+    timeout,
+    maxRecordDuration = 10000; //ms
   return {
     songLength: songLength,
-    getDuration: getDuration
+    getDuration: getDuration,
+    endOfTimeLimit: endOfTimeLimit,
+    timeout: timeout,
+    maxRecordDuration: maxRecordDuration
   };
 })();
 
@@ -112,7 +121,7 @@ drummer.playback.getDuration = function (url, next) {
   var _player = new Audio(url);
   _player.addEventListener(
     "durationchange",
-    function (e) {
+    function () {
       if (this.duration != Infinity) {
         var duration = this.duration;
         _player.remove();
@@ -201,6 +210,39 @@ drummer.toggleZIndex = function (element) {
   element.style.zIndex = `${max + 1}`;
 };
 
+drummer.buttonDisable = function (isTrue, ...arguments) {
+  var isElementButton = arguments.every(
+    (element) => element.nodeName.toLowerCase() == "button"
+  );
+  if (arguments.length > 0 && isElementButton) {
+    for (var i = 0; i < arguments.length; i++) {
+      if (isTrue == false) {
+        arguments[i].disabled = false;
+        arguments[i].classList.remove("disable");
+      } else {
+        arguments[i].disabled = true;
+        arguments[i].classList.add("disable");
+      }
+    }
+  }
+};
+
+drummer.reset = function () {
+  drummer.toggleZIndex(drummer.welcome);
+  //if recording, stop and delete data
+  if (drummer.audio.isRecording == true) {
+    drummer.audio.chunks = [];
+    drummer.buttons.record.style.background = "";
+    drummer.audio.mediaRecorder.requestData();
+    drummer.audio.mediaRecorder.stop();
+    drummer.audio.isRecording = !drummer.audio.isRecording;
+    clearTimeout(drummer.playback.timeout);
+    //if audio is playing
+  } else {
+    drummer.record.pause();
+  }
+};
+
 //event listeners
 drummer.record.addEventListener("timeupdate", function () {
   var that = this;
@@ -211,30 +253,67 @@ drummer.record.addEventListener("timeupdate", function () {
   moveProgressBar();
 });
 
-drummer.record.addEventListener("ended", function () {
-  cancelAnimationFrame(drummer.audio.drawVisual);
-});
+drummer.handleRecord = function () {
+  console.time("record");
 
-drummer.buttons.record.addEventListener("click", function () {
   if (!drummer.audio.context) {
     drummer.createSound();
   }
 
-  if (drummer.audio.recordToggled) {
-    drummer.audio.chunks = [];
-    drummer.audio.mediaRecorder.start();
+  drummer.audio.isRecording = !drummer.audio.isRecording;
+
+  //if record button pressed to start record
+  if (drummer.audio.isRecording) {
+    startRecord();
+    //set a max time limit for record
+    drummer.playback.timeout = setTimeout(() => {
+      //if timeout ended record
+      drummer.playback.endOfTimeLimit = true;
+      return finishRecord();
+    }, drummer.playback.maxRecordDuration);
+    //if user ended record
+    drummer.playback.endOfTimeLimit = false;
+    //when record button is pressed to end record
+  } else if (!drummer.audio.isRecording && !drummer.playback.endOfTimeLimit) {
+    clearTimeout(drummer.playback.timeout);
+    return finishRecord();
+  }
+
+  function startRecord() {
     window.cancelAnimationFrame(drummer.audio.drawVisual);
+    drummer.audio.chunks = [];
+    //if record is playing, pause before re-record
+    drummer.record.pause();
     drummer.toggleZIndex(drummer.recordingBg);
+    drummer.buttonDisable(
+      true,
+      drummer.buttons.play,
+      drummer.buttons.pause,
+      drummer.buttons.reload
+    );
     drummer.buttons.record.style.background = "yellow";
-    console.log("start recording");
-    drummer.audio.recordToggled = !drummer.audio.recordToggled;
-  } else {
+    drummer.audio.mediaRecorder.start();
+  }
+
+  function finishRecord() {
+    drummer.audio.isRecording = false;
     drummer.buttons.record.style.background = "";
     drummer.toggleZIndex(drummer.recordedBg);
+    drummer.buttonDisable(
+      false,
+      drummer.buttons.play,
+      drummer.buttons.pause,
+      drummer.buttons.reload
+    );
     drummer.audio.mediaRecorder.requestData();
     drummer.audio.mediaRecorder.stop();
-    drummer.audio.recordToggled = !drummer.audio.recordToggled;
   }
+
+  console.timeEnd("record");
+};
+
+drummer.buttons.record.addEventListener("click", function () {
+  return drummer.handleRecord();
 });
 
 drummer.buttons.play.addEventListener("click", function () {
@@ -282,5 +361,8 @@ window.onhashchange = function () {
     drummer.drummerPane.focus();
   } else {
     drummer.drummerPane.blur();
+    setTimeout(function () {
+      drummer.reset();
+    }, 200);
   }
 };
