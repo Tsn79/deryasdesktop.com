@@ -78,7 +78,7 @@
       align-items: center;
 
       & span {
-        font-family: "VT323", monospace;
+        font-family: var(--font-family--pixel);
         font-size: 4.5rem;
         color: var(--color-yellow);
         text-transform: capitalize;
