@@ -19,6 +19,7 @@
   --font-size-medium: 1.7rem;
   --font-size-small: 1.3rem;
   --font-family: 'Roboto', sans-serif;
+  --font-family--pixel: "VT323", monospace;
   --padding-small: 0.8rem;
   --cursor-point: url("../images/cursor_pointer.png"), auto; }
 
@@ -44,6 +45,19 @@
   100% {
     transform: translate(1.8rem, 0.5rem); } }
 
+@keyframes animatedBackground {
+  from {
+    background-position: 0; }
+  to {
+    background-position: 2000px; } }
+
+/*
+@keyframes jump {
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-30.8px);}
+    100% {transform: translateY(0px);}
+}
+*/
 *,
 *:before,
 *:after {
@@ -97,7 +111,8 @@ body {
   width: 98%;
   height: 97%;
   border: solid black;
-  background-color: var(--color-desktop-bg); }
+  background-color: var(--color-desktop-bg);
+  overflow: hidden; }
   .inner-pane__header {
     position: relative;
     width: 100%;
@@ -661,7 +676,7 @@ body {
       .drummer__canvas-box .hello span,
       .drummer__canvas-box .recording span,
       .drummer__canvas-box .recorded span {
-        font-family: "VT323", monospace;
+        font-family: var(--font-family--pixel);
         font-size: 4.5rem;
         color: var(--color-yellow);
         text-transform: capitalize;
@@ -722,3 +737,108 @@ body {
         height: 1.2rem; }
       .drummer__buttons button:not(:last-child) {
         margin-right: 1rem; }
+
+.weather {
+  width: 85rem;
+  height: 54.08rem;
+  top: 50%;
+  left: 50%; }
+  .weather__main-frame {
+    width: 100%;
+    height: 92.2%;
+    position: relative; }
+  .weather__background {
+    width: 100%;
+    height: 100%;
+    background: url("../images/weather/weather-background.png") repeat-x;
+    background-size: auto 500px;
+    background-position: center;
+    animation: animatedBackground 80s linear infinite;
+    z-index: 100; }
+  .weather__wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+  .weather__card {
+    position: relative;
+    background: url("../images/weather/weather-card--day.png") no-repeat;
+    background-size: cover;
+    width: 27rem;
+    height: 33rem;
+    outline: 0.4rem solid black; }
+    .weather__card > * {
+      position: absolute; }
+    .weather__card-character {
+      background-image: url("../images/weather/character.png");
+      background-size: cover;
+      width: 5rem;
+      height: 6.5rem;
+      right: 4.6rem;
+      bottom: 5.4rem;
+      transform: translateY(0px);
+      transition: 1s all; }
+      .weather__card-character.jump {
+        transform: translateY(-30.8px); }
+    .weather__card-box {
+      background-image: url("../images/weather/celcius.png");
+      background-size: cover;
+      width: 3.7rem;
+      height: 3.7rem;
+      right: 5.2rem;
+      bottom: 14.9rem; }
+    .weather__card-search-result {
+      max-height: 15rem;
+      max-width: 14.5rem;
+      margin: 1.5rem 0 0 1.5rem; }
+      .weather__card-search-result.white {
+        color: white; }
+      .weather__card-search-result > * {
+        text-transform: capitalize;
+        font-family: var(--font-family--pixel); }
+      .weather__card-search-result .city {
+        font-size: 3rem; }
+      .weather__card-search-result .temperature {
+        font-size: 5rem; }
+  .weather__select {
+    width: 30rem;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; }
+    .weather__select label,
+    .weather__select button {
+      text-transform: uppercase;
+      font-family: var(--font-family--pixel); }
+    .weather__select label {
+      color: var(--color-yellow);
+      font-size: 4rem; }
+    .weather__select input {
+      padding: 1.5rem;
+      align-self: stretch;
+      border: 2px solid #C0C0C0;
+      border-radius: 1rem;
+      text-align: center;
+      font-family: var(--font-family);
+      background-color: rgba(255, 255, 255, 0.5); }
+      .weather__select input, .weather__select input::placeholder {
+        font-size: 1.8rem; }
+      .weather__select input:focus {
+        outline-color: yellow; }
+      .weather__select input::placeholder {
+        text-align: center; }
+    .weather__select button {
+      padding: 1.2rem 3rem;
+      border-radius: 5rem;
+      font-size: 2rem;
+      background-color: var(--color-yellow);
+      transition: .2s all; }
+      .weather__select button, .weather__select button:active, .weather__select button:visited {
+        outline: none; }
+      .weather__select button:hover {
+        transform: scale(1.1); }
