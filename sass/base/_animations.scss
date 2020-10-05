@@ -39,3 +39,17 @@
         transform: translate(1.8rem, 0.5rem);
     }
 }
+
+
+@keyframes animatedBackground {
+	from {background-position: 0} //; transform: translate(0, 0);
+	to {background-position: 2000px} //transform: translate(-1920px, 0);
+}
+
+/*
+@keyframes jump {
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-30.8px);}
+    100% {transform: translateY(0px);}
+}
+*/
