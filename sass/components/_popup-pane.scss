@@ -13,6 +13,7 @@
   height: 97%;
   border: solid black;
   background-color: var(--color-desktop-bg);
+  overflow: hidden;
 
   &__header {
     position: relative;
