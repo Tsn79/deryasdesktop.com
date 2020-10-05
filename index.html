@@ -176,7 +176,12 @@
               ></div>
               <div class="file-label">Drummer.exe</div>
             </a>
-            <a class="file file__window" style="grid-area: 3 / 4 / 4 / 5">
+            <a
+              class="file file__window"
+              style="grid-area: 3 / 4 / 4 / 5"
+              href="#weather"
+              target="_self"
+            >
               <div
                 class="file-icon"
                 style="background-image: url(images/icons/icon-window.svg)"
@@ -492,9 +497,9 @@
                 <div class="recorded" style="z-index: 100">
                   <span>record completed!</span>
                 </div>
-                <div class="playback-screen" style="z-index: 100;">
+                <div class="playback-screen" style="z-index: 100">
                   <canvas class="visualizer"></canvas>
-                <div class="progress-bar" style="left: 0%"></div>
+                  <div class="progress-bar" style="left: 0%"></div>
                 </div>
               </div>
               <div class="drummer__keys" id="keys">
@@ -561,6 +566,50 @@
                     onerror="this.onerror=null; this.src='stop.png'"
                   />
                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--WEATHER-->
+      <section class="pane weather pane__transition" id="weather">
+        <div class="main-pane">
+          <div class="inner-pane">
+            <div class="inner-pane__header">
+              <p class="inner-pane__header-text">weather.app</p>
+              <a
+                href="#weather"
+                class="close-btn"
+                aria-label="Close Account Info Modal Box"
+                role="button"
+                >&times;</a
+              >
+            </div>
+            <div class="weather__main-frame">
+              <div class="weather__background"></div>
+              <div class="weather__wrapper">
+                <div class="weather__card">
+                  <div class="weather__card-character"></div>
+                  <div class="weather__card-box"></div>
+                  <div class="weather__card-search-result">
+                    <p class="city">little funghitown</p>
+                    <p class="temperature">11&#176;c</p>
+                  </div>
+                </div>
+                <div class="weather__select">
+                  <label for="city_search">select your city</label>
+                  <input
+                    type="text"
+                    id="city_search"
+                    class="weather__select-city"
+                    placeholder="Enter a real city name"
+                    autocomplete="off"
+                    aria-described="enter a city name"
+                    aria-expanded="false"
+                  />
+                  <button type="submit">ready to go!</button>
+                </div>
               </div>
             </div>
           </div>
