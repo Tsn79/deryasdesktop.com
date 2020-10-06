@@ -459,7 +459,7 @@
                       <!--filter:none-->
                       <option value="weird">weird</option>
                       <!--filter: drop-shadow(16px 16px 20px red) invert(75%);-->
-                      <option value="boring">boring</option>
+                      <option value="dark mode">dark mode</option>
                       <!--filter: grayscale(100%);-->
                       <option value="blurry">blurry</option>
                       <!--filter: blur(1px);-->
@@ -590,11 +590,11 @@
               <div class="weather__background"></div>
               <div class="weather__wrapper">
                 <div class="weather__card">
-                  <div class="weather__card-character"></div>
-                  <div class="weather__card-box"></div>
+                  <div class="weather__card-character" id="character"></div>
+                  <div class="weather__card-box" id="box"></div>
                   <div class="weather__card-search-result">
-                    <p class="city">little funghitown</p>
-                    <p class="temperature">11&#176;c</p>
+                    <p class="city" id="city">little funghitown</p>
+                    <p class="temperature" id="temperature">11&#176;c</p>
                   </div>
                 </div>
                 <div class="weather__select">
@@ -607,6 +607,7 @@
                     autocomplete="off"
                     aria-described="enter a city name"
                     aria-expanded="false"
+                    required
                   />
                   <button type="submit">ready to go!</button>
                 </div>
@@ -635,9 +636,10 @@
     <audio class="recorded-audio" preload="auto"></audio>
 
     <script src="js/date.js"></script>
-    <script src="js/bundle.js" async></script>
+    <script src="js/bundle.js"></script>
     <script src="js/app.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/drummer.js"></script>
+    <script src="weather.js"></script>
   </body>
 </html>
