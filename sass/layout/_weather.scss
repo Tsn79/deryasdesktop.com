@@ -68,6 +68,7 @@
       height: 3.7rem;
       right: 5.2rem;
       bottom: 14.9rem;
+      cursor: var(--cursor-point);
     }
 
     &-search-result {
@@ -124,6 +125,7 @@
         text-align: center;
         font-family: var(--font-family);
         background-color: rgba(255, 255, 255, 0.5);
+        caret-color: var(--color-yellow);
 
         &,
         &::placeholder {
@@ -145,15 +147,23 @@
         font-size: 2rem;
         background-color: var(--color-yellow);
         transition: .2s all;
+        border: 1px solid black;
+        cursor: var(--cursor-point);
 
         &,
         &:active,
         &:visited {
             outline: none;
+            //cursor: var(--cursor-point);
         }
 
         &:hover {
             transform: scale(1.1);
+            //cursor: var(--cursor-point);
+        }
+
+        &:active {
+          transform: scale(1);
         }
     }
 
