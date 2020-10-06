@@ -34,7 +34,7 @@ settings.functions.setScreenEffects = function() {
         settings.body.style.filter = "drop-shadow(16px 16px 20px red) invert(75%)";
         break;
         
-        case "boring":
+        case "dark mode":
         settings.body.style.filter = "grayscale(100%)";
         break;
 
