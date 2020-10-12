@@ -18,7 +18,7 @@
     background: url("../images/weather/weather-background.png") repeat-x;
     background-size: auto 500px;
     background-position: center;
-    animation: animatedBackground 80s linear infinite;
+    //animation: animatedBackground 80s linear infinite;
     z-index: 100;
   }
 
@@ -96,10 +96,11 @@
     }
   }
 
-  &__select {
+  &__form {
     //background-color: purple;
     width: 30rem;
     height: 25rem;
+    position: relative;
 
     display: flex;
     flex-direction: column;
@@ -110,6 +111,7 @@
     & button {
         text-transform: uppercase;
         font-family: var(--font-family--pixel);
+        cursor: var(--cursor-point);
     }
 
     & label {
@@ -126,6 +128,7 @@
         font-family: var(--font-family);
         background-color: rgba(255, 255, 255, 0.5);
         caret-color: var(--color-yellow);
+        text-transform: capitalize;
 
         &,
         &::placeholder {
@@ -148,7 +151,6 @@
         background-color: var(--color-yellow);
         transition: .2s all;
         border: 1px solid black;
-        cursor: var(--cursor-point);
 
         &,
         &:active,
@@ -168,4 +170,52 @@
     }
 
   }
+}
+
+.suggested-places-container {
+  position: absolute;
+  top: 65%;
+  width: 100%;
+  
+
+  & ul {
+    list-style: none;
+
+
+    }
+
+    & li {
+      padding: .8rem;
+      background-color: rgba(255, 255, 255, .5);
+      cursor: var(--cursor-point);
+
+
+      &:not(:last-child) {
+        border-bottom: 2px black solid;
+      }
+      
+      &:nth-child(odd) {
+        transform: skewX(20deg);
+        background-color: var(--color-yellow);    
+        
+        & span {
+          transform: skewX(-20deg);  
+        }
+      }
+    
+      &:nth-child(even) {
+        transform: skewX(-20deg);
+
+        & span {
+          transform: skewX(20deg);  
+        }
+    }
+
+    & span {
+      display: block;
+    }
+
+   
+  }
+
 }
