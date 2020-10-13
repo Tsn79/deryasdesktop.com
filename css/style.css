@@ -753,7 +753,6 @@ body {
     background: url("../images/weather/weather-background.png") repeat-x;
     background-size: auto 500px;
     background-position: center;
-    animation: animatedBackground 80s linear infinite;
     z-index: 100; }
   .weather__wrapper {
     position: absolute;
@@ -790,7 +789,8 @@ body {
       width: 3.7rem;
       height: 3.7rem;
       right: 5.2rem;
-      bottom: 14.9rem; }
+      bottom: 14.9rem;
+      cursor: var(--cursor-point); }
     .weather__card-search-result {
       max-height: 15rem;
       max-width: 14.5rem;
@@ -804,41 +804,72 @@ body {
         font-size: 3rem; }
       .weather__card-search-result .temperature {
         font-size: 5rem; }
-  .weather__select {
+  .weather__form {
     width: 30rem;
     height: 25rem;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between; }
-    .weather__select label,
-    .weather__select button {
+    .weather__form label,
+    .weather__form button {
       text-transform: uppercase;
-      font-family: var(--font-family--pixel); }
-    .weather__select label {
+      font-family: var(--font-family--pixel);
+      cursor: var(--cursor-point); }
+    .weather__form label {
       color: var(--color-yellow);
       font-size: 4rem; }
-    .weather__select input {
+    .weather__form input {
       padding: 1.5rem;
       align-self: stretch;
       border: 2px solid #C0C0C0;
       border-radius: 1rem;
       text-align: center;
       font-family: var(--font-family);
-      background-color: rgba(255, 255, 255, 0.5); }
-      .weather__select input, .weather__select input::placeholder {
+      background-color: rgba(255, 255, 255, 0.5);
+      caret-color: var(--color-yellow);
+      text-transform: capitalize; }
+      .weather__form input, .weather__form input::placeholder {
         font-size: 1.8rem; }
-      .weather__select input:focus {
+      .weather__form input:focus {
         outline-color: yellow; }
-      .weather__select input::placeholder {
+      .weather__form input::placeholder {
         text-align: center; }
-    .weather__select button {
+    .weather__form button {
       padding: 1.2rem 3rem;
       border-radius: 5rem;
       font-size: 2rem;
       background-color: var(--color-yellow);
-      transition: .2s all; }
-      .weather__select button, .weather__select button:active, .weather__select button:visited {
+      transition: .2s all;
+      border: 1px solid black; }
+      .weather__form button, .weather__form button:active, .weather__form button:visited {
         outline: none; }
-      .weather__select button:hover {
+      .weather__form button:hover {
         transform: scale(1.1); }
+      .weather__form button:active {
+        transform: scale(1); }
+
+.suggested-places-container {
+  position: absolute;
+  top: 65%;
+  width: 100%; }
+  .suggested-places-container ul {
+    list-style: none; }
+  .suggested-places-container li {
+    padding: .8rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: var(--cursor-point); }
+    .suggested-places-container li:not(:last-child) {
+      border-bottom: 2px black solid; }
+    .suggested-places-container li:nth-child(odd) {
+      transform: skewX(20deg);
+      background-color: var(--color-yellow); }
+      .suggested-places-container li:nth-child(odd) span {
+        transform: skewX(-20deg); }
+    .suggested-places-container li:nth-child(even) {
+      transform: skewX(-20deg); }
+      .suggested-places-container li:nth-child(even) span {
+        transform: skewX(20deg); }
+    .suggested-places-container li span {
+      display: block; }
