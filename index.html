@@ -589,10 +589,10 @@
             <div class="weather__main-frame">
               <div class="weather__background"></div>
               <div class="weather__wrapper">
-                <div class="weather__card">
+                <div class="weather__card bg-day">
                   <div class="weather__card-character" id="character"></div>
                   <div class="weather__card-box" id="box"></div>
-                  <div class="weather__card-search-result">
+                  <div class="weather__card-search-result" id="card-text">
                     <p class="city" id="city">little funghitown</p>
                     <p class="temperature" id="temperature">11&#176;c</p>
                   </div>
@@ -609,6 +609,7 @@
                     aria-expanded="false"
                     required
                   />
+                  <div class="error" id="error" hidden>UPS! PLS TRY AGAIN</div>
                   <div class="suggested-places-container">
                     <ul class="suggested-results" role="listbox">
                       <!--<li><span>York</span></li>
@@ -644,11 +645,13 @@
     <audio data-key="76" class="drum-sound" src="sounds/tink.wav"></audio>
     <audio class="recorded-audio" preload="auto"></audio>
 
-    <script src="js/date.js"></script>
-    <script src="js/bundle.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/drummer.js"></script>
-    <script src="js/weather.js"></script>
+    <script type="module" src="js_modules/helper_functions.mjs"></script>
+    <script type="module" src="js/weather.js"></script>
+    <script type="module" src="js/meme_generator.js"></script>
+    <script type="text/javascript" src='config.js'></script>
+    <script defer src="js/date.js"></script>
+    <script defer src="js/app.js"></script>
+    <script defer src="js/settings.js"></script>
+    <script defer src="js/drummer.js"></script> 
   </body>
 </html>
