@@ -829,7 +829,8 @@ body {
       position: absolute;
       top: 63%;
       font-size: 2.5rem;
-      color: #A20021; }
+      font-weight: 400;
+      color: red; }
     .weather__form label {
       color: var(--color-yellow);
       font-size: 4rem; }
@@ -850,7 +851,7 @@ body {
       .weather__form input::placeholder {
         text-align: center; }
       .weather__form input.redBorder {
-        border: 1px red solid; }
+        border: 2px red solid; }
     .weather__form button {
       padding: 1.2rem 3rem;
       border-radius: 5rem;
@@ -868,13 +869,17 @@ body {
 .suggested-places-container {
   position: absolute;
   top: 65%;
-  width: 100%; }
+  width: 110%;
+  height: 20rem;
+  overflow-y: scroll;
+  overflow-x: hidden; }
   .suggested-places-container ul {
     list-style: none; }
   .suggested-places-container li {
     padding: .8rem;
     background-color: rgba(255, 255, 255, 0.5);
-    cursor: var(--cursor-point); }
+    cursor: var(--cursor-point);
+    text-transform: capitalize; }
     .suggested-places-container li:not(:last-child) {
       border-bottom: 2px black solid; }
     .suggested-places-container li:nth-child(odd) {
