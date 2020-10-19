@@ -5,6 +5,7 @@ var weather = {
   querySection: {},
   forecast: {},
   location: {},
+  timeout: ""
 };
 
 weather.card.container = document.querySelector(".weather__card");
@@ -37,30 +38,20 @@ weather.location = (function () {
   const BASE_API = `https://api.teleport.org/api/cities/?search=`;
   var locations = {},
     cityID = "",
-    isAutocomplete = false,
     handleData;
 
   return {
     BASE_API: BASE_API,
     locations: locations,
     cityID: cityID,
-    isAutocomplete: isAutocomplete,
     handleData: handleData,
   };
 })();
 
 /*
 TODO
-3.1. When user use input area instead of suggestions, match suggestion automatically with the first result of fetch API
-3.2. According to is autocompleteInputField=true / false, on submit, re-fetch data or not.
-
-4. Once search button is pressed, request weather data with corresponding city id
-4.1. City id is in quotes, strip out of them. 
-4.2. If new input is the same as previous one, do not fetch api
-
-5. Rewrite id regex search in a more proper way 
-
-6. Evaluate API responses and write scenenarios
+1.0 Make suggestions list scrollable
+1.0.1 Design scroll bar
 */
 
 weather.location.handleData = function (data) {
@@ -82,23 +73,29 @@ weather.location.handleData = function (data) {
 
 weather.populateSuggestionsList = function (matchResults) {
   var count = 0,
-    numOfListItems = 4;
+    numOfListItems = 10,
+    line = "";
   for (var id in matchResults) {
-    var line = `<li><span data-id=${id}>${matchResults[id]}</span></li>`;
+    line = `<li><span data-id=${id}>${matchResults[id]}</span></li>`;
     weather.querySection.suggestionsList.insertAdjacentHTML("beforeend", line);
     count++;
     if (count > numOfListItems) {
       break;
     }
   }
+  if(count === 0) {
+    line = `<li><span>no results found</span></li>`;
+    weather.querySection.suggestionsList.insertAdjacentHTML("beforeend", line);
+  }
 };
 
-weather.querySection.fetchCitySuggestions = function (e) {
+weather.querySection.fetchCitySuggestions = function () {
   //custom insert, autocomplete is off
-  weather.location.isAutocomplete = false;
+  //weather.location.isAutocomplete = false;
   weather.querySection.error.hidden = true;
+  //weather.location.cityID = "";
   className.remove(weather.querySection.input, "redBorder");
-  var input = this.value.trim();
+  var input = weather.querySection.input.value;
   var url = weather.location.BASE_API + input;
 
   if (input && input.length > 1) {
@@ -119,6 +116,7 @@ weather.querySection.fetchCitySuggestions = function (e) {
 
 weather.querySection.autocompleteInputField = function (e) {
   if (e.target && e.target.nodeName == "SPAN") {
+    className.remove(weather.querySection.input, "redBorder");
     weather.querySection.input.value = e.target.innerText;
     weather.location.cityID = e.target.dataset.id;
     weather.location.isAutocomplete = true;
@@ -203,35 +201,16 @@ weather.calculateDayTime = function (timeStamp) {
   return isDayTime;
 };
 
-weather.querySection.autocompleteInvalidInput = function () {
-  var url = weather.location.BASE_API + weather.querySection.input.value;
-  fetch(url)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(weather.location.handleData)
-    .then(function (matchResults) {
-      //populate the input text area with the first match automatically
-      for (var id in matchResults) {
-        weather.location.cityID = id;
-        weather.querySection.input.value = matchResults[id];
-        break;
-      }
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-};
 
+//let timeout;
 weather.fetchForecast = function () {
+  clearTimeout(weather.timeout);
+  weather.querySection.suggestionsList.innerHTML = "";
   var id = parseInt(weather.location.cityID);
+ 
   var cityParam = `id=${id}`,
     keyParam = `appid=${weather.forecast.API_KEY}`;
-
-  //custom input without using dropdown selection
-  if (!weather.location.isAutocomplete) {
-    weather.querySection.autocompleteInvalidInput();
-  }
+  
   //search for weather
   if (id) {
     const weatherUrl = weather.forecast.BASE_API + cityParam + "&" + keyParam;
@@ -244,20 +223,45 @@ weather.fetchForecast = function () {
       .catch(function (error) {
         console.log(console.log(error));
       });
-    //if there is no city id :(
-  } else {
+ 
+  } 
+   //if there is no city id :(
+  else {
+    console.log("NO ID")
     weather.querySection.error.hidden = false;
     className.add(weather.querySection.input, "redBorder");
   }
 };
 
+weather.querySection.debounceQuery = debounce(function(){
+  weather.querySection.fetchCitySuggestions();
+}, 800);
+
+
 //EVENT LISTENERS
-weather.querySection.input.addEventListener(
-  "input",
-  weather.querySection.fetchCitySuggestions
-);
+
 weather.querySection.suggestionsList.addEventListener(
   "click",
   weather.querySection.autocompleteInputField
 );
 weather.querySection.submitBtn.addEventListener("click", weather.fetchForecast);
+weather.querySection.input.addEventListener("keyup", weather.querySection.debounceQuery);
+weather.querySection.input.addEventListener("click", weather.querySection.debounceQuery);
+weather.querySection.input.addEventListener("keydown", function(){weather.location.cityID = "";})
+
+//DEBOUNCE
+function debounce(func, wait) {
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(weather.timeout);
+      func(...args);
+    }
+    
+   clearTimeout(weather.timeout);
+   weather.timeout = setTimeout(later, wait);
+  };
+}
+
+
+
+
