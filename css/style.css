@@ -853,6 +853,8 @@ body {
       .weather__form input.redBorder {
         border: 2px red solid; }
     .weather__form button {
+      position: relative;
+      z-index: 99;
       padding: 1.2rem 3rem;
       border-radius: 5rem;
       font-size: 2rem;
@@ -869,13 +871,12 @@ body {
 .suggested-places-container {
   position: absolute;
   top: 65%;
-  width: 110%;
-  height: 20rem;
-  overflow-y: scroll;
-  overflow-x: hidden; }
+  width: 100%; }
   .suggested-places-container ul {
     list-style: none; }
   .suggested-places-container li {
+    position: relative;
+    z-index: 200;
     padding: .8rem;
     background-color: rgba(255, 255, 255, 0.5);
     cursor: var(--cursor-point);
