@@ -170,6 +170,8 @@
     }
 
     & button {
+      position: relative;
+      z-index: 99;
         padding: 1.2rem 3rem;
         border-radius: 5rem;
         font-size: 2rem;
@@ -200,16 +202,15 @@
 .suggested-places-container {
   position: absolute;
   top: 65%;
-  width: 110%;
-  height: 20rem;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  width: 100%;
 
   & ul {
     list-style: none;
     }
 
     & li {
+      position: relative;
+      z-index: 200;
       padding: .8rem;
       background-color: rgba(255, 255, 255, .5);
       cursor: var(--cursor-point);
