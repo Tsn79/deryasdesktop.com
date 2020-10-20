@@ -5,7 +5,8 @@ var weather = {
   querySection: {},
   forecast: {},
   location: {},
-  timeout: ""
+  timeout: "",
+  wrapper: ""
 };
 
 weather.card.container = document.querySelector(".weather__card");
@@ -21,6 +22,8 @@ weather.querySection.error = document.querySelector("#error");
 weather.querySection.suggestionsList = document.querySelector(
   ".suggested-results"
 );
+
+weather.wrapper = document.querySelector(".weather__wrapper");
 
 weather.forecast = (function () {
   const API_KEY = config.OPEN_WEATHER_API_KEY,
@@ -50,8 +53,15 @@ weather.location = (function () {
 
 /*
 TODO
-1.0 Make suggestions list scrollable
-1.0.1 Design scroll bar
+UX ->
+[DONE]WHEN CLICKED SOMEWHERE OUTSIDE, COLLAPSE SUGGESTIONS LIST
+ENABLE ARROW KEYS TO SELECT A CITY
+[DONE]WHEN CLICKED ON INPUT, AUTOMATICALLY DELETE TEXT
+[DONE]404 ERROR HANDLING WITH WEATHER API
+
+OPTIMIZE CODE 
+
+JUMP OPTIONS
 */
 
 weather.location.handleData = function (data) {
@@ -73,7 +83,7 @@ weather.location.handleData = function (data) {
 
 weather.populateSuggestionsList = function (matchResults) {
   var count = 0,
-    numOfListItems = 10,
+    numOfListItems = 4,
     line = "";
   for (var id in matchResults) {
     line = `<li><span data-id=${id}>${matchResults[id]}</span></li>`;
@@ -83,18 +93,16 @@ weather.populateSuggestionsList = function (matchResults) {
       break;
     }
   }
-  if(count === 0) {
+  if (count === 0) {
     line = `<li><span>no results found</span></li>`;
     weather.querySection.suggestionsList.insertAdjacentHTML("beforeend", line);
   }
 };
 
 weather.querySection.fetchCitySuggestions = function () {
-  //custom insert, autocomplete is off
-  //weather.location.isAutocomplete = false;
-  weather.querySection.error.hidden = true;
-  //weather.location.cityID = "";
-  className.remove(weather.querySection.input, "redBorder");
+  //weather.querySection.error.hidden = true;
+  //className.remove(weather.querySection.input, "redBorder");
+
   var input = weather.querySection.input.value;
   var url = weather.location.BASE_API + input;
 
@@ -126,21 +134,24 @@ weather.querySection.autocompleteInputField = function (e) {
 };
 
 weather.forecast.handleForecastData = function (data) {
-  var temperature = data["main"]["temp"];
-  var name = data["name"];
-  var timeStamp = data["timezone"];
-  return {
-    temperature,
-    name,
-    timeStamp,
-  };
-  //console.log("temperature is " + temperature + "\n" + "name is " + name + "\n" + "timestamp is " + timeStamp);
+  if (data) {
+    var temperature = data.main?.temp;
+    var name = data.name;
+    var timeStamp = data.timezone;
+    return {
+      temperature,
+      name,
+      timeStamp,
+    };
+  }
 };
 
 weather.card.updateWeatherCard = function (obj) {
-  weather.card.updateTemperature(obj.temperature);
-  weather.card.updateLocName(obj.name);
-  weather.card.updateBackground(obj.timeStamp);
+  if (obj) {
+    weather.card.updateTemperature(obj.temperature);
+    weather.card.updateLocName(obj.name);
+    weather.card.updateBackground(obj.timeStamp);
+  }
 };
 
 weather.card.updateTemperature = function (temp) {
@@ -157,7 +168,7 @@ weather.convertTemperature = function (temperature, unit) {
     case "fehrenheit":
       return Math.round(celsiusDeg * (9 / 5) + 32);
     default:
-      return NaN;
+      return "NaN";
   }
 };
 
@@ -201,53 +212,51 @@ weather.calculateDayTime = function (timeStamp) {
   return isDayTime;
 };
 
-
 //let timeout;
 weather.fetchForecast = function () {
   clearTimeout(weather.timeout);
   weather.querySection.suggestionsList.innerHTML = "";
   var id = parseInt(weather.location.cityID);
- 
+
   var cityParam = `id=${id}`,
     keyParam = `appid=${weather.forecast.API_KEY}`;
-  
+
   //search for weather
   if (id) {
     const weatherUrl = weather.forecast.BASE_API + cityParam + "&" + keyParam;
     fetch(weatherUrl)
       .then(function (response) {
-        return response.json();
+        if (response.status === 404) {
+          weather.querySection.error.hidden = false;
+          weather.querySection.error.innerText = "NO DATA FOUND";
+        } else {
+          return response.json();
+        }
       })
       .then(weather.forecast.handleForecastData)
       .then(weather.card.updateWeatherCard)
       .catch(function (error) {
-        console.log(console.log(error));
+        console.log(error);
       });
- 
-  } 
-   //if there is no city id :(
+  }
+  //if there is no city id :(
   else {
-    console.log("NO ID")
+    console.log("NO ID");
     weather.querySection.error.hidden = false;
     className.add(weather.querySection.input, "redBorder");
   }
 };
 
-weather.querySection.debounceQuery = debounce(function(){
+weather.querySection.debounceQuery = debounce(function () {
   weather.querySection.fetchCitySuggestions();
 }, 800);
 
-
-//EVENT LISTENERS
-
-weather.querySection.suggestionsList.addEventListener(
-  "click",
-  weather.querySection.autocompleteInputField
-);
-weather.querySection.submitBtn.addEventListener("click", weather.fetchForecast);
-weather.querySection.input.addEventListener("keyup", weather.querySection.debounceQuery);
-weather.querySection.input.addEventListener("click", weather.querySection.debounceQuery);
-weather.querySection.input.addEventListener("keydown", function(){weather.location.cityID = "";})
+weather.querySection.resetInput = function () {
+  weather.location.cityID = "";
+  weather.querySection.input.value = "";
+  weather.querySection.error.hidden = true;
+  className.remove(weather.querySection.input, "redBorder");
+};
 
 //DEBOUNCE
 function debounce(func, wait) {
@@ -255,13 +264,35 @@ function debounce(func, wait) {
     const later = () => {
       clearTimeout(weather.timeout);
       func(...args);
-    }
-    
-   clearTimeout(weather.timeout);
-   weather.timeout = setTimeout(later, wait);
+    };
+
+    clearTimeout(weather.timeout);
+    weather.timeout = setTimeout(later, wait);
   };
 }
 
+//EVENT LISTENERS
 
+weather.querySection.suggestionsList.addEventListener(
+  "click",
+  weather.querySection.autocompleteInputField
+);
 
+weather.querySection.submitBtn.addEventListener("click", weather.fetchForecast);
+
+weather.querySection.input.addEventListener(
+  "keyup",
+  weather.querySection.debounceQuery
+);
+
+weather.querySection.input.addEventListener(
+  "click",
+  weather.querySection.resetInput
+);
+
+//when clicked outside, collapse suggestions list
+weather.wrapper.addEventListener("click", function(e){
+  e.stopPropagation();
+  weather.querySection.suggestionsList.innerHTML = "";
+})
 
