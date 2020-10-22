@@ -121,9 +121,9 @@
     & label,
     & button,
     & .error {
-        text-transform: uppercase;
-        font-family: var(--font-family--pixel);
-        cursor: var(--cursor-point);
+      text-transform: uppercase;
+      font-family: var(--font-family--pixel);
+      cursor: var(--cursor-point);
     }
 
     & .error {
@@ -131,71 +131,70 @@
       top: 63%;
       font-size: 2.5rem;
       font-weight: 400;
-      color: red; 
+      color: red;
     }
 
     & label {
-        color: var(--color-yellow);
-        font-size: 4rem;
+      color: var(--color-yellow);
+      font-size: 4rem;
     }
 
     & input {
-        padding: 1.5rem;
-        align-self: stretch;
-        border: 2px solid #C0C0C0;
-        border-radius: 1rem;
+      padding: 1.5rem;
+      align-self: stretch;
+      border: 2px solid #c0c0c0;
+      border-radius: 1rem;
+      text-align: center;
+      font-family: var(--font-family);
+      background-color: rgba(255, 255, 255, 0.5);
+      caret-color: var(--color-yellow);
+      text-transform: capitalize;
+
+      &,
+      &::placeholder {
+        font-size: 1.8rem;
+      }
+
+      &:focus {
+        outline-color: yellow;
+      }
+
+      &::placeholder {
         text-align: center;
-        font-family: var(--font-family);
-        background-color: rgba(255, 255, 255, 0.5);
-        caret-color: var(--color-yellow);
-        text-transform: capitalize;
+      }
 
-        &,
-        &::placeholder {
-           font-size: 1.8rem; 
-        }
-
-        &:focus {
-            outline-color: yellow;
-        }
-
-        &::placeholder {
-            text-align: center;
-        }
-
-        &.redBorder {
-          border: 2px red solid;
-          //background-color: red;
-        }
+      &.redBorder {
+        border: 2px red solid;
+        //background-color: red;
+      }
     }
 
     & button {
       position: relative;
       z-index: 99;
-        padding: 1.2rem 3rem;
-        border-radius: 5rem;
-        font-size: 2rem;
-        background-color: var(--color-yellow);
-        transition: .2s all;
-        border: 1px solid black;
+      padding: 1.2rem 3rem;
+      border-radius: 5rem;
+      font-size: 2rem;
+      background-color: var(--color-yellow);
+      transition: 0.2s all;
+      border: 1px solid black;
 
-        &,
-        &:active,
-        &:visited {
-            outline: none;
-            //cursor: var(--cursor-point);
-        }
+      &,
+      &:active,
+      &:visited {
+        outline: none;
+        //cursor: var(--cursor-point);
+      }
 
-        &:hover {
-            transform: scale(1.1);
-            //cursor: var(--cursor-point);
-        }
+      &:hover {
+        transform: scale(1.1);
+        //cursor: var(--cursor-point);
+      }
 
-        &:active {
-          transform: scale(1);
-        }
+      &:active {
+        transform: scale(1);
+      }
     }
-
   }
 }
 
@@ -206,42 +205,45 @@
 
   & ul {
     list-style: none;
+  }
+
+  & li {
+    position: relative;
+    z-index: 200;
+    padding: 0.8rem;
+    margin-bottom: .5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: var(--cursor-point);
+    text-transform: capitalize;
+
+    &:focus {
+      outline: .5rem var(--color-desktop-tab) solid;
     }
 
-    & li {
-      position: relative;
-      z-index: 200;
-      padding: .8rem;
-      background-color: rgba(255, 255, 255, .5);
-      cursor: var(--cursor-point);
-      text-transform: capitalize;
+    &:nth-child(odd) {
+      transform: skewX(20deg);
+      background-color: var(--color-yellow);
 
-      &:not(:last-child) {
-        border-bottom: 2px black solid;
-      }
-      
-      &:nth-child(odd) {
-        transform: skewX(20deg);
-        background-color: var(--color-yellow);    
-        
-        & span {
-          transform: skewX(-20deg);  
-        }
-      }
-    
-      &:nth-child(even) {
+      & span {
         transform: skewX(-20deg);
+      }
+    }
 
-        & span {
-          transform: skewX(20deg);  
-        }
+    &:nth-child(even) {
+      transform: skewX(-20deg);
+
+      & span {
+        transform: skewX(20deg);
+      }
     }
 
     & span {
       display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      max-width: 100ch;
     }
-
-   
   }
-
 }
