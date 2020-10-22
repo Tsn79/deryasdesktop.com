@@ -224,6 +224,7 @@ weather.calculateDayTime = function (timeStamp) {
 weather.fetchForecast = function () {
   clearTimeout(weather.timeout);
   weather.querySection.suggestionsList.innerHTML = "";
+  weather.querySection.input.blur();
   var id = parseInt(weather.location.cityID);
 
   var cityParam = `id=${id}`,
