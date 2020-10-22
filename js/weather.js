@@ -1,13 +1,16 @@
 import { className } from "../js_modules/helper_functions.mjs";
 
+//Design inspiration: https://codepen.io/Errec/pen/ZprVwZ
 var weather = {
   card: {},
   querySection: {},
   forecast: {},
   location: {},
-  timeout: "",
-  wrapper: ""
+  timeout: {},
+  wrapper: {},
 };
+
+weather.main = document.querySelector("#weather");
 
 weather.card.container = document.querySelector(".weather__card");
 weather.card.mysteryBox = document.querySelector("#box");
@@ -23,7 +26,7 @@ weather.querySection.suggestionsList = document.querySelector(
   ".suggested-results"
 );
 
-weather.wrapper = document.querySelector(".weather__wrapper");
+//weather.wrapper = document.querySelector(".weather__wrapper");
 
 weather.forecast = (function () {
   const API_KEY = config.OPEN_WEATHER_API_KEY,
@@ -41,13 +44,18 @@ weather.location = (function () {
   const BASE_API = `https://api.teleport.org/api/cities/?search=`;
   var locations = {},
     cityID = "",
-    handleData;
+    handleData,
+    matchNumber = 0,
+    //set keyboard focus for auto-suggest list item
+    keyboardFocus = false;
 
   return {
     BASE_API: BASE_API,
     locations: locations,
     cityID: cityID,
     handleData: handleData,
+    matchNumber: matchNumber,
+    keyboardFocus: keyboardFocus
   };
 })();
 
@@ -55,7 +63,7 @@ weather.location = (function () {
 TODO
 UX ->
 [DONE]WHEN CLICKED SOMEWHERE OUTSIDE, COLLAPSE SUGGESTIONS LIST
-ENABLE ARROW KEYS TO SELECT A CITY
+[DONE]ENABLE ARROW KEYS TO SELECT A CITY
 [DONE]WHEN CLICKED ON INPUT, AUTOMATICALLY DELETE TEXT
 [DONE]404 ERROR HANDLING WITH WEATHER API
 
@@ -86,7 +94,7 @@ weather.populateSuggestionsList = function (matchResults) {
     numOfListItems = 4,
     line = "";
   for (var id in matchResults) {
-    line = `<li><span data-id=${id}>${matchResults[id]}</span></li>`;
+    line = `<li class="suggested-item--${count}"  tabindex="-1"><span data-id=${id}>${matchResults[id]}</span></li>`;
     weather.querySection.suggestionsList.insertAdjacentHTML("beforeend", line);
     count++;
     if (count > numOfListItems) {
@@ -100,8 +108,8 @@ weather.populateSuggestionsList = function (matchResults) {
 };
 
 weather.querySection.fetchCitySuggestions = function () {
-  //weather.querySection.error.hidden = true;
-  //className.remove(weather.querySection.input, "redBorder");
+  weather.querySection.error.hidden = true;
+  className.remove(weather.querySection.input, "redBorder");
 
   var input = weather.querySection.input.value;
   var url = weather.location.BASE_API + input;
@@ -248,6 +256,7 @@ weather.fetchForecast = function () {
 };
 
 weather.querySection.debounceQuery = debounce(function () {
+  console.log("debounce");
   weather.querySection.fetchCitySuggestions();
 }, 800);
 
@@ -257,6 +266,101 @@ weather.querySection.resetInput = function () {
   weather.querySection.error.hidden = true;
   className.remove(weather.querySection.input, "redBorder");
 };
+
+weather.querySection.handleKeyboardFocus = function (event) {
+  event.stopPropagation();
+  var inputField = weather.querySection.input;
+
+  switch (event.key) {
+    case "Down":
+    case "ArrowDown":
+      //check if there is input match list
+      if (document.querySelector(`.suggested-item--${weather.location.matchNumber}`)) {
+        if (document.activeElement === inputField) {
+          weather.location.keyboardFocus = true;
+        } else if (
+          //if end of the list, restart the list
+          !document.querySelector(`.suggested-item--${weather.location.matchNumber}`).nextSibling
+        ) {
+          weather.location.matchNumber = 0;
+          //else go to the next list item
+        } else {
+          weather.location.matchNumber++;
+        }
+      }
+      break;
+
+    case "Up":
+    case "ArrowUp":
+      if (
+        document.activeElement ===
+        document.querySelector(`.suggested-item--${weather.location.matchNumber}`)
+      ) {
+        //if at the start of list, focus on input field
+        if (
+          !document.querySelector(`.suggested-item--${weather.location.matchNumber}`)
+            .previousSibling
+        ) {
+          weather.location.matchNumber = 0;
+          inputField.focus();
+          weather.location.keyboardFocus = false;
+          //else, go to the previous list item
+        } else {
+          weather.location.matchNumber--;
+        }
+      }
+      break;
+
+    case "Enter":
+      weather.fetchForecast();
+
+    default:
+      weather.location.keyboardFocus = false;
+      weather.location.matchNumber = 0;
+  }
+
+  if (weather.location.keyboardFocus) {
+    document.querySelector(`.suggested-item--${weather.location.matchNumber}`).focus();
+    inputField.value = document.querySelector(
+      `.suggested-item--${weather.location.matchNumber}`
+    ).innerText;
+    weather.location.cityID = document.querySelector(
+      `.suggested-item--${weather.location.matchNumber}`
+    ).firstChild.dataset.id;
+  }
+};
+
+
+//EVENT LISTENERS
+weather.querySection.suggestionsList.addEventListener(
+  "click",
+  weather.querySection.autocompleteInputField
+);
+
+weather.querySection.submitBtn.addEventListener("click", weather.fetchForecast);
+
+weather.querySection.input.addEventListener(
+  "input",
+  weather.querySection.debounceQuery
+);
+
+weather.querySection.input.addEventListener(
+  "click",
+  weather.querySection.resetInput
+);
+
+//USE ARROW KEYS TO NAVIGATE BETWEEN AUTO-SUGGEST LIST
+weather.main.addEventListener(
+  "keydown",
+  weather.querySection.handleKeyboardFocus
+);
+
+//when clicked outside, collapse suggestions list
+weather.main.addEventListener("click", function (e) {
+  e.stopPropagation();
+  weather.querySection.suggestionsList.innerHTML = "";
+});
+
 
 //DEBOUNCE
 function debounce(func, wait) {
@@ -270,29 +374,3 @@ function debounce(func, wait) {
     weather.timeout = setTimeout(later, wait);
   };
 }
-
-//EVENT LISTENERS
-
-weather.querySection.suggestionsList.addEventListener(
-  "click",
-  weather.querySection.autocompleteInputField
-);
-
-weather.querySection.submitBtn.addEventListener("click", weather.fetchForecast);
-
-weather.querySection.input.addEventListener(
-  "keyup",
-  weather.querySection.debounceQuery
-);
-
-weather.querySection.input.addEventListener(
-  "click",
-  weather.querySection.resetInput
-);
-
-//when clicked outside, collapse suggestions list
-weather.wrapper.addEventListener("click", function(e){
-  e.stopPropagation();
-  weather.querySection.suggestionsList.innerHTML = "";
-})
-
