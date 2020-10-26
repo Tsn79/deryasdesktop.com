@@ -56,29 +56,45 @@
     }
 
     &-character {
-      background-image: url("../images/weather/character.png");
+      background-image: url(../images/weather/character.png);
       background-size: cover;
-      width: 5rem;
-      height: 6.5rem;
-      right: 4.6rem;
-      bottom: 5.4rem;
+      width: 7.9rem;
+      height: 10rem;
+      right: 2.8rem;
+      bottom: 4rem;
       transform: translateY(0px);
-      transition: 1s all;
+      transition: .1s all;
 
       &.jump {
-        transform: translateY(-30.8px);
-        //animation: jump .5s linear infinite;
+        transform: translateY(-18px);
+        //animation: jump .3s  linear;
       }
     }
 
-    &-box {
+    &-brick {
       background-image: url("../images/weather/celcius.png");
       background-size: cover;
-      width: 3.7rem;
-      height: 3.7rem;
+      width: 4rem;
+      height: 4rem;
       right: 5.2rem;
       bottom: 14.9rem;
       cursor: var(--cursor-point);
+      border: yellow .3rem solid;
+      animation: colorChange 1s linear infinite;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+
+      & .temp-unit {
+        font-family: var(--font-family--pixel);
+        color: white;
+      }
+
+      &.shake {
+        animation: shake .2s linear .1s;
+      }
     }
 
     &-search-result {
@@ -211,13 +227,13 @@
     position: relative;
     z-index: 200;
     padding: 0.8rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     background-color: rgba(255, 255, 255, 0.5);
     cursor: var(--cursor-point);
     text-transform: capitalize;
 
     &:focus {
-      outline: .5rem var(--color-desktop-tab) solid;
+      outline: 0.5rem var(--color-desktop-tab) solid;
     }
 
     &:nth-child(odd) {
