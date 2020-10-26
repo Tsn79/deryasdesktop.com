@@ -591,9 +591,11 @@
               <div class="weather__wrapper">
                 <div class="weather__card bg-day">
                   <div class="weather__card-character" id="character"></div>
-                  <div class="weather__card-box" id="box"></div>
+                  <div class="weather__card-brick" id="brick">
+                   <p id="temp-unit" class="temp-unit">C</p>
+                  </div>
                   <div class="weather__card-search-result" id="card-text">
-                    <p class="city" id="city">little funghitown</p>
+                    <p class="city" id="city">little ninjatown</p>
                     <p class="temperature" id="temperature">11&#176;c</p>
                   </div>
                 </div>
@@ -609,7 +611,7 @@
                     aria-expanded="false"
                     required
                   />
-                  <div class="error" id="error" hidden>SORRY, NO MATCHES</div> 
+                  <div class="error" id="error" hidden>&nbsp;</div> 
                   <div class="suggested-places-container">
                     <ul class="suggested-results" role="listbox">
                       <!--here comes list-->
