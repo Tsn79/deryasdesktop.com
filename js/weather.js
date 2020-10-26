@@ -13,10 +13,11 @@ var weather = {
 weather.main = document.querySelector("#weather");
 
 weather.card.container = document.querySelector(".weather__card");
-weather.card.mysteryBox = document.querySelector("#box");
+weather.card.brick = document.querySelector("#brick");
 weather.card.character = document.querySelector("#character");
 weather.card.location = document.querySelector("#city");
 weather.card.temperature = document.querySelector("#temperature");
+weather.card.tempUnit = document.querySelector("#temp-unit");
 weather.card.textContainer = document.querySelector("#card-text");
 
 weather.querySection.input = document.querySelector("#input-city");
@@ -30,13 +31,15 @@ weather.querySection.suggestionsList = document.querySelector(
 
 weather.forecast = (function () {
   const API_KEY = config.OPEN_WEATHER_API_KEY,
-    BASE_API = `https://api.openweathermap.org/data/2.5/weather?`;
+    BASE_API = `https://api.openweathermap.org/data/2.5/weather?`,
+    UNIT_PARAM = "&units=metric";
   var handleForecastData;
 
   return {
     API_KEY: API_KEY,
     BASE_API: BASE_API,
     handleForecastData: handleForecastData,
+    UNIT_PARAM: UNIT_PARAM,
   };
 })();
 
@@ -55,25 +58,16 @@ weather.location = (function () {
     cityID: cityID,
     handleData: handleData,
     matchNumber: matchNumber,
-    keyboardFocus: keyboardFocus
+    keyboardFocus: keyboardFocus,
   };
 })();
 
-/*
-TODO
-UX ->
-[DONE]WHEN CLICKED SOMEWHERE OUTSIDE, COLLAPSE SUGGESTIONS LIST
-[DONE]ENABLE ARROW KEYS TO SELECT A CITY
-[DONE]WHEN CLICKED ON INPUT, AUTOMATICALLY DELETE TEXT
-[DONE]404 ERROR HANDLING WITH WEATHER API
-
-OPTIMIZE CODE 
-
-JUMP OPTIONS
-*/
+weather.querySection.deleteAutoSuggestList = function () {
+  weather.querySection.suggestionsList.innerHTML = "";
+};
 
 weather.location.handleData = function (data) {
-  weather.querySection.suggestionsList.innerHTML = "";
+  weather.querySection.deleteAutoSuggestList();
   weather.location.locations = {};
 
   var dataArray = data._embedded["city:search-results"];
@@ -89,13 +83,19 @@ weather.location.handleData = function (data) {
   return weather.location.locations;
 };
 
+weather.querySection.addAutoSuggestLine = function (line) {
+  if (typeof line === "string") {
+    weather.querySection.suggestionsList.insertAdjacentHTML("beforeend", line);
+  }
+};
+
 weather.populateSuggestionsList = function (matchResults) {
   var count = 0,
     numOfListItems = 4,
     line = "";
   for (var id in matchResults) {
     line = `<li class="suggested-item--${count}"  tabindex="-1"><span data-id=${id}>${matchResults[id]}</span></li>`;
-    weather.querySection.suggestionsList.insertAdjacentHTML("beforeend", line);
+    weather.querySection.addAutoSuggestLine(line);
     count++;
     if (count > numOfListItems) {
       break;
@@ -103,13 +103,25 @@ weather.populateSuggestionsList = function (matchResults) {
   }
   if (count === 0) {
     line = `<li><span>no results found</span></li>`;
-    weather.querySection.suggestionsList.insertAdjacentHTML("beforeend", line);
+    return weather.querySection.addAutoSuggestLine(line);
+  }
+};
+
+weather.querySection.hideErrorMsg = function () {
+  weather.querySection.error.hidden = true;
+  className.remove(weather.querySection.input, "redBorder");
+};
+
+weather.querySection.setErrorMsg = function (msg = "error") {
+  msg = msg.toUpperCase();
+  if (typeof msg === "string") {
+    weather.querySection.error.hidden = false;
+    weather.querySection.error.textContent = msg;
   }
 };
 
 weather.querySection.fetchCitySuggestions = function () {
-  weather.querySection.error.hidden = true;
-  className.remove(weather.querySection.input, "redBorder");
+  weather.querySection.hideErrorMsg();
 
   var input = weather.querySection.input.value;
   var url = weather.location.BASE_API + input;
@@ -126,23 +138,22 @@ weather.querySection.fetchCitySuggestions = function () {
       });
   } else {
     //if input is empty or no longer than 1 character
-    weather.querySection.suggestionsList.innerHTML = "";
+    weather.querySection.deleteAutoSuggestList();
   }
 };
 
 weather.querySection.autocompleteInputField = function (e) {
   if (e.target && e.target.nodeName == "SPAN") {
     className.remove(weather.querySection.input, "redBorder");
-    weather.querySection.input.value = e.target.innerText;
+    weather.querySection.input.value = e.target.textContent;
     weather.location.cityID = e.target.dataset.id;
-    weather.location.isAutocomplete = true;
   }
   //after selection done, collapse suggestions
-  this.innerHTML = "";
+  weather.querySection.deleteAutoSuggestList();
 };
 
 weather.forecast.handleForecastData = function (data) {
-  if (data) {
+  try {
     var temperature = data.main?.temp;
     var name = data.name;
     var timeStamp = data.timezone;
@@ -151,11 +162,13 @@ weather.forecast.handleForecastData = function (data) {
       name,
       timeStamp,
     };
+  } catch {
+    weather.querySection.setErrorMsg("forecast data not found");
   }
 };
 
 weather.card.updateWeatherCard = function (obj) {
-  if (obj) {
+  if (typeof obj === "object") {
     weather.card.updateTemperature(obj.temperature);
     weather.card.updateLocName(obj.name);
     weather.card.updateBackground(obj.timeStamp);
@@ -163,21 +176,20 @@ weather.card.updateWeatherCard = function (obj) {
 };
 
 weather.card.updateTemperature = function (temp) {
-  //Decide if fahrenheit or celsius
-  var convertedTemp = weather.convertTemperature(temp, "celsius");
-  weather.card.temperature.innerHTML = convertedTemp + "&#176;" + "C";
+  weather.card.temperature.innerHTML =
+    weather.card.tempUnit.textContent === "C"
+      ? Math.round(temp) + "&#176;" + "C"
+      : weather.convertToFehrenheit(temp);
 };
 
-weather.convertTemperature = function (temperature, unit) {
-  var celsiusDeg = temperature - 273.15;
-  switch (unit) {
-    case "celsius":
-      return Math.round(celsiusDeg);
-    case "fehrenheit":
-      return Math.round(celsiusDeg * (9 / 5) + 32);
-    default:
-      return "NaN";
-  }
+weather.convertToFehrenheit = function (temperature) {
+  var result = Math.round(temperature * (9 / 5) + 32);
+  return result + "&#176;" + "F";
+};
+
+weather.convertToCelcius = function (temperature) {
+  var result = Math.round(((temperature - 32) * 5) / 9);
+  return result + "&#176;" + "C";
 };
 
 weather.card.updateLocName = function (name) {
@@ -220,24 +232,24 @@ weather.calculateDayTime = function (timeStamp) {
   return isDayTime;
 };
 
-//let timeout;
 weather.fetchForecast = function () {
-  clearTimeout(weather.timeout);
-  weather.querySection.suggestionsList.innerHTML = "";
-  weather.querySection.input.blur();
+  window.clearTimeout(weather.timeout);
+  weather.querySection.deleteAutoSuggestList();
+
   var id = parseInt(weather.location.cityID);
 
-  var cityParam = `id=${id}`,
-    keyParam = `appid=${weather.forecast.API_KEY}`;
+  var base = weather.forecast.BASE_API,
+    cityIdParam = `id=${id}`,
+    keyParam = `&appid=${weather.forecast.API_KEY}`,
+    unitParam = weather.forecast.UNIT_PARAM;
 
   //search for weather
-  if (id) {
-    const weatherUrl = weather.forecast.BASE_API + cityParam + "&" + keyParam;
+  if (id && typeof id === "number") {
+    const weatherUrl = base + cityIdParam + keyParam + unitParam;
     fetch(weatherUrl)
       .then(function (response) {
         if (response.status === 404) {
-          weather.querySection.error.hidden = false;
-          weather.querySection.error.innerText = "NO DATA FOUND";
+          return weather.querySection.setErrorMsg("forecast data not found");
         } else {
           return response.json();
         }
@@ -251,8 +263,7 @@ weather.fetchForecast = function () {
   //if there is no city id :(
   else {
     console.log("NO ID");
-    weather.querySection.error.hidden = false;
-    className.add(weather.querySection.input, "redBorder");
+    return weather.querySection.setErrorMsg("sorry, i can't find match");
   }
 };
 
@@ -264,24 +275,28 @@ weather.querySection.debounceQuery = debounce(function () {
 weather.querySection.resetInput = function () {
   weather.location.cityID = "";
   weather.querySection.input.value = "";
-  weather.querySection.error.hidden = true;
-  className.remove(weather.querySection.input, "redBorder");
+  return weather.querySection.hideErrorMsg();
 };
 
 weather.querySection.handleKeyboardFocus = function (event) {
-  event.stopPropagation();
   var inputField = weather.querySection.input;
 
   switch (event.key) {
     case "Down":
     case "ArrowDown":
-      //check if there is input match list
-      if (document.querySelector(`.suggested-item--${weather.location.matchNumber}`)) {
+      //check if there is auto-suggest results
+      if (
+        document.querySelector(
+          `.suggested-item--${weather.location.matchNumber}`
+        )
+      ) {
         if (document.activeElement === inputField) {
           weather.location.keyboardFocus = true;
         } else if (
           //if end of the list, restart the list
-          !document.querySelector(`.suggested-item--${weather.location.matchNumber}`).nextSibling
+          !document.querySelector(
+            `.suggested-item--${weather.location.matchNumber}`
+          ).nextSibling
         ) {
           weather.location.matchNumber = 0;
           //else go to the next list item
@@ -295,12 +310,15 @@ weather.querySection.handleKeyboardFocus = function (event) {
     case "ArrowUp":
       if (
         document.activeElement ===
-        document.querySelector(`.suggested-item--${weather.location.matchNumber}`)
+        document.querySelector(
+          `.suggested-item--${weather.location.matchNumber}`
+        )
       ) {
         //if at the start of list, focus on input field
         if (
-          !document.querySelector(`.suggested-item--${weather.location.matchNumber}`)
-            .previousSibling
+          !document.querySelector(
+            `.suggested-item--${weather.location.matchNumber}`
+          ).previousSibling
         ) {
           weather.location.matchNumber = 0;
           inputField.focus();
@@ -314,23 +332,47 @@ weather.querySection.handleKeyboardFocus = function (event) {
 
     case "Enter":
       weather.fetchForecast();
-
-    default:
       weather.location.keyboardFocus = false;
       weather.location.matchNumber = 0;
   }
 
   if (weather.location.keyboardFocus) {
-    document.querySelector(`.suggested-item--${weather.location.matchNumber}`).focus();
+    document
+      .querySelector(`.suggested-item--${weather.location.matchNumber}`)
+      .focus();
     inputField.value = document.querySelector(
       `.suggested-item--${weather.location.matchNumber}`
-    ).innerText;
+    ).textContent;
     weather.location.cityID = document.querySelector(
       `.suggested-item--${weather.location.matchNumber}`
     ).firstChild.dataset.id;
   }
 };
 
+weather.card.jumpToBrick = function () {
+  className.add(weather.card.character, "jump");
+  className.add(weather.card.brick, "shake");
+  return weather.card.hitBrick();
+};
+
+weather.card.jumpBack = function () {
+  className.remove(weather.card.character, "jump");
+  className.remove(weather.card.brick, "shake");
+};
+
+weather.card.hitBrick = function () {
+  if (weather.card.tempUnit.textContent === "C") {
+    weather.card.tempUnit.textContent = "F";
+    weather.card.temperature.innerHTML = weather.convertToFehrenheit(
+      parseInt(weather.card.temperature.textContent)
+    );
+  } else {
+    weather.card.tempUnit.textContent = "C";
+    weather.card.temperature.innerHTML = weather.convertToCelcius(
+      parseInt(weather.card.temperature.textContent)
+    );
+  }
+};
 
 //EVENT LISTENERS
 weather.querySection.suggestionsList.addEventListener(
@@ -353,25 +395,29 @@ weather.querySection.input.addEventListener(
 //USE ARROW KEYS TO NAVIGATE BETWEEN AUTO-SUGGEST LIST
 weather.main.addEventListener(
   "keydown",
-  weather.querySection.handleKeyboardFocus
+  weather.querySection.handleKeyboardFocus,
+  false
 );
 
 //when clicked outside, collapse suggestions list
-weather.main.addEventListener("click", function (e) {
-  e.stopPropagation();
-  weather.querySection.suggestionsList.innerHTML = "";
-});
+weather.main.addEventListener(
+  "click",
+  weather.querySection.deleteAutoSuggestList
+);
 
+weather.card.brick.addEventListener("mousedown", weather.card.jumpToBrick);
+
+weather.card.brick.addEventListener("mouseup", weather.card.jumpBack);
 
 //DEBOUNCE
 function debounce(func, wait) {
   return function executedFunction(...args) {
     const later = () => {
-      clearTimeout(weather.timeout);
+      window.clearTimeout(weather.timeout);
       func(...args);
     };
 
-    clearTimeout(weather.timeout);
-    weather.timeout = setTimeout(later, wait);
+    window.window.clearTimeout(weather.timeout);
+    weather.timeout = window.setTimeout(later, wait);
   };
 }
