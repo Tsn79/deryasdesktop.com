@@ -163,7 +163,7 @@ weather.forecast.handleForecastData = function (data) {
       timeStamp,
     };
   } catch {
-    weather.querySection.setErrorMsg("forecast data not found");
+    weather.querySection.setErrorMsg("forecast data not available");
   }
 };
 
