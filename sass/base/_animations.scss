@@ -82,3 +82,40 @@
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+
+@keyframes lightning {
+  0%, 20% {
+    filter: invert(.8);
+  }
+
+  15%, 28%, 100% {
+    filter: invert(0);
+  }
+}
+
+
+@keyframes firstDrop {
+  0% {opacity: 1;}
+  100% {opacity: 0; transform: translateY(22rem);}
+}
+
+@keyframes secondDrop {
+  0% {opacity: 1;}
+  100% {opacity: 0; transform: translateY(7rem);}
+}
+
+@keyframes strike {
+  0%, 20% {
+    opacity: 1;
+  }
+
+  15%, 28%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes shine {
+  0% {transform: scale(1);}
+  100% {transform: scale(1.1);}
+}
+
