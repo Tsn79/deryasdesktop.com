@@ -592,7 +592,10 @@
                 <div class="weather__card bg-day">
                   <div class="weather__card-character" id="character"></div>
                   <div class="weather__card-brick" id="brick">
-                   <p id="temp-unit" class="temp-unit">C</p>
+                    <p id="temp-unit" class="temp-unit">C</p>
+                  </div>
+                  <div class="weather__card-sky" id="weather-sky">
+                    <img class="sun" src="../images/weather/sun.png" alt="an image of sun">
                   </div>
                   <div class="weather__card-search-result" id="card-text">
                     <p class="city" id="city">little ninjatown</p>
@@ -611,7 +614,7 @@
                     aria-expanded="false"
                     required
                   />
-                  <div class="error" id="error" hidden>&nbsp;</div> 
+                  <div class="error" id="error" hidden>&nbsp;</div>
                   <div class="suggested-places-container">
                     <ul class="suggested-results" role="listbox">
                       <!--here comes list-->
@@ -646,10 +649,10 @@
     <script type="module" src="js_modules/helper_functions.mjs"></script>
     <script type="module" src="js/weather.js"></script>
     <script type="module" src="js/meme_generator.js"></script>
-    <script type="text/javascript" src='config.js'></script>
+    <script type="text/javascript" src="config.js"></script>
     <script src="js/date.js"></script>
     <script src="js/app.js"></script>
     <script src="js/settings.js"></script>
-    <script src="js/drummer.js"></script> 
+    <script src="js/drummer.js"></script>
   </body>
 </html>
