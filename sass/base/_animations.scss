@@ -42,10 +42,10 @@
 
 @keyframes animatedBackground {
   from {
-    background-position: 0;
+    background-position: 2000px;
   } //; transform: translate(0, 0);
   to {
-    background-position: 2000px;
+    background-position: 0px;
   } //transform: translate(-1920px, 0);
 }
 

@@ -37,7 +37,7 @@
     position: relative;
     width: 27rem;
     height: 33rem;
-    outline: 0.4rem solid black;
+    outline: 0.4rem solid #06064d;
 
     &.bg-day {
       background: url("../images/weather/weather-card--day.png");
@@ -347,7 +347,7 @@
       font-size: 2rem;
       background-color: var(--color-yellow);
       transition: 0.2s all;
-      border: 1px solid black;
+      border: 1px solid #06064d;
 
       &,
       &:active,
@@ -401,6 +401,7 @@
 
     &:nth-child(even) {
       transform: skewX(-20deg);
+      background-color: #fff;
 
       & span {
         transform: skewX(20deg);
