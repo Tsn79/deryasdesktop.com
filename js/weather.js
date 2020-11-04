@@ -297,7 +297,7 @@ weather.card.showTempResult = function (temp) {
 weather.convertToFehrenheit = function (temperature) {
   temperature =
     typeof temperature === "string" ? parseInt(temperature) : temperature;
-  if (typeof temperature === "number" && temperature) {
+  if (typeof temperature === "number") {
     return Math.round(temperature * (9 / 5) + 32);
   }
 
@@ -307,7 +307,7 @@ weather.convertToFehrenheit = function (temperature) {
 weather.convertToCelcius = function (temperature) {
   temperature =
     typeof temperature === "string" ? parseInt(temperature) : temperature;
-  if (typeof temperature === "number" && temperature) {
+  if (typeof temperature === "number") {
     return Math.round(((temperature - 32) * 5) / 9);
     //return strResult + "&#176;" + "C";
   }
@@ -555,6 +555,3 @@ function debounce(func, wait) {
   };
 }
 
-
-//WHEN WINDOW CLOSED, CANCEL ALL OPERATIONS
-//BG ANIMATION
