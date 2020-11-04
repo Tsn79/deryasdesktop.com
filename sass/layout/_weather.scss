@@ -3,8 +3,16 @@
 .weather {
   width: 85rem;
   height: 54.08rem;
-  top: 50%;
-  left: 50%;
+  top: 1.5rem;
+  left: -14.1rem;
+
+  &.clicked {
+    opacity: 1;
+    left: 32rem;
+    top: 10rem;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+  }
 
   &__main-frame {
     width: 100%;

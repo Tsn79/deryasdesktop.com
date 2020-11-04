@@ -1,8 +1,16 @@
 .meme-generator {
   width: 93.4rem;
   height: 59.5rem;
-  top: 51.7%;
-  left: 50%;
+  top: 15.2rem;
+  left: -36.4rem;
+
+  &.clicked {
+    left: 27rem;
+    top: 7.4rem;
+    opacity: 1;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+  }
 
   &__main-frame {
     height: 82.3%;

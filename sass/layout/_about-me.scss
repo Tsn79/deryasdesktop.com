@@ -1,27 +1,34 @@
 .about-me {
-    width: 70rem;
-    height: 44.6rem;
-    top: 50%;
-    left: 50%;
+  width: 70rem;
+  height: 44.6rem;
+  top: 6.8rem;
+  left: -24.1rem;
 
-    &__main-frame {
-        position: absolute;
-        width: 100%;
-        height: 90.5%;
-        background-image: url(../images/about-me--icon.svg);
-        background-repeat: no-repeat;
-        background-size: 25rem;
-        background-position: 2rem 2rem;
-        overflow: hidden;
-    }
+  &.clicked {
+    opacity: 1;
+    left: 45rem;
+    top: 14rem;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+  }
 
-    &__content {
-        position: absolute;
-        width: 33rem;
-        height: 90%;
-        overflow-y: scroll;
-        right: 2rem;
-        padding: 3rem 1rem 0 0;
-    }
+  &__main-frame {
+    position: absolute;
+    width: 100%;
+    height: 90.5%;
+    background-image: url(../images/about-me--icon.svg);
+    background-repeat: no-repeat;
+    background-size: 25rem;
+    background-position: 2rem 2rem;
+    overflow: hidden;
+  }
+
+  &__content {
+    position: absolute;
+    width: 33rem;
+    height: 90%;
+    overflow-y: scroll;
+    right: 2rem;
+    padding: 3rem 1rem 0 0;
+  }
 }
-

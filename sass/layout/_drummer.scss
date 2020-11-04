@@ -1,18 +1,21 @@
-#drummer {
-  &:focus {
-    outline: none;
-  }
-}
-
 .drummer {
   width: 45rem;
   height: 60rem;
-  top: 52.7%;
-  left: 40%;
-  //temporary
-  //transform: translate(-50%, -50%) !important;
+  top: -17rem;
+  left: 5.9rem;
+ 
+  &.clicked {
+    opacity: 1;
+    left: 50rem;
+    top: 8rem;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+  }
 
-  //override pane settings
+  &:focus {
+    outline: none;
+  }
+
   &__main-pane {
     background-image: url(../images/border-pane-settings.svg);
     background-size: 95.2rem 134.6rem;
