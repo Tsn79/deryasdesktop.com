@@ -47,9 +47,9 @@
 
 @keyframes animatedBackground {
   from {
-    background-position: 0; }
+    background-position: 2000px; }
   to {
-    background-position: 2000px; } }
+    background-position: 0px; } }
 
 @keyframes jump {
   0% {
@@ -159,9 +159,6 @@ body {
   font-size: var(--font-size-big);
   font-weight: 500;
   font-weight: 500; }
-
-.pane__transition {
-  transition: transform 0.2s cubic-bezier(0, 0.98, 0.02, 1.29); }
 
 .main-pane {
   position: absolute;
@@ -414,8 +411,14 @@ body {
 .about-me {
   width: 70rem;
   height: 44.6rem;
-  top: 50%;
-  left: 50%; }
+  top: 6.8rem;
+  left: -24.1rem; }
+  .about-me.clicked {
+    opacity: 1;
+    left: 45rem;
+    top: 14rem;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px); }
   .about-me__main-frame {
     position: absolute;
     width: 100%;
@@ -436,8 +439,14 @@ body {
 .meme-generator {
   width: 93.4rem;
   height: 59.5rem;
-  top: 51.7%;
-  left: 50%; }
+  top: 15.2rem;
+  left: -36.4rem; }
+  .meme-generator.clicked {
+    left: 27rem;
+    top: 7.4rem;
+    opacity: 1;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px); }
   .meme-generator__main-frame {
     height: 82.3%; }
     .meme-generator__main-frame-viewport {
@@ -535,18 +544,28 @@ body {
 
 .pane {
   z-index: 2;
-  transform: translate(-50%, -400%);
   position: absolute;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-transform: translate3d(0px, 0px, 0px) scale(0, 0);
+  transform: translate3d(0px, 0px, 0px) scale(0, 0);
+  opacity: 0;
+  transition: all .3s linear; }
 
-.clicked {
-  transform: translate(-50%, -50%); }
+.draggable {
+  touch-action: none;
+  user-select: none; }
 
 .settings {
   width: 37.5rem;
   height: 49.2rem;
-  top: 51.7%;
-  left: 35%; }
+  top: 36.2rem;
+  left: -8.1rem; }
+  .settings.clicked {
+    opacity: 1;
+    left: 41.5rem;
+    top: 14.36rem;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px); }
   .settings__main-pane {
     background-image: url(../images/border-pane-settings.svg);
     background-size: unset; }
@@ -684,14 +703,19 @@ body {
     .settings__effects-select select:focus {
       outline: none; }
 
-#drummer:focus {
-  outline: none; }
-
 .drummer {
   width: 45rem;
   height: 60rem;
-  top: 52.7%;
-  left: 40%; }
+  top: -17rem;
+  left: 5.9rem; }
+  .drummer.clicked {
+    opacity: 1;
+    left: 50rem;
+    top: 8rem;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px); }
+  .drummer:focus {
+    outline: none; }
   .drummer__main-pane {
     background-image: url(../images/border-pane-settings.svg);
     background-size: 95.2rem 134.6rem; }
@@ -806,8 +830,14 @@ body {
 .weather {
   width: 85rem;
   height: 54.08rem;
-  top: 50%;
-  left: 50%; }
+  top: 1.5rem;
+  left: -14.1rem; }
+  .weather.clicked {
+    opacity: 1;
+    left: 32rem;
+    top: 10rem;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px); }
   .weather__main-frame {
     width: 100%;
     height: 92.2%;
@@ -833,7 +863,7 @@ body {
     position: relative;
     width: 27rem;
     height: 33rem;
-    outline: 0.4rem solid black; }
+    outline: 0.4rem solid #06064d; }
     .weather__card.bg-day {
       background: url("../images/weather/weather-card--day.png");
       background-size: cover;
@@ -1037,7 +1067,7 @@ body {
       font-size: 2rem;
       background-color: var(--color-yellow);
       transition: 0.2s all;
-      border: 1px solid black; }
+      border: 1px solid #06064d; }
       .weather__form button, .weather__form button:active, .weather__form button:visited {
         outline: none; }
       .weather__form button:hover {
@@ -1067,7 +1097,8 @@ body {
       .suggested-places-container li:nth-child(odd) span {
         transform: skewX(-20deg); }
     .suggested-places-container li:nth-child(even) {
-      transform: skewX(-20deg); }
+      transform: skewX(-20deg);
+      background-color: #fff; }
       .suggested-places-container li:nth-child(even) span {
         transform: skewX(20deg); }
     .suggested-places-container li span {
