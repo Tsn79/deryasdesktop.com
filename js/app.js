@@ -1,8 +1,5 @@
 import { className } from "../js_modules/helper_functions.mjs";
-//CLICK SOUND
-
-
-//https://interactjs.io/
+import { Draggable } from "../js_modules/draggable.mjs";
 
 var desktop = {
   buttons: {},
@@ -14,6 +11,12 @@ desktop.buttons.closeButton = document.querySelectorAll(".close-btn");
 desktop.files = document.querySelectorAll(".file");
 desktop.apps = document.querySelectorAll(".pane");
 desktop.click = document.querySelector(".click-sound");
+desktop.draggables = document.querySelectorAll('.draggable')
+  
+//make frames draggable
+for (var draggable of desktop.draggables) {
+new Draggable(draggable, draggable.querySelector(".inner-pane__header"));
+}
 
 desktop.openApp = function (event) {
   if (
@@ -70,14 +73,13 @@ desktop.closeApp = function (event) {
   return desktop.removeAppFromStack(selected, desktop.activeApps);
 };
 
-
-desktop.removeAppFromStack = function(currApp, activeApps) {
+desktop.removeAppFromStack = function (currApp, activeApps) {
   currApp.style.zIndex = "";
   var index = activeApps.indexOf(currApp);
   if (index !== -1) {
     activeApps.splice(index, 1);
   }
-}
+};
 
 desktop.changeStackingOrder = function (e) {
   desktop.setStackingOrder(e.currentTarget, desktop.activeApps);
@@ -110,3 +112,5 @@ window.onpopstate = function () {
   };
   return changeHash(desktop.activeApps, location);
 };
+
+  
