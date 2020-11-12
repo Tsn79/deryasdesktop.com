@@ -11,16 +11,23 @@ desktop.buttons.closeButton = document.querySelectorAll(".close-btn");
 desktop.files = document.querySelectorAll(".file");
 desktop.apps = document.querySelectorAll(".pane");
 desktop.click = document.querySelector(".click-sound");
-desktop.draggables = document.querySelectorAll('.draggable')
-  
+desktop.draggables = document.querySelectorAll(".draggable");
+
 //make frames draggable
-for (var draggable of desktop.draggables) {
-new Draggable(draggable, draggable.querySelector(".inner-pane__header"));
-}
+desktop.dragFrames = (function () {
+  for (var i = 0; i < desktop.draggables.length; i++) {
+    new Draggable(
+      desktop.draggables[i],
+      desktop.draggables[i].querySelector(".inner-pane__header")
+    );
+  }
+})();
 
 desktop.openApp = function (event) {
   if (
-    event.target.className !== "file-icon" ||
+    (event.target.className !== "file-icon" &&
+      event.target.className !== "link" &&
+      event.target.className !== "navigation__link") ||
     //exclude mail icon
     event.target.parentNode.className === "file file__mail"
   ) {
@@ -112,5 +119,3 @@ window.onpopstate = function () {
   };
   return changeHash(desktop.activeApps, location);
 };
-
-  
