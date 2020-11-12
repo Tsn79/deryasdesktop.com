@@ -27,90 +27,42 @@
   <body>
     <div class="body-container" id="body-container">
       <header>
-        <ul class="header">
-          <!--LOGO & NAME-->
-          <li class="header__logo">
-            <div class="header__logo-box">
-              <img
-                src="images/Logo@2x.png"
-                alt="logo"
-                class="header__logo-image"
-              />
+        <nav class="navigation">
+          <div class="navigation__left">
+            <div class="navigation__logo">
+              here comes logo
+              <!--here comes special logo-->
             </div>
-            <span class="header__logo-name">derya antonelli</span>
-          </li>
+  
+            <div class="navigation__dropdown">
+              <button class="navigation__dropdown-btn">file explorer</button>
+              <div class="navigation__dropdown-content">
+                <a href="#about-me" class="link">about</a>
+                <a href="#meme-generator" class="link">meme generator</a>
+                <a href="#weather" class="link">weather</a>
+                <a href="#drummer" class="link">drummer</a>
+                <a href="#settings" class="link">settings</a>
+                <a href="#" class="link quit">quit<span aria-label="Close Account Info Modal Box">&times;</span></a>
+              </div>
+            </div>
 
-          <!--NAVIGATION-->
-          <!--item 1-->
-          <li class="navigation__list-item">
-            <a href="#about-me"
-              ><button class="navigation__dropdown-btn">About Me</button></a
-            >
-          </li>
+            <a href="#settings" class="navigation__link">settings</a>
 
-          <!--item 2-->
-          <li class="navigation__list-item">
-            <button class="navigation__dropdown-btn">Follow</button>
-            <ul class="navigation__dropdown-hidden">
-              <li>
-                <a
-                  href="https://twitter.com/antonelli_a"
-                  target="_blank"
-                  class="navigation__dropdown-link"
-                  >Twitter</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://github.com/D-Antonelli"
-                  target="_blank"
-                  class="navigation__dropdown-link"
-                  >GitHub</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/derya-a-antonelli/"
-                  target="_blank"
-                  class="navigation__dropdown-link"
-                  >LinkedIn</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://codepen.io/d-antonelli"
-                  target="_blank"
-                  class="navigation__dropdown-link"
-                  >Codepen</a
-                >
-              </li>
-            </ul>
-          </li>
-
-          <!--item 3-->
-          <li class="navigation__list-item">
-            <button class="navigation__dropdown-btn">Explorer</button>
-            <ul class="navigation__dropdown-hidden">
-              <li>
-                <a href="#meme-generator" class="navigation__dropdown-link"
-                  >Meme Generator</a
-                >
-              </li>
-              <li>
-                <a href="#" class="navigation__dropdown-link">Windows2</a>
-              </li>
-              <li><a href="#" class="navigation__dropdown-link">Drummer</a></li>
-              <li>
-                <a href="#" class="navigation__dropdown-link">Settings</a>
-              </li>
-            </ul>
-          </li>
-          <!--E-MAIL-->
-          <li class="email">derya.antonelli@gmail.com</li>
-
-          <!--TIME-->
-          <li class="time">Thu 10:09</li>
-        </ul>
+            <div class="navigation__dropdown">
+              <button class="navigation__dropdown-btn">info</button>
+              <div class="navigation__dropdown-content">
+                <a href="#" class="link">resume</a>
+                <a href="#" class="link">my works</a>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div class="navigation__right">
+            <div class="email"><span>derya.antonelli@gmail.com</span></div>
+            <div class="time">Thu 10:09</div>
+          </div>
+        </nav>
       </header>
 
       <!-- DESKTOP BUTTONS-->
@@ -595,7 +547,11 @@
                     <p id="temp-unit" class="temp-unit">C</p>
                   </div>
                   <div class="weather__card-sky" id="weather-sky">
-                    <img class="sun" src="../images/weather/sun.png" alt="an image of sun">
+                    <img
+                      class="sun"
+                      src="../images/weather/sun.png"
+                      alt="an image of sun"
+                    />
                   </div>
                   <div class="weather__card-search-result" id="card-text">
                     <p class="city" id="city">little ninjatown</p>
