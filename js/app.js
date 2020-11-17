@@ -111,11 +111,30 @@ document.querySelector("body").addEventListener("click", function () {
   desktop.click.load();
 });
 
+desktop.showNavbarActiveAppTab = function (locHashName) {
+  var locationName = locHashName.slice(1);
+  var template = `<button class="navigation__dropdown-btn">${locationName}</button>
+            <div class="navigation__dropdown-content">
+              <a href="${locHashName}" class="link quit"
+                >close<span aria-label="Close Account Info Modal Box"
+                  >&times;</span
+                ></a 
+              > 
+            </div>`;
+  document.querySelector("#open-tabs").hidden = false;
+  document.querySelector("#open-tabs").innerHTML = template;
+  document.querySelector(".quit").addEventListener("click", desktop.closeApp);
+};
+
 //Rename hash after active app
 window.onpopstate = function () {
+  location.hash
+    ? desktop.showNavbarActiveAppTab(location.hash)
+    : document.querySelector("#open-tabs").hidden = true;
+
   var changeHash = function (apps, location) {
-    var latestApp = apps ? apps[apps.length - 1] : null;
-    location.hash = latestApp ? latestApp.id : "";
+    var latestApp = apps[apps.length - 1] || apps;
+    location.hash = latestApp.id || latestApp;
   };
   return changeHash(desktop.activeApps, location);
 };
