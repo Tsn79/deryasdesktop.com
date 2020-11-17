@@ -30,36 +30,49 @@
         <nav class="navigation">
           <div class="navigation__left">
             <div class="navigation__logo">
-              here comes logo
-              <!--here comes special logo-->
+              <img src="./images/new-logo.png" alt="logo image" />
+              <p>Derya Antonelli</p>
             </div>
-  
-            <div class="navigation__dropdown">
-              <button class="navigation__dropdown-btn">file explorer</button>
+
+            <div class="navigation__dropdown" id="open-tabs" hidden>
+              <!--<button class="navigation__dropdown-btn">meme generator</button>
               <div class="navigation__dropdown-content">
-                <a href="#about-me" class="link">about</a>
+                <a href="#" class="link quit"
+                  >close<span aria-label="Close Account Info Modal Box"
+                    >&times;</span
+                  ></a 
+                > 
+              </div>-->
+            </div> 
+
+            <div class="navigation__dropdown">
+              <button class="navigation__dropdown-btn">applications</button>
+              <div class="navigation__dropdown-content">
                 <a href="#meme-generator" class="link">meme generator</a>
                 <a href="#weather" class="link">weather</a>
                 <a href="#drummer" class="link">drummer</a>
-                <a href="#settings" class="link">settings</a>
-                <a href="#" class="link quit">quit<span aria-label="Close Account Info Modal Box">&times;</span></a>
               </div>
             </div>
 
             <a href="#settings" class="navigation__link">settings</a>
 
             <div class="navigation__dropdown">
-              <button class="navigation__dropdown-btn">info</button>
+              <button class="navigation__dropdown-btn">Info</button>
               <div class="navigation__dropdown-content">
+                <a href="#about-me" class="link">about</a>
                 <a href="#" class="link">resume</a>
-                <a href="#" class="link">my works</a>
+                <a href="#" class="link">tech stack</a>
               </div>
             </div>
           </div>
-          
-          
+
           <div class="navigation__right">
             <div class="email"><span>derya.antonelli@gmail.com</span></div>
+            <div class="icons">
+              <a href="https://twitter.com/antonelli_a" target="_blank"><i class="icons-twitter"></i></a>
+              <a href="https://www.linkedin.com/in/derya-a-antonelli/" target="_blank"><i class="icons-linkedin"></i></a>
+              <a href="https://github.com/D-Antonelli" target="_blank"><i class="icons-github"></i></a>
+            </div>
             <div class="time">Thu 10:09</div>
           </div>
         </nav>
@@ -78,7 +91,7 @@
                 class="file-icon"
                 style="background-image: url(images/icons/icon-mail.svg)"
               ></div>
-              <div class="file-label">MAIL_ME</div>
+              <div class="file-label">_-Contact</div>
             </a>
             <a
               class="file file__about"
@@ -126,7 +139,7 @@
                 class="file-icon"
                 style="background-image: url(images/icons/icon-drummer.svg)"
               ></div>
-              <div class="file-label">Drummer.exe</div>
+              <div class="file-label">Drummer</div>
             </a>
             <a
               class="file file__window"
@@ -138,7 +151,7 @@
                 class="file-icon"
                 style="background-image: url(images/icons/icon-window.svg)"
               ></div>
-              <div class="file-label">WinDows2.txt</div>
+              <div class="file-label">Weather</div>
             </a>
           </div>
         </div>
