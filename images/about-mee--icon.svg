@@ -1,0 +1,1397 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="317.855"
+   height="422.63"
+   viewBox="0 0 317.855 422.63"
+   version="1.1"
+   id="svg5102"
+   sodipodi:docname="about-me--icon.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata5106">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview5104"
+     showgrid="false"
+     inkscape:zoom="1.3518734"
+     inkscape:cx="149.87371"
+     inkscape:cy="228.00257"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Group_196" />
+  <defs
+     id="defs4827">
+    <clipPath
+       id="clip-path">
+      <rect
+         width="161.168"
+         height="407.71"
+         fill="none"
+         id="rect4813" />
+    </clipPath>
+    <filter
+       id="Path_75"
+       x="16.425"
+       y="323.428"
+       width="78.497"
+       height="66.997"
+       filterUnits="userSpaceOnUse">
+      <feOffset
+         dx="3"
+         dy="3"
+         input="SourceAlpha"
+         id="feOffset4816" />
+      <feGaussianBlur
+         result="blur"
+         id="feGaussianBlur4818" />
+      <feFlood
+         id="feFlood4820" />
+      <feComposite
+         operator="in"
+         in2="blur"
+         id="feComposite4822"
+         result="result1" />
+      <feComposite
+         in="SourceGraphic"
+         in2="result1"
+         id="feComposite4824" />
+    </filter>
+    <filter
+       filterUnits="userSpaceOnUse"
+       height="104.786"
+       width="102.296"
+       y="263.35"
+       x="27.973"
+       id="Path_115">
+      <feOffset
+         id="feOffset4575"
+         input="SourceAlpha"
+         dy="3"
+         dx="3" />
+      <feGaussianBlur
+         id="feGaussianBlur4577"
+         result="blur" />
+      <feFlood
+         id="feFlood4579" />
+      <feComposite
+         result="result1"
+         id="feComposite4581"
+         in2="blur"
+         operator="in" />
+      <feComposite
+         id="feComposite4583"
+         in2="result1"
+         in="SourceGraphic" />
+    </filter>
+    <filter
+       filterUnits="userSpaceOnUse"
+       height="83.43"
+       width="101.385"
+       y="175.903"
+       x="384.662"
+       id="Path_116">
+      <feOffset
+         id="feOffset4586"
+         input="SourceAlpha"
+         dy="3"
+         dx="3" />
+      <feGaussianBlur
+         id="feGaussianBlur4588"
+         result="blur-2" />
+      <feFlood
+         id="feFlood4590" />
+      <feComposite
+         result="result1"
+         id="feComposite4592"
+         in2="blur-2"
+         operator="in" />
+      <feComposite
+         id="feComposite4594"
+         in2="result1"
+         in="SourceGraphic" />
+    </filter>
+  </defs>
+  <g
+     id="about-me--icon"
+     transform="translate(4.31 4.321)">
+    <g
+       id="Group_78"
+       data-name="Group 78"
+       transform="translate(-2330.455 58.164)">
+      <g
+         id="Repeat_Grid_6"
+         data-name="Repeat Grid 6"
+         transform="translate(2346.058 -47.565)"
+         clip-path="url(#clip-path)">
+        <g
+           transform="translate(-755.001 -138.435)"
+           id="g4830">
+          <line
+             id="Line_1"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-730.001 -138.435)"
+           id="g4833">
+          <line
+             id="Line_1-2"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-705.001 -138.435)"
+           id="g4836">
+          <line
+             id="Line_1-3"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-680.001 -138.435)"
+           id="g4839">
+          <line
+             id="Line_1-4"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-655.001 -138.435)"
+           id="g4842">
+          <line
+             id="Line_1-5"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-630.001 -138.435)"
+           id="g4845">
+          <line
+             id="Line_1-6"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-605.001 -138.435)"
+           id="g4848">
+          <line
+             id="Line_1-7"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-755.001 -103.435)"
+           id="g4851">
+          <line
+             id="Line_1-8"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-730.001 -103.435)"
+           id="g4854">
+          <line
+             id="Line_1-9"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-705.001 -103.435)"
+           id="g4857">
+          <line
+             id="Line_1-10"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-680.001 -103.435)"
+           id="g4860">
+          <line
+             id="Line_1-11"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-655.001 -103.435)"
+           id="g4863">
+          <line
+             id="Line_1-12"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-630.001 -103.435)"
+           id="g4866">
+          <line
+             id="Line_1-13"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-605.001 -103.435)"
+           id="g4869">
+          <line
+             id="Line_1-14"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-755.001 -68.435)"
+           id="g4872">
+          <line
+             id="Line_1-15"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-730.001 -68.435)"
+           id="g4875">
+          <line
+             id="Line_1-16"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-705.001 -68.435)"
+           id="g4878">
+          <line
+             id="Line_1-17"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-680.001 -68.435)"
+           id="g4881">
+          <line
+             id="Line_1-18"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-655.001 -68.435)"
+           id="g4884">
+          <line
+             id="Line_1-19"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-630.001 -68.435)"
+           id="g4887">
+          <line
+             id="Line_1-20"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-605.001 -68.435)"
+           id="g4890">
+          <line
+             id="Line_1-21"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-755.001 -33.435)"
+           id="g4893">
+          <line
+             id="Line_1-22"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-730.001 -33.435)"
+           id="g4896">
+          <line
+             id="Line_1-23"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-705.001 -33.435)"
+           id="g4899">
+          <line
+             id="Line_1-24"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-680.001 -33.435)"
+           id="g4902">
+          <line
+             id="Line_1-25"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-655.001 -33.435)"
+           id="g4905">
+          <line
+             id="Line_1-26"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-630.001 -33.435)"
+           id="g4908">
+          <line
+             id="Line_1-27"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-605.001 -33.435)"
+           id="g4911">
+          <line
+             id="Line_1-28"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-755.001 1.565)"
+           id="g4914">
+          <line
+             id="Line_1-29"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-730.001 1.565)"
+           id="g4917">
+          <line
+             id="Line_1-30"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-705.001 1.565)"
+           id="g4920">
+          <line
+             id="Line_1-31"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-680.001 1.565)"
+           id="g4923">
+          <line
+             id="Line_1-32"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-655.001 1.565)"
+           id="g4926">
+          <line
+             id="Line_1-33"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-630.001 1.565)"
+           id="g4929">
+          <line
+             id="Line_1-34"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-605.001 1.565)"
+           id="g4932">
+          <line
+             id="Line_1-35"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-755.001 36.565)"
+           id="g4935">
+          <line
+             id="Line_1-36"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-730.001 36.565)"
+           id="g4938">
+          <line
+             id="Line_1-37"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-705.001 36.565)"
+           id="g4941">
+          <line
+             id="Line_1-38"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-680.001 36.565)"
+           id="g4944">
+          <line
+             id="Line_1-39"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-655.001 36.565)"
+           id="g4947">
+          <line
+             id="Line_1-40"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-630.001 36.565)"
+           id="g4950">
+          <line
+             id="Line_1-41"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-605.001 36.565)"
+           id="g4953">
+          <line
+             id="Line_1-42"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-755.001 71.565)"
+           id="g4956">
+          <line
+             id="Line_1-43"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-730.001 71.565)"
+           id="g4959">
+          <line
+             id="Line_1-44"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-705.001 71.565)"
+           id="g4962">
+          <line
+             id="Line_1-45"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-680.001 71.565)"
+           id="g4965">
+          <line
+             id="Line_1-46"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-655.001 71.565)"
+           id="g4968">
+          <line
+             id="Line_1-47"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-630.001 71.565)"
+           id="g4971">
+          <line
+             id="Line_1-48"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-605.001 71.565)"
+           id="g4974">
+          <line
+             id="Line_1-49"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-755.001 106.565)"
+           id="g4977">
+          <line
+             id="Line_1-50"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-730.001 106.565)"
+           id="g4980">
+          <line
+             id="Line_1-51"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-705.001 106.565)"
+           id="g4983">
+          <line
+             id="Line_1-52"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-680.001 106.565)"
+           id="g4986">
+          <line
+             id="Line_1-53"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-655.001 106.565)"
+           id="g4989">
+          <line
+             id="Line_1-54"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-630.001 106.565)"
+           id="g4992">
+          <line
+             id="Line_1-55"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-605.001 106.565)"
+           id="g4995">
+          <line
+             id="Line_1-56"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-755.001 141.565)"
+           id="g4998">
+          <line
+             id="Line_1-57"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-730.001 141.565)"
+           id="g5001">
+          <line
+             id="Line_1-58"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-705.001 141.565)"
+           id="g5004">
+          <line
+             id="Line_1-59"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-680.001 141.565)"
+           id="g5007">
+          <line
+             id="Line_1-60"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-655.001 141.565)"
+           id="g5010">
+          <line
+             id="Line_1-61"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-630.001 141.565)"
+           id="g5013">
+          <line
+             id="Line_1-62"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-605.001 141.565)"
+           id="g5016">
+          <line
+             id="Line_1-63"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-755.001 176.565)"
+           id="g5019">
+          <line
+             id="Line_1-64"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-730.001 176.565)"
+           id="g5022">
+          <line
+             id="Line_1-65"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-705.001 176.565)"
+           id="g5025">
+          <line
+             id="Line_1-66"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-680.001 176.565)"
+           id="g5028">
+          <line
+             id="Line_1-67"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-655.001 176.565)"
+           id="g5031">
+          <line
+             id="Line_1-68"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-630.001 176.565)"
+           id="g5034">
+          <line
+             id="Line_1-69"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-605.001 176.565)"
+           id="g5037">
+          <line
+             id="Line_1-70"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-755.001 211.565)"
+           id="g5040">
+          <line
+             id="Line_1-71"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-730.001 211.565)"
+           id="g5043">
+          <line
+             id="Line_1-72"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-705.001 211.565)"
+           id="g5046">
+          <line
+             id="Line_1-73"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-680.001 211.565)"
+           id="g5049">
+          <line
+             id="Line_1-74"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-655.001 211.565)"
+           id="g5052">
+          <line
+             id="Line_1-75"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-630.001 211.565)"
+           id="g5055">
+          <line
+             id="Line_1-76"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-605.001 211.565)"
+           id="g5058">
+          <line
+             id="Line_1-77"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-755.001 246.565)"
+           id="g5061">
+          <line
+             id="Line_1-78"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-730.001 246.565)"
+           id="g5064">
+          <line
+             id="Line_1-79"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-705.001 246.565)"
+           id="g5067">
+          <line
+             id="Line_1-80"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-680.001 246.565)"
+           id="g5070">
+          <line
+             id="Line_1-81"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-655.001 246.565)"
+           id="g5073">
+          <line
+             id="Line_1-82"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-630.001 246.565)"
+           id="g5076">
+          <line
+             id="Line_1-83"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+        <g
+           transform="translate(-605.001 246.565)"
+           id="g5079">
+          <line
+             id="Line_1-84"
+             data-name="Line 1"
+             x1="1"
+             y2="23"
+             transform="translate(756.5 138.5)"
+             fill="none"
+             stroke="#000"
+             stroke-width="3" />
+        </g>
+      </g>
+      <g
+         id="Group_50"
+         data-name="Group 50"
+         transform="translate(-230 -441)" />
+      <path
+         id="Path_74"
+         data-name="Path 74"
+         d="M0,10.311,11.381,0,33.325,32.661l11.909-13.8L62.917,71.691,43.069,46.065l-9.744,8.673L6.26,18.863Z"
+         transform="translate(2330.455 -39.769) rotate(-17)"
+         fill="#fbee0a"
+         stroke="#000"
+         stroke-width="5" />
+      <g
+         transform="matrix(1, 0, 0, 1, 2326.15, -62.48)"
+         filter="url(#Path_75)"
+         id="g5098">
+        <path
+           id="Path_75-2"
+           data-name="Path 75"
+           d="M2042.013,280.33v-15.6l15.84,8.511V256.214l15.086,8.511V248.412l14.332,7.8V239.192l15.086,9.221"
+           transform="translate(-1988.39 786.37) rotate(-19)"
+           fill="none"
+           stroke="#cd39cd"
+           stroke-width="5" />
+      </g>
+      <g
+         transform="matrix(0.42666802,0,0,0.41165826,1505.044,-708.7316)"
+         data-name="Group 196"
+         id="Group_196">
+        <g
+           transform="matrix(1.0537612,0,0,1.05381,-950.22221,1134.997)"
+           data-name="Group 195"
+           id="Group_195">
+          <g
+             transform="translate(2854,636)"
+             data-name="Group 194"
+             id="Group_194">
+            <g
+               data-name="Group 50"
+               id="Group_50-4">
+              <g
+                 data-name="Group 47"
+                 id="Group_47">
+                <g
+                   data-name="Group 45"
+                   id="Group_45">
+                  <g
+                     data-name="Group 8"
+                     id="Group_8">
+                    <g
+                       data-name="Component 3 – 9"
+                       id="Component_3_9">
+                      <g
+                         style="fill:#fbee0a"
+                         data-name="Path 36"
+                         id="Path_36">
+                        <path
+                           inkscape:connector-curvature="0"
+                           style="stroke:#000000;stroke-width:8.28734393;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                           id="path4599"
+                           d="m 256.46341,509.66559 c -17.233,0 -34.45441,-1.7334 -51.18587,-5.15207 -16.30493,-3.33151 -32.34292,-8.30258 -47.66859,-14.77518 C 142.561,483.383 128.04715,475.51678 114.47041,466.35818 101.02208,457.28613 88.375809,446.86746 76.882874,435.3916 65.390007,423.9158 54.955944,411.28839 45.870544,397.8602 36.698475,384.30392 28.820744,369.81186 22.456142,354.78665 15.97421,339.48431 10.995876,323.47067 7.6595426,307.19052 4.2359428,290.48459 2.5000095,273.28946 2.5000095,256.08279 c 0,-17.20666 1.7359333,-34.40179 5.1595331,-51.10772 3.3363334,-16.28008 8.3146674,-32.29375 14.7965994,-47.59615 6.364602,-15.02519 14.242333,-29.5172 23.414402,-43.07352 9.0854,-13.4282 19.519463,-26.055606 31.01233,-37.531406 11.492935,-11.475868 24.139206,-21.894535 37.587536,-30.966533 13.57674,-9.158665 28.09059,-17.024866 43.13854,-23.3802 15.32567,-6.472534 31.36366,-11.443667 47.66859,-14.7752 16.73146,-3.4186669 33.95293,-5.1520667 51.18587,-5.1520667 17.233,0 34.45441,1.7333998 51.18585,5.1520667 16.30496,3.331533 32.34302,8.302666 47.66861,14.7752 15.04794,6.355334 29.56186,14.221535 43.13861,23.3802 13.44834,9.071998 26.09461,19.490665 37.58753,30.966533 11.49286,11.4758 21.92688,24.103206 31.01226,37.531406 9.17206,13.55632 17.04981,28.04833 23.4144,43.07352 6.48194,15.3024 11.46027,31.31607 14.7966,47.59615 3.42362,16.70593 5.15955,33.90106 5.15955,51.10772 0,17.20667 -1.73593,34.4018 -5.15955,51.10773 -3.33633,16.28015 -8.31466,32.29379 -14.7966,47.59613 -6.36459,15.02521 -14.24234,29.51727 -23.4144,43.07355 -9.08538,13.42819 -19.5194,26.0556 -31.01226,37.5314 -11.49292,11.47586 -24.13919,21.89453 -37.58753,30.96658 -13.57675,9.1586 -28.09067,17.02482 -43.13861,23.38016 -15.32559,6.4726 -31.36365,11.44367 -47.66861,14.77518 -16.73144,3.41867 -33.95285,5.15207 -51.18585,5.15207 z" />
+                      </g>
+                      <path
+                         style="fill:none"
+                         inkscape:connector-curvature="0"
+                         transform="translate(59.743,195.135)"
+                         d="m 67.186,273.666 c 3.484,4.395 15.179,11.252 15.179,11.252 l 55.523,20.032 31.257,5.967 22.209,2.131 34.136,-2.131 40.306,-8.95 27.556,-8.95 33.313,-17.9 26.322,-17.9 24.677,-22.589 9.46,-12.36"
+                         data-name="Path 109"
+                         id="Path_109" />
+                    </g>
+                  </g>
+                </g>
+                <g
+                   style="filter:url(#Path_115)"
+                   id="g4609">
+                  <path
+                     style="fill:none;stroke:#cd39cd;stroke-width:5"
+                     inkscape:connector-curvature="0"
+                     transform="matrix(-0.66,-0.75,0.75,-0.66,84.54,360.49)"
+                     d="M 0,54.446 V 27.223 L 27.184,40.835 V 14.746 l 10.293,4.973 15.533,7.5 V 0 l 27.185,14.746"
+                     data-name="Path 115"
+                     id="Path_115-2" />
+                </g>
+                <path
+                   style="fill:#ffe1d9;stroke:#000000;stroke-width:2"
+                   inkscape:connector-curvature="0"
+                   transform="translate(-358.571,-88.526)"
+                   d="m 595.373,409.249 c 0,0 -94.729,-8.041 -81.73,-106.561 12.999,-98.52 96.64,-99.877 96.64,-99.877 0,0 91.7,-7.557 96.029,95.441 2.322,55.206 -18.422,84.41 -46.013,97.638 -7.061,3.391 -27.975,15.567 -36.07,17.61 -11.067,2.826 -28.856,-4.251 -28.856,-4.251 z"
+                   data-name="Path 33"
+                   id="Path_33" />
+                <path
+                   style="fill:none;stroke:#000000;stroke-width:2"
+                   inkscape:connector-curvature="0"
+                   transform="translate(-393.74,66.662)"
+                   d="m 609.984,250.829 v 20.261 c 0,0 2.344,20.262 -20.319,29.614 -22.663,9.352 -43.615,33.468 -43.615,33.468 0,0 -31.452,40.284 -26.763,51.194"
+                   data-name="Path 34"
+                   id="Path_34" />
+                <path
+                   style="fill:none;stroke:#000000;stroke-width:2"
+                   inkscape:connector-curvature="0"
+                   transform="translate(-258.079,64.573)"
+                   d="m 546.2,250.829 1.938,15.883 c 0,0 166.183,48.546 151.712,74.417"
+                   data-name="Path 35"
+                   id="Path_35" />
+                <path
+                   style="fill:none;stroke:#000000;stroke-width:2"
+                   inkscape:connector-curvature="0"
+                   transform="translate(-316.701,25.805)"
+                   d="m 533.013,246.189 c 0,0 13.839,21.314 34.939,22.1 21.1,0.786 35.168,-22.1 35.168,-22.1"
+                   data-name="Path 37"
+                   id="Path_37" />
+                <path
+                   style="stroke:#000000;stroke-width:1"
+                   inkscape:connector-curvature="0"
+                   transform="translate(-40.604,-299.061)"
+                   d="m 165.674,751.707 20.27,10.976 44.013,16.025 22.232,5.383 33.277,2.773 h 25.079 l 31.108,-2.773 25.8,-7.355 30.147,-11.093 30.648,-16.461 29.138,-19.561 26.489,-26.489 -4.847,-9.024 -4.087,-2.972 -4.5,-3.627 -10.26,-7.108 -13.191,-6.3 c 0,0 -13.489,-6.716 -22.826,-10.7 a 159.715,159.715 0 0 0 -18.329,-6.44 L 387.241,650 l -5.621,-2.286 -8.669,-2.953 -15.6,-4.71 -17.721,10.995 -10.824,3.514 -4.482,0.8 -7.583,0.69 -17.476,1.18 h -25.6 l -9.33,-0.44 -11.592,-1.363 -6.192,6.478 -16.2,8.574 -8.765,5.335 -12.812,10.245 -13.191,12.289 -6.652,9.019 -9.957,13.934 -4.954,8.765 -5.049,10.1 z"
+                   data-name="Path 110"
+                   id="Path_110" />
+              </g>
+              <path
+                 style="fill:#ffe1d9"
+                 inkscape:connector-curvature="0"
+                 transform="translate(-2524.568,-761.179)"
+                 d="m 2738.153,1117.052 2.9,-5.914 1.046,-4.063 0.765,-4.747 v -22.348 l 5.592,1.529 6.316,1.247 6.115,1.006 8.931,2.736 7.074,1.688 7.736,0.572 4.594,-0.4 4.222,-1.11 4.345,-1.851 6.356,-3.138 6.833,-3.49 0.991,8.094 0.881,7.046 5.371,1.554 7.443,2.293 6.17,1.96 9.054,3.1 -7.627,5.449 -9.832,4.635 -9.4,2.966 -12.608,2.249 -9.249,0.781 -7.887,0.451 h -30.266 l -7.993,-0.451 z"
+                 data-name="Path 111"
+                 id="Path_111" />
+            </g>
+          </g>
+          <path
+             style="fill:#fbee0a;stroke:#000000;stroke-width:5"
+             inkscape:connector-curvature="0"
+             transform="rotate(-17,5010.5612,-9712.6201)"
+             d="M 0,12.843 21.14,0 61.9,40.683 84.018,23.5 116.862,89.3 80,57.379 61.9,68.179 11.627,23.5 Z"
+             data-name="Path 74"
+             id="Path_74-3" />
+          <g
+             style="filter:url(#Path_116)"
+             id="g4622"
+             transform="translate(2854,636)">
+            <path
+               style="fill:none;stroke:#cd39cd;stroke-width:5"
+               inkscape:connector-curvature="0"
+               transform="matrix(0.98,-0.21,0.21,0.98,387.99,197.62)"
+               d="M 0,59.495 V 30.408 L 29.166,46.274 V 14.543 L 56.942,30.408 V 0 l 26.389,14.543"
+               data-name="Path 116"
+               id="Path_116-2" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
