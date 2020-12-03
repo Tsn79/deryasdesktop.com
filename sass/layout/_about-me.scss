@@ -34,6 +34,29 @@
     letter-spacing: 0.2px;
     line-height: 1.5;
 
+&::-webkit-scrollbar-thumb {
+   background: var(--color-yellow);
+ }
+//scrollbar
+
+//     /* width */
+// &::-webkit-scrollbar {
+//   width: 2rem;
+// }
+
+// /* Track */
+// &::-webkit-scrollbar-track {
+//   background: transparent;
+// }
+
+// /* Handle */
+// 
+
+// /* Handle on hover */
+// &::-webkit-scrollbar-thumb:hover {
+//   background: #CD39CD;
+// }
+
 
     & p:not(:last-child) {
       margin-bottom: 1.2rem;
