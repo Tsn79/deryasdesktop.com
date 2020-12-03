@@ -37,6 +37,10 @@
       align-items: center;
       justify-content: flex-start;
 
+      & > * {
+        margin-left: 0.9rem;
+      }
+
       &--uploadbtn {
         position: relative;
         overflow: hidden;
@@ -47,15 +51,6 @@
           top: 0;
           font-size: 5rem;
           opacity: 0;
-        }
-      }
-
-      &--downloadbtn {
-        &:link,
-        &:visited,
-        &:active {
-          text-decoration: none;
-          color: inherit;
         }
       }
     }
@@ -88,16 +83,6 @@
   }
 }
 
-.meme-btn {
-  text-align: center;
-  width: 20rem;
-  height: 4rem;
-  border: solid black;
-  text-transform: capitalize;
-  background-color: var(--color-desktop-tab);
-  padding: 0.6rem;
-  margin-left: 0.9rem;
-}
 
 .thumb {
   min-width: 15rem;
