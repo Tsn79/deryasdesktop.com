@@ -34,6 +34,7 @@
               <p>Derya Antonelli</p>
             </div>
 
+
             <div class="navigation__dropdown" id="open-tabs" hidden>
               <!--<button class="navigation__dropdown-btn">meme generator</button>
               <div class="navigation__dropdown-content">
@@ -43,7 +44,17 @@
                   ></a 
                 > 
               </div>-->
-            </div> 
+            </div>
+
+            <div class="navigation__dropdown">
+              <button class="navigation__dropdown-btn">my details</button>
+              <div class="navigation__dropdown-content">
+                <a href="#about-me" class="link">about</a>
+                <a href="#resume" class="link">resume</a>
+                <a href="#my-works" class="link">works</a>
+                <a href="mailto:derya.antonelli@gmail.com" class="link">contact</a>
+              </div>
+            </div>
 
             <div class="navigation__dropdown">
               <button class="navigation__dropdown-btn">applications</button>
@@ -56,22 +67,23 @@
 
             <a href="#settings" class="navigation__link">settings</a>
 
-            <div class="navigation__dropdown">
-              <button class="navigation__dropdown-btn">Info</button>
-              <div class="navigation__dropdown-content">
-                <a href="#about-me" class="link">about</a>
-                <a href="#" class="link">resume</a>
-                <a href="#" class="link">tech stack</a>
-              </div>
-            </div>
+
           </div>
 
           <div class="navigation__right">
             <div class="email"><span>derya.antonelli@gmail.com</span></div>
             <div class="icons">
-              <a href="https://twitter.com/antonelli_a" target="_blank"><i class="icons-twitter"></i></a>
-              <a href="https://www.linkedin.com/in/derya-a-antonelli/" target="_blank"><i class="icons-linkedin"></i></a>
-              <a href="https://github.com/D-Antonelli" target="_blank"><i class="icons-github"></i></a>
+              <a href="https://twitter.com/antonelli_a" target="_blank"
+                ><i class="icons-twitter"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/derya-a-antonelli/"
+                target="_blank"
+                ><i class="icons-linkedin"></i
+              ></a>
+              <a href="https://github.com/D-Antonelli" target="_blank"
+                ><i class="icons-github"></i
+              ></a>
             </div>
             <div class="time">Thu 10:09</div>
           </div>
@@ -175,23 +187,82 @@
               >
             </div>
             <div class="about-me__main-frame">
-              <p class="about-me__content">
-                <span class="introduction"
-                  >Hi! I'm Derya. I'm a Front-End Developer.</span
-                >
-                <br />
-                <br />
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
-              </p>
+              <div class="about-me__content scrollbar">  
+                <h2 class="about-me__content-header">Hi! I am a <br><span>Front-End Developer,</span><br>and my name is <span>Derya</span></h2>   
+            <p>My coding journey started at the end of 2018 with Java. After several months of tutorials and practice,
+              I familiarized myself with language basics
+            and decided to give Javascript a go, thus paving
+            the way for my front-end development path. Then, I realized that I am passionate about design, centering divs, memorizing variable names,
+            googling bugs, rendering my page on Internet Explorer, even reading technical documents. Front-end is my passion, and I am a 
+            front-end monster. 
+            </p>
+            <p>I also enjoy photography, cooking, human languages, retro design of 90s, and Tolkien’s Middle Earth.
+            I hold a bachelor’s degree from American Culture and Literature.
+            Previously I had roles in Sales and Logistics consecutively.
+            I can communicate in Turkish, English, Italian as well as Russian (a bit).</p>
+          <p>Currently, I am working on my next front-end project. I share my coding
+          journey through #100DaysOfCode, sometimes publish articles on DEV.to,
+          sketch on CodePen, and mostly find myself reading about various topics ranging from
+           Computer Science, programming, and Javascript.</p>
+          <p>Welcome to my first website, and stay connected for my next projects! </p>     
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--RESUME-->
+      <section class="pane resume draggable" id="resume">
+        <div class="main-pane">
+          <div class="inner-pane">
+            <div class="inner-pane__header">
+              <p class="inner-pane__header-text">Resume.pdf</p>
+              <a
+                href="#resume"
+                class="close-btn"
+                aria-label="Close Account Info Modal Box"
+                role="button"
+                >&times;</a
+              >
+            </div>
+            <div class="resume__main-frame">
+              <div class="resume__main-frame-header">
+                <a
+                class="btn resume__download-btn"
+                href="../images/resume.pdf"
+                download="deryaantonelli_resume.pdf"
+                >Download
+                </a
+              >
+              </div>
+              <div class="resume__main-frame-content scrollbar">
+                <img src="./images/resume-color-png@2x.png" alt="image of resume" class="resume__image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--MY WORKS-->
+      <section class="pane my-works draggable" id="my-works">
+        <div class="main-pane">
+          <div class="inner-pane">
+            <div class="inner-pane__header">
+              <p class="inner-pane__header-text">My_works</p>
+              <a
+                href="#my-works"
+                class="close-btn"
+                aria-label="Close Account Info Modal Box"
+                role="button"
+                >&times;</a
+              >
+            </div>
+            <div class="my-works__main-frame">
+              <div class="my-works__content">
+                <div class="my-works__content-top">Top section</div>
+                <div class="my-works__content-bottom">
+                  <button class="btn my-works-btn">next</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -214,7 +285,7 @@
             <div class="meme-generator__main-frame">
               <div class="meme-generator__main-frame-header">
                 <a
-                  class="meme-btn meme-generator__main-frame-header--uploadbtn"
+                  class="btn meme-generator__main-frame-header--uploadbtn"
                   id="meme-uploadBtn"
                   >Upload Meme
                   <input
@@ -225,7 +296,7 @@
                   />
                 </a>
                 <a
-                  class="meme-btn meme-generator__main-frame-header--downloadbtn"
+                  class="btn meme-generator__main-frame-header--downloadbtn"
                   id="meme-downloadBtn"
                   download="memebyderya.png"
                   >Download</a
