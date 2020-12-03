@@ -1,0 +1,40 @@
+.resume {
+  width: 93rem;
+  height: 59.2rem;
+
+  &.clicked {
+    left: 27rem;
+    top: 5rem;
+    opacity: 1;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+  }
+
+  &__main-frame {
+    height: 100%;
+    background-color: var(--color-yellow);
+
+    &-header {
+      height: 8rem;
+      padding-left: 5.3rem;
+      display: flex;
+      align-items: center;
+    }
+
+    &-content {
+      height: 75.5%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      &::-webkit-scrollbar-thumb {
+        background: #cd39cd;
+      }
+    }
+  }
+
+  &__image {
+    width: 78rem;
+    display: block;
+    margin: 0 auto;
+  }
+}
