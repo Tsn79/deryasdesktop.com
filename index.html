@@ -25,7 +25,7 @@
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
   </head>
   <body>
-    <div class="body-container" id="body-container">
+    <div class="body-container format-text" id="body-container">
       <header>
         <nav class="navigation">
           <div class="navigation__left">
@@ -187,8 +187,8 @@
               >
             </div>
             <div class="about-me__main-frame">
-              <div class="about-me__content scrollbar">  
-                <h2 class="about-me__content-header">Hi! I am a <br><span>Front-End Developer,</span><br>and my name is <span>Derya</span></h2>   
+              <div class="about-me__content format-text scrollbar">  
+                <h2 class="about-me__content-header">Hi! I am a <br><span class="highlight">Front-End Developer,</span><br>and my name is <span class="highlight">Derya</span></h2>   
             <p>My coding journey started at the end of 2018 with Java. After several months of tutorials and practice,
               I familiarized myself with language basics
             and decided to give Javascript a go, thus paving
@@ -258,14 +258,42 @@
             </div>
             <div class="my-works__main-frame">
               <div class="my-works__content">
-                <div class="my-works__content-top">Top section</div>
-                <div class="my-works__content-bottom">
-                  <button class="btn my-works-btn">next</button>
+                <div class="my-works__content-top">
+                  <div class="my-works__computer"></div>
+                  <div class="my-works__project-info">
+                    <div class="project" id="project">
+                      <div class="project-title">
+                      <h2 class="highlight format-text">portfolio website</h2>
+                    </div>
+                    <div class="project-stack">
+                      <p>JavaScript</p>
+                      <p>CSS</p>
+                      <p>SCSS</p>
+                      <p>HTML</p>
+                    </div>
+                    <div class="project-content format-text">
+                      <p>The website currently you're on is
+                        my first Front-end project. It is a
+                        desktop screen where you'll find 
+                        applications, settings and
+                        my info.
+                        </p>
+                    </div>
+                    <div class="project-link">
+                      <a href="https://github.com/D-Antonelli/portfolio" class="format-text" target="_blank">GitHub Page</a>
+                    </div>
+                    </div>
+                  </div> 
+                    </div>                      
+                    <div class="my-works__content-bottom">
+                  <button class="btn" id="previousBtn" disabled>previous</button>    
+                  <button class="btn" id="nextBtn">next</button>
+                </div> 
                 </div>
+
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       <!--MEME GENERATOR-->
@@ -695,5 +723,6 @@
     <script src="js/date.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/drummer.js"></script>
+    <script src="js/works.js"></script>
   </body>
 </html>
