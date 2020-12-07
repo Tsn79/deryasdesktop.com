@@ -156,9 +156,9 @@
     display: flex;
     justify-content: center;
 
-    & button.disable {
+    /*& button.disable {
       filter: brightness(0.5);
-    }
+    }*/
 
     & button {
       border: solid 2px black;
