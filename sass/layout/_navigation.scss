@@ -31,7 +31,8 @@
   &__right {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    //height: 100%;
+    //align-items: center;
 
     & > *:not(.email) {
       margin-right: 1rem;
@@ -68,6 +69,7 @@
     overflow: hidden;
 
     &-btn {
+      height: 100%;
       border: none;
       outline: none;
       font-size: inherit;
