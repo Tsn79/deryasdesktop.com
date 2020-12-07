@@ -218,10 +218,10 @@ drummer.buttonDisable = function (isTrue, ...arguments) {
     for (var i = 0; i < arguments.length; i++) {
       if (isTrue == false) {
         arguments[i].disabled = false;
-        arguments[i].classList.remove("disable");
+        //arguments[i].classList.remove("disable");
       } else {
         arguments[i].disabled = true;
-        arguments[i].classList.add("disable");
+        //arguments[i].classList.add("disable");
       }
     }
   }
