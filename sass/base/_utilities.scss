@@ -1,0 +1,12 @@
+.highlight {
+    background: linear-gradient(180deg, transparent 50%, yellow 50%);
+}
+
+.format-text {
+    letter-spacing: 0.2px;
+    line-height: 1.5;
+}
+
+button[disabled] {
+   filter: brightness(0.5);
+}
