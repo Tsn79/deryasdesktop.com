@@ -1,0 +1,129 @@
+.my-works {
+  width: 96.5rem;
+  height: 61.4rem;
+
+    &.clicked {
+        left: 27rem;
+        top: 7rem;
+        opacity: 1;
+        -webkit-transform: translate3d(0px, 0px, 0px);
+        transform: translate3d(0px, 0px, 0px);
+      }
+    
+      &__main-frame {
+          height: 93.4%;
+      }
+
+      &__content {
+          height: 100%;
+          padding: 3rem 5rem 3rem 4rem;
+          display: flex;
+          flex-direction: column;
+
+          &-top {
+            flex-basis: 85%;
+            display: flex;
+            justify-content: space-between;
+          }
+
+          &-bottom {
+            flex-basis: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            & > *:not(:last-child) {
+              margin-right: 2rem;
+            }
+
+          }
+      }
+
+      &__computer {
+        position: relative;
+        flex-basis: 50%;
+
+        &:before {
+            content: "";
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 2;
+            position: absolute;
+            background-image: url("../images/computer@2x.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 0 auto;
+        }
+
+        &:after {
+            content: "";
+            top: 63.8px;
+            left: 82.5px;
+            z-index: 1;
+            position: absolute;
+            background-image: url(../images/screencap.gif);
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 15.8rem;
+            width: 100%;
+        }
+      }
+
+      &__project-info {
+        flex-basis: 50%;
+        margin-left: 1.5rem;
+      }
+}
+
+.project {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.6rem;
+
+  & > *:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+
+  &-title {
+    
+    & h2 {
+      text-transform: capitalize;
+      display: inline-block;
+    }
+  }
+
+  &-stack {
+    max-width: 21.1rem;
+    //min-height: 8.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    & > * {
+      text-align: center;
+      min-width: 10rem;
+      padding: .5rem;
+      border: solid 1px black;
+      border-radius: 2.4rem;
+      background-color: #DCDCDC;
+      margin-top: 1rem;
+    }
+
+  }
+
+  &-link {
+     
+    & a {
+      color: black;
+
+      &:hover {
+        color: var(--color-yellow);
+      }
+    }
+
+  }
+}
