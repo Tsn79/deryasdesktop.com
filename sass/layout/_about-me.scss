@@ -31,31 +31,10 @@
     overflow-x: hidden;
     right: 2.9rem;
     padding: 3rem 1rem 0 0;
-    letter-spacing: 0.2px;
-    line-height: 1.5;
 
 &::-webkit-scrollbar-thumb {
    background: var(--color-yellow);
  }
-//scrollbar
-
-//     /* width */
-// &::-webkit-scrollbar {
-//   width: 2rem;
-// }
-
-// /* Track */
-// &::-webkit-scrollbar-track {
-//   background: transparent;
-// }
-
-// /* Handle */
-// 
-
-// /* Handle on hover */
-// &::-webkit-scrollbar-thumb:hover {
-//   background: #CD39CD;
-// }
 
 
     & p:not(:last-child) {
@@ -63,14 +42,7 @@
     }
 
     &-header {
-      //color: yellow;
-      //text-shadow: 4px 4px #CD39CD;
       margin-bottom: 1.5rem; 
-
-      & span {
-        background: linear-gradient(180deg, transparent 50%, yellow 50%);
-      }
-
   }
 }
 }
