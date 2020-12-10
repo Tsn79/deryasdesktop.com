@@ -31,8 +31,6 @@
   &__right {
     display: flex;
     justify-content: space-between;
-    //height: 100%;
-    //align-items: center;
 
     & > *:not(.email) {
       margin-right: 1rem;
@@ -43,27 +41,34 @@
     }
   }
 
+  &__right {
+    align-items: center;
+  }
+
   &__right > *,
-  &__dropdown-btn,
-  &__link {
+  &__dropdown-btn
+  //&__link
+   {
     padding: 0.6rem 1rem;
   }
 
   &__dropdown-btn,
-  &__link,
+  //&__link,
   &__dropdown-content a {
     text-transform: capitalize;
   }
 
-  &__link {
+  /*&__link {
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
 
     &:active,
     &:visited {
       color: inherit;
     }
   }
+  */
 
   &__dropdown {
     overflow: hidden;
@@ -123,7 +128,7 @@
     display: block;
   }
 
-  &__link:hover,
+  //&__link:hover,
   &__dropdown:hover &__dropdown-btn {
     background-color: black;
     color: white;
