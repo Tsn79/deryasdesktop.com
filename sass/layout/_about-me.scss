@@ -31,6 +31,7 @@
     overflow-x: hidden;
     right: 2.9rem;
     padding: 3rem 1rem 0 0;
+    line-height: var(--text-line-height);
 
 &::-webkit-scrollbar-thumb {
    background: var(--color-yellow);
