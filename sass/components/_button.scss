@@ -1,20 +1,24 @@
 .btn {
-    text-align: center;
-    width: 20rem;
-    height: 4rem;
-    border: solid black;
-    text-transform: capitalize;
-    background-color: var(--color-desktop-tab);
-    padding: 0.6rem;
-    text-decoration: none;
-    font-family: inherit;
-    font-size: inherit;
+  text-align: center;
+  width: 20rem;
+  height: 4rem;
+  border: solid black;
+  text-transform: capitalize;
+  background-color: var(--color-desktop-tab);
+  padding: 0.6rem;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
 
-    &,
-    &:link,
-    &:visited,
-    &:active {
-      text-decoration: none;
-      color: inherit;
-    }
+  &,
+  &:link,
+  &:visited,
+  &:active {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &:focus {
+    outline: 2px solid yellow;
+  }
 }
