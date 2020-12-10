@@ -1,8 +1,6 @@
 .about-me {
   width: 70rem;
   height: 44.6rem;
-  //top: 6.8rem;
-  //left: -24.1rem;
 
   &.clicked {
     opacity: 1;
@@ -33,17 +31,20 @@
     padding: 3rem 1rem 0 0;
     line-height: var(--text-line-height);
 
-&::-webkit-scrollbar-thumb {
-   background: var(--color-yellow);
- }
+    & a {
+      color: var(--color-yellow);
+    }
 
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-yellow);
+    }
 
     & p:not(:last-child) {
       margin-bottom: 1.2rem;
     }
 
     &-header {
-      margin-bottom: 1.5rem; 
+      margin-bottom: 1.5rem;
+    }
   }
-}
 }
