@@ -25,7 +25,7 @@
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
   </head>
   <body>
-    <div class="body-container format-text" id="body-container">
+    <div class="body-container" id="body-container">
       <header>
         <nav class="navigation">
           <div class="navigation__left">
@@ -47,7 +47,7 @@
             </div>
 
             <div class="navigation__dropdown">
-              <button class="navigation__dropdown-btn">my details</button>
+              <button class="navigation__dropdown-btn">details</button>
               <div class="navigation__dropdown-content">
                 <a href="#about-me" class="link">about</a>
                 <a href="#resume" class="link">resume</a>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="navigation__dropdown">
-              <button class="navigation__dropdown-btn">applications</button>
+              <button class="navigation__dropdown-btn">apps</button>
               <div class="navigation__dropdown-content">
                 <a href="#meme-generator" class="link">meme generator</a>
                 <a href="#weather" class="link">weather</a>
@@ -65,9 +65,14 @@
               </div>
             </div>
 
-            <a href="#settings" class="navigation__link">settings</a>
-
-
+            <div class="navigation__dropdown">
+              <button class="navigation__dropdown-btn">my desktop</button>
+              <div class="navigation__dropdown-content">
+                <a href="#settings" class="link">settings</a>
+                <a href="#properties" class="link">properties</a>
+              </div>
+            </div>
+            <!--<a href="#settings" class="navigation__link">settings</a>-->           
           </div>
 
           <div class="navigation__right">
@@ -187,7 +192,7 @@
               >
             </div>
             <div class="about-me__main-frame">
-              <div class="about-me__content format-text scrollbar">  
+              <div class="about-me__content scrollbar">  
                 <h2 class="about-me__content-header">Hi! I am a <br><span class="highlight">Front-End Developer,</span><br>and my name is <span class="highlight">Derya</span></h2>   
             <p>My coding journey started at the end of 2018 with Java. After several months of tutorials and practice,
               I familiarized myself with language basics
@@ -242,6 +247,88 @@
         </div>
       </section>
 
+
+      <!--PROPERTIES-->
+      <section class="pane properties draggable" id="properties">
+        <div class="main-pane">
+          <div class="inner-pane">
+            <div class="inner-pane__header">
+              <p class="inner-pane__header-text">Properties.exe</p>
+              <a
+                href="#properties"
+                class="close-btn"
+                aria-label="Close Account Info Modal Box"
+                role="button"
+                >&times;</a
+              >
+            </div>
+            <div class="properties__main-frame">
+                <nav class="properties__tabs" id="tabs">
+                <button class="btn clicked" data-name="properties_about">About Website</button>
+                <button class="btn" data-name="properties_design">Design</button>
+                <button class="btn" data-name="properties_images">Images</button>
+                <button class="btn" data-name="properties_credits">Credits</button>
+              </nav>
+             
+              <div class="properties__content">
+                <div class="text" data-name="properties_about">
+                <p>This website was built solely with JavaScript using no libraries.</p>
+                <p>My entire source code is available on <a href="https://github.com/D-Antonelli/portfolio" target="_blank">GitHub</a>.
+              Feel free to send pull requests for bugs, typos, grammatical errors, or 
+              improvements.</p>
+              <p>For any other suggestions, you can contact me <a href="mailto:derya.antonelli@gmail.com">here</a>.</p>
+              <p class="copyright">Derya Antonelli © 2020 - 2021</p>
+                </div> 
+                
+                <div class="text" data-name="properties_design" style="display: none;">
+                  <p><a href="https://www.adobe.com/uk/products/xd.html" target="_blank">Adobe XD</a> → I used free version of this design tool to create most of
+                  my background images and icons.</p>
+                  
+                  <p><a href="https://inkscape.org/" target="_blank">Inkspace</a> → A free vector graphics tool where I edited my icons in SVG format.</p>
+                  
+                  <p><a href="https://coolors.co/" target="_blank">Coolors.co</a> → Amazing website for generating random colour 
+                  schemes.</p>
+
+                  <p><a href="https://imagecolorpicker.com/en/" target="_blank">Imagecolorpicker</a> → Highly recommended for finding out HEX color code from any image.</p>
+
+                  <p><a href="https://www.screentogif.com/" target="_blank">Screentogif</a> → Extremely powerful desktop app for creating gifs from screen record.</p>
+                  </div> 
+
+                  <div class="text" data-name="properties_images" style="display: none;">
+                    <p><a href="https://www.newgrounds.com/art/view/blinxxintime/some-pixel-bricks" target="_blank">Pixel Brick</a> → Created by blinxxintime. Used this image as a background for the unit conversion tool in my weather app.</p>
+                    
+                    <p><a href="http://clipart-library.com" target="_blank">Clipart</a> → Some of the pixel art in weather application was downloaded here.</p>
+                    
+                    <p><a href="https://www.seekpng.com/ks/clipart/" target="_blank">Seekpng</a> → Star image in weather application was downloaded here.</p>
+  
+                    <p><a href="https://www.cleanpng.com/png-nyan-cat-pixel-art-youtube-tenor-pixelart-2829536/" target="_blank">Cleanpng</a> → Cat image in weather application was 
+                      downloaded here.</p>
+  
+                    <p><a href="http://pixelartmaker.com/art/b2d55f68a5947b6" target="_blank">Pixelartmaker</a> → An amazing website for pixel art enthusiasts. I downloaded weather ninja girl here.</p>
+
+                    <p><a href="https://imgflip.com/memegenerator" target="_blank">Imgflip</a> → Meme images were downloaded here.</p>
+                    </div> 
+
+                    <div class="text" data-name="properties_credits" style="display: none;">
+                      <p>“It’s not where you take things from—it’s where you take them to.”
+                        –Jean-Luc Godard, film director</p>
+                      <p>My inspiration list:</p>
+                      <p><a href="http://eeerik.com/" target="_blank">Erik Bernacchi</a></p>
+                      
+                      <p><a href="http://www.marianopascual.me/index.html#about" target="_blank">Mariano Pascual</a></p>
+                      
+                      <p><a href="https://codepen.io/Errec/pen/ZprVwZ?editors=1010" target="_blank">Super Mario Weather</a></p>
+    
+                      <p><a href="https://simone.computer/#/" target="_blank">Simone’s Computer</a></p>
+
+                      </div> 
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!--MY WORKS-->
       <section class="pane my-works draggable" id="my-works">
         <div class="main-pane">
@@ -259,11 +346,11 @@
             <div class="my-works__main-frame">
               <div class="my-works__content">
                 <div class="my-works__content-top">
-                  <div class="my-works__computer"></div>
+                  <div class="my-works__computer prj--0"></div>
                   <div class="my-works__project-info">
                     <div class="project" id="project">
                       <div class="project-title">
-                      <h2 class="highlight format-text">portfolio website</h2>
+                      <h2 class="highlight">portfolio website</h2>
                     </div>
                     <div class="project-stack">
                       <p>JavaScript</p>
@@ -271,7 +358,7 @@
                       <p>SCSS</p>
                       <p>HTML</p>
                     </div>
-                    <div class="project-content format-text">
+                    <div class="project-content">
                       <p>The website currently you're on is
                         my first Front-end project. It is a
                         desktop screen where you'll find 
@@ -718,11 +805,13 @@
     <script type="module" src="js_modules/draggable.mjs"></script>
     <script type="module" src="js/weather.js"></script>
     <script type="module" src="js/meme_generator.js"></script>
+    <script type="module" src="js/works.js"></script>
+    <script type="module" src="js/properties.js"></script>
     <script type="text/javascript" src="config.js"></script>
     <script type="module" src="js/app.js"></script>
     <script src="js/date.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/drummer.js"></script>
-    <script src="js/works.js"></script>
+    
   </body>
 </html>
