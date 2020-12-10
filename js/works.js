@@ -1,3 +1,5 @@
+import { className } from "../js_modules/helper_functions.mjs";
+
 var projects = {
   button: {},
 };
@@ -5,6 +7,7 @@ var projects = {
 projects.button.previous = document.querySelector("#previousBtn");
 projects.button.next = document.querySelector("#nextBtn");
 projects.container = document.querySelector("#project");
+projects.projectGif = document.querySelector(".my-works__computer");
 projects.currentProjectIndex = 0;
 
 projects.content = [
@@ -38,27 +41,11 @@ projects.content = [
   <p>JavaFX</p>
   </div>
   <div class="project-content format-text">
-  <p>A contact management application that allows to store, delete, modify, sort, and view contact user information. 
+  <p>Easily add, edit, delete, and retrieve contacts with this phonebook-inspired desktop application.
     </p>
   </div>
   <div class="project-link">
   <a href="https://github.com/D-Antonelli/Java-My-Contact-Manager" class="format-text" target="_blank">GitHub Page</a>
-  </div>
-  </div>`,
-  
-    `<div class="project-title">
-  <h2 class="highlight format-text">codepen challenge</h2>
-  </div>
-  <div class="project-stack">
-  <p>JavaScript</p>
-  <p>CSS</p>
-  </div>
-  <div class="project-content format-text">
-  <p>A funny animation
-    </p>
-  </div>
-  <div class="project-link">
-  <a href="https://github.com/D-Antonelli/Java-My-Contact-Manager" class="format-text" target="_blank">Go to Pen</a>
   </div>
   </div>`
 ];
@@ -68,12 +55,14 @@ projects.init = (function () {
 })();
 
 projects.button.next.addEventListener("click", function () {
+  className.remove(projects.projectGif, "prj--" + projects.currentProjectIndex); 
   projects.currentProjectIndex++;
   projects.button.previous.disabled = false;
 
   if (projects.content[projects.currentProjectIndex]) {
     projects.container.innerHTML =
       projects.content[projects.currentProjectIndex];
+      className.add(projects.projectGif, "prj--" + projects.currentProjectIndex); 
 
     projects.currentProjectIndex++;
     if (!projects.content[projects.currentProjectIndex]) {
@@ -89,12 +78,14 @@ projects.button.next.addEventListener("click", function () {
 });
 
 projects.button.previous.addEventListener("click", function () {
+  className.remove(projects.projectGif, "prj--" + projects.currentProjectIndex); 
   projects.currentProjectIndex--;
   projects.button.next.disabled = false;
 
   if (projects.content[projects.currentProjectIndex]) {
     projects.container.innerHTML =
       projects.content[projects.currentProjectIndex];
+      className.add(projects.projectGif, "prj--" + projects.currentProjectIndex); 
 
     projects.currentProjectIndex--;
     if (!projects.content[projects.currentProjectIndex]) {
