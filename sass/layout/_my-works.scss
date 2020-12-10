@@ -19,6 +19,7 @@
           padding: 3rem 5rem 3rem 4rem;
           display: flex;
           flex-direction: column;
+          line-height: var(--text-line-height);
 
           &-top {
             flex-basis: 85%;
@@ -43,6 +44,7 @@
         position: relative;
         flex-basis: 50%;
 
+
         &:before {
             content: "";
             top: 0;
@@ -59,15 +61,22 @@
 
         &:after {
             content: "";
-            top: 63.8px;
-            left: 82.5px;
+            top: 6.38rem;
+            left: 8.14rem;
             z-index: 1;
             position: absolute;
-            background-image: url(../images/screencap.gif);
             background-size: contain;
             background-repeat: no-repeat;
             height: 15.8rem;
             width: 100%;
+        }
+
+        &.prj--0:after {
+          background-image: url("../images/screencap.gif");
+        }
+
+        &.prj--1:after {
+          background-image: url("../images/mycontactman.gif");
         }
       }
 
@@ -82,6 +91,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 2.6rem;
+  line-height: var(--text-line-height);
 
   & > *:not(:last-child) {
     margin-bottom: 3rem;
