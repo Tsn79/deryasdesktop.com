@@ -26,7 +26,7 @@ export class Draggable {
     
     onMouseDown(e) { 
     e = e || window.event;
-    //e.preventDefault();
+    this.el.style.cursor = 'url("../images/cursor_drag.png"), auto'; 
     this.getDragPointer(e.clientX, e.clientY)
     this.prepareElement()
     this.moveElementTo(e.pageX, e.pageY)
@@ -68,7 +68,8 @@ export class Draggable {
     }
     
     onMouseUp(e) {
-    document.removeEventListener('mousemove', this.onMouseMove)
+    document.removeEventListener('mousemove', this.onMouseMove);
+    this.el.style.cursor = "";
     }
     
     }
