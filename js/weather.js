@@ -81,7 +81,6 @@ weather.location.handleData = function (data) {
       id = href.match(regex);
     weather.location.locations[`'${id}'`] = city;
   }
-  //console.table(weather.location.locations)
   return weather.location.locations;
 };
 
@@ -149,7 +148,7 @@ weather.querySection.fetchCitySuggestions = function () {
       .then(weather.location.handleData)
       .then(weather.populateSuggestionsList)
       ["catch"](function (error) {
-        console.log(error);
+        weather.querySection.setErrorMsg("Ups, something went wrong😭")
       });
   } else {
     //if input is empty or no longer than 1 character
@@ -196,7 +195,6 @@ weather.card.updateWeatherCard = function (forecast) {
 //https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
 weather.card.updateSky = function (conditionCode) {
   className.remove(weather.card.container, "animate-thunder");
-  console.log(conditionCode);
   var template = "";
 
   switch (conditionCode) {
@@ -370,7 +368,14 @@ weather.fetchForecast = function () {
       .then(function (response) {
         if (response.status === 404) {
           return weather.querySection.setErrorMsg("forecast data not found");
-        } else {
+        }
+        else if(response.status === 429) {
+          return weather.querySection.setErrorMsg("end of the free API calls");
+        }
+        else if(!response.ok) {
+          return weather.querySection.setErrorMsg("network error");
+        }
+        else {
           return response.json();
         }
       })
@@ -381,13 +386,11 @@ weather.fetchForecast = function () {
       });
   } //if there is no city id :(
   else {
-    console.log("NO ID");
     return weather.querySection.setErrorMsg("sorry, i can't find match");
   }
 };
 
 weather.querySection.debounceQuery = debounce(function () {
-  console.log("debounce");
   weather.querySection.fetchCitySuggestions();
 }, 800);
 
@@ -554,4 +557,3 @@ function debounce(func, wait) {
     weather.timeout = window.setTimeout(later, wait);
   };
 }
-
