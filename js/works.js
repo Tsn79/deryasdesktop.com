@@ -1,5 +1,3 @@
-import { className } from "../js_modules/helper_functions.mjs";
-
 var projects = {
   button: {},
 };
@@ -7,11 +5,11 @@ var projects = {
 projects.button.previous = document.querySelector("#previousBtn");
 projects.button.next = document.querySelector("#nextBtn");
 projects.container = document.querySelector("#project");
-projects.projectGif = document.querySelector(".my-works__computer");
+projects.videoContainer = document.querySelector(".my-works__computer");
 projects.currentProjectIndex = 0;
 
 projects.content = [
-`<div class="project-title">
+  `<div class="project-title">
     <h2 class="highlight format-text">portfolio website</h2>
     </div>
     <div class="project-stack">
@@ -32,7 +30,7 @@ projects.content = [
     <a href="https://github.com/D-Antonelli/portfolio" class="format-text" target="_blank">GitHub Page</a>
     </div>`,
 
-    `<div class="project-title">
+  `<div class="project-title">
   <h2 class="highlight format-text">my contact manager</h2>
   </div>
   <div class="project-stack">
@@ -51,18 +49,20 @@ projects.content = [
 ];
 
 projects.init = (function () {
-    projects.content.length < 2 ? projects.button.next.disabled = true : "";
+  projects.content.length < 2 ? (projects.button.next.disabled = true) : "";
 })();
 
 projects.button.next.addEventListener("click", function () {
-  className.remove(projects.projectGif, "prj--" + projects.currentProjectIndex); 
+  for(var i=0; i < projects.videoContainer.children.length; i++) {
+    projects.videoContainer.children[i].style.display = "none";
+  }
   projects.currentProjectIndex++;
   projects.button.previous.disabled = false;
 
   if (projects.content[projects.currentProjectIndex]) {
     projects.container.innerHTML =
       projects.content[projects.currentProjectIndex];
-      className.add(projects.projectGif, "prj--" + projects.currentProjectIndex); 
+      projects.videoContainer.children[projects.currentProjectIndex].style.display = "block";
 
     projects.currentProjectIndex++;
     if (!projects.content[projects.currentProjectIndex]) {
@@ -70,7 +70,7 @@ projects.button.next.addEventListener("click", function () {
       projects.currentProjectIndex--;
     } else {
       projects.button.next.disabled = false;
-      projects.currentProjectIndex--;           
+      projects.currentProjectIndex--;
     }
   } else {
     projects.button.next.disabled = true;
@@ -78,21 +78,24 @@ projects.button.next.addEventListener("click", function () {
 });
 
 projects.button.previous.addEventListener("click", function () {
-  className.remove(projects.projectGif, "prj--" + projects.currentProjectIndex); 
+  for(var i=0; i < projects.videoContainer.children.length; i++) {
+    projects.videoContainer.children[i].style.display = "none";
+  }
+  
   projects.currentProjectIndex--;
   projects.button.next.disabled = false;
 
   if (projects.content[projects.currentProjectIndex]) {
     projects.container.innerHTML =
       projects.content[projects.currentProjectIndex];
-      className.add(projects.projectGif, "prj--" + projects.currentProjectIndex); 
+      projects.videoContainer.children[projects.currentProjectIndex].style.display = "block";
 
     projects.currentProjectIndex--;
     if (!projects.content[projects.currentProjectIndex]) {
       projects.button.previous.disabled = true;
       projects.currentProjectIndex++;
     } else {
-      projects.currentProjectIndex++;     
+      projects.currentProjectIndex++;
     }
   }
 });
