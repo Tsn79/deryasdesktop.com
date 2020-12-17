@@ -24,7 +24,7 @@
   --font-family--pixel: "VT323", monospace;
   --padding-small: 0.8rem;
   --cursor-point: url("../images/cursor_pointer.png"), auto;
-  --cursor-question: url("../images/cursor--question.png"), auto; }
+  --cursor-drag: url("../images/cursor_drag.png"), auto; }
 
 @keyframes logo-slide {
   0% {
@@ -145,7 +145,6 @@ body {
   overflow: hidden;
   user-select: none;
   cursor: url("../images/cursor.png"), auto;
-  background-image: url("../images/Group6.png");
   background-size: cover;
   background-repeat: no-repeat; }
 
@@ -155,6 +154,15 @@ body {
   background-color: var(--color-desktop-bg);
   position: relative;
   overflow: hidden; }
+
+.nowebp body {
+  background-image: url("../images/Group6.png"); }
+
+.webp body {
+  background-image: url("../images/Group6.webp"); }
+
+.no-js body {
+  background-image: url("../images/Group6.png"); }
 
 .body-container {
   font-family: 'Roboto', sans-serif;
@@ -367,13 +375,15 @@ button[disabled] {
     grid-template-columns: minmax(2rem, 5rem) min-content 8rem min-content minmax(2rem, 1fr);
     grid-template-rows: minmax(3rem, 5rem) repeat(5, 1fr); }
   .desktop__right {
-    background-image: url(../images/desktop-illustration.svg);
+    background-image: url("../images/desktop-illustration.png");
     background-repeat: no-repeat;
     background-position: 50% calc(50% + var(--height-header) - 8%);
     background-origin: border-box;
     background-size: 40vmax; }
 
 .file {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -394,20 +404,20 @@ button[disabled] {
   .file-icon {
     position: relative;
     display: block;
-    width: 9rem;
-    height: 9rem;
-    background-repeat: no-repeat;
-    background-size: contain;
+    z-index: 2;
     margin-bottom: .8rem;
     cursor: inherit;
     transition: .1s all; }
+    .file-icon img {
+      position: relative;
+      z-index: -1; }
     .file-icon::after {
       content: "";
       position: absolute;
       width: 3rem;
       height: 5rem;
       left: -3rem;
-      background-image: url(../images/spark--left.svg);
+      background-image: url("../images/spark--left.svg");
       background-repeat: no-repeat;
       background-size: contain;
       background-size: 3rem;
@@ -419,7 +429,7 @@ button[disabled] {
       width: 3rem;
       height: 5rem;
       right: -3rem;
-      background-image: url(../images/spark--right.svg);
+      background-image: url("../images/spark--right.svg");
       background-repeat: no-repeat;
       background-size: contain;
       background-size: 3rem;
@@ -444,7 +454,6 @@ button[disabled] {
     position: absolute;
     width: 100%;
     height: 90.5%;
-    background-image: url(../images/about-me--icon.svg);
     background-repeat: no-repeat;
     background-size: 25rem;
     background-position: 2rem 2rem;
@@ -458,12 +467,23 @@ button[disabled] {
     right: 2.9rem;
     padding: 3rem 1rem 0 0;
     line-height: var(--text-line-height); }
+    .about-me__content a {
+      color: var(--color-yellow); }
     .about-me__content::-webkit-scrollbar-thumb {
       background: var(--color-yellow); }
     .about-me__content p:not(:last-child) {
       margin-bottom: 1.2rem; }
     .about-me__content-header {
       margin-bottom: 1.5rem; }
+
+.nowebp .about-me__main-frame {
+  background-image: url("../images/about-me--icon.png"); }
+
+.webp .about-me__main-frame {
+  background-image: url("../images/about-me--icon.webp"); }
+
+.no-js .about-me__main-frame {
+  background-image: url("../images/about-me--icon.png"); }
 
 .meme-generator {
   width: 93.4rem;
@@ -583,7 +603,7 @@ button[disabled] {
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px); }
   .settings__main-pane {
-    background-image: url(../images/border-pane-settings.svg);
+    background-image: url("../images/border-pane-settings.svg");
     background-size: unset; }
   .settings__inner-pane {
     width: 95.2%;
@@ -861,7 +881,6 @@ button[disabled] {
     background: url("../images/weather/weather-background.png") repeat-x;
     background-size: auto 500px;
     background-position: center;
-    animation: animatedBackground 80s linear infinite;
     z-index: 100; }
   .weather__wrapper {
     position: absolute;
@@ -1004,7 +1023,6 @@ button[disabled] {
       bottom: 14.5rem;
       cursor: var(--cursor-point);
       border: yellow 0.3rem solid;
-      animation: colorChange 1s linear infinite;
       z-index: 2;
       display: flex;
       justify-content: center;
@@ -1188,27 +1206,25 @@ button[disabled] {
       width: 100%;
       z-index: 2;
       position: absolute;
-      background-image: url("../images/computer@2x.png");
       background-size: contain;
       background-repeat: no-repeat;
       margin: 0 auto; }
-    .my-works__computer:after {
-      content: "";
-      top: 6.38rem;
-      left: 8.14rem;
-      z-index: 1;
+    .my-works__computer video {
       position: absolute;
-      background-size: contain;
-      background-repeat: no-repeat;
-      height: 15.8rem;
-      width: 100%; }
-    .my-works__computer.prj--0:after {
-      background-image: url("../images/screencap.gif"); }
-    .my-works__computer.prj--1:after {
-      background-image: url("../images/mycontactman.gif"); }
+      top: 6.1rem;
+      left: -1.9rem; }
   .my-works__project-info {
     flex-basis: 50%;
     margin-left: 1.5rem; }
+
+.nowebp .my-works__computer:before {
+  background-image: url("../images/computer.png"); }
+
+.webp .my-works__computer:before {
+  background-image: url("../images/computer.webp"); }
+
+.no-js .my-works__computer:before {
+  background-image: url("../images/computer.png"); }
 
 .project {
   height: 100%;
