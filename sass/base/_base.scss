@@ -21,8 +21,7 @@ body {
     width: 100vw;
     overflow: hidden;
     user-select: none;
-    cursor: url("../images/cursor.png"), auto;
-    background-image: url("../images/Group6.png");
+    cursor: url("../images/cursor.png"), auto;   
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -35,3 +34,4 @@ body {
     overflow: hidden;
 }
 
+@include webp-optimizer("../images/Group6", "body");
