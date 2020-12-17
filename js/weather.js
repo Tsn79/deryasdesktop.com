@@ -247,8 +247,16 @@ weather.card.updateSky = function (conditionCode) {
 
     case "50d":
     case "50n":
-      template = `<img class="fog fog-up" src="../images/weather/fog.png" alt="image of fog">
-     <img class="fog fog-down" src="../images/weather/fog.png" alt="image of fog">`;
+      template = `<picture>
+      <source class="fog fog-up" srcset="../images/weather/fog.webp" type="image/webp">
+      <source class="fog fog-up" srcset="../images/weather/fog.png" type="image/png"> 
+      <img class="fog fog-up" src="../images/weather/fog.png" alt="image of fog">
+    </picture>
+      <picture>
+      <source class="fog fog-down" srcset="../images/weather/fog.webp" type="image/webp">
+      <source class="fog fog-down" srcset="../images/weather/fog.png" type="image/png"> 
+      <img class="fog fog-down" src="../images/weather/fog.png" alt="image of fog">
+    </picture>`;
       break;
 
     case "01d":
