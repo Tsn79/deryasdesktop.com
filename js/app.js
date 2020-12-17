@@ -46,7 +46,7 @@ desktop.setStackingOrder = function (currApp, activeApps) {
   if (activeApps.indexOf(currApp) === -1) {
     activeApps.push(currApp);
     for (var i = 0; i < activeApps.length; i++) {
-      activeApps[i].style.zIndex = "".concat(i + 1);
+      activeApps[i].style.zIndex = "".concat(i + 10);
     }
   } else {
     //if file link is already clicked, bring corresponding pane on the top
@@ -55,7 +55,7 @@ desktop.setStackingOrder = function (currApp, activeApps) {
     activeApps.push(currApp);
 
     for (var _i = 0; _i < activeApps.length; _i++) {
-      activeApps[_i].style.zIndex = "".concat(_i + 1);
+      activeApps[_i].style.zIndex = "".concat(_i + 10);
     }
   }
 };
@@ -99,7 +99,7 @@ desktop.buttons.closeButton.forEach((button) =>
   button.addEventListener("click", desktop.closeApp)
 );
 
-//when clicked, stack the app pane on the top
+//when clicked, stack the current app on the top
 desktop.apps.forEach((app) => {
   app.addEventListener("click", desktop.changeStackingOrder);
 });
