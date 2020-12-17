@@ -4,3 +4,18 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+//Url names of extensions SHOULD be same
+@mixin webp-optimizer($urlWithoutExtension, $element) {
+    .nowebp #{$element}{
+        background-image: url($urlWithoutExtension+".png");
+    }
+    
+    .webp #{$element} {
+        background-image: url($urlWithoutExtension+".webp");
+    }
+    
+    .no-js #{$element} {
+        background-image: url($urlWithoutExtension+".png");
+    }
+}
