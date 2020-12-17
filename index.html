@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>An Ordinary Portfolio Page of Derya</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous">
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
-      rel="stylesheet"
-    />
+    href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+    rel="stylesheet"
+  />
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
-    />
     <!--favicon-->
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
+    <script src="modernizr-custom.js" type="text/javascript"></script>
   </head>
   <body>
     <div class="body-container" id="body-container">
@@ -30,10 +28,9 @@
         <nav class="navigation">
           <div class="navigation__left">
             <div class="navigation__logo">
-              <img src="./images/new-logo.png" alt="logo image" />
+              <img src="./images/logo-small.png" alt="logo image" width="26" height="26"/>
               <p>Derya Antonelli</p>
             </div>
-
 
             <div class="navigation__dropdown" id="open-tabs" hidden>
               <!--<button class="navigation__dropdown-btn">meme generator</button>
@@ -106,8 +103,9 @@
             >
               <div
                 class="file-icon"
-                style="background-image: url(images/icons/icon-mail.svg)"
-              ></div>
+              >
+            <img src="images/icons/icon-mail.svg" alt="mail icon" width="90" height="90">
+            </div>
               <div class="file-label">_-Contact</div>
             </a>
             <a
@@ -118,10 +116,12 @@
             >
               <div
                 class="file-icon"
-                style="background-image: url(images/icons/icon-logo.svg)"
-              ></div>
+              >
+              <img src="images/icons/icon-logo.svg" alt="logo icon" width="90" height="90">
+            </div>
               <div class="file-label">About-Me.pdf</div>
             </a>
+            
             <a
               class="file file__meme"
               style="grid-area: 4 / 2 / 5 / 3"
@@ -130,8 +130,9 @@
             >
               <div
                 class="file-icon"
-                style="background-image: url(images/icons/icon-meme.svg)"
-              ></div>
+              >
+              <img src="images/icons/icon-meme.svg" alt="meme generator icon" width="90" height="90">
+            </div>
               <div class="file-label">Meme_Generator</div>
             </a>
             <a
@@ -142,8 +143,9 @@
             >
               <div
                 class="file-icon"
-                style="background-image: url(images/icons/icon-settings.svg)"
-              ></div>
+              >
+              <img src="images/icons/icon-settings.svg" alt="settings icon" width="90" height="90">
+            </div>
               <div class="file-label">SETTINGS</div>
             </a>
             <a
@@ -154,8 +156,9 @@
             >
               <div
                 class="file-icon"
-                style="background-image: url(images/icons/icon-drummer.svg)"
-              ></div>
+              >
+              <img src="images/icons/icon-drummer.svg" alt="drummer icon" width="90" height="90">
+            </div>
               <div class="file-label">Drummer</div>
             </a>
             <a
@@ -166,8 +169,9 @@
             >
               <div
                 class="file-icon"
-                style="background-image: url(images/icons/icon-window.svg)"
-              ></div>
+              >
+              <img src="images/icons/icon-window.svg" alt="weather icon" width="90" height="90">
+            </div>
               <div class="file-label">Weather</div>
             </a>
           </div>
@@ -242,7 +246,12 @@
               >
               </div>
               <div class="resume__main-frame-content scrollbar">
-                <img src="./images/resume-color-png@2x.png" alt="image of resume" class="resume__image">
+                <picture>
+                  <source class="resume__image" data-srcset="./images/resume-color-png@2x.webp" type="image/webp">
+                  <source class="resume__image" data-srcset="./images/resume-color-png@2x.png" type="image/png"> 
+                  <img class="resume__image lazyload" data-src="./images/resume-color-png@2x.png" alt="image of my resume" width="759" height="1045">
+                </picture>
+                <!-- <img src="./images/resume-color-png@2x.png" alt="image of resume" class="resume__image"> -->
               </div>
             </div>
           </div>
@@ -348,7 +357,10 @@
             <div class="my-works__main-frame">
               <div class="my-works__content">
                 <div class="my-works__content-top">
-                  <div class="my-works__computer prj--0"></div>
+                  <div class="my-works__computer">
+                    <video src="../images/screencap.mp4" width="100%" height="38%" style="display: block;" autoplay loop muted></video>
+                    <video src="../images/mycontactman.mp4" width="100%" height="38%" style="display: none;" autoplay loop muted></video>
+                  </div>
                   <div class="my-works__project-info">
                     <div class="project" id="project">
                       <div class="project-title">
@@ -699,24 +711,28 @@
                   <img
                     src="../images/button-icons/record.svg"
                     onerror="this.onerror=null; this.src='record.png'"
+                    width="12" height="12"
                   />
                 </button>
                 <button class="pause disable" disabled>
                   <img
                     src="../images/button-icons/pause.svg"
                     onerror="this.onerror=null; this.src='pause.png'"
+                    width="12" height="12"
                   />
                 </button>
                 <button class="play disable" disabled>
                   <img
                     src="../images/button-icons/play.svg"
                     onerror="this.onerror=null; this.src='play.png'"
+                    width="12" height="12"
                   />
                 </button>
                 <button class="stop disable" disabled>
                   <img
                     src="../images/button-icons/stop.svg"
                     onerror="this.onerror=null; this.src='stop.png'"
+                    width="12" height="12"
                   />
                 </button>
               </div>
@@ -787,33 +803,37 @@
 
       <!--ClICK EFFECT-->
       <audio class="click-sound">
-        <source src="images/click.wav" type="audio/mpeg" />
+        <source src="images/click.mp4" type="audio/mp4"/>
       </audio>
     </div>
 
     <!--DRUM SOUNDS-->
-    <audio data-key="65" class="drum-sound" src="sounds/clap.wav"></audio>
-    <audio data-key="83" class="drum-sound" src="sounds/hihat.wav"></audio>
-    <audio data-key="68" class="drum-sound" src="sounds/kick.wav"></audio>
-    <audio data-key="70" class="drum-sound" src="sounds/openhat.wav"></audio>
-    <audio data-key="71" class="drum-sound" src="sounds/boom.wav"></audio>
-    <audio data-key="72" class="drum-sound" src="sounds/ride.wav"></audio>
-    <audio data-key="74" class="drum-sound" src="sounds/snare.wav"></audio>
-    <audio data-key="75" class="drum-sound" src="sounds/tom.wav"></audio>
-    <audio data-key="76" class="drum-sound" src="sounds/tink.wav"></audio>
+    <audio data-key="65" class="drum-sound" src="sounds/clap.mp4"></audio>
+    <audio data-key="83" class="drum-sound" src="sounds/hihat.mp4"></audio>
+    <audio data-key="68" class="drum-sound" src="sounds/kick.mp4"></audio>
+    <audio data-key="70" class="drum-sound" src="sounds/openhat.mp4"></audio>
+    <audio data-key="71" class="drum-sound" src="sounds/boom.mp4"></audio>
+    <audio data-key="72" class="drum-sound" src="sounds/ride.mp4"></audio>
+    <audio data-key="74" class="drum-sound" src="sounds/snare.mp4"></audio>
+    <audio data-key="75" class="drum-sound" src="sounds/tom.mp4"></audio>
+    <audio data-key="76" class="drum-sound" src="sounds/tink.mp4"></audio>
     <audio class="recorded-audio" preload="auto"></audio>
 
-    <script type="module" src="js_modules/helper_functions.mjs"></script>
-    <script type="module" src="js_modules/draggable.mjs"></script>
-    <script type="module" src="js/weather.js"></script>
-    <script type="module" src="js/meme_generator.js"></script>
-    <script type="module" src="js/works.js"></script>
-    <script type="module" src="js/properties.js"></script>
+    <script>
+      document.documentElement.classList.remove("no-js");
+    </script>
+    
+    <script src="lazysizes.min.js" async></script>
+    <script type="module" src="js_modules/helper_functions.mjs" async></script>
+    <script type="module" src="js_modules/draggable.mjs" async></script>
+    <script type="module" src="js/weather.js" async></script>
+    <script type="module" src="js/meme_generator.js" async></script>
+    <script type="module" src="js/properties.js" async></script>
     <script type="text/javascript" src="config.js"></script>
     <script type="module" src="js/app.js"></script>
-    <script src="js/date.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/drummer.js"></script>
-    
+    <script src="js/works.js" async></script>
+    <script src="js/date.js" async></script>
+    <script src="js/settings.js" async></script>
+    <script src="js/drummer.js" async></script>
   </body>
 </html>
