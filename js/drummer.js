@@ -98,7 +98,7 @@ drummer.createSound = function () {
   drummer.audio.mediaRecorder.onstop = function (evt) {
     // Make blob out of our blobs, and open it.
     var blob = new Blob(drummer.audio.chunks, {
-      type: "audio/wav; codecs=wav",
+      type: "audio/mp4; codecs=mp4",
     });
     //create new audio here
     drummer.record.src = URL.createObjectURL(blob);
