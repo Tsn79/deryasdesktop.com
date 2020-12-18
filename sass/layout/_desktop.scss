@@ -18,7 +18,7 @@
   }
 
   &__right {
-    background-image: url(../images/desktop-illustration.svg);
+    background-image: url("../images/desktop-illustration.png");
     background-repeat: no-repeat;
     background-position: 50% calc(#{"50% + var(--height-header) - 8%"});
     background-origin: border-box;

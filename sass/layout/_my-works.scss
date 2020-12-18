@@ -44,7 +44,6 @@
         position: relative;
         flex-basis: 50%;
 
-
         &:before {
             content: "";
             top: 0;
@@ -53,30 +52,19 @@
             width: 100%;
             z-index: 2;
             position: absolute;
-            background-image: url("../images/computer@2x.png");
+            //background-image: url("../images/computer.png");
             background-size: contain;
             background-repeat: no-repeat;
             margin: 0 auto;
+
+            
         }
 
-        &:after {
-            content: "";
-            top: 6.38rem;
-            left: 8.14rem;
-            z-index: 1;
-            position: absolute;
-            background-size: contain;
-            background-repeat: no-repeat;
-            height: 15.8rem;
-            width: 100%;
-        }
 
-        &.prj--0:after {
-          background-image: url("../images/screencap.gif");
-        }
-
-        &.prj--1:after {
-          background-image: url("../images/mycontactman.gif");
+        & video {
+          position: absolute;
+          top: 6.1rem;
+          left: -1.9rem;
         }
       }
 
@@ -85,6 +73,8 @@
         margin-left: 1.5rem;
       }
 }
+
+@include webp-optimizer("../images/computer", ".my-works__computer:before");
 
 .project {
   height: 100%;
@@ -137,3 +127,4 @@
 
   }
 }
+
