@@ -26,7 +26,7 @@
     background: url("../images/weather/weather-background.png") repeat-x;
     background-size: auto 500px;
     background-position: center;
-    animation: animatedBackground 80s linear infinite;
+    //animation: animatedBackground 80s linear infinite;
     z-index: 100;
   }
 
@@ -239,7 +239,7 @@
       bottom: 14.5rem;
       cursor: var(--cursor-point);
       border: yellow 0.3rem solid;
-      animation: colorChange 1s linear infinite;
+      //animation: colorChange 1s linear infinite;
       z-index: 2;
       display: flex;
       justify-content: center;
