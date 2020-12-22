@@ -1,37 +1,73 @@
 *,
 *:before,
 *:after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;    
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {
- cursor: url("../images/cursor_pointer.png"), auto;
+  cursor: url("../images/cursor_pointer.png"), auto;
 }
 
-
-
 html {
-    font-size: 62.5%; //1rem = 10px
+  font-size: 62.5%; //1rem = 10px
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    user-select: none;
-    cursor: url("../images/cursor.png"), auto;   
-    background-size: cover;
-    background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  user-select: none;
+  cursor: url("../images/cursor.png"), auto;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .body-container {
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--color-desktop-bg);
-    position: relative;
-    overflow: hidden;
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-desktop-bg);
+  position: relative;
+  overflow: hidden;
 }
 
 @include webp-optimizer("../images/Group6", "body");
+
+#loader {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & > *:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+
+  img {
+    width: 30rem;
+    height: 30rem;
+  }
+
+  h3 {
+    font-family: "Courier New", Courier, monospace;
+    color: white;
+    text-transform: uppercase;
+    font-size: 2.3rem;
+  }
+
+  & .myProgress {
+    width: 20rem;
+    background-color: grey;
+  }
+
+  & .myBar {
+    width: 0%;
+    height: 30px;
+    background-color: #0000a8;
+  }
+}
