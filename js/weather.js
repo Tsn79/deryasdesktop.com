@@ -28,7 +28,6 @@ weather.querySection.suggestionsList = document.querySelector(
   ".suggested-results"
 );
 
-//weather.wrapper = document.querySelector(".weather__wrapper");
 
 weather.forecast = (function () {
   const API_KEY = config.OPEN_WEATHER_API_KEY,
@@ -227,7 +226,11 @@ weather.card.updateSky = function (conditionCode) {
 
     case "10n":
       template = `<img class="cloud" src="../images/weather/cloud.png" alt="an image of cloud">
-        <img class="moon-behind-cloud" src="../images/weather/moon.png" alt="an image of moon">
+      <picture>
+      <source class="moon-behind-cloud" srcset="../images/weather/moon.webp" type="image/webp">
+      <source class="moon-behind-cloud" srcset="../images/weather/moon.png" type="image/png"> 
+      <img class="moon-behind-cloud" src="../images/weather/moon.png" alt="an image of moon">
+    </picture>     
         <div class="drops">
           <img class="drop" src="../images/weather/drop.png" alt="an image of drop">
           <img class="drop" src="../images/weather/drop.png" alt="an image of drop">
