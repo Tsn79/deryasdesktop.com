@@ -21,8 +21,20 @@
     <!--favicon-->
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
     <script src="modernizr-custom.js" type="text/javascript"></script>
+    <link rel="preload" href="images/computer.webp" as="image">
+    <link rel="preload" href="images/pane.svg" as="image">
+    <link rel="preload" href="images/border-pane-settings.svg" as="image">
+    <link rel="preload" href="images/icons/icon-logo.svg" as="image">
+    <script src="js/load.js" type="text/javascript"></script>
   </head>
   <body>
+    <div id="loader">
+      <img src="/images/icons/icon-logo.svg" alt="logo icon" width="300" height="300">
+      <h3>connecting to desktop...</h3>
+      <div class="myProgress">
+        <div class="myBar"></div>
+      </div>
+    </div>
     <div class="body-container" id="body-container">
       <header>
         <nav class="navigation">
@@ -33,14 +45,6 @@
             </div>
 
             <div class="navigation__dropdown" id="open-tabs" hidden>
-              <!--<button class="navigation__dropdown-btn">meme generator</button>
-              <div class="navigation__dropdown-content">
-                <a href="#" class="link quit"
-                  >close<span aria-label="Close Account Info Modal Box"
-                    >&times;</span
-                  ></a 
-                > 
-              </div>-->
             </div>
 
             <div class="navigation__dropdown">
@@ -768,7 +772,25 @@
                       class="sun"
                       src="../images/weather/sun.png"
                       alt="an image of sun"
+                      width="73" height="73"
                     />
+                    <img class="cloud" src="../images/weather/cloud.png" alt="an image of cloud" style="display: none;" width="80" height="45">
+                    <picture>
+                      <source class="moon-behind-cloud" srcset="../images/weather/moon.webp" type="image/webp">
+                      <source class="moon-behind-cloud" srcset="../images/weather/moon.png" type="image/png"> 
+                      <img class="moon-behind-cloud" src="../images/weather/moon.png" alt="an image of moon" style="display: none;" width="51" height="51">
+                    </picture>
+                    <picture>
+                      <source class="fog fog-down" srcset="../images/weather/fog.webp" type="image/webp">
+                      <source class="fog fog-down" srcset="../images/weather/fog.png" type="image/png"> 
+                      <img class="fog fog-down" src="../images/weather/fog.png" alt="image of fog" style="display: none;" width="281" height="100">
+                    </picture>
+                    <picture>
+                      <source class="fog fog-up" srcset="../images/weather/fog.webp" type="image/webp">
+                      <source class="fog fog-up" srcset="../images/weather/fog.png" type="image/png"> 
+                      <img class="fog fog-up" src="../images/weather/fog.png" alt="image of fog" style="display: none;" width="281" height="100">
+                    </picture>
+                    <img class="dark-cloud" src="../images/weather/dark-cloud.png" alt="an image of dark cloud" style="display: none;" width="73" height="40"></img>
                   </div>
                   <div class="weather__card-search-result" id="card-text">
                     <p class="city" id="city">little ninjatown</p>
@@ -824,15 +846,15 @@
     </script>
     
     <script src="lazysizes.min.js" async></script>
-    <script type="module" src="js_modules/helper_functions.mjs" async></script>
-    <script type="module" src="js_modules/draggable.mjs" async></script>
+    <script type="module" src="js_modules/helper_functions.mjs"></script>
+    <script type="module" src="js_modules/draggable.mjs"></script>
+    <script type="text/javascript" src="config.js"></script>
     <script type="module" src="js/weather.js" async></script>
     <script type="module" src="js/meme_generator.js" async></script>
-    <script type="module" src="js/properties.js" async></script>
-    <script type="text/javascript" src="config.js"></script>
-    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/properties.js" async></script> 
+    <script type="module" src="js/app.js"async></script>
     <script src="js/works.js" async></script>
-    <script src="js/date.js" async></script>
+    <script src="js/date.js"></script>
     <script src="js/settings.js" async></script>
     <script src="js/drummer.js" async></script>
   </body>
