@@ -19,40 +19,12 @@
   --font-size-xl: 2.1rem;
   --font-size-big: 1.9rem;
   --font-size-medium: 1.7rem;
-  --font-size-small: 1.3rem;
+  --font-size-small: 1.4rem;
   --font-family: 'Roboto', sans-serif;
   --font-family--pixel: "VT323", monospace;
   --padding-small: 0.8rem;
   --cursor-point: url("../images/cursor_pointer.png"), auto;
   --cursor-drag: url("../images/cursor_drag.png"), auto; }
-
-@keyframes logo-slide {
-  0% {
-    transform: translate(1.8rem, 0rem); }
-  20% {
-    transform: translate(22rem, 0rem); }
-  30% {
-    transform: translate(17rem, -0.5rem); }
-  40% {
-    transform: translate(14rem, 0.5rem); }
-  50% {
-    transform: translate(11rem, -0.5rem); }
-  60% {
-    transform: translate(8rem, 0.5rem); }
-  70% {
-    transform: translate(5rem, -0.5rem); }
-  80% {
-    transform: translate(3rem, 0.5rem); }
-  90% {
-    transform: translate(1rem, -0.5rem); }
-  100% {
-    transform: translate(1.8rem, 0.5rem); } }
-
-@keyframes animatedBackground {
-  from {
-    background-position: 2000px; }
-  to {
-    background-position: 0px; } }
 
 @keyframes jump {
   0% {
@@ -61,14 +33,6 @@
     transform: translateY(-20px); }
   100% {
     transform: translateY(0px); } }
-
-@keyframes colorChange {
-  0% {
-    border-color: #fffc00; }
-  50% {
-    border-color: #08ff08; }
-  100% {
-    border-color: #04d9ff; } }
 
 @keyframes shake {
   0% {
@@ -126,6 +90,12 @@
   100% {
     transform: scale(1.1); } }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
 *,
 *:before,
 *:after {
@@ -149,6 +119,7 @@ body {
   background-repeat: no-repeat; }
 
 .body-container {
+  display: none;
   height: 100vh;
   width: 100vw;
   background-color: var(--color-desktop-bg);
@@ -163,6 +134,32 @@ body {
 
 .no-js body {
   background-image: url("../images/Group6.png"); }
+
+#loader {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  #loader > *:not(:last-child) {
+    margin-bottom: 4rem; }
+  #loader img {
+    width: 30rem;
+    height: 30rem; }
+  #loader h3 {
+    font-family: "Courier New", Courier, monospace;
+    color: white;
+    text-transform: uppercase;
+    font-size: 2.3rem; }
+  #loader .myProgress {
+    width: 20rem;
+    background-color: grey; }
+  #loader .myBar {
+    width: 0%;
+    height: 30px;
+    background-color: #0000a8; }
 
 .body-container {
   font-family: 'Roboto', sans-serif;
@@ -286,7 +283,7 @@ button[disabled] {
       height: 2.6rem;
       margin-right: 0.8rem; }
     .navigation__logo p {
-      font-size: 1.8rem;
+      font-size: var(--font-size-big);
       letter-spacing: 0.8px;
       font-weight: bold; }
   .navigation__left, .navigation__right {
@@ -436,7 +433,7 @@ button[disabled] {
       transition: .3s all;
       opacity: 0; }
   .file-label {
-    font-size: 1.4rem;
+    font-size: var(--font-size-small);
     margin: 0 auto;
     cursor: inherit;
     transition: .3s all; }
