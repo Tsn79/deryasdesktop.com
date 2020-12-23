@@ -105,16 +105,6 @@ drummer.createSound = function () {
   };
 };
 
-drummer.initCanvas = (function () {
-  //visually fill the positioned parent
-  drummer.canvas.style.width = "100%";
-  drummer.canvas.style.height = "100%";
-
-  //set the internal size to match
-  drummer.canvas.width = drummer.canvas.offsetWidth;
-  drummer.canvas.height = drummer.canvas.offsetHeight;
-})();
-
 //https://www.thetopsites.net/article/52375280
 //make sure duration does not return infinity with html audio tag
 drummer.playback.getDuration = function (url, next) {
@@ -254,7 +244,6 @@ drummer.record.addEventListener("timeupdate", function () {
 });
 
 drummer.handleRecord = function () {
-  console.time("record");
 
   if (!drummer.audio.context) {
     drummer.createSound();
@@ -309,7 +298,6 @@ drummer.handleRecord = function () {
     drummer.audio.mediaRecorder.stop();
   }
 
-  console.timeEnd("record");
 };
 
 drummer.buttons.record.addEventListener("click", function () {
