@@ -4,8 +4,6 @@ export class Draggable {
     this.header = header
     this.shiftX = null
     this.shiftY = null
-    this.offsetWidth = this.el.offsetWidth;
-    this.offsetHeight = this.el.offsetHeight;
     this.onMouseDown = this.onMouseDown.bind(this)
     this.onMouseMove = this.onMouseMove.bind(this)
     this.onMouseUp = this.onMouseUp.bind(this)
@@ -13,18 +11,18 @@ export class Draggable {
     }
     
     addEventHandlers() {
-      if(this.header) {
-        //drag from header
-        this.header.addEventListener('mousedown', this.onMouseDown)
-      } else {
+       if(this.header) {
+         //drag from header
+         this.header.addEventListener('mousedown', this.onMouseDown)
+       } else {
         this.el.addEventListener('mousedown', this.onMouseDown)
       }
     
-    this.el.addEventListener('dragstart', e => e.preventDefault())
+    this.el.addEventListener('dragstart', e => e.preventDefault());
     document.addEventListener('mouseup', this.onMouseUp)
     }
     
-    onMouseDown(e) { 
+    onMouseDown(e) {
     e = e || window.event;
     this.el.style.cursor = 'url("../images/cursor_drag.png"), auto'; 
     this.getDragPointer(e.clientX, e.clientY)
@@ -33,11 +31,10 @@ export class Draggable {
     document.addEventListener('mousemove', this.onMouseMove)
     }
     
-    getDragPointer(x, y) {
+    getDragPointer(x, y) { 
     const elRect = this.el.getBoundingClientRect()
     this.shiftX = x - elRect.left
     this.shiftY = y - elRect.top
-    
     }
     
     prepareElement() {
@@ -48,18 +45,24 @@ export class Draggable {
     moveElementTo(x, y) {
     var leftPosition = x - this.shiftX < 0 ? 0 : x - this.shiftX;
 
-    if(this.offsetWidth + leftPosition > document.body.clientWidth) {
-      leftPosition = document.body.clientWidth - this.offsetWidth;
+    if(this.el.offsetWidth + leftPosition > document.body.clientWidth) {
+      leftPosition = document.body.clientWidth - this.el.offsetWidth;
     }
     
     var maxTopPos = document.querySelector(".navigation").offsetHeight;
-    var topPosition = y - this.shiftY < maxTopPos ? maxTopPos : y - this.shiftY
+    var topPosition = y - this.shiftY < maxTopPos ? maxTopPos : y - this.shiftY;
   
-    if(this.offsetHeight + topPosition > document.body.clientHeight) {
-      topPosition = document.body.clientHeight - this.offsetHeight;
+    if(this.el.offsetHeight + topPosition > document.body.clientHeight) {
+      topPosition = document.body.clientHeight - this.el.offsetHeight;
     }
-    this.el.style.left = `${leftPosition/10}rem`;
-    this.el.style.top = `${(topPosition/10)}rem`;
+
+    //set responsive constraints for dragging object
+    var el = document.querySelector('html');
+    var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+    var fontSize = parseInt(style);
+
+    this.el.style.left = `${leftPosition/fontSize}rem`;
+    this.el.style.top = `${topPosition/fontSize}rem`;
     }
     
     onMouseMove(e) {
