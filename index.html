@@ -53,7 +53,7 @@
                 <a href="#about-me" class="link">about</a>
                 <a href="#resume" class="link">resume</a>
                 <a href="#my-works" class="link">works</a>
-                <a href="mailto:derya.antonelli@gmail.com" class="link">contact</a>
+                <a href="mailto:derya.antonelli@gmail.com" class="link mail">contact</a>
               </div>
             </div>
 
@@ -180,7 +180,8 @@
             </a>
           </div>
         </div>
-        <div class="desktop__right"></div>
+        <div class="desktop__right">
+        </div>
       </section>
 
       <!--PANES-->
@@ -189,16 +190,16 @@
       <section class="pane about-me draggable" id="about-me">
         <div class="main-pane">
           <div class="inner-pane">
-            <div class="inner-pane__header">
-              <p class="inner-pane__header-text">About-Me.pdf</p>
+            <div class="inner-pane__header drag">
+                <p class="inner-pane__header-text ">About-Me.pdf</p>
+              </div>
               <a
                 href="#about-me"
                 class="close-btn"
                 aria-label="Close Account Info Modal Box"
                 role="button"
                 >&times;</a
-              >
-            </div>
+              >        
             <div class="about-me__main-frame">
               <div class="about-me__content scrollbar">  
                 <h2 class="about-me__content-header">Hi! I am a <br><span class="highlight">Front-End Developer,</span><br>and my name is <span class="highlight">Derya</span></h2>   
@@ -229,8 +230,9 @@
       <section class="pane resume draggable" id="resume">
         <div class="main-pane">
           <div class="inner-pane">
-            <div class="inner-pane__header">
+            <div class="inner-pane__header drag">
               <p class="inner-pane__header-text">Resume.pdf</p>
+            </div>
               <a
                 href="#resume"
                 class="close-btn"
@@ -238,7 +240,7 @@
                 role="button"
                 >&times;</a
               >
-            </div>
+            
             <div class="resume__main-frame">
               <div class="resume__main-frame-header">
                 <a
@@ -250,12 +252,7 @@
               >
               </div>
               <div class="resume__main-frame-content scrollbar">
-                <picture>
-                  <source class="resume__image" data-srcset="./images/resume-color-png@2x.webp" type="image/webp">
-                  <source class="resume__image" data-srcset="./images/resume-color-png@2x.png" type="image/png"> 
-                  <img class="resume__image lazyload" data-src="./images/resume-color-png@2x.png" alt="image of my resume" width="759" height="1045">
-                </picture>
-                <!-- <img src="./images/resume-color-png@2x.png" alt="image of resume" class="resume__image"> -->
+                <img src="./images/resume-color.svg" class="resume__image" alt="image of my resume" width="759" height="1045">
               </div>
             </div>
           </div>
@@ -267,8 +264,9 @@
       <section class="pane properties draggable" id="properties">
         <div class="main-pane">
           <div class="inner-pane">
-            <div class="inner-pane__header">
+            <div class="inner-pane__header drag">
               <p class="inner-pane__header-text">Properties.exe</p>
+            </div>
               <a
                 href="#properties"
                 class="close-btn"
@@ -276,7 +274,7 @@
                 role="button"
                 >&times;</a
               >
-            </div>
+            
             <div class="properties__main-frame">
                 <nav class="properties__tabs" id="tabs">
                 <button class="btn clicked" data-name="properties_about">About Website</button>
@@ -348,16 +346,16 @@
       <section class="pane my-works draggable" id="my-works">
         <div class="main-pane">
           <div class="inner-pane">
-            <div class="inner-pane__header">
+            <div class="inner-pane__header drag">
               <p class="inner-pane__header-text">My_works</p>
+            </div>
               <a
                 href="#my-works"
                 class="close-btn"
                 aria-label="Close Account Info Modal Box"
                 role="button"
                 >&times;</a
-              >
-            </div>
+              >          
             <div class="my-works__main-frame">
               <div class="my-works__content">
                 <div class="my-works__content-top">
@@ -405,8 +403,8 @@
       <section class="pane meme-generator draggable" id="meme-generator">
         <div class="main-pane">
           <div class="inner-pane">
-            <div class="inner-pane__header">
-              <p class="inner-pane__header-text">Meme-Generator.exe</p>
+            <div class="inner-pane__header drag">
+              <p class="inner-pane__header-text">Meme-Generator.exe</p></div>
               <a
                 href="#meme-generator"
                 class="close-btn"
@@ -414,7 +412,7 @@
                 role="button"
                 >&times;</a
               >
-            </div>
+            
             <div class="meme-generator__main-frame">
               <div class="meme-generator__main-frame-header">
                 <a
@@ -544,8 +542,8 @@
       <section class="pane settings draggable" id="settings">
         <div class="main-pane settings__main-pane">
           <div class="inner-pane settings__inner-pane">
-            <div class="inner-pane__header">
-              <p class="inner-pane__header-text">Settings.app</p>
+            <div class="inner-pane__header drag">
+              <p class="inner-pane__header-text">Settings.app</p></div>
               <a
                 href="#settings"
                 class="close-btn"
@@ -553,7 +551,7 @@
                 role="button"
                 >&times;</a
               >
-            </div>
+            
             <div class="settings__main-frame">
               <div class="settings__container">
                 <div class="settings__background">
@@ -645,16 +643,15 @@
       <section class="pane drummer draggable" id="drummer" tabindex="-1">
         <div class="main-pane drummer__main-pane">
           <div class="inner-pane drummer__inner-pane">
-            <div class="inner-pane__header">
-              <p class="inner-pane__header-text">Drummer.me</p>
+            <div class="inner-pane__header drag">
+              <p class="inner-pane__header-text">Drummer.me</p></div>
               <a
                 href="#drummer"
                 class="close-btn"
                 aria-label="Close Account Info Modal Box"
                 role="button"
                 >&times;</a
-              >
-            </div>
+              >           
             <div class="drummer__main-frame">
               <div class="drummer__canvas-box">
                 <div class="hello" style="z-index: 101">
@@ -749,8 +746,8 @@
       <section class="pane weather draggable" id="weather">
         <div class="main-pane">
           <div class="inner-pane">
-            <div class="inner-pane__header">
-              <p class="inner-pane__header-text">weather.app</p>
+            <div class="inner-pane__header drag">
+              <p class="inner-pane__header-text">weather.app</p></div>
               <a
                 href="#weather"
                 class="close-btn"
@@ -758,7 +755,7 @@
                 role="button"
                 >&times;</a
               >
-            </div>
+            
             <div class="weather__main-frame">
               <div class="weather__background"></div>
               <div class="weather__wrapper">
