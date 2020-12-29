@@ -2,12 +2,22 @@
   width: 93rem;
   height: 59.2rem;
 
+  @include respond(tab-port-s) { 
+    width: 87rem;
+    height: 55.3rem;
+  } 
+
   &.clicked {
-    left: 27rem;
+    left: 15rem;
     top: 5rem;
     opacity: 1;
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px);
+
+    @include respond(tab-port-s) { 
+      left: 1rem;
+      top: 15rem;
+    } 
   }
 
   &__main-frame {
@@ -35,7 +45,12 @@
 
   &__image {
     width: 75.9rem;
+    height: auto;
     display: block;
-    //margin: 0 auto;
+    border-right: 2px black solid;
+
+    @include respond(tab-port-s) { 
+      width: 71.5rem;
+    }     
   }
 }
