@@ -18,7 +18,7 @@ desktop.dragFrames = (function () {
   for (var i = 0; i < desktop.draggables.length; i++) {
     new Draggable(
       desktop.draggables[i],
-      desktop.draggables[i].querySelector(".inner-pane__header")
+      desktop.draggables[i].querySelector(".drag")
     );
   }
 })();
@@ -29,7 +29,8 @@ desktop.openApp = function (event) {
       event.target.className !== "link" &&
       event.target.className !== "navigation__link") ||
     //exclude mail icon
-    event.target.parentNode.className === "file file__mail"
+    event.target.parentNode.className === "file file__mail" ||
+    event.target.className === "mail"
   ) {
     return;
   }
@@ -76,6 +77,7 @@ desktop.getDomElementFromUrl = function (urlLink) {
 desktop.closeApp = function (event) {
   event.stopPropagation();
   var selected = desktop.getDomElementFromUrl(this.href);
+  //var selected = desktop.getDomElementFromUrl(event.target.href);
   className.remove(selected, "clicked");
   return desktop.removeAppFromStack(selected, desktop.activeApps);
 };
