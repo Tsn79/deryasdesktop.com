@@ -9,19 +9,38 @@
       display: grid;
       height: 100vh;
       row-gap: 4.5rem;
-      grid-template-columns: minmax(2rem, 5rem) min-content 8rem min-content minmax(
+       grid-template-columns: minmax(2rem, 5rem) min-content 8rem min-content minmax(
+           2rem,
+           1fr
+         );
+      grid-template-rows: minmax(3rem, 5rem) repeat(5, .5fr);
+
+      @include respond(tab-port-s) { 
+        row-gap: 6.5rem;
+        grid-template-columns: minmax(2rem, 5rem) min-content 11rem min-content minmax(
           2rem,
           1fr
         );
-      grid-template-rows: minmax(3rem, 5rem) repeat(5, 1fr);
+      } 
+
+      @include respond(big-desktop) { 
+        row-gap: 6.4rem;
+      }
     }
   }
 
-  &__right {
+  &__right { 
+    height: 100vh;
     background-image: url("../images/desktop-illustration.png");
     background-repeat: no-repeat;
-    background-position: 50% calc(#{"50% + var(--height-header) - 8%"});
-    background-origin: border-box;
+    background-position: 50% 50%;
     background-size: 40vmax;
+
+    @include respond(tab-land-xl) {
+      background-image: none;
+    }
+
+    }
+ 
   }
-}
+
