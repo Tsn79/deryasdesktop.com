@@ -552,9 +552,9 @@ weather.main.addEventListener(
   weather.querySection.deleteAutoSuggestList
 );
 
-weather.card.brick.addEventListener("mousedown", weather.card.jumpToBrick);
+weather.card.brick.addEventListener("pointerdown", weather.card.jumpToBrick);
 
-weather.card.brick.addEventListener("mouseup", weather.card.jumpBack);
+weather.card.brick.addEventListener("pointerup", weather.card.jumpBack);
 
 //DEBOUNCE
 function debounce(func, wait) {
