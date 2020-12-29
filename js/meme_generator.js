@@ -45,10 +45,9 @@ memeExe.toggleActive = function(element) {
   className.add(element, "active");
 }
 
-
 memeExe.drawMeme = function() {
-  var meme = memeExe.setMemeSize(this.width, this.height, 300, 300);
-
+  var targetSize = parseInt(window.getComputedStyle(memeExe.container).width);
+  var meme = memeExe.setMemeSize(this.width, this.height, targetSize, targetSize);
   //set canvas container same as meme dimensions
   memeExe.canvas.width = meme.width;
   memeExe.canvas.height = meme.height;
@@ -65,30 +64,38 @@ memeExe.drawMeme = function() {
 
 memeExe.drawText = function(text, pos, font){
   var copy = text.toUpperCase(),
-  yPos = "",
-  xPos = "";
+  yPos = "";
+
 
   switch (pos) {
     case 'top': 
-      xPos = (memeExe.textTop.clientWidth/2)+1;
-      yPos = memeExe.textTop.offsetTop+10;
+      //xPos = (memeExe.textTop.clientWidth/2)+1;
+      //yPos = memeExe.textTop.offsetTop+10;
+      yPos =  memeExe.textTop.offsetTop + parseInt(window.getComputedStyle(memeExe.textTop).padding) + 
+      parseInt(window.getComputedStyle(memeExe.textTop).borderWidth) + 2;
+      //yPos = memeExe.textTop.scrollHeight;
       break;
     
     case 'bottom':
-      xPos = (memeExe.textBtm.clientWidth/2)+1;
-      yPos = memeExe.textBtm.offsetTop+10;
+      //xPos = (memeExe.textBtm.clientWidth/2)+1;
+      //yPos = memeExe.textBtm.offsetTop+10;
+      yPos = memeExe.canvas.height - memeExe.textBtm.scrollHeight;
+      
       break;
   }
-  
+
   memeExe.ctx.textBaseline = 'top';
   memeExe.ctx.textAlign = 'center';
   memeExe.ctx.font = 'bold '+font+' Helvetica';
   memeExe.ctx.shadowColor="#000";
+  memeExe.ctx.lineCap="round";
+  memeExe.ctx.lineJoin="round";
   memeExe.ctx.shadowOffsetX=2;
   memeExe.ctx.shadowOffsetY=2;
   memeExe.ctx.shadowBlur=0;
   memeExe.ctx.fillStyle = '#fff';
-  memeExe.ctx.fillText(copy, xPos, yPos);  
+  memeExe.ctx.strokeText(copy, memeExe.canvas.width/2, yPos);
+  memeExe.ctx.fillText(copy, memeExe.canvas.width/2, yPos);  
 }
 
 
@@ -112,10 +119,22 @@ memeExe.setMemeSize = function(memeWidth, memeHeight, targetWidth, targetHeight)
   result.height = targetHeight / ratio;
 
   //if calculated height is more than target height, set width proportionally
-  if (result.height > targetHeight) {
+  if (memeHeight > targetHeight) {
     result.height = targetHeight;
-    result.width = targetWidth * ratio;
   }
+
+  if (memeWidth > targetWidth) {
+    result.width = targetWidth;
+  }
+
+  if (memeWidth <= targetWidth) {
+    result.width = memeWidth;
+  }
+
+  if (memeHeight <= targetHeight) {
+    result.height = memeHeight;
+  }
+
   return result;
 }
 
@@ -134,10 +153,11 @@ memeExe.validateAndUploadMeme = function(event) {
 }
 
 
-memeExe.downloadMeme = function() {
+memeExe.downloadMeme = function() { 
   var imageUrl = memeExe.canvas.toDataURL("image/png")
                 .replace("image/png", "image/octet-stream"); 
   memeExe.downloadBtn.setAttribute("href", imageUrl);
+
 }
 
 
