@@ -8,6 +8,11 @@
     opacity: 1;
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px);
+
+    @include respond(tab-port-s) { //1 rem = 8.5; 8.5 / 16;
+      left: 3rem;
+      top: 14rem;
+    }
   }
 
   &__tabs {

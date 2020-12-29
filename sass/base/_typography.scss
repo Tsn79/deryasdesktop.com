@@ -2,5 +2,13 @@
     font-family: 'Roboto', sans-serif;
     font-size: var(--font-size-medium);
     letter-spacing: var(--text-spacing);
+
+    @include respond(tab-port-s) { //1 rem = 8.5; 8.5 / 16;
+      font-size: 1.8rem;
+    } 
+
+    @include respond(big-desktop) { //1 rem = 12; 12/16
+        font-size: var(--font-size-big);
+      }
 }
 

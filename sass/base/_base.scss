@@ -12,6 +12,45 @@ a {
 
 html {
   font-size: 62.5%; //1rem = 10px
+
+   @include respond(tab-land-m) { //1 rem = 9; 9/16;
+    font-size:
+     56.2%;
+   }
+  @include respond(tab-port-l) { //1 rem = 8; 8 / 16;
+    font-size: 50%;
+  } 
+ 
+  @include respond(tab-port-s) { //1 rem = 8.5; 8.5 / 16;
+    font-size: 53%;
+  } 
+  
+   @include respond(phone-l) { //1 rem = 8; 8/16;
+    font-size: 50%;
+  }
+
+   @include respond(phone-m) { //1 rem = 7; 7/16;
+    font-size: 43.8%;
+  }
+
+  @include respond(phone-s) { //1 rem = 6; 6/16;
+    font-size: 37.5%;
+  }
+ 
+   
+  
+ 
+ 
+
+  //Curr size //1 rem = 10;
+
+  @include respond(big-desktop) { //1 rem = 12; 12/16
+    font-size: 75%;
+  }
+
+
+
+
 }
 
 body {

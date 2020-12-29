@@ -4,10 +4,15 @@
 
   &.clicked {
     opacity: 1;
-    left: 45rem;
+    left: 30rem;
     top: 14rem;
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px);
+
+    @include respond(tab-port-s) { 
+      left: 10rem;
+      top: 20rem;
+    } 
   }
 
   &__main-frame {
