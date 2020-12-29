@@ -9,6 +9,14 @@
   z-index: 1000;
   box-shadow: 0 2px 0 #000;
 
+  @include respond(tab-port-s) { //1 rem = 8; 8 / 16;
+    height: 4.6rem;
+  }
+
+  @include respond(big-desktop) { //1 rem = 12; 12/16
+    height: 4rem;
+  }
+
   &__logo {
     display: flex;
     justify-content: space-around;
@@ -16,6 +24,7 @@
     padding: 0 1rem;
 
     & img {
+      width: 2.6rem;
       height: 2.6rem;
       margin-right: 0.8rem;
     }
@@ -24,6 +33,10 @@
       font-size: var(--font-size-big);
       letter-spacing: 0.8px;
       font-weight: bold;
+
+      @include respond(big-desktop) { //1 rem = 12; 12/16
+        font-size: var(--font-size-xl);
+      }
     }
   }
 
@@ -31,6 +44,12 @@
   &__right {
     display: flex;
     justify-content: space-between;
+
+    & .email {
+      @include respond(tab-port-s) { //1 rem = 8.5; 8.5 / 16;
+        display: none;
+      } 
+    }
 
     & > *:not(.email) {
       margin-right: 1rem;
@@ -93,6 +112,10 @@
       background-color: var(--color-grey-dropdown);
       outline: 2px solid;
       //top: 3.8rem;
+
+      @include respond(big-desktop) { //1 rem = 12; 12/16
+        font-size: var(--font-size-medium);
+      }
 
       /* Links inside the dropdown */
       & a {
@@ -160,4 +183,11 @@
   &-github {
     content: url("../images/icons/icon--github.png");
   }
+}
+
+#open-tabs {
+
+  @include respond(tab-port-s) { //1 rem = 8; 8 / 16;
+    display: none;
+  } 
 }
