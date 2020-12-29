@@ -15,7 +15,7 @@
   //override common set-up
   &__main-pane {
     background-image: url("../images/border-pane-settings.svg");
-    background-size: unset;
+    background-size: 211.2% 228.3%
   }
 
   &__inner-pane {
@@ -113,9 +113,9 @@
         }
 
         &:checked + .slider:before {
-          -webkit-transform: translateX(26px);
-          -ms-transform: translateX(26px);
-          transform: translateX(26px);
+          -webkit-transform: translateX(2.6rem);
+          -ms-transform: translateX(2.6rem);
+          transform: translateX(2.6rem);
         }
       }
 
@@ -136,10 +136,10 @@
         &:before {
           position: absolute;
           content: "";
-          height: 26px;
-          width: 26px;
-          left: 2px;
-          bottom: 2px;
+          height: 2.6rem;
+          width: 2.6rem;
+          left: .2rem;
+          bottom: .2rem;
           background-color: black;
           -webkit-transition: 0.4s;
           transition: 0.4s;
@@ -171,16 +171,16 @@
         &::-webkit-slider-thumb {
           -webkit-appearance: none;
           appearance: none;
-          width: 26px;
-          height: 26px;
+          width: 2.6rem;
+          height: 2.6rem;
           border-radius: 50%;
           background: black;
           cursor: var(--cursor-point);
         }
 
         &::-moz-range-thumb {
-          width: 26px;
-          height: 26px;
+          width: 2.6rem;
+          height: 2.6rem;
           border-radius: 50%;
           background: black;
           cursor: pointer;
