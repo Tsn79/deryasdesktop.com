@@ -19,3 +19,67 @@
         background-image: url($urlWithoutExtension+".png");
     }
 }
+
+
+//MEDIA QUERIES
+/*
+0 - 400px:      Phone small
+400 - 500px: Phone medium
+500 - 600px: Phone large
+600 - 900px:    Tablet portrait 
+900 - 1200px:   Tablet landscape
+[1200 - 1800px] normal styles
+1650px +    :   Normal desktop
+1800px +    :   Big desktop
+*/
+
+/*
+$breakpoint
+- phone-s
+- phone-m
+- phone-l
+- tab-port
+- tab-land
+- normal-desktop
+- big-desktop
+
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+    //width
+    @if $breakpoint == phone-s {
+        @media (max-width: 25em) {@content}; //400px
+    }
+
+    @if $breakpoint == phone-m {
+        @media (max-width: 31.25em) {@content}; //500px
+    }
+
+    @if $breakpoint == phone-l {
+        @media (max-width: 37.5em) {@content}; //600px
+    }
+
+    @if $breakpoint == tab-port-s {
+        @media (max-width: 52.20em) {@content}; //834
+    }
+
+    @if $breakpoint == tab-port-l {
+        @media (max-width: 60.2em)  {@content}; //962
+    }
+
+    @if $breakpoint == tab-land-m {
+         @media (max-width: 64em)  {@content}; //1024px
+     }
+
+    @if $breakpoint == tab-land-xl {
+        @media (max-width: 80.5em) {@content}; //1280px
+    }
+
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) and (min-height: 67em) {@content}; //1800 x 1080px 
+    }
+
+    //height
+    
+}
