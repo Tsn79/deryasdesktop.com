@@ -17,6 +17,8 @@ drummer.recordingBg = document.querySelector(".recording");
 drummer.recordedBg = document.querySelector(".recorded");
 drummer.progressBar = document.querySelector(".progress-bar");
 
+drummer.keys = document.querySelectorAll(".key");
+
 drummer.sounds = document.querySelectorAll(".drum-sound");
 drummer.record = document.querySelector(".recorded-audio");
 
@@ -54,7 +56,7 @@ drummer.playback = (function () {
     getDuration: getDuration,
     endOfTimeLimit: endOfTimeLimit,
     timeout: timeout,
-    maxRecordDuration: maxRecordDuration
+    maxRecordDuration: maxRecordDuration,
   };
 })();
 
@@ -244,7 +246,6 @@ drummer.record.addEventListener("timeupdate", function () {
 });
 
 drummer.handleRecord = function () {
-
   if (!drummer.audio.context) {
     drummer.createSound();
   }
@@ -297,7 +298,6 @@ drummer.handleRecord = function () {
     drummer.audio.mediaRecorder.requestData();
     drummer.audio.mediaRecorder.stop();
   }
-
 };
 
 drummer.buttons.record.addEventListener("click", function () {
@@ -324,23 +324,41 @@ drummer.buttons.reload.addEventListener("click", function () {
 
 drummer.drummerPane.addEventListener("keyup", function (e) {
   //now remove the class
-  if (document.querySelector(`.key[data-key='${e.keyCode}']`)) {
-    document
-      .querySelector(`.key[data-key='${e.keyCode}']`)
-      .classList.remove("playing");
-  }
+  return drummer.drummerPane.keyRelease(e.keyCode);
 });
 
-drummer.drummerPane.addEventListener("keydown", function (e) {
-  var audioMatch = document.querySelector(`audio[data-key='${e.keyCode}']`);
+drummer.drummerPane.play = function (keyCode) {
+  var audioMatch = document.querySelector(`audio[data-key='${keyCode}']`);
   if (audioMatch) {
     //add playing class to the corresponding data
     document
-      .querySelector(`.key[data-key='${e.keyCode}']`)
+      .querySelector(`.key[data-key='${keyCode}']`)
       .classList.add("playing");
     audioMatch.autoplay = true;
     audioMatch.load();
   }
+};
+
+drummer.drummerPane.keyRelease = function (keyCode) {
+  if (document.querySelector(`.key[data-key='${keyCode}']`)) {
+    document
+      .querySelector(`.key[data-key='${keyCode}']`)
+      .classList.remove("playing");
+  }
+};
+
+drummer.drummerPane.addEventListener("keydown", function (e) {
+  return drummer.drummerPane.play(e.keyCode);
+});
+
+drummer.keys.forEach((key) => {
+  key.addEventListener("pointerdown", function (e) {
+    return drummer.drummerPane.play(e.currentTarget.dataset.key);
+  });
+
+  key.addEventListener("pointerup", function (e) {
+    return drummer.drummerPane.keyRelease(e.currentTarget.dataset.key);
+  });
 });
 
 //focus drummer window when it is open
