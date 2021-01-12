@@ -1,371 +1,312 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>An Ordinary Portfolio Page of Derya</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous">
-    <link
-    href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
-    rel="stylesheet"
-  />
-    <link rel="stylesheet" href="css/style.css" />
-    <!--favicon-->
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
-    <script src="modernizr-custom.js" type="text/javascript"></script>
-    <link rel="preload" href="images/computer.webp" as="image">
-    <link rel="preload" href="images/pane.svg" as="image">
-    <link rel="preload" href="images/border-pane-settings.svg" as="image">
-    <link rel="preload" href="images/icons/icon-logo.svg" as="image">
-    <script src="js/load.js" type="text/javascript"></script>
-  </head>
-  <body>
-    <div id="loader">
-      <img src="/images/icons/icon-logo.svg" alt="logo icon" width="300" height="300">
-      <h3>connecting to desktop...</h3>
-      <div class="myProgress">
-        <div class="myBar"></div>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no" />
+  <title>An Ordinary Portfolio Page of Derya</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!--favicon-->
+  <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
+  <script src="modernizr-custom.js" type="text/javascript"></script>
+  <link rel="preload" href="images/icons/icon-logo.svg" as="image">
+  <link rel="preload" href="images/computer.webp" as="image" media="screen and (min-width:38.5em)">
+  <link rel="preload" href="images/pane.svg" as="image" media="screen and (min-width:38.5em)">
+  <link rel="preload" href="images/border-pane-settings.svg" as="image" media="screen and (min-width:38.5em)">
+  <script src="js/load.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div id="loader">
+    <img src="/images/icons/icon-logo.svg" alt="logo icon" width="300" height="300">
+    <h3>connecting to main screen...</h3>
+    <div class="myProgress">
+      <div class="myBar"></div>
     </div>
-    <div class="body-container" id="body-container">
-      <header>
-        <nav class="navigation">
-          <div class="navigation__left">
-            <div class="navigation__logo">
-              <img src="./images/logo-small.png" alt="logo image" width="26" height="26"/>
-              <p>Derya Antonelli</p>
-            </div>
-
-            <div class="navigation__dropdown" id="open-tabs" hidden>
-            </div>
-
-            <div class="navigation__dropdown">
-              <button class="navigation__dropdown-btn">details</button>
-              <div class="navigation__dropdown-content">
-                <a href="#about-me" class="link">about</a>
-                <a href="#resume" class="link">resume</a>
-                <a href="#my-works" class="link">works</a>
-                <a href="mailto:derya.antonelli@gmail.com" class="link mail">contact</a>
-              </div>
-            </div>
-
-            <div class="navigation__dropdown">
-              <button class="navigation__dropdown-btn">apps</button>
-              <div class="navigation__dropdown-content">
-                <a href="#meme-generator" class="link">meme generator</a>
-                <a href="#weather" class="link">weather</a>
-                <a href="#drummer" class="link">drummer</a>
-              </div>
-            </div>
-
-            <div class="navigation__dropdown">
-              <button class="navigation__dropdown-btn">my desktop</button>
-              <div class="navigation__dropdown-content">
-                <a href="#settings" class="link">settings</a>
-                <a href="#properties" class="link">properties</a>
-              </div>
-            </div>
-            <!--<a href="#settings" class="navigation__link">settings</a>-->           
+  </div>
+  <div class="body-container" id="body-container">
+    <header>
+      <nav class="navigation">
+        <div class="navigation__left">
+          <div class="navigation__logo">
+            <img src="./images/logo-small.png" alt="logo image" width="26" height="26" />
+            <h3>Derya Antonelli</h3>
           </div>
 
-          <div class="navigation__right">
-            <div class="email"><span>derya.antonelli@gmail.com</span></div>
-            <div class="icons">
-              <a href="https://twitter.com/antonelli_a" target="_blank"
-                ><i class="icons-twitter"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/in/derya-a-antonelli/"
-                target="_blank"
-                ><i class="icons-linkedin"></i
-              ></a>
-              <a href="https://github.com/D-Antonelli" target="_blank"
-                ><i class="icons-github"></i
-              ></a>
-            </div>
-            <div class="time">Thu 10:09</div>
+          <div class="navigation__dropdown" id="open-tabs" hidden>
           </div>
-        </nav>
-      </header>
 
-      <!-- DESKTOP BUTTONS-->
-      <section class="desktop">
-        <div class="desktop__left">
-          <div class="files">
-            <a
-              class="file file__mail"
-              style="grid-area: 2 / 2 / 3 / 3"
-              href="mailto:derya.antonelli@gmail.com"
-            >
-              <div
-                class="file-icon"
-              >
-            <img src="images/icons/icon-mail.svg" alt="mail icon" width="90" height="90">
+          <div class="navigation__dropdown">
+            <button class="navigation__dropdown-btn">details</button>
+            <div class="navigation__dropdown-content">
+              <a href="#about-me" class="link">about</a>
+              <a href="#resume" class="link">resume</a>
+              <a href="#my-works" class="link">works</a>
+              <a href="mailto:derya.antonelli@gmail.com" class="link mail">contact</a>
             </div>
-              <div class="file-label">_-Contact</div>
-            </a>
-            <a
-              class="file file__about"
-              style="grid-area: 3 / 2 / 4 / 3"
-              href="#about-me"
-              target="_self"
-            >
-              <div
-                class="file-icon"
-              >
+          </div>
+
+          <div class="navigation__dropdown">
+            <button class="navigation__dropdown-btn">apps</button>
+            <div class="navigation__dropdown-content">
+              <a href="#meme-generator" class="link">meme generator</a>
+              <a href="#weather" class="link">weather</a>
+              <a href="#drummer" class="link">drummer</a>
+            </div>
+          </div>
+
+          <div class="navigation__dropdown">
+            <button class="navigation__dropdown-btn">my desktop</button>
+            <div class="navigation__dropdown-content">
+              <a href="#settings" class="link">settings</a>
+              <a href="#properties" class="link">properties</a>
+            </div>
+          </div>
+          <!--<a href="#settings" class="navigation__link">settings</a>-->
+        </div>
+
+        <div class="navigation__right">
+          <div class="email"><span>derya.antonelli@gmail.com</span></div>
+          <div class="icons">
+            <a href="https://twitter.com/antonelli_a" target="_blank"><i class="icons-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/derya-a-antonelli/" target="_blank"><i class="icons-linkedin"></i></a>
+            <a href="https://github.com/D-Antonelli" target="_blank"><i class="icons-github"></i></a>
+          </div>
+          <div class="time">Thu 10:09</div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- DESKTOP BUTTONS-->
+    <section class="desktop">
+      <div class="desktop__left">
+        <div class="files">
+          <a class="file file__mail" style="grid-area: 2 / 2 / 3 / 3" href="mailto:derya.antonelli@gmail.com">
+            <div class="file-icon">
+              <img src="images/icons/icon-mail.svg" alt="mail icon" width="90" height="90">
+            </div>
+            <div class="file-label">_-Contact</div>
+          </a>
+          <a class="file file__about" style="grid-area: 3 / 2 / 4 / 3" href="#about-me" target="_self">
+            <div class="file-icon">
               <img src="images/icons/icon-logo.svg" alt="logo icon" width="90" height="90">
             </div>
-              <div class="file-label">About-Me.pdf</div>
-            </a>
-            
-            <a
-              class="file file__meme"
-              style="grid-area: 4 / 2 / 5 / 3"
-              href="#meme-generator"
-              target="_self"
-            >
-              <div
-                class="file-icon"
-              >
+            <div class="file-label">About-Me.pdf</div>
+          </a>
+          <a class="file file__meme" style="grid-area: 4 / 2 / 5 / 3" href="#meme-generator" target="_self">
+            <div class="file-icon">
               <img src="images/icons/icon-meme.svg" alt="meme generator icon" width="90" height="90">
             </div>
-              <div class="file-label">Meme_Generator</div>
-            </a>
-            <a
-              class="file file__settings"
-              style="grid-area: 5 / 2 / 6 / 3"
-              href="#settings"
-              target="_self"
-            >
-              <div
-                class="file-icon"
-              >
+            <div class="file-label">Meme_Generator</div>
+          </a>
+          <a class="file file__settings" style="grid-area: 5 / 2 / 6 / 3" href="#settings" target="_self">
+            <div class="file-icon">
               <img src="images/icons/icon-settings.svg" alt="settings icon" width="90" height="90">
             </div>
-              <div class="file-label">SETTINGS</div>
-            </a>
-            <a
-              class="file file__drummer"
-              style="grid-area: 2 / 4 / 3 / 5"
-              href="#drummer"
-              target="_self"
-            >
-              <div
-                class="file-icon"
-              >
+            <div class="file-label">SETTINGS</div>
+          </a>
+          <a class="file file__drummer" style="grid-area: 2 / 4 / 3 / 5" href="#drummer" target="_self">
+            <div class="file-icon">
               <img src="images/icons/icon-drummer.svg" alt="drummer icon" width="90" height="90">
             </div>
-              <div class="file-label">Drummer</div>
-            </a>
-            <a
-              class="file file__window"
-              style="grid-area: 3 / 4 / 4 / 5"
-              href="#weather"
-              target="_self"
-            >
-              <div
-                class="file-icon"
-              >
+            <div class="file-label">Drummer</div>
+          </a>
+          <a class="file file__window" style="grid-area: 3 / 4 / 4 / 5" href="#weather" target="_self">
+            <div class="file-icon">
               <img src="images/icons/icon-window.svg" alt="weather icon" width="90" height="90">
             </div>
-              <div class="file-label">Weather</div>
-            </a>
+            <div class="file-label">Weather</div>
+          </a>
+        </div>
+      </div>
+      <div class="desktop__right">
+        <div class="desktop__right-bg"></div>
+      </div>
+    </section>
+
+    <!--PANES-->
+
+    <!--ABOUT ME-->
+    <section class="pane about-me draggable" id="about-me">
+      <div class="main-pane">
+        <div class="inner-pane">
+          <div class="inner-pane__header drag">
+            <p class="inner-pane__header-text ">About-Me.pdf</p>
           </div>
-        </div>
-        <div class="desktop__right">
-        </div>
-      </section>
-
-      <!--PANES-->
-
-      <!--ABOUT ME-->
-      <section class="pane about-me draggable" id="about-me">
-        <div class="main-pane">
-          <div class="inner-pane">
-            <div class="inner-pane__header drag">
-                <p class="inner-pane__header-text ">About-Me.pdf</p>
-              </div>
-              <a
-                href="#about-me"
-                class="close-btn"
-                aria-label="Close Account Info Modal Box"
-                role="button"
-                >&times;</a
-              >        
-            <div class="about-me__main-frame">
-              <div class="about-me__content scrollbar">  
-                <h2 class="about-me__content-header">Hi! I am a <br><span class="highlight">Front-End Developer,</span><br>and my name is <span class="highlight">Derya</span></h2>   
-            <p>My coding journey started at the end of 2018 with Java. After several months of tutorials and practice,
-              I familiarized myself with language basics
-            and decided to give Javascript a go, thus paving
-            the way for my front-end development path. Then, I realized that I am passionate about design, centering divs, memorizing variable names,
-            googling bugs, rendering my page on Internet Explorer, even reading technical documents. Front-end is my passion, and I am a 
-            front-end monster👾. 
-            </p>
-            <p>I enjoy photography, world cuisine, human languages, retro design of 90s, and Tolkien’s Middle Earth.
-            I hold a  bachelor’s degree from American Culture and Literature.
-            Previously I had roles in Sales and Logistics consecutively.
-            I can communicate in Turkish, English, Italian as well as Russian (a bit).</p>
-          <p>Currently, I am working on my next front-end project. I share my coding
-          journey through #100DaysOfCode, sometimes publish articles on <a href="https://dev.to/dantonelli" target="_blank">DEV.to</a>,
-          sketch on <a href="https://codepen.io/d-antonelli" target="_blank">CodePen</a>, and mostly find myself reading about various topics ranging from
-           Computer Science, programming, and Javascript.</p>
-           <p>Welcome to my first website, and stay connected for my next projects! </p>
-          <p style="font-weight: bold;">I have some good news for you! Currently, I am looking for my first Front-End Developer role. 
-          You can check my <a href="#resume" class="link">resume</a> and <a href="mailto:derya.antonelli@gmail.com" class="link">contact me</a>.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--RESUME-->
-      <section class="pane resume draggable" id="resume">
-        <div class="main-pane">
-          <div class="inner-pane">
-            <div class="inner-pane__header drag">
-              <p class="inner-pane__header-text">Resume.pdf</p>
-            </div>
-              <a
-                href="#resume"
-                class="close-btn"
-                aria-label="Close Account Info Modal Box"
-                role="button"
-                >&times;</a
-              >
-            
-            <div class="resume__main-frame">
-              <div class="resume__main-frame-header">
-                <a
-                class="btn resume__download-btn"
-                href="../images/resume.pdf"
-                download="deryaantonelli_resume.pdf"
-                >Download
-                </a
-              >
-              </div>
-              <div class="resume__main-frame-content scrollbar">
-                <img src="./images/resume-color.svg" class="resume__image" alt="image of my resume" width="759" height="1045">
-              </div>
+          <a href="#about-me" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
+          <div class="about-me__main-frame">
+            <div class="about-me__content scrollbar">
+              <h2 class="about-me__content-header">Hi! I am a <br><span class="highlight">Front-End
+                  Developer</span>,<br>and my name is <span class="highlight">Derya</span></h2>
+              <p>My coding journey started at the end of 2018 with Java. After several months of tutorials and practice,
+                I familiarized myself with language basics
+                and decided to give Javascript a go, thus paving
+                the way for my front-end development path. Then, I realized that I am passionate about design, centering
+                divs, memorizing variable names,
+                googling bugs, rendering my page on Internet Explorer, even reading technical documents. Front-end is my
+                passion, and I am a
+                front-end monster👾.
+              </p>
+              <p>I enjoy photography, world cuisine, human languages, retro design of 90s, and Tolkien’s Middle Earth.
+                I hold a bachelor’s degree from American Culture and Literature.
+                Previously I had roles in Sales and Logistics consecutively.
+                I can communicate in Turkish, English, Italian as well as Russian (a bit).</p>
+              <p>Currently, I am working on my next front-end project. I share my coding
+                journey through #100DaysOfCode, sometimes publish articles on <a href="https://dev.to/dantonelli"
+                  target="_blank">DEV.to</a>,
+                sketch on <a href="https://codepen.io/d-antonelli" target="_blank">CodePen</a>, and mostly find myself
+                reading about various topics ranging from
+                Computer Science, programming, and Javascript.</p>
+              <p>Welcome to my first website, and stay connected for my next projects! </p>
+              <p style="font-weight: bold;">I have some good news for you! Currently, I am looking for my first
+                Front-End Developer role.
+                You can check my <a href="#resume" class="link">resume</a> and <a
+                  href="mailto:derya.antonelli@gmail.com" class="link">contact me</a>.</p>
             </div>
           </div>
         </div>
-      </section>
+    </section>
 
+    <!--RESUME-->
+    <section class="pane resume draggable" id="resume">
+      <div class="main-pane">
+        <div class="inner-pane">
+          <div class="inner-pane__header drag">
+            <p class="inner-pane__header-text">Resume.pdf</p>
+          </div>
+          <a href="#resume" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
 
-      <!--PROPERTIES-->
-      <section class="pane properties draggable" id="properties">
-        <div class="main-pane">
-          <div class="inner-pane">
-            <div class="inner-pane__header drag">
-              <p class="inner-pane__header-text">Properties.exe</p>
+          <div class="resume__main-frame">
+            <div class="resume__main-frame-header">
+              <a class="btn resume__download-btn" href="../images/resume.pdf"
+                download="deryaantonelli_resume.pdf">Download
+              </a>
             </div>
-              <a
-                href="#properties"
-                class="close-btn"
-                aria-label="Close Account Info Modal Box"
-                role="button"
-                >&times;</a
-              >
-            
-            <div class="properties__main-frame">
-                <nav class="properties__tabs" id="tabs">
-                <button class="btn clicked" data-name="properties_about">About Website</button>
-                <button class="btn" data-name="properties_design">Design</button>
-                <button class="btn" data-name="properties_images">Images</button>
-                <button class="btn" data-name="properties_credits">Credits</button>
-              </nav>
-             
-              <div class="properties__content">
-                <div class="text" data-name="properties_about">
+            <div class="resume__main-frame-content scrollbar">
+              <img src="./images/resume-color.svg" class="resume__image" alt="image of my resume" width="759"
+                height="1045">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!--PROPERTIES-->
+    <section class="pane properties draggable" id="properties">
+      <div class="main-pane">
+        <div class="inner-pane">
+          <div class="inner-pane__header drag">
+            <p class="inner-pane__header-text">Properties.exe</p>
+          </div>
+          <a href="#properties" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
+
+          <div class="properties__main-frame">
+            <nav class="properties__tabs" id="tabs">
+              <button class="btn clicked" data-name="properties_about">About Website</button>
+              <button class="btn" data-name="properties_design">Design</button>
+              <button class="btn" data-name="properties_images">Images</button>
+              <button class="btn" data-name="properties_credits">Credits</button>
+            </nav>
+
+            <div class="properties__content">
+              <div class="text" data-name="properties_about">
                 <p>This website was built solely with JavaScript using no libraries.</p>
-                <p>My entire source code is available on <a href="https://github.com/D-Antonelli/portfolio" target="_blank">GitHub</a>.
-              Feel free to send pull requests for bugs, typos, grammatical errors, or 
-              improvements.</p>
-              <p>For any other suggestions, you can contact me <a href="mailto:derya.antonelli@gmail.com">here</a>.</p>
-              <p class="copyright">Derya Antonelli © 2020 - 2021</p>
-                </div> 
-                
-                <div class="text" data-name="properties_design" style="display: none;">
-                  <p><a href="https://www.adobe.com/uk/products/xd.html" target="_blank">Adobe XD</a> → I used free version of this design tool to create most of
+                <p>My entire source code is available on <a href="https://github.com/D-Antonelli/portfolio"
+                    target="_blank">GitHub</a>.
+                  Feel free to send pull requests for bugs, typos, grammatical errors, or
+                  improvements.</p>
+                <p>For any other suggestions, you can contact me <a href="mailto:derya.antonelli@gmail.com">here</a>.
+                </p>
+                <p class="copyright">Derya Antonelli © 2020 - 2021</p>
+              </div>
+
+              <div class="text" data-name="properties_design" style="display: none;">
+                <p><a href="https://www.adobe.com/uk/products/xd.html" target="_blank">Adobe XD</a> → I used free
+                  version of this design tool to create most of
                   my background images and icons.</p>
-                  
-                  <p><a href="https://inkscape.org/" target="_blank">Inkspace</a> → A free vector graphics tool where I edited my icons in SVG format.</p>
-                  
-                  <p><a href="https://coolors.co/" target="_blank">Coolors.co</a> → Amazing website for generating random colour 
+
+                <p><a href="https://inkscape.org/" target="_blank">Inkspace</a> → A free vector graphics tool where I
+                  edited my icons in SVG format.</p>
+
+                <p><a href="https://coolors.co/" target="_blank">Coolors.co</a> → Amazing website for generating random
+                  colour
                   schemes.</p>
 
-                  <p><a href="https://imagecolorpicker.com/en/" target="_blank">Imagecolorpicker</a> → Highly recommended for finding out HEX color code from any image.</p>
+                <p><a href="https://imagecolorpicker.com/en/" target="_blank">Imagecolorpicker</a> → Highly recommended
+                  for finding out HEX color code from any image.</p>
 
-                  <p><a href="https://www.screentogif.com/" target="_blank">Screentogif</a> → Extremely powerful desktop app for creating gifs from screen record.</p>
-                  </div> 
+                <p><a href="https://www.screentogif.com/" target="_blank">Screentogif</a> → Extremely powerful desktop
+                  app for creating gifs from screen record.</p>
+              </div>
 
-                  <div class="text" data-name="properties_images" style="display: none;">
-                    <p><a href="https://www.newgrounds.com/art/view/blinxxintime/some-pixel-bricks" target="_blank">Pixel Brick</a> → Created by blinxxintime. Used this image as a background for the unit conversion tool in my weather app.</p>
-                    
-                    <p><a href="http://clipart-library.com" target="_blank">Clipart</a> → Some of the pixel art in weather application was downloaded here.</p>
-                    
-                    <p><a href="https://www.seekpng.com/ks/clipart/" target="_blank">Seekpng</a> → Star image in weather application was downloaded here.</p>
-  
-                    <p><a href="https://www.cleanpng.com/png-nyan-cat-pixel-art-youtube-tenor-pixelart-2829536/" target="_blank">Cleanpng</a> → Cat image in weather application was 
-                      downloaded here.</p>
-  
-                    <p><a href="http://pixelartmaker.com/art/b2d55f68a5947b6" target="_blank">Pixelartmaker</a> → An amazing website for pixel art enthusiasts. I downloaded weather ninja girl here.</p>
+              <div class="text" data-name="properties_images" style="display: none;">
+                <p><a href="https://www.newgrounds.com/art/view/blinxxintime/some-pixel-bricks" target="_blank">Pixel
+                    Brick</a> → Created by blinxxintime. Used this image as a background for the unit conversion tool in
+                  my weather app.</p>
 
-                    <p><a href="https://imgflip.com/memegenerator" target="_blank">Imgflip</a> → Meme images were downloaded here.</p>
-                    </div> 
+                <p><a href="http://clipart-library.com" target="_blank">Clipart</a> → Some of the pixel art in weather
+                  application was downloaded here.</p>
 
-                    <div class="text" data-name="properties_credits" style="display: none;">
-                      <p>“It’s not where you take things from—it’s where you take them to.”
-                        –Jean-Luc Godard, film director</p>
-                      <p>My inspiration list:</p>
-                      <p><a href="http://eeerik.com/" target="_blank">Erik Bernacchi</a></p>
-                      
-                      <p><a href="http://www.marianopascual.me/index.html#about" target="_blank">Mariano Pascual</a></p>
-                      
-                      <p><a href="https://codepen.io/Errec/pen/ZprVwZ?editors=1010" target="_blank">Super Mario Weather</a></p>
-    
-                      <p><a href="https://simone.computer/#/" target="_blank">Simone’s Computer</a></p>
+                <p><a href="https://www.seekpng.com/ks/clipart/" target="_blank">Seekpng</a> → Star image in weather
+                  application was downloaded here.</p>
 
-                      </div> 
+                <p><a href="https://www.cleanpng.com/png-nyan-cat-pixel-art-youtube-tenor-pixelart-2829536/"
+                    target="_blank">Cleanpng</a> → Cat image in weather application was
+                  downloaded here.</p>
+
+                <p><a href="http://pixelartmaker.com/art/b2d55f68a5947b6" target="_blank">Pixelartmaker</a> → An amazing
+                  website for pixel art enthusiasts. I downloaded weather ninja girl here.</p>
+
+                <p><a href="https://imgflip.com/memegenerator" target="_blank">Imgflip</a> → Meme images were downloaded
+                  here.</p>
+              </div>
+
+              <div class="text" data-name="properties_credits" style="display: none;">
+                <p>“It’s not where you take things from—it’s where you take them to.”
+                  –Jean-Luc Godard, film director</p>
+                <p>My inspiration list:</p>
+                <p><a href="http://eeerik.com/" target="_blank">Erik Bernacchi</a></p>
+
+                <p><a href="http://www.marianopascual.me/index.html#about" target="_blank">Mariano Pascual</a></p>
+
+                <p><a href="https://codepen.io/Errec/pen/ZprVwZ?editors=1010" target="_blank">Super Mario Weather</a>
+                </p>
+
+                <p><a href="https://simone.computer/#/" target="_blank">Simone’s Computer</a></p>
 
               </div>
+
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!--MY WORKS-->
-      <section class="pane my-works draggable" id="my-works">
-        <div class="main-pane">
-          <div class="inner-pane">
-            <div class="inner-pane__header drag">
-              <p class="inner-pane__header-text">My_works</p>
-            </div>
-              <a
-                href="#my-works"
-                class="close-btn"
-                aria-label="Close Account Info Modal Box"
-                role="button"
-                >&times;</a
-              >          
-            <div class="my-works__main-frame">
-              <div class="my-works__content">
-                <div class="my-works__content-top">
-                  <div class="my-works__computer">
-                    <video src="../images/screencap.mp4" width="100%" height="38%" style="display: block;" autoplay loop muted></video>
-                    <video src="../images/mycontactman.mp4" width="100%" height="38%" style="display: none;" autoplay loop muted></video>
-                  </div>
-                  <div class="my-works__project-info">
-                    <div class="project" id="project">
-                      <div class="project-title">
+    <!--MY WORKS-->
+    <section class="pane my-works draggable" id="my-works">
+      <div class="main-pane">
+        <div class="inner-pane">
+          <div class="inner-pane__header drag">
+            <p class="inner-pane__header-text">My_works</p>
+          </div>
+          <a href="#my-works" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
+          <div class="my-works__main-frame">
+            <div class="my-works__content">
+              <div class="my-works__content-top">
+                <div class="my-works__computer">
+                  <video src="../images/screencap.mp4" width="100%" height="38%" style="display: block;" autoplay loop
+                    muted></video>
+                  <video src="../images/mycontactman.mp4" width="100%" height="38%" style="display: none;" autoplay loop
+                    muted></video>
+                </div>
+                <div class="my-works__project-info">
+                  <div class="project" id="project">
+                    <div class="project-title">
                       <h2 class="highlight">portfolio website</h2>
                     </div>
                     <div class="project-stack">
@@ -377,482 +318,476 @@
                     <div class="project-content">
                       <p>The website currently you're on is
                         my first Front-end project. It is a
-                        desktop screen where you'll find 
+                        desktop screen where you'll find
                         applications, settings and
                         my info.
-                        </p>
+                      </p>
                     </div>
                     <div class="project-link">
-                      <a href="https://github.com/D-Antonelli/portfolio" class="format-text" target="_blank">GitHub Page</a>
-                    </div>
-                    </div>
-                  </div> 
-                    </div>                      
-                    <div class="my-works__content-bottom">
-                  <button class="btn" id="previousBtn" disabled>previous</button>    
-                  <button class="btn" id="nextBtn">next</button>
-                </div> 
-                </div>
-
-              </div>
-            </div>
-          </div>
-      </section>
-
-      <!--MEME GENERATOR-->
-      <section class="pane meme-generator draggable" id="meme-generator">
-        <div class="main-pane">
-          <div class="inner-pane">
-            <div class="inner-pane__header drag">
-              <p class="inner-pane__header-text">Meme-Generator.exe</p></div>
-              <a
-                href="#meme-generator"
-                class="close-btn"
-                aria-label="Close Account Info Modal Box"
-                role="button"
-                >&times;</a
-              >
-            
-            <div class="meme-generator__main-frame">
-              <div class="meme-generator__main-frame-header">
-                <a
-                  class="btn meme-generator__main-frame-header--uploadbtn"
-                  id="meme-uploadBtn"
-                  >Upload Meme
-                  <input
-                    id="memeUpload"
-                    type="file"
-                    name="file"
-                    accept=".png, .jpg, .jpeg"
-                  />
-                </a>
-                <a
-                  class="btn meme-generator__main-frame-header--downloadbtn"
-                  id="meme-downloadBtn"
-                  download="memebyderya.png"
-                  >Download</a
-                >
-              </div>
-              <div class="meme-generator__main-frame-viewport">
-                <div class="meme-generator__main-frame-meme-wrapper">
-                  <div
-                    class="meme-generator__main-frame-meme-container"
-                    id="meme-container"
-                  >
-                    <canvas class="canvas" id="meme-canvas"></canvas>
-                    <div class="canvas-text">
-                      <input
-                        type="text"
-                        class="input-text canvas-text--top"
-                        autocomplete="off"
-                        value="One does not simply"
-                      />
-                      <input
-                        type="text"
-                        class="input-text canvas-text--bottom"
-                        autocomplete="off"
-                        value="Make a new meme"
-                      />
+                      <a href="https://github.com/D-Antonelli/portfolio" class="format-text" target="_blank">GitHub
+                        Page</a>
                     </div>
                   </div>
                 </div>
-                <div
-                  class="meme-generator__main-frame-gallery scrollbar"
-                  id="meme-gallery"
-                >
-                  <div
-                    class="thumb"
-                    id="spongebob"
-                    style="
+              </div>
+              <div class="my-works__content-bottom">
+                <button class="btn" id="previousBtn" disabled>previous</button>
+                <button class="btn" id="nextBtn">next</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--MEME GENERATOR-->
+    <section class="pane meme-generator draggable" id="meme-generator">
+      <div class="main-pane">
+        <div class="inner-pane">
+          <div class="inner-pane__header drag">
+            <p class="inner-pane__header-text">Meme-Generator.exe</p>
+          </div>
+          <a href="#meme-generator" class="close-btn" aria-label="Close Account Info Modal Box"
+            role="button">&times;</a>
+
+          <div class="meme-generator__main-frame">
+            <div class="meme-generator__main-frame-header">
+              <a class="btn meme-generator__main-frame-header--uploadbtn" id="meme-uploadBtn">Upload Meme
+                <input id="memeUpload" type="file" name="file" accept=".png, .jpg, .jpeg" />
+              </a>
+              <a class="btn meme-generator__main-frame-header--downloadbtn" id="meme-downloadBtn"
+                download="memebyderya.png">Download</a>
+            </div>
+            <div class="meme-generator__main-frame-viewport">
+              <div class="meme-generator__main-frame-meme-wrapper">
+                <div class="meme-generator__main-frame-meme-container" id="meme-container">
+                  <canvas class="canvas" id="meme-canvas"></canvas>
+                  <div class="canvas-text">
+                    <input type="text" class="input-text canvas-text--top" autocomplete="off"
+                      value="One does not simply" />
+                    <input type="text" class="input-text canvas-text--bottom" autocomplete="off"
+                      value="Make a new meme" />
+                  </div>
+                </div>
+              </div>
+              <div class="meme-generator__main-frame-gallery scrollbar" id="meme-gallery">
+                <div class="thumb" id="spongebob" style="
                       background-image: url(images/meme/Mocking-Spongebob.jpg);
-                    "
-                  ></div>
-                  <div
-                    class="thumb"
-                    id="think-about"
-                    style="
+                    "></div>
+                <div class="thumb" id="think-about" style="
                       background-image: url('images/meme/Roll-Safe-Think-About-It.jpg');
-                    "
-                  ></div>
-                  <div
-                    class="thumb"
-                    id="one-does-not-simply"
-                    style="
+                    "></div>
+                <div class="thumb" id="one-does-not-simply" style="
                       background-image: url('images/meme/One-Does-Not-Simply.jpg');
-                    "
-                  ></div>
-                  <div
-                    class="thumb"
-                    id="ancient-aliens"
-                    style="
+                    "></div>
+                <div class="thumb" id="ancient-aliens" style="
                       background-image: url('images/meme/Ancient-Aliens.jpg');
-                    "
-                  ></div>
-                  <div
-                    class="thumb"
-                    id="unsettled-tom"
-                    style="
+                    "></div>
+                <div class="thumb" id="unsettled-tom" style="
                       background-image: url('images/meme/Unsettled-Tom.jpg');
-                    "
-                  ></div>
-                  <div
-                    class="thumb"
-                    id="di-caprio"
-                    style="
+                    "></div>
+                <div class="thumb" id="di-caprio" style="
                       background-image: url('images/meme/Leonardo-Dicaprio-Cheers.jpg');
-                    "
-                  ></div>
-                  <div
-                    class="thumb"
-                    id="futurama"
-                    style="
+                    "></div>
+                <div class="thumb" id="futurama" style="
                       background-image: url('images/meme/Futurama-Fry.jpg');
-                    "
-                  ></div>
-                  <div
-                    class="thumb"
-                    id="no"
-                    style="background-image: url('images/meme/Y-U-No.jpg')"
-                  ></div>
-                  <div
-                    class="thumb"
-                    id="brian"
-                    style="
+                    "></div>
+                <div class="thumb" id="no" style="background-image: url('images/meme/Y-U-No.jpg')"></div>
+                <div class="thumb" id="brian" style="
                       background-image: url('images/meme/Bad-Luck-Brian.jpg');
-                    "
-                  ></div>
-                  <div
-                    class="thumb"
-                    id="scared-cat"
-                    style="background-image: url('images/meme/Scared-Cat.jpg')"
-                  ></div>
-                  <div
-                    class="thumb"
-                    id="success-kid"
-                    style="background-image: url('images/meme/Success-Kid.jpg')"
-                  ></div>
+                    "></div>
+                <div class="thumb" id="scared-cat" style="background-image: url('images/meme/Scared-Cat.jpg')"></div>
+                <div class="thumb" id="success-kid" style="background-image: url('images/meme/Success-Kid.jpg')"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--SETTINGS-->
+    <section class="pane settings draggable" id="settings">
+      <div class="main-pane settings__main-pane">
+        <div class="inner-pane settings__inner-pane">
+          <div class="inner-pane__header drag">
+            <p class="inner-pane__header-text">Settings.app</p>
+          </div>
+          <a href="#settings" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
+
+          <div class="settings__main-frame">
+            <div class="settings__container">
+              <div class="settings__background">
+                <p>Change Background</p>
+                <div class="settings__background-colors">
+                  <div class="settings__background-colors--pink" id="bg-pink" data-color="#ff99c9">
+                    &nbsp;
+                  </div>
+                  <div class="settings__background-colors--lightblue" id="bg-blue" data-color="#bfd7ea">
+                    &nbsp;
+                  </div>
+                  <div class="settings__background-colors--green" id="bg-green" data-color="#96e072">
+                    &nbsp;
+                  </div>
+                  <div class="settings__background-colors--mint" id="bg-mint" data-color="#44bba4">
+                    &nbsp;
+                  </div>
+                  <div class="settings__background-colors--blue" id="bg-original" data-color="#468BAD">
+                    &nbsp;
+                  </div>
+                </div>
+              </div>
+              <div class="settings__fullscreen">
+                <p>Fullscreen</p>
+                <!--https://www.w3schools.com/howto/howto_css_switch.asp-->
+                <div class="settings__fullscreen-container">
+                  <label class="settings__fullscreen-switch">
+                    <input type="checkbox" id="fullscreen" />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="settings__resize">
+                <p>Resize</p>
+                <div class="settings__resize-slidecontainer">
+                  <input type="range" min="0" max="5" value="0" class="slider" id="resizeRange" />
+                </div>
+              </div>
+              <div class="settings__effects">
+                <p>Effects</p>
+                <!--https://www.w3schools.com/howto/howto_custom_select.asp-->
+                <div class="settings__effects-select">
+                  <select id="effects">
+                    <option value="normal" selected>normal</option>
+                    <!--filter:none-->
+                    <option value="weird">weird</option>
+                    <!--filter: drop-shadow(16px 16px 20px red) invert(75%);-->
+                    <option value="dark mode">dark mode</option>
+                    <!--filter: grayscale(100%);-->
+                    <option value="blurry">blurry</option>
+                    <!--filter: blur(1px);-->
+                  </select>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!--SETTINGS-->
-      <section class="pane settings draggable" id="settings">
-        <div class="main-pane settings__main-pane">
-          <div class="inner-pane settings__inner-pane">
-            <div class="inner-pane__header drag">
-              <p class="inner-pane__header-text">Settings.app</p></div>
-              <a
-                href="#settings"
-                class="close-btn"
-                aria-label="Close Account Info Modal Box"
-                role="button"
-                >&times;</a
-              >
-            
-            <div class="settings__main-frame">
-              <div class="settings__container">
-                <div class="settings__background">
-                  <p>Change Background</p>
-                  <div class="settings__background-colors">
-                    <div
-                      class="settings__background-colors--pink"
-                      id="bg-pink"
-                      data-color="#ff99c9"
-                    >
-                      &nbsp;
-                    </div>
-                    <div
-                      class="settings__background-colors--lightblue"
-                      id="bg-blue"
-                      data-color="#bfd7ea"
-                    >
-                      &nbsp;
-                    </div>
-                    <div
-                      class="settings__background-colors--green"
-                      id="bg-green"
-                      data-color="#96e072"
-                    >
-                      &nbsp;
-                    </div>
-                    <div
-                      class="settings__background-colors--mint"
-                      id="bg-mint"
-                      data-color="#44bba4"
-                    >
-                      &nbsp;
-                    </div>
-                    <div
-                      class="settings__background-colors--blue"
-                      id="bg-original"
-                      data-color="#468BAD"
-                    >
-                      &nbsp;
-                    </div>
-                  </div>
+    <!--DRUMMER-->
+    <section class="pane drummer draggable" id="drummer" tabindex="-1">
+      <div class="main-pane drummer__main-pane">
+        <div class="inner-pane drummer__inner-pane">
+          <div class="inner-pane__header drag">
+            <p class="inner-pane__header-text">Drummer.me</p>
+          </div>
+          <a href="#drummer" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
+          <div class="drummer__main-frame">
+            <div class="drummer__canvas-box">
+              <div class="hello" style="z-index: 101">
+                <span>hello, drummer!</span>
+              </div>
+              <div class="recording" style="z-index: 100">
+                <span>recording..</span>
+              </div>
+              <div class="recorded" style="z-index: 100">
+                <span>record completed!</span>
+              </div>
+              <div class="playback-screen" style="z-index: 100">
+                <canvas class="visualizer"></canvas>
+                <div class="progress-bar" style="left: 0%"></div>
+              </div>
+            </div>
+            <div class="drummer__keys" id="keys">
+              <!--30 Days of Javascript by Wes Bos-->
+              <div data-key="65" class="key">
+                <kbd>A</kbd>
+                <span class="sound">clap</span>
+              </div>
+              <div data-key="83" class="key">
+                <kbd>S</kbd>
+                <span class="sound">hihat</span>
+              </div>
+              <div data-key="68" class="key">
+                <kbd>D</kbd>
+                <span class="sound">kick</span>
+              </div>
+              <div data-key="70" class="key">
+                <kbd>F</kbd>
+                <span class="sound">openhat</span>
+              </div>
+              <div data-key="71" class="key">
+                <kbd>G</kbd>
+                <span class="sound">boom</span>
+              </div>
+              <div data-key="72" class="key">
+                <kbd>H</kbd>
+                <span class="sound">ride</span>
+              </div>
+              <div data-key="74" class="key">
+                <kbd>J</kbd>
+                <span class="sound">snare</span>
+              </div>
+              <div data-key="75" class="key">
+                <kbd>K</kbd>
+                <span class="sound">tom</span>
+              </div>
+              <div data-key="76" class="key">
+                <kbd>L</kbd>
+                <span class="sound">tink</span>
+              </div>
+            </div>
+            <div class="drummer__buttons">
+              <button class="record">
+                <img src="../images/button-icons/record.svg" onerror="this.onerror=null; this.src='record.png'"
+                  width="12" height="12" />
+              </button>
+              <button class="pause disable" disabled>
+                <img src="../images/button-icons/pause.svg" onerror="this.onerror=null; this.src='pause.png'" width="12"
+                  height="12" />
+              </button>
+              <button class="play disable" disabled>
+                <img src="../images/button-icons/play.svg" onerror="this.onerror=null; this.src='play.png'" width="12"
+                  height="12" />
+              </button>
+              <button class="stop disable" disabled>
+                <img src="../images/button-icons/stop.svg" onerror="this.onerror=null; this.src='stop.png'" width="12"
+                  height="12" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--WEATHER-->
+    <section class="pane weather draggable" id="weather">
+      <div class="main-pane">
+        <div class="inner-pane">
+          <div class="inner-pane__header drag">
+            <p class="inner-pane__header-text">weather.app</p>
+          </div>
+          <a href="#weather" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
+
+          <div class="weather__main-frame">
+            <div class="weather__background"></div>
+            <div class="weather__wrapper">
+              <div class="weather__card bg-day">
+                <div class="weather__card-character" id="character"></div>
+                <div class="weather__card-brick" id="brick">
+                  <p id="temp-unit" class="temp-unit">C</p>
                 </div>
-                <div class="settings__fullscreen">
-                  <p>Fullscreen</p>
-                  <!--https://www.w3schools.com/howto/howto_css_switch.asp-->
-                  <div class="settings__fullscreen-container">
-                    <label class="settings__fullscreen-switch">
-                      <input type="checkbox" id="fullscreen" />
-                      <span class="slider"></span>
-                    </label>
-                  </div>
+                <div class="weather__card-sky" id="weather-sky">
+                  <img class="sun" src="../images/weather/sun.png" alt="an image of sun" width="73" height="73" />
+                  <img class="cloud" src="../images/weather/cloud.png" alt="an image of cloud" style="display: none;"
+                    width="80" height="45">
+                  <picture>
+                    <source class="moon-behind-cloud" srcset="../images/weather/moon.webp" type="image/webp">
+                    <source class="moon-behind-cloud" srcset="../images/weather/moon.png" type="image/png">
+                    <img class="moon-behind-cloud" src="../images/weather/moon.png" alt="an image of moon"
+                      style="display: none;" width="51" height="51">
+                  </picture>
+                  <picture>
+                    <source class="fog fog-down" srcset="../images/weather/fog.webp" type="image/webp">
+                    <source class="fog fog-down" srcset="../images/weather/fog.png" type="image/png">
+                    <img class="fog fog-down" src="../images/weather/fog.png" alt="image of fog" style="display: none;"
+                      width="281" height="100">
+                  </picture>
+                  <picture>
+                    <source class="fog fog-up" srcset="../images/weather/fog.webp" type="image/webp">
+                    <source class="fog fog-up" srcset="../images/weather/fog.png" type="image/png">
+                    <img class="fog fog-up" src="../images/weather/fog.png" alt="image of fog" style="display: none;"
+                      width="281" height="100">
+                  </picture>
+                  <img class="dark-cloud" src="../images/weather/dark-cloud.png" alt="an image of dark cloud"
+                    style="display: none;" width="73" height="40"></img>
                 </div>
-                <div class="settings__resize">
-                  <p>Resize</p>
-                  <div class="settings__resize-slidecontainer">
-                    <input
-                      type="range"
-                      min="0"
-                      max="5"
-                      value="0"
-                      class="slider"
-                      id="resizeRange"
-                    />
-                  </div>
+                <div class="weather__card-search-result" id="card-text">
+                  <p class="city" id="city">little ninjatown</p>
+                  <p class="temperature" id="temperature">11&#176;c</p>
                 </div>
-                <div class="settings__effects">
-                  <p>Effects</p>
-                  <!--https://www.w3schools.com/howto/howto_custom_select.asp-->
-                  <div class="settings__effects-select">
-                    <select id="effects">
-                      <option value="normal" selected>normal</option>
-                      <!--filter:none-->
-                      <option value="weird">weird</option>
-                      <!--filter: drop-shadow(16px 16px 20px red) invert(75%);-->
-                      <option value="dark mode">dark mode</option>
-                      <!--filter: grayscale(100%);-->
-                      <option value="blurry">blurry</option>
-                      <!--filter: blur(1px);-->
-                    </select>
-                  </div>
+              </div>
+              <div class="weather__form">
+                <label for="city_search">select your city</label>
+                <input type="text" id="input-city" class="weather__form-city" placeholder="Enter a real city name"
+                  autocomplete="off" aria-described="enter a city name" aria-expanded="false" required />
+                <div class="error" id="error" hidden>&nbsp;</div>
+                <div class="suggested-places-container">
+                  <ul class="suggested-results" role="listbox">
+                    <!--here comes list-->
+                  </ul>
                 </div>
+                <button type="submit" id="submit">ready to go!</button>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!--DRUMMER-->
-      <section class="pane drummer draggable" id="drummer" tabindex="-1">
-        <div class="main-pane drummer__main-pane">
-          <div class="inner-pane drummer__inner-pane">
-            <div class="inner-pane__header drag">
-              <p class="inner-pane__header-text">Drummer.me</p></div>
-              <a
-                href="#drummer"
-                class="close-btn"
-                aria-label="Close Account Info Modal Box"
-                role="button"
-                >&times;</a
-              >           
-            <div class="drummer__main-frame">
-              <div class="drummer__canvas-box">
-                <div class="hello" style="z-index: 101">
-                  <span>hello, drummer!</span>
-                </div>
-                <div class="recording" style="z-index: 100">
-                  <span>recording..</span>
-                </div>
-                <div class="recorded" style="z-index: 100">
-                  <span>record completed!</span>
-                </div>
-                <div class="playback-screen" style="z-index: 100">
-                  <canvas class="visualizer"></canvas>
-                  <div class="progress-bar" style="left: 0%"></div>
-                </div>
+
+    <!--MOBILE-->
+
+
+    <section class="mobile" id="mobile">
+      <main class="mobile__main">
+
+        <!--ABOUT-->
+        <section class="mobile__pane mobile__about-me scrollbar">
+          <a href="#" class="close-btn mobile-close-btn" aria-label="Close Account Info Modal Box"
+            role="button">&times;</a>
+          <div class="mobile__about-me-content about-me__content mobile__content scrollbar" id="mobile-about-me">
+            <img src="/images/icons/icon-logo.svg" alt="logo" class="mobile__about-me-logo">
+            <h2 class="about-me__content-header">Hi! I am a <span class="highlight">Front-End
+                Developer</span>,<br>and my name is <span class="highlight">Derya</span></h2>
+            <p>My coding journey started at the end of 2018 with Java. After several months of tutorials and practice,
+              I familiarized myself with language basics
+              and decided to give Javascript a go, thus paving
+              the way for my front-end development path. Then, I realized that I am passionate about design, centering
+              divs, memorizing variable names,
+              googling bugs, rendering my page on Internet Explorer, even reading technical documents. Front-end is my
+              passion, and I am a
+              front-end monster👾.
+            </p>
+            <p>I enjoy photography, world cuisine, human languages, retro design of 90s, and Tolkien’s Middle Earth.
+              I hold a bachelor’s degree from American Culture and Literature.
+              Previously I had roles in Sales and Logistics consecutively.
+              I can communicate in Turkish, English, Italian as well as Russian (a bit).</p>
+            <p>Currently, I am working on my next front-end project. I share my coding
+              journey through #100DaysOfCode, sometimes publish articles on <a href="https://dev.to/dantonelli"
+                target="_blank">DEV.to</a>,
+              sketch on <a href="https://codepen.io/d-antonelli" target="_blank">CodePen</a>, and mostly find myself
+              reading about various topics ranging from
+              Computer Science, programming, and Javascript.</p>
+            <p>Welcome to my first website, and stay connected for my next projects! </p>
+          </div>
+        </section>
+
+        <!--RESUME-->
+        <section class="mobile__pane mobile__resume scrollbar">
+          <a href="#" class="close-btn mobile-close-btn" aria-label="Close Account Info Modal Box"
+            role="button">&times;</a>
+          <div class="mobile__resume-content mobile__content">
+            <header class="mobile__resume-content-header">
+              <a class="btn resume__download-btn" href="../images/resume.pdf"
+                download="deryaantonelli_resume.pdf">Download
+              </a>
+              <button class="mobile__resume-zoom" id="mob-zoom-in"><i class="mob-icon mob-icon-zoom-in"></i></button>
+              <button class="mobile__resume-zoom" id="mob-zoom-out"><i class="mob-icon mob-icon-zoom-out"></i></button>
+            </header>
+            <img src="../images/resume-color.svg" alt="resume" id="mob-resume" width="324" height="444">
+          </div>
+        </section>
+
+        <!--WORKS-->
+        <section class="mobile__pane mobile__works scrollbar">
+          <a href="#" class="close-btn mobile-close-btn" aria-label="Close Account Info Modal Box"
+            role="button">&times;</a>
+          <div class="mobile__works-content mobile__content">
+            <div class="mobile__works-project-container">
+              <div class="project-title">
+                <h2 class="highlight">portfolio website</h2>
               </div>
-              <div class="drummer__keys" id="keys">
-                <!--30 Days of Javascript by Wes Bos-->
-                <div data-key="65" class="key">
-                  <kbd>A</kbd>
-                  <span class="sound">clap</span>
-                </div>
-                <div data-key="83" class="key">
-                  <kbd>S</kbd>
-                  <span class="sound">hihat</span>
-                </div>
-                <div data-key="68" class="key">
-                  <kbd>D</kbd>
-                  <span class="sound">kick</span>
-                </div>
-                <div data-key="70" class="key">
-                  <kbd>F</kbd>
-                  <span class="sound">openhat</span>
-                </div>
-                <div data-key="71" class="key">
-                  <kbd>G</kbd>
-                  <span class="sound">boom</span>
-                </div>
-                <div data-key="72" class="key">
-                  <kbd>H</kbd>
-                  <span class="sound">ride</span>
-                </div>
-                <div data-key="74" class="key">
-                  <kbd>J</kbd>
-                  <span class="sound">snare</span>
-                </div>
-                <div data-key="75" class="key">
-                  <kbd>K</kbd>
-                  <span class="sound">tom</span>
-                </div>
-                <div data-key="76" class="key">
-                  <kbd>L</kbd>
-                  <span class="sound">tink</span>
-                </div>
+              <video src="../images/screencap.mp4" width="100%" height="38%" style="display: block;" autoplay loop muted
+                playsinline></video>
+              <div class="project-stack">
+                <p>JavaScript</p>
+                <p>CSS</p>
+                <p>SCSS</p>
+                <p>HTML</p>
               </div>
-              <div class="drummer__buttons">
-                <button class="record">
-                  <img
-                    src="../images/button-icons/record.svg"
-                    onerror="this.onerror=null; this.src='record.png'"
-                    width="12" height="12"
-                  />
-                </button>
-                <button class="pause disable" disabled>
-                  <img
-                    src="../images/button-icons/pause.svg"
-                    onerror="this.onerror=null; this.src='pause.png'"
-                    width="12" height="12"
-                  />
-                </button>
-                <button class="play disable" disabled>
-                  <img
-                    src="../images/button-icons/play.svg"
-                    onerror="this.onerror=null; this.src='play.png'"
-                    width="12" height="12"
-                  />
-                </button>
-                <button class="stop disable" disabled>
-                  <img
-                    src="../images/button-icons/stop.svg"
-                    onerror="this.onerror=null; this.src='stop.png'"
-                    width="12" height="12"
-                  />
-                </button>
+              <div class="project-content">
+                <p>The website currently you're on is
+                  my first Front-end project. It is a
+                  desktop screen where you'll find
+                  applications, settings and
+                  my info.
+                </p>
+              </div>
+              <div class="project-link">
+                <a href="https://github.com/D-Antonelli/portfolio" class="format-text" target="_blank">GitHub Page</a>
+              </div>
+            </div>
+
+            <div class="mobile__works-project-container">
+              <div class="project-title">
+                <h2 class="highlight">my contact manager</h2>
+              </div>
+              <video src="../images/mycontactman.mp4" width="100%" height="38%" style="display: block;" autoplay loop
+                muted playsinline></video>
+              <div class="project-stack">
+                <p>Java</p>
+                <p>CSS</p>
+                <p>JavaFX</p>
+              </div>
+              <div class="project-content">
+                <p>Easily add, edit, delete, and retrieve contacts with this phonebook-inspired desktop application.</p>
+              </div>
+              <div class="project-link">
+                <a href="https://github.com/D-Antonelli/Java-My-Contact-Manager" class="format-text"
+                  target="_blank">GitHub Page</a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
+      <nav class="bottom-nav">
+        <button class="mobile-nav-btn" id="mobile-btn-about"><img src="/images/mobile/mobile-about-me.png"
+            alt="about me icon" width="46" height="46">
+          <p>about me</p>
+        </button>
+        <!-- <button><img src="/images/mobile/mobile-contact.png" alt=""><p>contact</p></button> -->
+        <a href="mailto:derya.antonelli@gmail.com"><img src="/images/mobile/mobile-contact.png" alt="mail icon"
+            width="46" height="46">
+          <p>contact</p>
+        </a>
+        <button class="mobile-nav-btn" id="mobile-btn-resume"><img src="/images/mobile/mobile-resume.png"
+            alt="resume icon" width="46" height="46">
+          <p>resume</p>
+        </button>
+        <button class="mobile-nav-btn" id="mobile-btn-works"><img src="/images/mobile/mobile-works.png"
+            alt="my works icon" width="46" height="46">
+          <p>works</p>
+        </button>
+      </nav>
+    </section>
 
-      <!--WEATHER-->
-      <section class="pane weather draggable" id="weather">
-        <div class="main-pane">
-          <div class="inner-pane">
-            <div class="inner-pane__header drag">
-              <p class="inner-pane__header-text">weather.app</p></div>
-              <a
-                href="#weather"
-                class="close-btn"
-                aria-label="Close Account Info Modal Box"
-                role="button"
-                >&times;</a
-              >
-            
-            <div class="weather__main-frame">
-              <div class="weather__background"></div>
-              <div class="weather__wrapper">
-                <div class="weather__card bg-day">
-                  <div class="weather__card-character" id="character"></div>
-                  <div class="weather__card-brick" id="brick">
-                    <p id="temp-unit" class="temp-unit">C</p>
-                  </div>
-                  <div class="weather__card-sky" id="weather-sky">
-                    <img
-                      class="sun"
-                      src="../images/weather/sun.png"
-                      alt="an image of sun"
-                      width="73" height="73"
-                    />
-                    <img class="cloud" src="../images/weather/cloud.png" alt="an image of cloud" style="display: none;" width="80" height="45">
-                    <picture>
-                      <source class="moon-behind-cloud" srcset="../images/weather/moon.webp" type="image/webp">
-                      <source class="moon-behind-cloud" srcset="../images/weather/moon.png" type="image/png"> 
-                      <img class="moon-behind-cloud" src="../images/weather/moon.png" alt="an image of moon" style="display: none;" width="51" height="51">
-                    </picture>
-                    <picture>
-                      <source class="fog fog-down" srcset="../images/weather/fog.webp" type="image/webp">
-                      <source class="fog fog-down" srcset="../images/weather/fog.png" type="image/png"> 
-                      <img class="fog fog-down" src="../images/weather/fog.png" alt="image of fog" style="display: none;" width="281" height="100">
-                    </picture>
-                    <picture>
-                      <source class="fog fog-up" srcset="../images/weather/fog.webp" type="image/webp">
-                      <source class="fog fog-up" srcset="../images/weather/fog.png" type="image/png"> 
-                      <img class="fog fog-up" src="../images/weather/fog.png" alt="image of fog" style="display: none;" width="281" height="100">
-                    </picture>
-                    <img class="dark-cloud" src="../images/weather/dark-cloud.png" alt="an image of dark cloud" style="display: none;" width="73" height="40"></img>
-                  </div>
-                  <div class="weather__card-search-result" id="card-text">
-                    <p class="city" id="city">little ninjatown</p>
-                    <p class="temperature" id="temperature">11&#176;c</p>
-                  </div>
-                </div>
-                <div class="weather__form">
-                  <label for="city_search">select your city</label>
-                  <input
-                    type="text"
-                    id="input-city"
-                    class="weather__form-city"
-                    placeholder="Enter a real city name"
-                    autocomplete="off"
-                    aria-described="enter a city name"
-                    aria-expanded="false"
-                    required
-                  />
-                  <div class="error" id="error" hidden>&nbsp;</div>
-                  <div class="suggested-places-container">
-                    <ul class="suggested-results" role="listbox">
-                      <!--here comes list-->
-                    </ul>
-                  </div>
-                  <button type="submit" id="submit">ready to go!</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <!--ClICK EFFECT-->
+    <audio class="click-sound">
+      <source src="images/click.mp4" type="audio/mp4" />
+    </audio>
+  </div>
 
-      <!--ClICK EFFECT-->
-      <audio class="click-sound">
-        <source src="images/click.mp4" type="audio/mp4"/>
-      </audio>
-    </div>
+  <!--DRUM SOUNDS-->
+  <audio data-key="65" class="drum-sound" src="sounds/clap.mp4"></audio>
+  <audio data-key="83" class="drum-sound" src="sounds/hihat.mp4"></audio>
+  <audio data-key="68" class="drum-sound" src="sounds/kick.mp4"></audio>
+  <audio data-key="70" class="drum-sound" src="sounds/openhat.mp4"></audio>
+  <audio data-key="71" class="drum-sound" src="sounds/boom.mp4"></audio>
+  <audio data-key="72" class="drum-sound" src="sounds/ride.mp4"></audio>
+  <audio data-key="74" class="drum-sound" src="sounds/snare.mp4"></audio>
+  <audio data-key="75" class="drum-sound" src="sounds/tom.mp4"></audio>
+  <audio data-key="76" class="drum-sound" src="sounds/tink.mp4"></audio>
+  <audio class="recorded-audio" preload="auto"></audio>
 
-    <!--DRUM SOUNDS-->
-    <audio data-key="65" class="drum-sound" src="sounds/clap.mp4"></audio>
-    <audio data-key="83" class="drum-sound" src="sounds/hihat.mp4"></audio>
-    <audio data-key="68" class="drum-sound" src="sounds/kick.mp4"></audio>
-    <audio data-key="70" class="drum-sound" src="sounds/openhat.mp4"></audio>
-    <audio data-key="71" class="drum-sound" src="sounds/boom.mp4"></audio>
-    <audio data-key="72" class="drum-sound" src="sounds/ride.mp4"></audio>
-    <audio data-key="74" class="drum-sound" src="sounds/snare.mp4"></audio>
-    <audio data-key="75" class="drum-sound" src="sounds/tom.mp4"></audio>
-    <audio data-key="76" class="drum-sound" src="sounds/tink.mp4"></audio>
-    <audio class="recorded-audio" preload="auto"></audio>
+  <script>
+    document.documentElement.classList.remove("no-js");
+  </script>
 
-    <script>
-      document.documentElement.classList.remove("no-js");
-    </script>
-    
-    <script src="lazysizes.min.js" async></script>
-    <script type="module" src="js_modules/helper_functions.mjs"></script>
-    <script type="module" src="js_modules/draggable.mjs"></script>
-    <script type="text/javascript" src="config.js"></script>
-    <script type="module" src="js/weather.js" async></script>
-    <script type="module" src="js/meme_generator.js" async></script>
-    <script type="module" src="js/properties.js" async></script> 
-    <script type="module" src="js/app.js"async></script>
-    <script src="js/works.js" async></script>
-    <script src="js/date.js"></script>
-    <script src="js/settings.js" async></script>
-    <script src="js/drummer.js" async></script>
-  </body>
+  <script src="lazysizes.min.js" async></script>
+  <script src="js/mobile.js" type="text/javascript"></script>
+  <script type="module" src="js_modules/helper_functions.mjs"></script>
+  <script type="module" src="js_modules/draggable.mjs"></script>
+  <script type="text/javascript" src="config.js"></script>
+  <script type="module" src="js/weather.js" async></script>
+  <script type="module" src="js/meme_generator.js" async></script>
+  <script type="module" src="js/properties.js" async></script>
+  <script type="module" src="js/app.js" async></script>
+  <script src="js/works.js" async></script>
+  <script src="js/date.js"></script>
+  <script src="js/settings.js" async></script>
+  <script src="js/drummer.js" async></script>
+</body>
+
 </html>
