@@ -4,24 +4,20 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
+  @include respond(phone-s) { //1 rem = 8.5; 8.5 / 16;
+    display: none;
+  }
+
   &__left {
     .files {
       display: grid;
       height: 100vh;
-      row-gap: 4.5rem;
+      row-gap: 6vh;
        grid-template-columns: minmax(2rem, 5rem) min-content 8rem min-content minmax(
            2rem,
            1fr
          );
       grid-template-rows: minmax(3rem, 5rem) repeat(5, .5fr);
-
-      @include respond(tab-port-s) { 
-        row-gap: 6.5rem;
-        grid-template-columns: minmax(2rem, 5rem) min-content 11rem min-content minmax(
-          2rem,
-          1fr
-        );
-      } 
 
       @include respond(big-desktop) { 
         row-gap: 6.4rem;
@@ -30,16 +26,23 @@
   }
 
   &__right { 
-    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    &-bg {
+    width: 40vw;
+    height: 70vh;
     background-image: url("../images/desktop-illustration.png");
     background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 40vmax;
-
-    @include respond(tab-land-xl) {
-      background-image: none;
+    background-position: center;
+    background-size: contain;
     }
 
+    @include respond(tab-land-m) {
+      display: none;    
+    }
     }
  
   }
