@@ -46,40 +46,47 @@ $breakpoint
 1em = 16px
 */
 
+/*
+and (orientation: portrait)
+
+*/
+
 @mixin respond($breakpoint) {
     //width
-    @if $breakpoint == phone-s {
-        @media (max-width: 25em) {@content}; //400px
-    }
-
-    @if $breakpoint == phone-m {
-        @media (max-width: 31.25em) {@content}; //500px
+    @if $breakpoint == phone-s {//420px
+        @media only screen and (max-width: 38.5em) {@content}; //420px
+        @media only screen and (max-width: 38.5em) and (orientation: portrait) {@content};
+        @media only screen and (max-width: 64em) and (max-height: 38.5em) and (orientation: landscape) {@content};
     }
 
     @if $breakpoint == phone-l {
-        @media (max-width: 37.5em) {@content}; //600px
+        @media only screen and (max-width: 45.5em) {@content}; //720px
+        @media only screen and (max-width: 45.5em) and (orientation: portrait) {@content};
+        @media only screen and (max-width: 80.5em) and (max-height: 45.5em) and (orientation: landscape) {@content};
     }
 
     @if $breakpoint == tab-port-s {
-        @media (max-width: 52.20em) {@content}; //834
+        @media only screen and (max-width: 52.20em) {@content}; //834
+        @media only screen and (max-width: 52.20em) and (orientation: portrait) {@content};
+        @media only screen and (max-width: 80.5em) and (max-height: 52.20em) and (orientation: landscape) {@content};
     }
 
     @if $breakpoint == tab-port-l {
-        @media (max-width: 60.2em)  {@content}; //962
+        @media only screen and (max-width: 60.2em) {@content}; //962
+        @media only screen and (max-width: 60.2em) and (orientation: portrait) {@content};
+        @media only screen and (max-width: 80.5em) and (max-height: 60.2em) and (orientation: landscape) {@content};
     }
 
     @if $breakpoint == tab-land-m {
-         @media (max-width: 64em)  {@content}; //1024px
+         @media only screen and (max-width: 64em) {@content}; //1024px
      }
 
     @if $breakpoint == tab-land-xl {
-        @media (max-width: 80.5em) {@content}; //1280px
+        @media only screen and (max-width: 80.5em) {@content}; //1280px
     }
 
     @if $breakpoint == big-desktop {
-        @media (min-width: 112.5em) and (min-height: 67em) {@content}; //1800 x 1080px 
+        @media only screen and (min-width: 112.5em) and (min-height: 67em) {@content}; //1800 x 1080px 
     }
-
-    //height
     
 }
