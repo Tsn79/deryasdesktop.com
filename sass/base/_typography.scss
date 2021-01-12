@@ -1,14 +1,14 @@
 .body-container {
     font-family: 'Roboto', sans-serif;
-    font-size: var(--font-size-medium);
+    font-size: 1.6rem;
     letter-spacing: var(--text-spacing);
 
-    @include respond(tab-port-s) { //1 rem = 8.5; 8.5 / 16;
-      font-size: 1.8rem;
+    @include respond(phone-s) { //1 rem = 8.5; 8.5 / 16;
+      font-size: 2.3rem;
     } 
 
     @include respond(big-desktop) { //1 rem = 12; 12/16
         font-size: var(--font-size-big);
-      }
+    }
 }
 
