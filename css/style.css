@@ -258,10 +258,6 @@ body {
     .body-container {
       font-size: var(--font-size-big); } }
 
-@media only screen and (min-width: 112.5em) and (min-height: 67em) {
-  .mavigation__dropdown-content {
-    font-size: var(--font-size-medium); } }
-
 .highlight {
   background: linear-gradient(180deg, transparent 50%, yellow 50%); }
 
