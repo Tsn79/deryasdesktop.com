@@ -6,15 +6,10 @@
  
   &.clicked {
     opacity: 1;
-    left: 50rem;
-    top: 8rem;
+    left: 10vw;
+    top: 8vh;
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px);
-
-    @include respond(tab-port-s) { //1 rem = 8.5; 8.5 / 16;
-      left: 15rem;
-      top: 20rem;
-    } 
   }
 
   &:focus {
@@ -117,6 +112,7 @@
       border-radius: 1.5rem;
       text-align: center;
       margin: 0 auto;
+      cursor: var(--cursor-point);
 
       &:nth-child(1),
       &:nth-child(6) {
