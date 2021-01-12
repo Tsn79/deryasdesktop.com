@@ -46,12 +46,12 @@
         & img {
             position: relative;
             z-index: -1;
-            width: 9rem;
-            height: 9rem;
+            width: 8rem;
+            height: 8rem;
 
             @include respond(big-desktop) { //1 rem = 12; 12/16
-                width: 10rem;
-                height: 10rem;
+                width: 9rem;
+                height: 9rem;
               }
         }
 
@@ -87,19 +87,10 @@
        
     }
 
-    &-label {
-        font-size: var(--font-size-small);
+    &-label {        
         margin: 0 auto;
         cursor: inherit;
         transition: .3s all;
-
-        @include respond(tab-port-s) { 
-            font-size: 1.5rem;
-          }
-
-        @include respond(big-desktop) { //1 rem = 12; 12/16
-            font-size: var(--font-size-medium);
-          }
     }
         
 }
