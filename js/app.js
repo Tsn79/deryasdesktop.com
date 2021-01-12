@@ -76,8 +76,11 @@ desktop.getDomElementFromUrl = function (urlLink) {
 
 desktop.closeApp = function (event) {
   event.stopPropagation();
+  //close btn for mobile version
+  if(this.className.includes("mobile")) {
+    return this.parentNode.style.display = "none";
+  }
   var selected = desktop.getDomElementFromUrl(this.href);
-  //var selected = desktop.getDomElementFromUrl(event.target.href);
   className.remove(selected, "clicked");
   return desktop.removeAppFromStack(selected, desktop.activeApps);
 };
