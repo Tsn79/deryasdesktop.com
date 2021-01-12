@@ -315,15 +315,6 @@ button[disabled] {
   background-image: url(../images/pane.svg);
   background-size: contain;
   background-repeat: no-repeat; }
-  @media only screen and (max-width: 38.5em) {
-    .main-pane {
-      background-image: none; } }
-  @media only screen and (max-width: 38.5em) and (orientation: portrait) {
-    .main-pane {
-      background-image: none; } }
-  @media only screen and (max-width: 64em) and (max-height: 38.5em) and (orientation: landscape) {
-    .main-pane {
-      background-image: none; } }
 
 .inner-pane {
   position: relative;
