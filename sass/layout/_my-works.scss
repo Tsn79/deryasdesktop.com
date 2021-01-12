@@ -87,7 +87,6 @@
           @include respond(tab-port-s) { 
             top: 6.6rem;
             }  
-          
         }
       }
 
@@ -126,11 +125,15 @@
 
   &-stack {
     max-width: 21.1rem;
-    //min-height: 8.8rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
+
+    @include respond(phone-s) {
+      max-width: 100%;
+      justify-content: unset;
+    }
 
     & > * {
       text-align: center;
@@ -140,8 +143,11 @@
       border-radius: 2.4rem;
       background-color: #DCDCDC;
       margin-top: 1rem;
-    }
 
+      @include respond(phone-s) {
+        margin-right: 2vw;
+      }
+    }
   }
 
   &-link {
