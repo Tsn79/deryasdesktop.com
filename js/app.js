@@ -77,12 +77,25 @@ desktop.getDomElementFromUrl = function (urlLink) {
 desktop.closeApp = function (event) {
   event.stopPropagation();
   //close btn for mobile version
-  if(this.className.includes("mobile")) {
-    return this.parentNode.style.display = "none";
+  if (this.className.includes("mobile")) {
+    return (this.parentNode.style.display = "none");
   }
   var selected = desktop.getDomElementFromUrl(this.href);
   className.remove(selected, "clicked");
   return desktop.removeAppFromStack(selected, desktop.activeApps);
+};
+
+desktop.handlePopState = function () {
+  location.hash
+    ? desktop.showNavbarActiveAppTab(location.hash)
+    : (document.querySelector("#open-tabs").hidden = true);
+
+  var changeHash = function (apps, location) {
+    var latestApp = apps[apps.length - 1] || apps;
+    console.log(latestApp);
+    location.hash = latestApp.id || latestApp;
+  };
+  changeHash(desktop.activeApps, location);
 };
 
 desktop.removeAppFromStack = function (currApp, activeApps) {
@@ -91,6 +104,7 @@ desktop.removeAppFromStack = function (currApp, activeApps) {
   if (index !== -1) {
     activeApps.splice(index, 1);
   }
+  return desktop.handlePopState();
 };
 
 desktop.changeStackingOrder = function (e) {
@@ -99,7 +113,6 @@ desktop.changeStackingOrder = function (e) {
 };
 
 //EVENT LISTENERS
-
 desktop.buttons.closeButton.forEach((button) =>
   button.addEventListener("click", desktop.closeApp)
 );
@@ -131,15 +144,4 @@ desktop.showNavbarActiveAppTab = function (locHashName) {
   document.querySelector(".quit").addEventListener("click", desktop.closeApp);
 };
 
-//Rename hash after active app
-window.onpopstate = function () {
-  location.hash
-    ? desktop.showNavbarActiveAppTab(location.hash)
-    : document.querySelector("#open-tabs").hidden = true;
-
-  var changeHash = function (apps, location) {
-    var latestApp = apps[apps.length - 1] || apps;
-    location.hash = latestApp.id || latestApp;
-  };
-  return changeHash(desktop.activeApps, location);
-};
+window.onpopstate = desktop.handlePopState;
