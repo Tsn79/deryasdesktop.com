@@ -4,15 +4,11 @@
 
   &.clicked {
     opacity: 1;
-    left: 30rem;
-    top: 14rem;
+    left: 10vw;
+    top: 14vh;
     -webkit-transform: translate3d(0px, 0px, 0px);
     transform: translate3d(0px, 0px, 0px);
 
-    @include respond(tab-port-s) { 
-      left: 10rem;
-      top: 20rem;
-    } 
   }
 
   &__main-frame {
@@ -36,6 +32,13 @@
     padding: 3rem 1rem 0 0;
     line-height: var(--text-line-height);
 
+    @include respond(phone-s) {
+      position: unset;
+      padding: unset;
+      right: unset;
+      height: unset;
+    }
+
     & a {
       color: var(--color-yellow);
     }
@@ -50,8 +53,18 @@
 
     &-header {
       margin-bottom: 1.5rem;
+
+      @include respond(phone-s) {
+        margin: 3.5vh 0;
+      }
     }
   }
 }
 
 @include webp-optimizer("../images/about-me--icon", ".about-me__main-frame");
+
+.webp .about-me__main-frame {
+  @include respond(phone-s) { 
+    background-image: none;
+  }
+}
