@@ -9,11 +9,13 @@
   z-index: 1000;
   box-shadow: 0 2px 0 #000;
 
-  @include respond(tab-port-s) { //1 rem = 8; 8 / 16;
-    height: 4.6rem;
+  @include respond(phone-s) {
+    //1 rem = 12; 12/16
+    height: 4rem;
   }
 
-  @include respond(big-desktop) { //1 rem = 12; 12/16
+  @include respond(big-desktop) {
+    //1 rem = 12; 12/16
     height: 4rem;
   }
 
@@ -27,15 +29,11 @@
       width: 2.6rem;
       height: 2.6rem;
       margin-right: 0.8rem;
-    }
 
-    & p {
-      font-size: var(--font-size-big);
-      letter-spacing: 0.8px;
-      font-weight: bold;
-
-      @include respond(big-desktop) { //1 rem = 12; 12/16
-        font-size: var(--font-size-xl);
+      @include respond(phone-s) {
+        width: 3rem;
+        height: 3rem;
+        margin-right: 1.2rem;
       }
     }
   }
@@ -46,9 +44,11 @@
     justify-content: space-between;
 
     & .email {
-      @include respond(tab-port-s) { //1 rem = 8.5; 8.5 / 16;
+      -webkit-user-select: text;
+      @include respond(tab-port-s) {
+        //1 rem = 8.5; 8.5 / 16;
         display: none;
-      } 
+      }
     }
 
     & > *:not(.email) {
@@ -62,12 +62,18 @@
 
   &__right {
     align-items: center;
+
+    & .time {
+      @include respond(phone-s) { //1 rem = 8.5; 8.5 / 16;
+        display: none;
+      } 
+    }
   }
 
   &__right > *,
   &__dropdown-btn
   //&__link
-   {
+  {
     padding: 0.6rem 1rem;
   }
 
@@ -77,20 +83,13 @@
     text-transform: capitalize;
   }
 
-  /*&__link {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-
-    &:active,
-    &:visited {
-      color: inherit;
-    }
-  }
-  */
-
   &__dropdown {
     overflow: hidden;
+
+      @include respond(phone-s) {
+        display: none;
+      }
+    
 
     &-btn {
       height: 100%;
@@ -108,14 +107,10 @@
       display: none;
       position: absolute;
       //min-width: 8rem;
-      font-size: 1.5rem;
+      //font-size: 1.5rem;
       background-color: var(--color-grey-dropdown);
       outline: 2px solid;
       //top: 3.8rem;
-
-      @include respond(big-desktop) { //1 rem = 12; 12/16
-        font-size: var(--font-size-medium);
-      }
 
       /* Links inside the dropdown */
       & a {
@@ -164,12 +159,22 @@
 
   & > *:not(:last-child) {
     margin-right: 0.5rem;
+
+    @include respond(phone-s) { //1 rem = 8.5; 8.5 / 16;
+      margin-right: 0.7rem;
+    }
   }
 
   i {
     display: block;
     height: 2.5rem;
     width: 2.5rem;
+ 
+      @include respond(phone-s) { //1 rem = 8.5; 8.5 / 16;
+        height: 2.7rem;
+        width: 2.7rem;
+      } 
+    
   }
 
   &-twitter {
@@ -186,8 +191,7 @@
 }
 
 #open-tabs {
-
-  @include respond(tab-port-s) { //1 rem = 8; 8 / 16;
+  @include respond(tab-port-s) {
     display: none;
-  } 
+  }
 }
