@@ -367,6 +367,8 @@ button[disabled] {
     transform: scale(0.9); }
 
 .scrollbar {
+  scrollbar-color: yellow transparent;
+  scrollbar-width: auto;
   /* Track */
   /* Handle */
   /* Handle on hover */ }
@@ -624,7 +626,6 @@ button[disabled] {
   .file-icon {
     position: relative;
     display: block;
-    z-index: 2;
     margin-bottom: .8rem;
     cursor: inherit;
     transition: .1s all; }
@@ -1545,7 +1546,8 @@ button[disabled] {
     .resume__main-frame-content {
       height: 75.5%;
       overflow-y: scroll;
-      overflow-x: hidden; }
+      overflow-x: hidden;
+      scrollbar-color: #cd39cd transparent; }
       .resume__main-frame-content::-webkit-scrollbar-thumb {
         background: #cd39cd; }
   .resume__image {
