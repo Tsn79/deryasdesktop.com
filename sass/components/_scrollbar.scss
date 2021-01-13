@@ -1,4 +1,6 @@
 .scrollbar {
+    scrollbar-color: yellow transparent;
+    scrollbar-width: auto;
 
     &::-webkit-scrollbar {
         width: 2rem;

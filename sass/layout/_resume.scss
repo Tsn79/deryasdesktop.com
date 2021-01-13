@@ -36,6 +36,7 @@
       height: 75.5%;
       overflow-y: scroll;
       overflow-x: hidden;
+      scrollbar-color: #cd39cd transparent;
 
       &::-webkit-scrollbar-thumb {
         background: #cd39cd;
