@@ -1,4 +1,4 @@
-import {className} from '../js_modules/helper_functions.mjs';
+import { className } from "../js_modules/helper_functions.mjs";
 
 const memeExe = {
   gallery: document.querySelector("#meme-gallery"),
@@ -12,42 +12,45 @@ const memeExe = {
   memeText: document.querySelectorAll(".input-text"),
   get ctx() {
     return this.canvas.getContext("2d");
-  }
-}
+  },
+};
 
 //helper functions
 memeExe.helperFunc = {};
 
-memeExe.helperFunc.extractSrcFromUrl = function(imageEle) {
-  if(imageEle) {
+memeExe.helperFunc.extractSrcFromUrl = function (imageEle) {
+  if (imageEle) {
     return imageEle.style.backgroundImage.slice(4, -1).replace(/"/g, "");
   }
-}
-
+};
 
 //render selected gallery image onto canvas
-memeExe.renderMemeToCanvas = function(event) {
+memeExe.renderMemeToCanvas = function (event) {
   var image = new Image();
   image.onload = memeExe.drawMeme;
   image.src = memeExe.helperFunc.extractSrcFromUrl(event.target);
- 
-  if(event.target.className === "thumb") {
+
+  if (event.target.className === "thumb") {
     memeExe.toggleActive(event.target);
-  }  
-}
+  }
+};
 
-
-memeExe.toggleActive = function(element) {
+memeExe.toggleActive = function (element) {
   var activeCls = document.body.querySelector(".active");
-  if(activeCls) {
+  if (activeCls) {
     className.remove(activeCls, "active");
   }
   className.add(element, "active");
-}
+};
 
-memeExe.drawMeme = function() {
+memeExe.drawMeme = function () {
   var targetSize = parseInt(window.getComputedStyle(memeExe.container).width);
-  var meme = memeExe.setMemeSize(this.width, this.height, targetSize, targetSize);
+  var meme = memeExe.setMemeSize(
+    this.width,
+    this.height,
+    targetSize,
+    targetSize
+  );
   //set canvas container same as meme dimensions
   memeExe.canvas.width = meme.width;
   memeExe.canvas.height = meme.height;
@@ -56,62 +59,74 @@ memeExe.drawMeme = function() {
   memeExe.container.height = meme.height;
 
   memeExe.ctx.drawImage(this, 0, 0, meme.width, meme.height);
-  
-  memeExe.drawText(memeExe.textTop.value, "top", window.getComputedStyle(memeExe.textTop).fontSize);
-  memeExe.drawText(memeExe.textBtm.value, "bottom", window.getComputedStyle(memeExe.textBtm).fontSize);
-}
 
+  memeExe.drawText(
+    memeExe.textTop.value,
+    "top",
+    window.getComputedStyle(memeExe.textTop).fontSize
+  );
+  memeExe.drawText(
+    memeExe.textBtm.value,
+    "bottom",
+    window.getComputedStyle(memeExe.textBtm).fontSize
+  );
+};
 
-memeExe.drawText = function(text, pos, font){
+memeExe.drawText = function (text, pos, font) {
   var copy = text.toUpperCase(),
-  yPos = "";
-
+    yPos = "";
 
   switch (pos) {
-    case 'top': 
-      //xPos = (memeExe.textTop.clientWidth/2)+1;
-      //yPos = memeExe.textTop.offsetTop+10;
-      yPos =  memeExe.textTop.offsetTop + parseInt(window.getComputedStyle(memeExe.textTop).padding) + 
-      parseInt(window.getComputedStyle(memeExe.textTop).borderWidth) + 2;
-      //yPos = memeExe.textTop.scrollHeight;
+    case "top":
+      var PADDING =
+        parseInt(
+          window.getComputedStyle(memeExe.textTop, null)["-moz-padding-start"]
+        ) || parseInt(window.getComputedStyle(memeExe.textTop).padding);
+      var BORDER =
+        parseInt(
+          window.getComputedStyle(memeExe.textTop, null)[
+            "-moz-border-end-width"
+          ]
+        ) || parseInt(window.getComputedStyle(memeExe.textTop).borderWidth);
+
+      yPos = memeExe.textTop.offsetTop + PADDING + BORDER + 2;
       break;
-    
-    case 'bottom':
-      //xPos = (memeExe.textBtm.clientWidth/2)+1;
-      //yPos = memeExe.textBtm.offsetTop+10;
+
+    case "bottom":
       yPos = memeExe.canvas.height - memeExe.textBtm.scrollHeight;
-      
       break;
   }
 
-  memeExe.ctx.textBaseline = 'top';
-  memeExe.ctx.textAlign = 'center';
-  memeExe.ctx.font = 'bold '+font+' Helvetica';
-  memeExe.ctx.shadowColor="#000";
-  memeExe.ctx.lineCap="round";
-  memeExe.ctx.lineJoin="round";
-  memeExe.ctx.shadowOffsetX=2;
-  memeExe.ctx.shadowOffsetY=2;
-  memeExe.ctx.shadowBlur=0;
-  memeExe.ctx.fillStyle = '#fff';
-  memeExe.ctx.strokeText(copy, memeExe.canvas.width/2, yPos);
-  memeExe.ctx.fillText(copy, memeExe.canvas.width/2, yPos);  
-}
+  memeExe.ctx.textBaseline = "top";
+  memeExe.ctx.textAlign = "center";
+  memeExe.ctx.font = "bold " + font + " Helvetica";
+  memeExe.ctx.shadowColor = "#000";
+  memeExe.ctx.lineCap = "round";
+  memeExe.ctx.lineJoin = "round";
+  memeExe.ctx.shadowOffsetX = 2;
+  memeExe.ctx.shadowOffsetY = 2;
+  memeExe.ctx.shadowBlur = 0;
+  memeExe.ctx.fillStyle = "#fff";
+  memeExe.ctx.strokeText(copy, memeExe.canvas.width / 2, yPos);
+  memeExe.ctx.fillText(copy, memeExe.canvas.width / 2, yPos);
+};
 
-
-
-memeExe.updateMeme = function() {
-  setTimeout(function(){
+memeExe.updateMeme = function () {
+  setTimeout(function () {
     var image = new Image();
     image.onload = memeExe.drawMeme;
     var activeCls = document.querySelector(".active");
     image.src = memeExe.helperFunc.extractSrcFromUrl(activeCls);
   }, 1);
-}
+};
 
-
-memeExe.setMemeSize = function(memeWidth, memeHeight, targetWidth, targetHeight) {
-  var result = { width:0, height:0 };
+memeExe.setMemeSize = function (
+  memeWidth,
+  memeHeight,
+  targetWidth,
+  targetHeight
+) {
+  var result = { width: 0, height: 0 };
   var ratio = memeWidth / memeHeight;
 
   //set width to height proportion
@@ -136,71 +151,68 @@ memeExe.setMemeSize = function(memeWidth, memeHeight, targetWidth, targetHeight)
   }
 
   return result;
-}
+};
 
-
-//user meme upload 
-memeExe.validateAndUploadMeme = function(event) {
+//user meme upload
+memeExe.validateAndUploadMeme = function (event) {
   var memeFile = event.target.files[0];
-  var validfileTypes = ["image/png", "image/jpg","image/jpeg"];
-  if(memeFile && validfileTypes.includes(memeFile.type)) {
+  var validfileTypes = ["image/png", "image/jpg", "image/jpeg"];
+  if (memeFile && validfileTypes.includes(memeFile.type)) {
     var image = new Image(),
-    URL = window.URL || window.webkitURL; 
+      URL = window.URL || window.webkitURL;
     image.onload = memeExe.drawMeme;
     image.src = URL.createObjectURL(memeFile);
     memeExe.appendMemeUploadToGallery(image);
   }
-}
+};
 
-
-memeExe.downloadMeme = function() { 
-  var imageUrl = memeExe.canvas.toDataURL("image/png")
-                .replace("image/png", "image/octet-stream"); 
+memeExe.downloadMeme = function () {
+  var imageUrl = memeExe.canvas
+    .toDataURL("image/png")
+    .replace("image/png", "image/octet-stream");
   memeExe.downloadBtn.setAttribute("href", imageUrl);
+};
 
-}
-
-
-memeExe.appendMemeUploadToGallery = function(uploadImage) {
+memeExe.appendMemeUploadToGallery = function (uploadImage) {
   var src = uploadImage.src;
-  var newEle = '';
+  var newEle = "";
   newEle = document.createElement("div");
   newEle.style.backgroundImage = `url('${src}')`;
   newEle.className = "thumb";
   memeExe.gallery.insertBefore(newEle, memeExe.gallery.childNodes[0]);
   memeExe.gallery.removeChild(memeExe.gallery.lastElementChild);
   memeExe.toggleActive(newEle);
-}
+};
 
-memeExe.shrinkToFill = function() {
+memeExe.shrinkToFill = function () {
   var inputLength = this.value.length,
-  width = this.clientWidth,
-  maxSize = width == 300? 43:35,
-  initialSize = maxSize - inputLength,
-  initialSize=initialSize<=11?11:initialSize;
+    width = this.clientWidth,
+    maxSize = width == 300 ? 43 : 35,
+    initialSize = maxSize - inputLength;
+  initialSize = initialSize <= 11 ? 11 : initialSize;
   this.style.fontSize = initialSize + "px";
-}
+};
 
-memeExe.listeners = function() {
+memeExe.listeners = (function () {
   memeExe.gallery.addEventListener("click", memeExe.renderMemeToCanvas);
   memeExe.uploadBtn.addEventListener("change", memeExe.validateAndUploadMeme);
   memeExe.downloadBtn.addEventListener("click", memeExe.downloadMeme);
-  Array.from(memeExe.memeText).forEach(text => {
+  Array.from(memeExe.memeText).forEach((text) => {
     text.addEventListener("keydown", memeExe.updateMeme);
     text.addEventListener("keydown", memeExe.shrinkToFill);
     text.addEventListener("keyup", memeExe.updateMeme);
-    text.addEventListener("focus", memeExe.updateMeme);  
-});
-}();
- 
+    text.addEventListener("focus", memeExe.updateMeme);
+  });
+})();
 
-
-//render first image on canvas 
-(function(){
-  window.onload = function() {
-  var image = new Image();
+//render first image on canvas
+(function () {
+  window.onload = function () {
+    var image = new Image();
     image.onload = memeExe.drawMeme;
-    image.src = memeExe.helperFunc.extractSrcFromUrl(memeExe.gallery.firstElementChild)
-  memeExe.toggleActive(memeExe.gallery.firstElementChild);
-};
+    image.src = memeExe.helperFunc.extractSrcFromUrl(
+      memeExe.gallery.firstElementChild
+    );
+    memeExe.toggleActive(memeExe.gallery.firstElementChild);
+  };
 })();
