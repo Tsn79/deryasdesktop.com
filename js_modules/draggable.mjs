@@ -7,28 +7,30 @@ export class Draggable {
     this.onPointerDown = this.onPointerDown.bind(this);
     this.onPointerMove = this.onPointerMove.bind(this);
     this.onPointerUp = this.onPointerUp.bind(this);
+    this.eventType = "";
     this.addEventHandlers();
+    this.isDragging = false;
   }
 
   addEventHandlers() {
-    if (this.header) {
-      //drag from header
+    //drag from header
+    if (this.header) { 
       this.header.onpointerdown = this.onPointerDown;
     } else {
+    //else drag from body
       this.el.addEventListener("pointerdown", this.onPointerDown);
     }
-
-    this.el.addEventListener("dragstart", (e) => e.preventDefault());
+    //this.el.addEventListener("dragstart", (e) => e.preventDefault());
     document.addEventListener("pointerup", this.onPointerUp);
   }
 
   onPointerDown(e) {
     e = e || window.event;
-    this.el.style.cursor = 'url("../images/cursor_drag.png"), auto';
+    this.isDragging = true;
+    this.eventType = e.pointerType === "mouse" ? "mouse" : "pointer";
     this.getDragPointer(e.clientX, e.clientY);
-    this.prepareElement();
-    this.moveElementTo(e.pageX, e.pageY);
-    document.addEventListener("pointermove", this.onPointerMove);
+    this.el.style.cursor = 'url("../images/cursor_drag.png"), auto';
+    document.addEventListener(this.eventType.concat("move"), this.onPointerMove);
   }
 
   getDragPointer(x, y) {
@@ -37,40 +39,39 @@ export class Draggable {
     this.shiftY = y - elRect.top;
   }
 
-  prepareElement() {
-    this.el.style.zIndex = 999;
-  }
-
-  moveElementTo(x, y) {
-    var leftPosition = x - this.shiftX < 0 ? 0 : x - this.shiftX;
-
-    if (this.el.offsetWidth + leftPosition > document.body.clientWidth) {
-      leftPosition = document.body.clientWidth - this.el.offsetWidth;
-    }
-
-    var maxTopPos = document.querySelector(".navigation").offsetHeight;
-    var topPosition = y - this.shiftY < maxTopPos ? maxTopPos : y - this.shiftY;
-
-    if (this.el.offsetHeight + topPosition > document.body.clientHeight) {
-      topPosition = document.body.clientHeight - this.el.offsetHeight;
-    }
-
-    //set responsive constraints for dragging object
-    var el = document.querySelector("html");
-    var style = window.getComputedStyle(el, null).getPropertyValue("font-size");
-    var fontSize = parseInt(style);
-
-    this.el.style.left = `${leftPosition / fontSize}rem`;
-    this.el.style.top = `${topPosition / fontSize}rem`;
-  }
-
   onPointerMove(e) {
     e = e || window.event;
-    this.moveElementTo(e.pageX, e.pageY);
+    var x = e.pageX;
+    var y = e.pageY;
+
+    if(this.isDragging) {
+      var leftPosition = x - this.shiftX < 0 ? 0 : x - this.shiftX;
+  
+      if (this.el.offsetWidth + leftPosition > document.body.clientWidth) {
+        leftPosition = document.body.clientWidth - this.el.offsetWidth;
+      }
+  
+      var maxTopPos = document.querySelector(".navigation").offsetHeight;
+      var topPosition = y - this.shiftY < maxTopPos ? maxTopPos : y - this.shiftY;
+  
+      if (this.el.offsetHeight + topPosition > document.body.clientHeight) {
+        topPosition = document.body.clientHeight - this.el.offsetHeight;
+      }
+  
+      //set responsive constraints for dragging object
+      var el = document.querySelector("html");
+      var style = window.getComputedStyle(el, null).getPropertyValue("font-size");
+      var fontSize = parseInt(style);
+
+      this.el.style.left = `${leftPosition / fontSize}rem`;
+      this.el.style.top = `${topPosition / fontSize}rem`;
+      }
+  
   }
 
-  onPointerUp(e) {
-    document.removeEventListener("pointermove", this.onPointerMove);
+  onPointerUp() {
+    this.isDragging = false;
+  //  document.removeEventListener(this.eventType.concat("move"), this.onPointerMove);
     this.el.style.cursor = "";
   }
 }
