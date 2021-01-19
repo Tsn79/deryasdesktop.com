@@ -12,6 +12,27 @@ desktop.files = document.querySelectorAll(".file");
 desktop.apps = document.querySelectorAll(".pane");
 desktop.click = document.querySelector(".click-sound");
 desktop.draggables = document.querySelectorAll(".draggable");
+desktop.navElements = document.querySelectorAll(".navigation__dropdown");
+
+document.querySelector(".navigation").addEventListener("pointerdown", function(e){
+  if(e.pointerType === "touch") {
+    desktop.removeNavigationHover();
+  } else {
+    desktop.addNavigationHover();
+  }
+});
+
+desktop.removeNavigationHover = function() {  
+  desktop.navElements.forEach(ele =>
+    {
+      className.remove(ele, "navigation__dropdown-hover");
+    } ); 
+}
+
+desktop.addNavigationHover = function() {
+  desktop.navElements.forEach(ele => className.add(ele, "navigation__dropdown-hover"));
+}
+
 
 //make frames draggable
 desktop.dragFrames = (function () {
@@ -34,7 +55,6 @@ desktop.openApp = function (event) {
   ) {
     return;
   }
-
   var currApp =
     desktop.getDomElementFromUrl(event.target.parentNode.href) ||
     desktop.getDomElementFromUrl(event.target.href);
@@ -92,7 +112,6 @@ desktop.handlePopState = function () {
 
   var changeHash = function (apps, location) {
     var latestApp = apps[apps.length - 1] || apps;
-    console.log(latestApp);
     location.hash = latestApp.id || latestApp;
   };
   changeHash(desktop.activeApps, location);
@@ -119,10 +138,10 @@ desktop.buttons.closeButton.forEach((button) =>
 
 //when clicked, stack the current app on the top
 desktop.apps.forEach((app) => {
-  app.addEventListener("click", desktop.changeStackingOrder);
+  app.addEventListener("pointerdown", desktop.changeStackingOrder);
 });
 
-document.addEventListener("click", desktop.openApp);
+document.addEventListener("pointerdown", desktop.openApp);
 
 document.querySelector("body").addEventListener("click", function () {
   desktop.click.autoplay = true;
