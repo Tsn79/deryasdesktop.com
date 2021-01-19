@@ -464,7 +464,8 @@ button[disabled] {
   .navigation__dropdown-content a {
     text-transform: capitalize; }
   .navigation__dropdown {
-    overflow: hidden; }
+    overflow: hidden;
+    position: relative; }
     @media only screen and (max-width: 38.5em) {
       .navigation__dropdown {
         display: none; } }
@@ -486,7 +487,7 @@ button[disabled] {
       cursor: var(--cursor-point); }
     .navigation__dropdown-content {
       display: none;
-      position: absolute;
+      position: fixed;
       background-color: var(--color-grey-dropdown);
       outline: 2px solid;
       /* Links inside the dropdown */ }
@@ -509,11 +510,22 @@ button[disabled] {
         .navigation__dropdown-content a:hover {
           background-color: var(--color-black);
           color: white; }
-  .navigation__dropdown:hover .navigation__dropdown-content {
+  .navigation__dropdown-hover:hover .navigation__dropdown-content {
     display: block; }
-  .navigation__dropdown:hover .navigation__dropdown-btn {
+  .navigation__dropdown-hover:hover .navigation__dropdown-btn {
     background-color: black;
     color: white; }
+  .navigation__checkbox {
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    cursor: var(--cursor-point);
+    opacity: 0 !important; }
+    .navigation__checkbox:checked + .navigation__dropdown-content {
+      display: block; }
 
 .icons {
   display: flex;
@@ -1408,7 +1420,8 @@ button[disabled] {
       .weather__card-search-result .city {
         font-size: 2.8rem; }
       .weather__card-search-result .temperature {
-        font-size: 5rem; }
+        font-size: 5rem;
+        text-transform: uppercase; }
   .weather__form {
     width: 30rem;
     height: 25rem;
