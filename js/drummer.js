@@ -2,6 +2,12 @@ const drummer = {
   buttons: {},
 };
 
+/**
+ * TODO:
+ * https://github.com/ai/audio-recorder-polyfill
+ * https://github.com/browserify/browserify
+ */
+
 drummer.drummerPane = document.querySelector("#drummer");
 
 drummer.buttons.record = document.querySelector(".record");
@@ -99,11 +105,16 @@ drummer.createSound = function () {
 
   drummer.audio.mediaRecorder.onstop = function (evt) {
     // Make blob out of our blobs, and open it.
-    var blob = new Blob(drummer.audio.chunks, {
-      type: "audio/mp4; codecs=mp4",
-    });
+    var blob = new Blob(drummer.audio.chunks, {type: "audio/mpeg"});
     //create new audio here
-    drummer.record.src = URL.createObjectURL(blob);
+    //drummer.record.src = URL.createObjectURL(blob);
+    try {
+      drummer.record.src = webkitURL.createObjectURL(blob);
+  }
+  // Firefox
+  catch(err) {
+      drummer.record.src = URL.createObjectURL(blob);
+  }
   };
 };
 
@@ -202,17 +213,17 @@ drummer.toggleZIndex = function (element) {
   element.style.zIndex = `${max + 1}`;
 };
 
-drummer.buttonDisable = function (isTrue, ...arguments) {
-  var isElementButton = arguments.every(
+drummer.buttonDisable = function (isTrue, array) {
+  var isElementButton = array.every(
     (element) => element.nodeName.toLowerCase() == "button"
   );
-  if (arguments.length > 0 && isElementButton) {
-    for (var i = 0; i < arguments.length; i++) {
+  if (array.length > 0 && isElementButton) {
+    for (var i = 0; i < array.length; i++) {
       if (isTrue == false) {
-        arguments[i].disabled = false;
+        array[i].disabled = false;
         //arguments[i].classList.remove("disable");
       } else {
-        arguments[i].disabled = true;
+        array[i].disabled = true;
         //arguments[i].classList.add("disable");
       }
     }
@@ -277,9 +288,9 @@ drummer.handleRecord = function () {
     drummer.toggleZIndex(drummer.recordingBg);
     drummer.buttonDisable(
       true,
-      drummer.buttons.play,
+      [drummer.buttons.play,
       drummer.buttons.pause,
-      drummer.buttons.reload
+      drummer.buttons.reload]
     );
     drummer.buttons.record.style.background = "yellow";
     drummer.audio.mediaRecorder.start();
@@ -291,9 +302,9 @@ drummer.handleRecord = function () {
     drummer.toggleZIndex(drummer.recordedBg);
     drummer.buttonDisable(
       false,
-      drummer.buttons.play,
+      [drummer.buttons.play,
       drummer.buttons.pause,
-      drummer.buttons.reload
+      drummer.buttons.reload]
     );
     drummer.audio.mediaRecorder.requestData();
     drummer.audio.mediaRecorder.stop();
