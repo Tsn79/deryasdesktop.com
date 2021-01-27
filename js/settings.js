@@ -1,5 +1,5 @@
 //change background
-const settings = {
+var settings = {
     bgColors: {},
     functions: {},
     variables: {},
@@ -111,7 +111,7 @@ settings.functions.resizeScreen = function() {
 
 
 settings.listeners = (function (){
-    for(const el in settings.bgColors) {  
+    for(var el in settings.bgColors) {  
     settings.functions.generateClickEvent(settings.bgColors[el], settings.bodyContainer);
  }  
     settings.fullscreen.addEventListener("change", settings.functions.toggleFullScreen);
