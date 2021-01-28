@@ -79,6 +79,10 @@ desktop.setStackingOrder = function (currApp, activeApps) {
       activeApps[_i].style.zIndex = "".concat(_i + 10);
     }
   }
+  //set hash for pointerdown event
+  // location.hash = currApp.id;
+  // //set focus for playing drums
+  // if(currApp.id === "drummer") {currApp.focus();}
 };
 
 //return corresponding element from url location
@@ -108,7 +112,7 @@ desktop.closeApp = function (event) {
 desktop.handlePopState = function () {
   location.hash
     ? desktop.showNavbarActiveAppTab(location.hash)
-    : (document.querySelector("#open-tabs").hidden = true);
+    : document.querySelector("#open-tabs").hidden = true;
 
   var changeHash = function (apps, location) {
     var latestApp = apps[apps.length - 1] || apps;
@@ -138,12 +142,16 @@ desktop.buttons.closeButton.forEach((button) =>
 
 //when clicked, stack the current app on the top
 desktop.apps.forEach((app) => {
-  app.addEventListener("pointerdown", desktop.changeStackingOrder);
+  app.addEventListener("mousedown", desktop.changeStackingOrder);
 });
 
-document.addEventListener("pointerdown", desktop.openApp);
+document.addEventListener("click", desktop.openApp);
 
-document.querySelector("body").addEventListener("click", function () {
+//desktop.files.forEach(file => file.addEventListener("click", desktop.openApp));
+
+document.querySelector("body").addEventListener("click", function (ev) {
+  //prevent click sound on drum keys
+  if(ev.target.nodeName === "KBD") {return;}
   desktop.click.autoplay = true;
   desktop.click.load();
 });
