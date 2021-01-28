@@ -11,9 +11,12 @@
   "author": "Derya Antonelli",
   "license": "ISC",
   "devDependencies": {
+    "@types/dom-mediacapture-record": "^1.0.7",
     "eslint": "^7.15.0",
     "node-sass": "^4.13.1",
     "npm-run-all": "^4.1.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "audio-recorder-polyfill": "^0.4.1"
+  }
 }
