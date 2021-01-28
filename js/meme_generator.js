@@ -74,15 +74,17 @@ memeExe.drawMeme = function () {
 
 memeExe.drawText = function (text, pos, font) {
   var copy = text.toUpperCase(),
-    yPos = "";
+    yPos = "",
+    PADDING,
+    BORDER;
 
   switch (pos) {
     case "top":
-      var PADDING =
+      PADDING =
         parseInt(
           window.getComputedStyle(memeExe.textTop, null)["-moz-padding-start"]
         ) || parseInt(window.getComputedStyle(memeExe.textTop).padding);
-      var BORDER =
+      BORDER =
         parseInt(
           window.getComputedStyle(memeExe.textTop, null)[
             "-moz-border-end-width"
@@ -93,7 +95,18 @@ memeExe.drawText = function (text, pos, font) {
       break;
 
     case "bottom":
-      yPos = memeExe.canvas.height - memeExe.textBtm.scrollHeight;
+      PADDING =
+        parseInt(
+          window.getComputedStyle(memeExe.textBtm, null)["-moz-padding-start"]
+        ) || parseInt(window.getComputedStyle(memeExe.textBtm).padding);
+      BORDER =
+        parseInt(
+          window.getComputedStyle(memeExe.textBtm, null)[
+            "-moz-border-end-width"
+          ]
+        ) || parseInt(window.getComputedStyle(memeExe.textBtm).borderWidth);
+
+      yPos = memeExe.textBtm.offsetTop + PADDING + BORDER + 2;
       break;
   }
 
@@ -206,7 +219,6 @@ memeExe.listeners = (function () {
 })();
 
 //render first image on canvas
-(function () {
   window.onload = function () {
     var image = new Image();
     image.onload = memeExe.drawMeme;
@@ -215,4 +227,3 @@ memeExe.listeners = (function () {
     );
     memeExe.toggleActive(memeExe.gallery.firstElementChild);
   };
-})();
