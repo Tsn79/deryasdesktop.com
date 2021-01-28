@@ -44,6 +44,7 @@
         transition: .1s all;
 
         & img {
+            pointer-events: none;
             position: relative;
             z-index: -1;
             width: 8rem;
@@ -55,33 +56,27 @@
               }
         }
 
-        
+        &::before,
         &::after {
-            content: "";
+           content: "";
             position: absolute;
             width: 3rem;
-            height: 5rem;
-            left: -3rem;
-            background-image: url("../images/spark--left.svg");
+            height: 5rem;            
             background-repeat: no-repeat;
-            background-size: contain;
             background-size: 3rem;
             transition: .3s all;
             opacity: 0;
         }
+        
+        &::after {          
+            left: -3rem;
+            background-image: url("../images/spark--left.svg");
+        }
 
         &::before {
-            content: "";
-            position: absolute;
-            width: 3rem;
-            height: 5rem;
             right: -3rem;
             background-image: url("../images/spark--right.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-size: 3rem;
-            transition: .3s all;
-            opacity: 0;
+
         }
         
        
