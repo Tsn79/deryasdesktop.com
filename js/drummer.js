@@ -1,14 +1,13 @@
+import { className } from "../js_modules/helper_functions.mjs";
+
 const drummer = {
   buttons: {},
 };
 
-/**
- * TODO:
- * https://github.com/ai/audio-recorder-polyfill
- * https://github.com/browserify/browserify
- */
 
 drummer.drummerPane = document.querySelector("#drummer");
+
+drummer.recorderSupported = window.MediaRecorder;
 
 drummer.buttons.record = document.querySelector(".record");
 drummer.buttons.pause = document.querySelector(".pause");
@@ -67,7 +66,6 @@ drummer.playback = (function () {
 })();
 
 //***************************AUDIO RECORD***************************************//
-
 drummer.createSound = function () {
   //create an audio context
   drummer.audio.context = new (window.AudioContext ||
@@ -76,7 +74,7 @@ drummer.createSound = function () {
 
   drummer.audio.dest = drummer.audio.context.createMediaStreamDestination();
   drummer.audio.mediaRecorder = new MediaRecorder(drummer.audio.dest.stream);
-
+  
   var createAudioTrack = function (context, audioEls) {
     var tracks = [];
     audioEls.forEach((ele) => {
@@ -93,6 +91,7 @@ drummer.createSound = function () {
     };
   };
 
+
   createAudioTrack(drummer.audio.context, Array.from(drummer.sounds)).connect(
     drummer.audio.dest,
     drummer.audio.context.destination
@@ -100,15 +99,15 @@ drummer.createSound = function () {
 
   drummer.audio.mediaRecorder.ondataavailable = function (evt) {
     // push each chunk (blobs) in an array
-    drummer.audio.chunks.push(evt.data);
+      drummer.audio.chunks.push(evt.data);    
   };
 
   drummer.audio.mediaRecorder.onstop = function (evt) {
     // Make blob out of our blobs, and open it.
     var blob = new Blob(drummer.audio.chunks, {type: "audio/mpeg"});
     //create new audio here
-    //drummer.record.src = URL.createObjectURL(blob);
     try {
+      // eslint-disable-next-line no-undef
       drummer.record.src = webkitURL.createObjectURL(blob);
   }
   // Firefox
@@ -117,6 +116,7 @@ drummer.createSound = function () {
   }
   };
 };
+
 
 //https://www.thetopsites.net/article/52375280
 //make sure duration does not return infinity with html audio tag
@@ -198,7 +198,7 @@ drummer.visualize = function () {
 drummer.toggleZIndex = function (element) {
   var max = 1;
   var next = element.nextElementSibling,
-    previous = element.previousElementSibling;
+    previous = element.previousElementSibling; 
 
   while (next || previous) {
     if (next) {
@@ -256,7 +256,16 @@ drummer.record.addEventListener("timeupdate", function () {
   moveProgressBar();
 });
 
+
 drummer.handleRecord = function () {
+  if(!drummer.recorderSupported) {
+    document.querySelector(".hello-safari").style.display = "block";
+    drummer.toggleZIndex(document.querySelector(".hello-safari"));
+    return;
+} else {
+    document.querySelector(".hello-safari").style.display === "none";
+}
+
   if (!drummer.audio.context) {
     drummer.createSound();
   }
@@ -342,9 +351,7 @@ drummer.drummerPane.play = function (keyCode) {
   var audioMatch = document.querySelector(`audio[data-key='${keyCode}']`);
   if (audioMatch) {
     //add playing class to the corresponding data
-    document
-      .querySelector(`.key[data-key='${keyCode}']`)
-      .classList.add("playing");
+    className.add(document.querySelector(`.key[data-key='${keyCode}']`), "playing");
     audioMatch.autoplay = true;
     audioMatch.load();
   }
