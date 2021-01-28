@@ -74,6 +74,20 @@
       }
     }
 
+    & .hello-safari {
+      background-color: blue;
+
+      & span {
+        font-size: 2.3rem;
+        text-shadow: 2px 2px red;      
+      }
+      
+      &-highlight {
+          color: black;
+          font-weight: bold;
+        }
+    }
+
     & .hello,
     & .recording,
     & .recorded {
@@ -83,12 +97,15 @@
       align-items: center;
 
       & span {
-        font-family: var(--font-family--pixel);
-        font-size: 4.5rem;
-        color: var(--color-yellow);
-        text-transform: capitalize;
-        text-shadow: 3px 3px red;
+        font-size: 4.5rem;    
+        text-shadow: 3px 3px red; 
       }
+    }
+
+    & > * span {
+        font-family: var(--font-family--pixel);     
+        text-transform: capitalize;
+        color: var(--color-yellow);
     }
   }
 
@@ -103,6 +120,7 @@
 
     & .key.playing {
       filter: brightness(0.5);
+      -webkit-filter: brightness(0.5);
     }
 
     & .key {
@@ -168,9 +186,11 @@
       width: 3rem;
       height: 3rem;
       background-color: var(--color-desktop-tab);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      
+
 
       &:active,
       &:focus {
@@ -181,6 +201,10 @@
       & img {
         width: 1.2rem;
         height: 1.2rem;
+        /*SAFARI 10.1 */
+        display: inline-block;
+        top: 50%;
+        transform: translateY(10%);
       }
 
       &:not(:last-child) {
