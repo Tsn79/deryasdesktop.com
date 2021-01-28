@@ -28,6 +28,8 @@
   //inner topmost frame
   &__main-frame {
     flex: 1;
+    /*SAFARI 10.1*/
+    height: 90%;
   }
 
   //flex
