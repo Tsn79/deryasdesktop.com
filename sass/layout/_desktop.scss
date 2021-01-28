@@ -13,14 +13,26 @@
       display: grid;
       height: 100vh;
       row-gap: 6vh;
+      grid-row-gap: 6vh;
        grid-template-columns: minmax(2rem, 5rem) min-content 8rem min-content minmax(
            2rem,
            1fr
          );
       grid-template-rows: minmax(3rem, 5rem) repeat(5, .5fr);
 
+      @supports not(grid-template-columns: minmax(2rem, 5rem) min-content 8rem min-content minmax(
+        2rem,
+        1fr
+      )) {
+        grid-template-columns: minmax(2rem, 5rem) -webkit-min-content 8rem -webkit-min-content minmax(
+           2rem,
+           1fr
+         );
+      }
+
       @include respond(big-desktop) { 
         row-gap: 6.4rem;
+        grid-row-gap: 6.4rem;
       }
     }
   }
