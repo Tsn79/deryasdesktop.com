@@ -17,6 +17,7 @@
   <link rel="preload" href="images/computer.webp" as="image" media="screen and (min-width:38.5em)">
   <link rel="preload" href="images/pane.svg" as="image" media="screen and (min-width:38.5em)">
   <link rel="preload" href="images/border-pane-settings.svg" as="image" media="screen and (min-width:38.5em)">
+  <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
   <script src="js/load.js" type="text/javascript"></script>
 </head>
 
@@ -488,10 +489,13 @@
           <a href="#drummer" class="close-btn" aria-label="Close Account Info Modal Box" role="button">&times;</a>
           <div class="drummer__main-frame">
             <div class="drummer__canvas-box">
-              <div class="hello" style="z-index: 101">
-                <span>hello, drummer!</span>
+              <div class="hello-safari" style="z-index: 102; display: none;">
+                <span>Hi drummer! If you're Safari user, navigate to <span class="highlight hello-safari-highlight">Develop > Experimental Features</span> on your browser and click <span class="highlight hello-safari-highlight">MediaRecorder</span> to enable recording:)</span>
               </div>
-              <div class="recording" style="z-index: 100">
+              <div class="hello" style="z-index: 101">
+                <span>hello drummer!</span>
+              </div>
+              <div class="recording" style="z-index: 100;">
                 <span>recording..</span>
               </div>
               <div class="recorded" style="z-index: 100">
@@ -772,7 +776,8 @@
   <audio data-key="74" class="drum-sound" src="sounds/snare.mp4"></audio>
   <audio data-key="75" class="drum-sound" src="sounds/tom.mp4"></audio>
   <audio data-key="76" class="drum-sound" src="sounds/tink.mp4"></audio>
-  <audio class="recorded-audio" preload="auto"></audio>
+  <audio class="recorded-audio" preload="auto">
+  </audio>
 
   <script>
     document.documentElement.classList.remove("no-js");
@@ -790,7 +795,7 @@
   <script src="js/works.js" async></script>
   <script src="js/date.js"></script>
   <script src="js/settings.js" async></script>
-  <script src="js/drummer.js" async></script>
+  <script type="module" src="js/drummer.js"></script>
 </body>
 
 </html>
