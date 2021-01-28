@@ -181,10 +181,12 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  -webkit-user-select: none;
   user-select: none;
   cursor: url("../images/cursor.png"), auto;
   background-size: cover;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  background-image: url("../images/Group6.png"); }
 
 .body-container {
   display: none;
@@ -366,6 +368,9 @@ button[disabled] {
   .close-btn:active {
     transform: scale(0.9); }
 
+.drag {
+  touch-action: none; }
+
 .scrollbar {
   scrollbar-color: yellow transparent;
   scrollbar-width: auto;
@@ -431,7 +436,8 @@ button[disabled] {
           margin-right: 1.2rem; } }
   .navigation__left, .navigation__right {
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between;
+    height: 100%; }
     .navigation__left .email, .navigation__right .email {
       -webkit-user-select: text; }
       @media only screen and (max-width: 52.2em) {
@@ -465,7 +471,8 @@ button[disabled] {
     text-transform: capitalize; }
   .navigation__dropdown {
     overflow: hidden;
-    position: relative; }
+    position: relative;
+    height: 100%; }
     @media only screen and (max-width: 38.5em) {
       .navigation__dropdown {
         display: none; } }
@@ -594,11 +601,16 @@ button[disabled] {
     display: grid;
     height: 100vh;
     row-gap: 6vh;
+    grid-row-gap: 6vh;
     grid-template-columns: minmax(2rem, 5rem) min-content 8rem min-content minmax(2rem, 1fr);
     grid-template-rows: minmax(3rem, 5rem) repeat(5, 0.5fr); }
+    @supports not (grid-template-columns: minmax(2rem, 5rem) min-content 8rem min-content minmax(2rem, 1fr)) {
+      .desktop__left .files {
+        grid-template-columns: minmax(2rem, 5rem) -webkit-min-content 8rem -webkit-min-content minmax(2rem, 1fr); } }
     @media only screen and (min-width: 112.5em) and (min-height: 67em) {
       .desktop__left .files {
-        row-gap: 6.4rem; } }
+        row-gap: 6.4rem;
+        grid-row-gap: 6.4rem; } }
   .desktop__right {
     display: flex;
     align-items: center;
@@ -642,6 +654,7 @@ button[disabled] {
     cursor: inherit;
     transition: .1s all; }
     .file-icon img {
+      pointer-events: none;
       position: relative;
       z-index: -1;
       width: 8rem;
@@ -650,30 +663,21 @@ button[disabled] {
         .file-icon img {
           width: 9rem;
           height: 9rem; } }
+    .file-icon::before, .file-icon::after {
+      content: "";
+      position: absolute;
+      width: 3rem;
+      height: 5rem;
+      background-repeat: no-repeat;
+      background-size: 3rem;
+      transition: .3s all;
+      opacity: 0; }
     .file-icon::after {
-      content: "";
-      position: absolute;
-      width: 3rem;
-      height: 5rem;
       left: -3rem;
-      background-image: url("../images/spark--left.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-size: 3rem;
-      transition: .3s all;
-      opacity: 0; }
+      background-image: url("../images/spark--left.svg"); }
     .file-icon::before {
-      content: "";
-      position: absolute;
-      width: 3rem;
-      height: 5rem;
       right: -3rem;
-      background-image: url("../images/spark--right.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-size: 3rem;
-      transition: .3s all;
-      opacity: 0; }
+      background-image: url("../images/spark--right.svg"); }
   .file-label {
     margin: 0 auto;
     cursor: inherit;
@@ -692,6 +696,7 @@ button[disabled] {
     position: absolute;
     width: 100%;
     height: 90.5%;
+    background-image: url(../images/about-me--icon.png);
     background-repeat: no-repeat;
     background-size: 25rem;
     background-position: 2rem 2rem;
@@ -972,7 +977,9 @@ button[disabled] {
     display: flex;
     flex-direction: column; }
   .settings__main-frame {
-    flex: 1; }
+    flex: 1;
+    /*SAFARI 10.1*/
+    height: 90%; }
   .settings__container {
     height: 100%;
     display: flex;
@@ -1152,6 +1159,14 @@ button[disabled] {
         z-index: 1;
         width: 100%;
         height: 100%; }
+    .drummer__canvas-box .hello-safari {
+      background-color: blue; }
+      .drummer__canvas-box .hello-safari span {
+        font-size: 2.3rem;
+        text-shadow: 2px 2px red; }
+      .drummer__canvas-box .hello-safari-highlight {
+        color: black;
+        font-weight: bold; }
     .drummer__canvas-box .hello,
     .drummer__canvas-box .recording,
     .drummer__canvas-box .recorded {
@@ -1162,11 +1177,12 @@ button[disabled] {
       .drummer__canvas-box .hello span,
       .drummer__canvas-box .recording span,
       .drummer__canvas-box .recorded span {
-        font-family: var(--font-family--pixel);
         font-size: 4.5rem;
-        color: var(--color-yellow);
-        text-transform: capitalize;
         text-shadow: 3px 3px red; }
+    .drummer__canvas-box > * span {
+      font-family: var(--font-family--pixel);
+      text-transform: capitalize;
+      color: var(--color-yellow); }
   .drummer__keys {
     flex: 0 0 25rem;
     padding: 0 1rem 0 1rem;
@@ -1175,7 +1191,8 @@ button[disabled] {
     align-items: center;
     justify-content: center; }
     .drummer__keys .key.playing {
-      filter: brightness(0.5); }
+      filter: brightness(0.5);
+      -webkit-filter: brightness(0.5); }
     .drummer__keys .key {
       border: solid black 2px;
       width: 7rem;
@@ -1213,16 +1230,17 @@ button[disabled] {
       border: solid 2px black;
       width: 3rem;
       height: 3rem;
-      background-color: var(--color-desktop-tab);
-      display: flex;
-      justify-content: center;
-      align-items: center; }
+      background-color: var(--color-desktop-tab); }
       .drummer__buttons button:active, .drummer__buttons button:focus {
         outline: none;
         border: solid 2px var(--color-yellow); }
       .drummer__buttons button img {
         width: 1.2rem;
-        height: 1.2rem; }
+        height: 1.2rem;
+        /*SAFARI 10.1 */
+        display: inline-block;
+        top: 50%;
+        transform: translateY(10%); }
       .drummer__buttons button:not(:last-child) {
         margin-right: 1rem; }
 
@@ -1263,7 +1281,11 @@ button[disabled] {
     left: 0;
     display: flex;
     align-items: center;
-    justify-content: space-evenly; }
+    /*SAFARI 10.1*/
+    justify-content: space-between; }
+    .weather__wrapper:before, .weather__wrapper:after {
+      content: '';
+      display: block; }
   .weather__card {
     position: relative;
     width: 27rem;
@@ -1650,6 +1672,7 @@ button[disabled] {
       width: 100%;
       z-index: 2;
       position: absolute;
+      background-image: url("../images/computer.png");
       background-size: contain;
       background-repeat: no-repeat;
       margin: 0 auto; }
