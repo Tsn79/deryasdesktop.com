@@ -15,19 +15,20 @@ export class Draggable {
   addEventHandlers() {
     //drag from header
     if (this.header) { 
-      this.header.onpointerdown = this.onPointerDown;
+      this.header.onmousedown = this.onPointerDown;
     } else {
     //else drag from body
-      this.el.addEventListener("pointerdown", this.onPointerDown);
+      this.el.addEventListener("mousedown", this.onPointerDown);
     }
     //this.el.addEventListener("dragstart", (e) => e.preventDefault());
-    document.addEventListener("pointerup", this.onPointerUp);
+    document.addEventListener("mouseup", this.onPointerUp);
   }
 
   onPointerDown(e) {
     e = e || window.event;
     this.isDragging = true;
-    this.eventType = e.pointerType === "mouse" ? "mouse" : "pointer";
+    //this.eventType = e.pointerType === "mouse" ? "mouse" : "pointer";
+    this.eventType = "mouse";
     this.getDragPointer(e.clientX, e.clientY);
     this.el.style.cursor = 'url("../images/cursor_drag.png"), auto';
     document.addEventListener(this.eventType.concat("move"), this.onPointerMove);
