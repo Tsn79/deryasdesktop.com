@@ -685,13 +685,12 @@ button[disabled] {
 
 .about-me {
   width: 70rem;
-  height: 44.6rem; }
+  height: 44.6rem;
+  left: -18.8%;
+  top: 8.8%; }
   .about-me.clicked {
-    opacity: 1;
     left: 10vw;
-    top: 14vh;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px); }
+    top: 14vh; }
   .about-me__main-frame {
     position: absolute;
     width: 100%;
@@ -769,7 +768,9 @@ button[disabled] {
 
 .meme-generator {
   width: 93.4rem;
-  height: 59.5rem; }
+  height: 59.5rem;
+  left: -26.5%;
+  top: 22.7%; }
   @media only screen and (max-width: 52.2em) {
     .meme-generator {
       width: 87.4rem;
@@ -784,10 +785,7 @@ button[disabled] {
       height: 55.7rem; } }
   .meme-generator.clicked {
     left: 3vw;
-    top: 7.4vh;
-    opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px); }
+    top: 7.4vh; }
     @media only screen and (max-width: 52.2em) {
       .meme-generator.clicked {
         left: 0.5rem;
@@ -936,15 +934,19 @@ button[disabled] {
   border: yellow solid; }
 
 .pane {
-  top: 2rem;
-  left: 2rem;
   z-index: 2;
-  position: absolute;
+  position: fixed;
   overflow: hidden;
-  -webkit-transform: translate3d(0px, 0px, 0px) scale(0, 0);
-  transform: translate3d(0px, 0px, 0px) scale(0, 0);
+  -webkit-transform: translate3d(0px, 0px, 0px) scale(0.1, 0.1);
+  transform: translate3d(0px, 0px, 0px) scale(0.1, 0.1);
   opacity: 0;
-  transition: all .1s linear; }
+  transition: all .1s linear;
+  pointer-events: none; }
+  .pane.clicked {
+    pointer-events: unset;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+    opacity: 1; }
   @media only screen and (max-width: 38.5em) {
     .pane {
       display: none; } }
@@ -961,13 +963,12 @@ button[disabled] {
 
 .settings {
   width: 37.6rem;
-  height: 49.2rem; }
+  height: 49.2rem;
+  top: 45.3%;
+  left: -5.3%; }
   .settings.clicked {
-    opacity: 1;
-    left: 41.5rem;
-    top: 14.36rem;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px); }
+    left: 30vw;
+    top: 20vh; }
   .settings__main-pane {
     background-image: url("../images/border-pane-settings.svg");
     background-size: 211.2% 228.3%; }
@@ -1109,13 +1110,12 @@ button[disabled] {
 
 .drummer {
   width: 45.1rem;
-  height: 59rem; }
+  height: 59rem;
+  top: -15.3%;
+  left: 5.8%; }
   .drummer.clicked {
-    opacity: 1;
     left: 10vw;
-    top: 8vh;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px); }
+    top: 8vh; }
   .drummer:focus {
     outline: none; }
   .drummer__main-pane {
@@ -1246,13 +1246,12 @@ button[disabled] {
 
 .weather {
   width: 85rem;
-  height: 54.08rem; }
+  height: 54.08rem;
+  top: 4%;
+  left: -10%; }
   .weather.clicked {
-    opacity: 1;
     left: 18vw;
-    top: 10vh;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px); }
+    top: 10vh; }
     @media only screen and (max-width: 52.2em) {
       .weather.clicked {
         left: 3rem; } }
@@ -1539,7 +1538,9 @@ button[disabled] {
 
 .resume {
   width: 93rem;
-  height: 59.2rem; }
+  height: 59.2rem;
+  top: -36%;
+  left: -16%; }
   @media only screen and (max-width: 52.2em) {
     .resume {
       width: 87rem;
@@ -1553,11 +1554,8 @@ button[disabled] {
       width: 87rem;
       height: 55.3rem; } }
   .resume.clicked {
-    left: 15rem;
-    top: 5rem;
-    opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px); }
+    left: 2vw;
+    top: 10vh; }
     @media only screen and (max-width: 52.2em) {
       .resume.clicked {
         left: 1rem;
@@ -1602,7 +1600,9 @@ button[disabled] {
 
 .my-works {
   width: 96.5rem;
-  height: 61.4rem; }
+  height: 61.4rem;
+  top: -36%;
+  left: -16%; }
   @media only screen and (max-width: 52.2em) {
     .my-works {
       width: 86.5rem;
@@ -1616,11 +1616,8 @@ button[disabled] {
       width: 86.5rem;
       height: 55rem; } }
   .my-works.clicked {
-    left: 10rem;
-    top: 7rem;
-    opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px); }
+    left: 10vw;
+    top: 10vh; }
     @media only screen and (max-width: 52.2em) {
       .my-works.clicked {
         left: 2rem;
@@ -1779,25 +1776,24 @@ button[disabled] {
 
 .properties {
   width: 79.4rem;
-  height: 50.6rem; }
+  height: 50.6rem;
+  top: -36%;
+  left: -16%; }
   .properties.clicked {
     left: 27rem;
-    top: 7rem;
-    opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px); }
+    top: 13vh; }
     @media only screen and (max-width: 52.2em) {
       .properties.clicked {
         left: 3rem;
-        top: 14rem; } }
+        top: 14vh; } }
     @media only screen and (max-width: 52.2em) and (orientation: portrait) {
       .properties.clicked {
         left: 3rem;
-        top: 14rem; } }
+        top: 14vh; } }
     @media only screen and (max-width: 80.5em) and (max-height: 52.2em) and (orientation: landscape) {
       .properties.clicked {
         left: 3rem;
-        top: 14rem; } }
+        top: 14vh; } }
   .properties__tabs {
     display: flex;
     justify-content: space-between;
