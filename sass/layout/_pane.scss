@@ -1,13 +1,19 @@
 .pane {
-  top: 2rem;
-  left: 2rem;
   z-index: 2;
   position: fixed;
   overflow: hidden;
-  -webkit-transform: translate3d(0px, 0px, 0px) scale(0.0, 0.0);
-  transform: translate3d(0px, 0px, 0px) scale(0.0, 0.0);
+  -webkit-transform: translate3d(0px, 0px, 0px) scale(0.1, 0.1);
+  transform: translate3d(0px, 0px, 0px) scale(0.1, 0.1);
   opacity: 0;
   transition: all .1s linear;
+  pointer-events: none;
+
+  &.clicked {
+    pointer-events: unset;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+    opacity: 1;
+  }
 
   @include respond(phone-s) { //1 rem = 8.5; 8.5 / 16;
     display: none;
