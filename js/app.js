@@ -105,14 +105,19 @@ desktop.closeApp = function (event) {
     return (this.parentNode.style.display = "none");
   }
   var selected = desktop.getDomElementFromUrl(this.href);
+  selected.style.top = "";
+  selected.style.left = "";
   className.remove(selected, "clicked");
   return desktop.removeAppFromStack(selected, desktop.activeApps);
 };
 
 desktop.handlePopState = function () {
+  //var tabPortS = window.matchMedia("(max-width: 52.20em)");
   location.hash
     ? desktop.showNavbarActiveAppTab(location.hash)
     : document.querySelector("#open-tabs").hidden = true;
+
+  //if(tabPortS.matches) {document.querySelector("#open-tabs").style.display = "none";}
 
   var changeHash = function (apps, location) {
     var latestApp = apps[apps.length - 1] || apps;
@@ -159,6 +164,7 @@ document.querySelector("body").addEventListener("click", function (ev) {
 desktop.showNavbarActiveAppTab = function (locHashName) {
   var locationName = locHashName.slice(1);
   var template = `<button class="navigation__dropdown-btn">${locationName}</button>
+        <input type="checkbox" class="navigation__checkbox">
             <div class="navigation__dropdown-content">
               <a href="${locHashName}" class="link quit"
                 >close<span aria-label="Close Account Info Modal Box"
