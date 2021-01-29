@@ -1,17 +1,16 @@
 .properties {
   width: 79.4rem;
   height: 50.6rem;
+  top: -36%;
+  left: -16%;
 
   &.clicked {
     left: 27rem;
-    top: 7rem;
-    opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px);
+    top: 13vh;
 
     @include respond(tab-port-s) { //1 rem = 8.5; 8.5 / 16;
       left: 3rem;
-      top: 14rem;
+      top: 14vh;
     }
   }
 

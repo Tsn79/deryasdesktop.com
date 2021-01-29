@@ -1,6 +1,8 @@
 .meme-generator {
   width: 93.4rem;
   height: 59.5rem;
+  left: -26.5%;
+  top: 22.7%;
 
   @include respond(tab-port-s) {
     //1 rem = 8.5; 8.5 / 16;
@@ -11,9 +13,6 @@
   &.clicked {
     left: 3vw;
     top: 7.4vh;
-    opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px);
 
     @include respond(tab-port-s) {
       //1 rem = 8.5; 8.5 / 16;

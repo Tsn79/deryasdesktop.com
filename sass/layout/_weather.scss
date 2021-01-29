@@ -1,15 +1,12 @@
 .weather {
   width: 85rem;
   height: 54.08rem;
-  //top: 1.5rem;
-  //left: -14.1rem;
+  top: 4%;
+  left: -10%;
 
   &.clicked {
-    opacity: 1;
     left: 18vw;
     top: 10vh;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px);
 
     @include respond(tab-port-s) {
       //1 rem = 8.5; 8.5 / 16;

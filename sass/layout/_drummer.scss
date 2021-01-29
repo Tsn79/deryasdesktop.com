@@ -1,15 +1,12 @@
 .drummer {
   width: 45.1rem;
   height: 59rem;
-  //top: -17rem;
-  //left: 5.9rem;
+  top: -15.3%;
+  left: 5.8%;
  
   &.clicked {
-    opacity: 1;
     left: 10vw;
     top: 8vh;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px);
   }
 
   &:focus {

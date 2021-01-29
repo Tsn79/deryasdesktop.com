@@ -1,6 +1,8 @@
 .resume {
   width: 93rem;
   height: 59.2rem;
+  top: -36%;
+  left: -16%;
 
   @include respond(tab-port-s) { 
     width: 87rem;
@@ -8,11 +10,8 @@
   } 
 
   &.clicked {
-    left: 15rem;
-    top: 5rem;
-    opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px);
+    left: 2vw;
+    top: 10vh;
 
     @include respond(tab-port-s) { 
       left: 1rem;

@@ -1,14 +1,12 @@
 .about-me {
   width: 70rem;
   height: 44.6rem;
+  left: -18.8%;
+  top: 8.8%;
 
   &.clicked {
-    opacity: 1;
     left: 10vw;
     top: 14vh;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px);
-
   }
 
   &__main-frame {

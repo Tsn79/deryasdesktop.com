@@ -1,15 +1,12 @@
 .settings {
   width: 37.6rem;
   height: 49.2rem;
-  //top: 36.2rem;
-  //left: -8.1rem;
-  
+  top: 45.3%;
+  left: -5.3%;
+
   &.clicked {
-    opacity: 1;
-    left: 41.5rem;
-    top: 14.36rem;
-    -webkit-transform: translate3d(0px, 0px, 0px);
-    transform: translate3d(0px, 0px, 0px);
+    left: 30vw;
+    top: 20vh;
   }
 
   //override common set-up

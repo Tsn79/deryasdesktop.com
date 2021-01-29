@@ -1,6 +1,8 @@
 .my-works {
   width: 96.5rem;
   height: 61.4rem;
+  top: -36%;
+  left: -16%;
 
   @include respond(tab-port-s) { 
     width: 86.5rem;
@@ -8,11 +10,8 @@
   } 
 
     &.clicked {
-        left: 10rem;
-        top: 7rem;
-        opacity: 1;
-        -webkit-transform: translate3d(0px, 0px, 0px);
-        transform: translate3d(0px, 0px, 0px);
+        left: 10vw;
+        top: 10vh;
 
         @include respond(tab-port-s) { 
           left: 2rem;
