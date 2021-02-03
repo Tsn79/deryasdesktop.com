@@ -161,8 +161,8 @@ weather.querySection.autocompleteInputField = function (e) {
     weather.querySection.input.value = e.target.textContent;
     weather.location.cityID = e.target.dataset.id;
   }
-  //after selection done, collapse suggestions
-  weather.querySection.deleteAutoSuggestList();
+    //after selection done, collapse suggestions
+    weather.querySection.deleteAutoSuggestList();
 };
 
 weather.forecast.handleForecastData = function (data) {
@@ -523,7 +523,7 @@ weather.card.hitBrick = function () {
 
 //EVENT LISTENERS
 weather.querySection.suggestionsList.addEventListener(
-  "click",
+  "pointerdown",
   weather.querySection.autocompleteInputField
 );
 
