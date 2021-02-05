@@ -138,8 +138,7 @@ weather.querySection.fetchCitySuggestions = function () {
         return response.json();
       })
       .then(weather.location.handleData)
-      .then(weather.populateSuggestionsList)
-      ["catch"](function (error) {
+      .then(weather.populateSuggestionsList)["catch"](function () {
         weather.querySection.setErrorMsg("Ups, something went wrong😭")
       });
   } else {
@@ -381,8 +380,7 @@ weather.fetchForecast = function () {
         }
       })
       .then(weather.forecast.handleForecastData)
-      .then(weather.card.updateWeatherCard)
-      ["catch"](function (error) {
+      .then(weather.card.updateWeatherCard)["catch"](function (error) {
         console.log(error);
       });
   } //if there is no city id :(
