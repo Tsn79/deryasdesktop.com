@@ -1,6 +1,5 @@
 import { className } from "../js_modules/helper_functions.mjs";
 
-//Design inspiration: https://codepen.io/Errec/pen/ZprVwZ
 var weather = {
   card: {},
   querySection: {},
@@ -30,16 +29,10 @@ weather.querySection.suggestionsList = document.querySelector(
 
 
 weather.forecast = (function () {
-  const API_KEY = config.OPEN_WEATHER_API_KEY,
-    BASE_API = `https://api.openweathermap.org/data/2.5/weather?`,
-    UNIT_PARAM = "&units=metric";
   var handleForecastData;
 
   return {
-    API_KEY: API_KEY,
-    BASE_API: BASE_API,
-    handleForecastData: handleForecastData,
-    UNIT_PARAM: UNIT_PARAM,
+    handleForecastData: handleForecastData
   };
 })();
 
@@ -368,13 +361,10 @@ weather.fetchForecast = function () {
   window.clearTimeout(weather.timeout);
   weather.querySection.deleteAutoSuggestList();
   var id = parseInt(weather.location.cityID);
-  var base = weather.forecast.BASE_API,
-    cityIdParam = "id=".concat(id),
-    keyParam = "&appid=".concat(weather.forecast.API_KEY),
-    unitParam = weather.forecast.UNIT_PARAM; //search for weather
 
   if (id && typeof id === "number") {
-    var weatherUrl = base + cityIdParam + keyParam + unitParam;
+    //var weatherUrl = base + cityIdParam + keyParam + unitParam;
+    var weatherUrl = `/.netlify/functions/fetch-weather?id=${id}`; 
     fetch(weatherUrl)
       .then(function (response) {
         if (response.status === 404) {
