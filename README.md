@@ -7,5 +7,4 @@ A static personal portfolio page with fun web applications. Built with Vanilla J
 ![Portfolio gif](https://i.ibb.co/XYP4ydh/portfolio.gif)
 
 
-\
-![Screenshot](https://i.ibb.co/WxPXsmc/Capture.png)
+
