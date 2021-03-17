@@ -6,7 +6,7 @@ mobile.navBtns = document.querySelectorAll(".mobile-nav-btn");
 mobile.pages = document.querySelectorAll(".mobile__pane");
 mobile.zoomInBtn = document.querySelector("#mob-zoom-in");
 mobile.zoomOutBtn = document.querySelector("#mob-zoom-out");
-mobile.resume = document.querySelector("#mob-resume");
+mobile.skills = document.querySelector("#mob-skills");
 
 Array.from(mobile.navBtns).forEach((btn) =>
   btn.addEventListener("click", function (e) {
@@ -19,8 +19,8 @@ Array.from(mobile.navBtns).forEach((btn) =>
         document.querySelector(".mobile__about-me").style.display = "block";
         break;
 
-      case "mobile-btn-resume":
-        document.querySelector(".mobile__resume").style.display = "block";
+      case "mobile-btn-skills":
+        document.querySelector(".mobile__skills").style.display = "block";
         break;
 
       case "mobile-btn-works":
@@ -31,11 +31,11 @@ Array.from(mobile.navBtns).forEach((btn) =>
 );
 
 mobile.zoomInBtn.addEventListener("click", function (e) {
-  document.querySelector(".mobile__resume").style.overflowX = "scroll";
-  mobile.resume.style.width = 180 + "vw";
+  document.querySelector(".mobile__skills").style.overflowX = "scroll";
+  mobile.skills.style.width = 180 + "vw";
 });
 
 mobile.zoomOutBtn.addEventListener("click", function (e) {
-  document.querySelector(".mobile__resume").style.overflowX = "hidden";
-  mobile.resume.style.width = 90 + "vw";
+  document.querySelector(".mobile__skills").style.overflowX = "hidden";
+  mobile.skills.style.width = 90 + "vw";
 });
