@@ -150,9 +150,12 @@
   }
 
   &-link {
-     
+    
     & a {
       color: black;
+
+      &:first-child {
+        margin-right: 2rem;
 
       &:hover {
         color: var(--color-yellow);
@@ -160,5 +163,7 @@
     }
 
   }
+
+  
 }
 

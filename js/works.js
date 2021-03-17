@@ -30,6 +30,40 @@ projects.content = [
     <a href="https://github.com/D-Antonelli/portfolio" class="format-text" target="_blank">GitHub Page</a>
     </div>`,
 
+    `<div class="project-title">
+    <h2 class="highlight format-text">random quote generator</h2>
+    </div>
+    <div class="project-stack">
+    <p>React</p>
+    <p>CSS</p>
+    <p>API</p>
+    </div>
+    <div class="project-content format-text">
+    <p>It is a responsive react app fetching data from external APIs to present data for quotes.
+      </p>
+    </div>
+    <div class="project-link">
+    <a href="https://github.com/D-Antonelli/portfolio" class="format-text" target="_blank">GitHub Page</a>
+    <a href="https://d-antonelli.github.io/random-quote/" class="format-text" target="_blank">Live</a>
+    </div>`,
+
+    
+    `<div class="project-title">
+    <h2 class="highlight format-text">product landing page</h2>
+    </div>
+    <div class="project-stack">
+    <p>HTML</p>
+    <p>CSS</p>
+    </div>
+    <div class="project-content format-text">
+    <p>A landing page with a flexible design that fits all device sizes. 
+      </p>
+    </div>
+    <div class="project-link">
+    <a href="https://github.com/D-Antonelli/product-landing-page" class="format-text" target="_blank">GitHub Page</a>
+    <a href="https://d-antonelli.github.io/product-landing-page/" class="format-text" target="_blank">Live</a>
+    </div>`,
+
   `<div class="project-title">
   <h2 class="highlight format-text">my contact manager</h2>
   </div>
@@ -50,6 +84,7 @@ projects.content = [
 
 projects.init = (function () {
   projects.content.length < 2 ? (projects.button.next.disabled = true) : "";
+  console.log(projects.videoContainer.children[0]);
 })();
 
 projects.button.next.addEventListener("click", function () {

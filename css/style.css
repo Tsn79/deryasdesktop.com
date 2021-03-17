@@ -1774,6 +1774,8 @@ button[disabled] {
           margin-right: 2vw; } }
   .project-link a {
     color: black; }
+    .project-link a:first-child {
+      margin-right: 2rem; }
     .project-link a:hover {
       color: var(--color-yellow); }
 
