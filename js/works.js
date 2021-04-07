@@ -84,7 +84,6 @@ projects.content = [
 
 projects.init = (function () {
   projects.content.length < 2 ? (projects.button.next.disabled = true) : "";
-  console.log(projects.videoContainer.children[0]);
 })();
 
 projects.button.next.addEventListener("click", function () {
