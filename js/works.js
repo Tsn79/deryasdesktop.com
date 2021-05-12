@@ -30,7 +30,23 @@ projects.content = [
     <a href="https://github.com/D-Antonelli/portfolio" class="format-text" target="_blank">GitHub Page</a>
     </div>`,
 
-    `<div class="project-title">
+  `<div class="project-title">
+    <h2 class="highlight format-text">markdown previewer</h2>
+    </div>
+    <div class="project-stack">
+    <p>React</p>
+    <p>CSS</p>
+    <p>Styled Components</p>
+    </div>
+    <div class="project-content format-text">
+    <p>This is a markdown previewer app built to display markdown render of text in real-time.</p>
+    </div>
+    <div class="project-link">
+    <a href="https://github.com/D-Antonelli/markdown-previewer" class="format-text" target="_blank">GitHub Page</a>
+    <a href="https://markdownpreview-app.netlify.app/" class="format-text" target="_blank">Live</a>
+    </div>`,
+
+  `<div class="project-title">
     <h2 class="highlight format-text">random quote generator</h2>
     </div>
     <div class="project-stack">
@@ -47,8 +63,7 @@ projects.content = [
     <a href="https://d-antonelli.github.io/random-quote/" class="format-text" target="_blank">Live</a>
     </div>`,
 
-    
-    `<div class="project-title">
+  `<div class="project-title">
     <h2 class="highlight format-text">product landing page</h2>
     </div>
     <div class="project-stack">
@@ -79,7 +94,7 @@ projects.content = [
   <div class="project-link">
   <a href="https://github.com/D-Antonelli/Java-My-Contact-Manager" class="format-text" target="_blank">GitHub Page</a>
   </div>
-  </div>`
+  </div>`,
 ];
 
 projects.init = (function () {
@@ -87,7 +102,7 @@ projects.init = (function () {
 })();
 
 projects.button.next.addEventListener("click", function () {
-  for(var i=0; i < projects.videoContainer.children.length; i++) {
+  for (var i = 0; i < projects.videoContainer.children.length; i++) {
     projects.videoContainer.children[i].style.display = "none";
   }
   projects.currentProjectIndex++;
@@ -96,7 +111,9 @@ projects.button.next.addEventListener("click", function () {
   if (projects.content[projects.currentProjectIndex]) {
     projects.container.innerHTML =
       projects.content[projects.currentProjectIndex];
-      projects.videoContainer.children[projects.currentProjectIndex].style.display = "block";
+    projects.videoContainer.children[
+      projects.currentProjectIndex
+    ].style.display = "block";
 
     projects.currentProjectIndex++;
     if (!projects.content[projects.currentProjectIndex]) {
@@ -112,17 +129,19 @@ projects.button.next.addEventListener("click", function () {
 });
 
 projects.button.previous.addEventListener("click", function () {
-  for(var i=0; i < projects.videoContainer.children.length; i++) {
+  for (var i = 0; i < projects.videoContainer.children.length; i++) {
     projects.videoContainer.children[i].style.display = "none";
   }
-  
+
   projects.currentProjectIndex--;
   projects.button.next.disabled = false;
 
   if (projects.content[projects.currentProjectIndex]) {
     projects.container.innerHTML =
       projects.content[projects.currentProjectIndex];
-      projects.videoContainer.children[projects.currentProjectIndex].style.display = "block";
+    projects.videoContainer.children[
+      projects.currentProjectIndex
+    ].style.display = "block";
 
     projects.currentProjectIndex--;
     if (!projects.content[projects.currentProjectIndex]) {
