@@ -31,6 +31,22 @@ projects.content = [
     </div>`,
 
   `<div class="project-title">
+    <h2 class="highlight format-text">tic-tac-toe</h2>
+    </div>
+    <div class="project-stack">
+    <p>React</p>
+    <p>Styled Components</p>
+    <p>Cypress</p>
+    </div>
+    <div class="project-content format-text">
+    <p>An interactive, responsive and accessible board game with two players.</p>
+    </div>
+    <div class="project-link">
+    <a href="https://github.com/D-Antonelli/tic-tac-toe" class="format-text" target="_blank">GitHub Page</a>
+    <a href="https://x-tic-tac-toe-x.netlify.app/" class="format-text" target="_blank">Live</a>
+    </div>`,
+
+  `<div class="project-title">
     <h2 class="highlight format-text">markdown previewer</h2>
     </div>
     <div class="project-stack">
