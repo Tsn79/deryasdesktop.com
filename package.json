@@ -27,7 +27,7 @@
   "dependencies": {
     "audio-recorder-polyfill": "^0.4.1",
     "axios": "^0.21.2",
-    "netlify-cli": "^3.5.0",
+    "netlify-cli": "^10.15.0",
     "postcss": "^8.2.4"
   }
 }
