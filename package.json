@@ -16,7 +16,7 @@
   "author": "Derya Antonelli",
   "license": "ISC",
   "devDependencies": {
-    "@types/dom-mediacapture-record": "^1.0.11",
+    "@types/dom-mediacapture-record": "^1.0.13",
     "autoprefixer": "^10.4.8",
     "eslint": "^8.21.0",
     "node-env-run": "^4.0.2",
